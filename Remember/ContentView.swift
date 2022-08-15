@@ -10,19 +10,19 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView {
-            Text("Upcoming")
+            UpcomingMemoriesView()
                 .tabItem {
-                    Label("upcoming", systemImage: "flame")
+                    Label("Upcoming", systemImage: "flame")
                 }
             
-            Text("Memories")
+            MemoriesListView()
                 .tabItem {
-                    Label("memories", systemImage: "list.bullet")
+                    Label("Memories", systemImage: "list.bullet")
                 }
 
-            Text("Settings")
+            SettingsView()
                 .tabItem {
-                    Label("settings", systemImage: "gear")
+                    Label("Settings", systemImage: "gear")
                 }
         }
     }
