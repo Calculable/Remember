@@ -22,6 +22,10 @@
 		3D13CB3B28AAB08D001113BD /* Memories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB3A28AAB08D001113BD /* Memories.swift */; };
 		3D13CB3D28AAB0FC001113BD /* Memory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB3C28AAB0FC001113BD /* Memory.swift */; };
 		3D13CB3F28AAB4E6001113BD /* MemoryListEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB3E28AAB4E6001113BD /* MemoryListEntryView.swift */; };
+		3D13CB4128AB7785001113BD /* Bundle+Decode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB4028AB7785001113BD /* Bundle+Decode.swift */; };
+		3D13CB4328AB79B6001113BD /* String+LocalizedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB4228AB79B6001113BD /* String+LocalizedError.swift */; };
+		3D13CB4528AB7C6A001113BD /* UpcomingSpecialDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB4428AB7C6A001113BD /* UpcomingSpecialDay.swift */; };
+		3D13CB4728AB8E04001113BD /* CalendarExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB4628AB8E04001113BD /* CalendarExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,10 @@
 		3D13CB3A28AAB08D001113BD /* Memories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memories.swift; sourceTree = "<group>"; };
 		3D13CB3C28AAB0FC001113BD /* Memory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memory.swift; sourceTree = "<group>"; };
 		3D13CB3E28AAB4E6001113BD /* MemoryListEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryListEntryView.swift; sourceTree = "<group>"; };
+		3D13CB4028AB7785001113BD /* Bundle+Decode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Decode.swift"; sourceTree = "<group>"; };
+		3D13CB4228AB79B6001113BD /* String+LocalizedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+LocalizedError.swift"; sourceTree = "<group>"; };
+		3D13CB4428AB7C6A001113BD /* UpcomingSpecialDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingSpecialDay.swift; sourceTree = "<group>"; };
+		3D13CB4628AB8E04001113BD /* CalendarExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,10 @@
 				3D13CB3A28AAB08D001113BD /* Memories.swift */,
 				3D13CB3C28AAB0FC001113BD /* Memory.swift */,
 				3D13CB3E28AAB4E6001113BD /* MemoryListEntryView.swift */,
+				3D13CB4028AB7785001113BD /* Bundle+Decode.swift */,
+				3D13CB4228AB79B6001113BD /* String+LocalizedError.swift */,
+				3D13CB4428AB7C6A001113BD /* UpcomingSpecialDay.swift */,
+				3D13CB4628AB8E04001113BD /* CalendarExtension.swift */,
 			);
 			path = Remember;
 			sourceTree = "<group>";
@@ -182,10 +194,14 @@
 				3D13CB2A28AA948D001113BD /* UpcomingMemoriesView.swift in Sources */,
 				3D13CB2C28AA9511001113BD /* MemoriesListView.swift in Sources */,
 				3D13CB3D28AAB0FC001113BD /* Memory.swift in Sources */,
+				3D13CB4528AB7C6A001113BD /* UpcomingSpecialDay.swift in Sources */,
 				3D13CB3B28AAB08D001113BD /* Memories.swift in Sources */,
+				3D13CB4728AB8E04001113BD /* CalendarExtension.swift in Sources */,
 				3D13CB3428AAA29C001113BD /* ImagePicker.swift in Sources */,
 				3D13CB1E28AA8FFC001113BD /* ContentView.swift in Sources */,
 				3D13CB1C28AA8FFC001113BD /* RememberApp.swift in Sources */,
+				3D13CB4328AB79B6001113BD /* String+LocalizedError.swift in Sources */,
+				3D13CB4128AB7785001113BD /* Bundle+Decode.swift in Sources */,
 				3D13CB3928AAA9B8001113BD /* LocationPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
