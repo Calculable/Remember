@@ -9,9 +9,13 @@ import SwiftUI
 
 struct MemoriesListView: View {
     
-    @StateObject private var viewModel = ViewModel()
     
-    @ObservedObject var model: Memories
+    @StateObject private var viewModel: ViewModel = ViewModel()
+    
+    @EnvironmentObject var memories: Memories
+
+    
+    
 
     
     var body: some View {
@@ -21,8 +25,10 @@ struct MemoriesListView: View {
                 
                 
                 List {
-                    ForEach(model.memories) { memory in
+                    ForEach(memories.memories) { memory in
                         MemoryListEntryView(memory: memory)
+                    }.onDelete {
+                        memories.remove(at: $0)
                     }
                         
                     
@@ -42,7 +48,7 @@ struct MemoriesListView: View {
                 }
             
         }.sheet(isPresented: $viewModel.showAddMemorySheet) {
-            AddMemoryView(model: model)
+            AddMemoryView()
         }
 
 
@@ -55,9 +61,9 @@ struct MemoriesListView_Previews: PreviewProvider {
     static var previews: some View {
         
         let memories = Memories()
-        memories.loadExampleMemories()
         
-        return MemoriesListView(model: memories)
+        return MemoriesListView()
+            .environmentObject(memories)
     }
 }
 

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct UpcomingMemoriesView: View {
     
-    @ObservedObject var model: Memories
-    
+    @EnvironmentObject var memories: Memories
+
     var body: some View {
         
         Text("Upcoming")
@@ -21,8 +21,8 @@ struct UpcomingMemoriesView: View {
 struct UpcomingMemoriesView_Previews: PreviewProvider {
     static var previews: some View {
         let memories = Memories()
-        memories.loadExampleMemories()
-        return UpcomingMemoriesView(model: memories)
+        return UpcomingMemoriesView()
+            .environmentObject(memories)
     }
 }
 

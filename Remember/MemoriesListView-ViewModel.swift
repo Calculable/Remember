@@ -9,12 +9,14 @@ import Foundation
 
 extension MemoriesListView {
     @MainActor class ViewModel: ObservableObject {
-        
+
         @Published var showAddMemorySheet = false
         
         func showAddMemoryView() {
             showAddMemorySheet = true
         }
+        
+
         
     }
 }

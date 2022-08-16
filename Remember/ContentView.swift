@@ -9,16 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @StateObject private var model: Memories = Memories()
+    @StateObject private var memories: Memories = Memories()
     
     var body: some View {
         TabView {
-            UpcomingMemoriesView(model: model)
+            UpcomingMemoriesView()
                 .tabItem {
                     Label("Upcoming", systemImage: "flame")
                 }
             
-            MemoriesListView(model: model)
+            MemoriesListView()
                 .tabItem {
                     Label("Memories", systemImage: "list.bullet")
                 }
@@ -27,9 +27,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
-        }.onAppear {
-            model.loadExampleMemories()
-        }
+        }.environmentObject(memories)
     }
 }
 

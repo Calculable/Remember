@@ -11,7 +11,7 @@ import MapKit
 
 struct AddMemoryView: View {
     
-    @ObservedObject var model: Memories
+    @EnvironmentObject var memories: Memories
 
     
     @Environment(\.dismiss) var dismiss
@@ -97,7 +97,7 @@ struct AddMemoryView: View {
                 
                 let customCoordinate = isCustomCoordinate ? coordinate : nil
                 let newMemory = Memory(name: name, date: date, image: image, coordinate: customCoordinate)
-                model.addMemory(newMemory)
+                memories.addMemory(newMemory)
                 
                 dismiss()
             }).disabled(name.isEmpty)
@@ -126,7 +126,8 @@ struct AddMemoryView_Previews: PreviewProvider {
     static var previews: some View {
         
         let memories = Memories()
-        AddMemoryView(model: memories)
+        AddMemoryView()
+            .environmentObject(memories)
     }
 }
 

@@ -9,6 +9,10 @@ import Foundation
 
 class Memories: ObservableObject {
     
+    init() {
+        loadExampleMemories()
+    }
+    
     @Published private(set) var memories: [Memory] = []
     
     func loadExampleMemories() {
@@ -21,6 +25,10 @@ class Memories: ObservableObject {
     
     func addMemory(_ newMemory: Memory) {
         memories.append(newMemory)
+    }
+    
+    func remove(at offsets: IndexSet) {
+        memories.remove(atOffsets: offsets)
     }
     
 }
