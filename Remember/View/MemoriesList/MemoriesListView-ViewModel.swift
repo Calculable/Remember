@@ -15,8 +15,6 @@ extension MemoriesListView {
         func showAddMemoryView() {
             showAddMemorySheet = true
         }
-        
 
-        
     }
 }

@@ -10,6 +10,8 @@ import UIKit
 import SwiftUI
 import PhotosUI
 
+//modified source: https://www.hackingwithswift.com/books/ios-swiftui/importing-an-image-into-swiftui-using-phpickerviewcontroller
+
 struct ImagePicker: UIViewControllerRepresentable {
     typealias UIViewControllerType = PHPickerViewController
     @Binding var image: UIImage?
@@ -17,18 +19,16 @@ struct ImagePicker: UIViewControllerRepresentable {
     func makeUIViewController(context: Context) -> PHPickerViewController {
         var config = PHPickerConfiguration()
         config.filter = .images //only photos, no live images or vidoes
-        
         let picker = PHPickerViewController(configuration: config)
         picker.delegate = context.coordinator
         return picker
     }
 
     func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
-       //benötigten wir nicht
+       //not needed
     }
     
     func makeCoordinator() -> Coordinator { //diese Methode wird automatisch von SwiftUI aufgerufen.!!!
-
         Coordinator(self)
     }
     
@@ -41,7 +41,6 @@ struct ImagePicker: UIViewControllerRepresentable {
         }
 
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-            // Tell the picker to go away
             picker.dismiss(animated: true)
             
             // Exit if no selection was made
@@ -54,6 +53,5 @@ struct ImagePicker: UIViewControllerRepresentable {
                 }
             }
         }
-
     }
 }

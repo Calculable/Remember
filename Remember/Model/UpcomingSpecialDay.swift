@@ -9,7 +9,6 @@ import Foundation
 
 struct UpcomingSpecialDay: Identifiable, Comparable {
     
-    
     let id = UUID()
     let memory: Memory
     let dateOfTheSpecialDay: Date
@@ -24,10 +23,8 @@ struct UpcomingSpecialDay: Identifiable, Comparable {
     }
     
     var years:Int {
-        
         let year1 = Calendar.current.dateComponents([.year], from: dateOfTheSpecialDay).year!
         let year2 = Calendar.current.dateComponents([.year], from: memory.date).year!
-        
         return year1 - year2
         
     }

@@ -11,9 +11,6 @@ import MapKit
 
 class Memory: Identifiable, ObservableObject, Comparable, Codable {
 
-    
-
-    
     var id = UUID()
     var name: String
     var date: Date
@@ -33,7 +30,6 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
                 return nil
             }
 
-
             return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         }
         
@@ -47,13 +43,6 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
     private enum CodingKeys: String, CodingKey {
         case id, name, date, latitude, longitude
     }
-    
-    
-    
-    
-    
-    
-    
     
     init(name: String, date: Date = Date.now) {
         self.name = name

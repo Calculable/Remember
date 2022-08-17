@@ -9,6 +9,9 @@ import Foundation
 
 class Memories: ObservableObject {
     
+    @Published private(set) var memories: [Memory] = []
+
+    
     init() {
         do {
             memories = try Bundle.main.decode(getSavePath())
@@ -24,10 +27,6 @@ class Memories: ObservableObject {
     func getSavePath() -> URL {
         getDocumentsDirectory().appendingPathComponent("memories.json")
     }
-    
-    @Published private(set) var memories: [Memory] = []
-    
-    
     
     func addExampleMemories() {
         memories.append(Memory(name: "Geburt"))
@@ -58,8 +57,6 @@ class Memories: ObservableObject {
             print("Unable to save data.")
         }
     }
-    
-    
     
     private func getDocumentsDirectory() -> URL {
         // find all possible documents directories for this user
