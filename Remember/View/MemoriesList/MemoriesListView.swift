@@ -20,19 +20,37 @@ struct MemoriesListView: View {
                 List {
                     ForEach(memories.memories) { memory in
                         MemoryListEntryView(memory: memory)
-                    }.onDelete {
-                        memories.remove(at: $0)
+                            .swipeActions {
+                                Button(role: .destructive) {
+                                    memories.remove(memory)
+                                
+                                } label: {
+                                    Label("Delete", systemImage: "minus.circle")
+                                }
+                            }
+                            .swipeActions(edge: .leading) {
+                                Button {
+                                    memories.toggleNotifications(for: memory)
+                                } label: {
+                                    if memory.notificationsEnabled {
+                                        Label("Disable Notifications", systemImage: "bell.slash")
+                                    } else {
+                                        Label("Enable Notifications", systemImage: "bell")
+                                    }
+                                    
+                                }
+                                .tint(memory.notificationsEnabled ? .gray : .purple)
+                            }
                     }
                 }
                 .navigationTitle("Memories")
                 .toolbar {
                     ToolbarItem() {
-                        EditButton()
-                    }
-                    ToolbarItem(placement: .bottomBar) {
-                        Button("Add Memory") {
+                        Button {
                             viewModel.showAddMemoryView()
-                        }.padding()
+                        } label: {
+                            Label("Add Memory", systemImage: "plus")
+                        }
                     }
                 }
             

@@ -16,10 +16,7 @@ extension Bundle {
 
         let decoder = JSONDecoder()
 
-        guard let loaded = try? decoder.decode(T.self, from: data) else {
-
-            throw "Failed to decode \(url) from bundle."
-        }
+        let loaded = try! decoder.decode(T.self, from: data)
 
         return loaded
     }

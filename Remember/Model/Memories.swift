@@ -44,10 +44,19 @@ class Memories: ObservableObject {
         save()
     }
     
-    func remove(at offsets: IndexSet) {
-        memories.remove(atOffsets: offsets)
+    func remove(_ memory: Memory) {
+        memories.remove(at: memories.firstIndex(of: memory)!)
         save()
     }
+    
+    
+    func toggleNotifications(for memory: Memory) {
+        objectWillChange.send()
+        memory.notificationsEnabled.toggle()
+        save()
+    }
+    
+
     
     private func save() {
         do {

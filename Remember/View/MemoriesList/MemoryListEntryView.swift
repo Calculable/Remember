@@ -15,9 +15,15 @@ struct MemoryListEntryView: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            Text(memory.name)
+            
+            HStack {
+                Image(systemName: memory.notificationsEnabled ? "bell.fill" : "bell.slash")
+                Text(memory.name)
+            }
+            
             Text(memory.date.formatted(date: .long, time: .omitted))
                 .foregroundColor(.secondary)
+            
         }
         
     }
