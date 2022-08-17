@@ -13,6 +13,7 @@ struct MemoriesListView: View {
     @StateObject private var viewModel: ViewModel = ViewModel()
     @EnvironmentObject var memories: Memories
 
+    let notificationHelper = NotificationHelper()
     
     var body: some View {
         
@@ -22,6 +23,7 @@ struct MemoriesListView: View {
                         MemoryListEntryView(memory: memory)
                             .swipeActions {
                                 Button(role: .destructive) {
+                                    notificationHelper.removeNotification(for: memory)
                                     memories.remove(memory)
                                 
                                 } label: {
@@ -31,9 +33,8 @@ struct MemoriesListView: View {
                             .swipeActions(edge: .leading) {
                                 Button {
                                     memories.toggleNotifications(for: memory)
-                                    if (memory.notificationsEnabled) {
-                                        tryToSendNotification()
-                                    }
+                                    notificationHelper.updateNotification(for: memory)
+
                                 } label: {
                                     if memory.notificationsEnabled {
                                         Label("Disable Notifications", systemImage: "bell.slash")

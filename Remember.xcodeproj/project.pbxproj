@@ -30,6 +30,8 @@
 		3D13CB5628AC017B001113BD /* UpcomingMemoryListEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB5528AC017B001113BD /* UpcomingMemoryListEntryView.swift */; };
 		3D13CB5928ACD60C001113BD /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB5828ACD60C001113BD /* NotificationHelper.swift */; };
 		3D13CB5B28ACE1E9001113BD /* NotificationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB5A28ACE1E9001113BD /* NotificationSettingsView.swift */; };
+		3D13CB5D28ACF7A9001113BD /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB5C28ACF7A9001113BD /* DateExtensions.swift */; };
+		3D13CB5F28AD364A001113BD /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB5E28AD364A001113BD /* SettingsHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		3D13CB5528AC017B001113BD /* UpcomingMemoryListEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMemoryListEntryView.swift; sourceTree = "<group>"; };
 		3D13CB5828ACD60C001113BD /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
 		3D13CB5A28ACE1E9001113BD /* NotificationSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsView.swift; sourceTree = "<group>"; };
+		3D13CB5C28ACF7A9001113BD /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		3D13CB5E28AD364A001113BD /* SettingsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +130,7 @@
 				3D13CB4028AB7785001113BD /* BundleExtensions.swift */,
 				3D13CB4228AB79B6001113BD /* StringExtensions.swift */,
 				3D13CB4628AB8E04001113BD /* CalendarExtensions.swift */,
+				3D13CB5C28ACF7A9001113BD /* DateExtensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				3D13CB5828ACD60C001113BD /* NotificationHelper.swift */,
+				3D13CB5E28AD364A001113BD /* SettingsHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -285,7 +291,9 @@
 				3D13CB4728AB8E04001113BD /* CalendarExtensions.swift in Sources */,
 				3D13CB3428AAA29C001113BD /* ImagePicker.swift in Sources */,
 				3D13CB1E28AA8FFC001113BD /* ContentView.swift in Sources */,
+				3D13CB5D28ACF7A9001113BD /* DateExtensions.swift in Sources */,
 				3D13CB1C28AA8FFC001113BD /* RememberApp.swift in Sources */,
+				3D13CB5F28AD364A001113BD /* SettingsHelper.swift in Sources */,
 				3D13CB5428ABFF3C001113BD /* UpcomingMemoriesView-ViewModel.swift in Sources */,
 				3D13CB4328AB79B6001113BD /* StringExtensions.swift in Sources */,
 				3D13CB5928ACD60C001113BD /* NotificationHelper.swift in Sources */,

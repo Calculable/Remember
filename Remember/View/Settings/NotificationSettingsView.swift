@@ -7,26 +7,16 @@
 
 import SwiftUI
 
-extension Date: RawRepresentable {
-    private static let formatter = ISO8601DateFormatter()
-    
-    public var rawValue: String {
-        Date.formatter.string(from: self)
-    }
-    
-    public init?(rawValue: String) {
-        self = Date.formatter.date(from: rawValue) ?? Date()
-    }
-}
 
 struct NotificationSettingsView: View {
     
     let availableNotificationDaysBeforeEvent = 0...7
     
-    @AppStorage("notifications.days.before.event") private var selectedNotificationDaysBeforeEvent = 0
-    @AppStorage("notification.time") private var timeOfNotifications = getDefaultNotificationTime()
-    
-    
+    @EnvironmentObject var memories: Memories
+
+    @AppStorage("notifications.days.before.event") private var selectedNotificationDaysBeforeEvent = 1
+    @AppStorage("notification.time") private var timeOfNotifications = SettingsHelper.getDefaultNotificationTime()
+    let notificationsHelper = NotificationHelper()
     
     func describeDaysBeforeEvent(_ daysBeforeEvent: Int) -> String {
         switch (daysBeforeEvent) {
@@ -37,8 +27,6 @@ struct NotificationSettingsView: View {
         default:
             return "\(daysBeforeEvent) days before the event"
         }
-        
-        
     }
     
     var body: some View {
@@ -55,10 +43,15 @@ struct NotificationSettingsView: View {
                 
                 
                 DatePicker("Time of notifications", selection: $timeOfNotifications, displayedComponents: .hourAndMinute)
+                    .onChange(of: timeOfNotifications) { _ in
+                        notificationsHelper.updateNotifications(memories: memories)
+                    }
                 Picker("Days before event", selection: $selectedNotificationDaysBeforeEvent) {
                     ForEach(availableNotificationDaysBeforeEvent, id: \.self) {
                         Text(describeDaysBeforeEvent($0))
                     }
+                }.onChange(of: selectedNotificationDaysBeforeEvent) { newValue in
+                    notificationsHelper.updateNotifications(memories: memories)
                 }
                 
             }
@@ -68,13 +61,6 @@ struct NotificationSettingsView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
     
-    static func getDefaultNotificationTime() -> Date {
-        var components = DateComponents()
-        components.hour = 9
-        components.minute = 0
-        return Calendar.current.date(from: components)! //gibt ein Optional zurück
-        
-    }
 }
 
 struct NotificationSettingsView_Previews: PreviewProvider {
