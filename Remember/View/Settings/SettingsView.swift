@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct SettingsView: View {
+
+    
     var body: some View {
         
-        Text("Settings")
+        NavigationView {
+            List {
+                
+                NavigationLink {
+                    
+                    
+                    NotificationSettingsView()
+                    
+                } label: {
+                    Text("Notifications")
+                }
+                
+                
+            }
+            .navigationTitle("Settings")
+        }
+        
         
     }
+
+    
 }
 
 struct SettingsView_Previews: PreviewProvider {

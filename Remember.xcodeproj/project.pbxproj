@@ -28,6 +28,8 @@
 		3D13CB5228ABF99D001113BD /* AddMemory-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB5128ABF99D001113BD /* AddMemory-ViewModel.swift */; };
 		3D13CB5428ABFF3C001113BD /* UpcomingMemoriesView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB5328ABFF3C001113BD /* UpcomingMemoriesView-ViewModel.swift */; };
 		3D13CB5628AC017B001113BD /* UpcomingMemoryListEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB5528AC017B001113BD /* UpcomingMemoryListEntryView.swift */; };
+		3D13CB5928ACD60C001113BD /* NotificationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB5828ACD60C001113BD /* NotificationHelper.swift */; };
+		3D13CB5B28ACE1E9001113BD /* NotificationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB5A28ACE1E9001113BD /* NotificationSettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +54,8 @@
 		3D13CB5128ABF99D001113BD /* AddMemory-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddMemory-ViewModel.swift"; sourceTree = "<group>"; };
 		3D13CB5328ABFF3C001113BD /* UpcomingMemoriesView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UpcomingMemoriesView-ViewModel.swift"; sourceTree = "<group>"; };
 		3D13CB5528AC017B001113BD /* UpcomingMemoryListEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMemoryListEntryView.swift; sourceTree = "<group>"; };
+		3D13CB5828ACD60C001113BD /* NotificationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHelper.swift; sourceTree = "<group>"; };
+		3D13CB5A28ACE1E9001113BD /* NotificationSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 		3D13CB1A28AA8FFB001113BD /* Remember */ = {
 			isa = PBXGroup;
 			children = (
+				3D13CB5728ACD5FC001113BD /* Helper */,
 				3D13CB5028ABF8D4001113BD /* Components */,
 				3D13CB4A28ABB06C001113BD /* View */,
 				3D13CB4928ABB059001113BD /* Extension */,
@@ -160,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				3D13CB2D28AA9561001113BD /* SettingsView.swift */,
+				3D13CB5A28ACE1E9001113BD /* NotificationSettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -179,6 +185,14 @@
 				3D13CB3328AAA29C001113BD /* ImagePicker.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		3D13CB5728ACD5FC001113BD /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3D13CB5828ACD60C001113BD /* NotificationHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,6 +275,7 @@
 				3D13CB3228AA9DB6001113BD /* AddMemoryView.swift in Sources */,
 				3D13CB3F28AAB4E6001113BD /* MemoryListEntryView.swift in Sources */,
 				3D13CB2E28AA9561001113BD /* SettingsView.swift in Sources */,
+				3D13CB5B28ACE1E9001113BD /* NotificationSettingsView.swift in Sources */,
 				3D13CB2A28AA948D001113BD /* UpcomingMemoriesView.swift in Sources */,
 				3D13CB2C28AA9511001113BD /* MemoriesListView.swift in Sources */,
 				3D13CB3D28AAB0FC001113BD /* Memory.swift in Sources */,
@@ -273,6 +288,7 @@
 				3D13CB1C28AA8FFC001113BD /* RememberApp.swift in Sources */,
 				3D13CB5428ABFF3C001113BD /* UpcomingMemoriesView-ViewModel.swift in Sources */,
 				3D13CB4328AB79B6001113BD /* StringExtensions.swift in Sources */,
+				3D13CB5928ACD60C001113BD /* NotificationHelper.swift in Sources */,
 				3D13CB4128AB7785001113BD /* BundleExtensions.swift in Sources */,
 				3D13CB5228ABF99D001113BD /* AddMemory-ViewModel.swift in Sources */,
 			);

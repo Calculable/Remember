@@ -31,6 +31,9 @@ struct MemoriesListView: View {
                             .swipeActions(edge: .leading) {
                                 Button {
                                     memories.toggleNotifications(for: memory)
+                                    if (memory.notificationsEnabled) {
+                                        tryToSendNotification()
+                                    }
                                 } label: {
                                     if memory.notificationsEnabled {
                                         Label("Disable Notifications", systemImage: "bell.slash")
