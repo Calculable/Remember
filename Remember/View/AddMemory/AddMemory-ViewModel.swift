@@ -17,17 +17,20 @@ extension AddMemoryView {
         @Published var showingMapPicker = false
         @Published var name: String = ""
         @Published var date: Date = Date.now
-        @Published var image: Image?
-        @Published var inputImage: UIImage?
+        @Published var image: UIImage?
+        
+        var displayImage: Image? {
+            guard let image = image else {
+                return nil
+            }
+            
+            return Image(uiImage: image)
+        }
+        
         @Published var showingImagePicker = false
         
         var saveDisabled:Bool {
             return name.isEmpty
-        }
-
-        func loadImage() { //convert UI Image to image
-            guard let inputImage = inputImage else { return }
-            image = Image(uiImage: inputImage)
         }
         
         func removeImage() {

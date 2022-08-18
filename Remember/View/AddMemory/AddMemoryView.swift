@@ -27,12 +27,12 @@ struct AddMemoryView: View {
                 Section("Image") {
                     Button("Select Image") {
                         viewModel.showImagePicker()
-                    }        .sheet(isPresented: $viewModel.showingImagePicker) {
-                        ImagePicker(image: $viewModel.inputImage)
-                    }.onChange(of: viewModel.inputImage) { _ in viewModel.loadImage() }
+                    }.sheet(isPresented: $viewModel.showingImagePicker) {
+                        ImagePicker(image: $viewModel.image)
+                    }
                     
                     
-                    if let image = viewModel.image {
+                    if let image = viewModel.displayImage {
                         image
                             .resizable()
                             .scaledToFit()

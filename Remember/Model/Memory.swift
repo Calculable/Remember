@@ -10,11 +10,24 @@ import SwiftUI
 import MapKit
 
 class Memory: Identifiable, ObservableObject, Comparable, Codable {
-
+    
     @Published var id = UUID()
     @Published var name: String
     @Published var date: Date
-    @Published var image: Image?
+    @Published var image: UIImage? {
+        didSet {
+            Memory.saveImageInDocumentDirectory(memory: self)
+        }
+    }
+    
+    var displayImage: Image? {
+        guard let image = image else {
+            return nil
+        }
+        
+        return Image(uiImage: image)
+    }
+    
     @Published var notificationsEnabled = false
     
     @Published private var latitude: Double?
@@ -30,7 +43,7 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
             guard let longitude = longitude else {
                 return nil
             }
-
+            
             return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         }
         
@@ -38,9 +51,9 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
             latitude = newValue?.latitude
             longitude = newValue?.longitude
         }
-
-    }
         
+    }
+    
     private enum CodingKeys: String, CodingKey {
         case id, name, date, latitude, longitude, notificationsEnabled
     }
@@ -53,6 +66,7 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
         notificationsEnabled = try container.decode(Bool.self, forKey: .notificationsEnabled)
         latitude = try container.decode(Double?.self, forKey: .latitude)
         longitude = try container.decode(Double?.self, forKey: .longitude)
+        image = Memory.loadImageFromDocumentDirectory(memory: self)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -63,7 +77,8 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
         try container.encode(notificationsEnabled, forKey: .notificationsEnabled)
         try container.encode(latitude, forKey: .latitude)
         try container.encode(longitude, forKey: .longitude)
-
+        
+        
     }
     
     init(name: String, date: Date = Date.now) {
@@ -71,7 +86,7 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
         self.date = date
     }
     
-    convenience init(name: String, date: Date, image: Image? = nil, coordinate: CLLocationCoordinate2D? = nil) {
+    convenience init(name: String, date: Date, image: UIImage? = nil, coordinate: CLLocationCoordinate2D? = nil) {
         self.init(name: name, date: date)
         self.image = image
         self.coordinate = coordinate
@@ -85,6 +100,33 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
     static func < (lhs: Memory, rhs: Memory) -> Bool {
         return lhs.date < rhs.date
     }
+    
+    
+    public static func loadImageFromDocumentDirectory(memory: Memory) -> UIImage? {
+            let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!;
+            let fileURL = documentsUrl.appendingPathComponent(memory.id.uuidString)
+            do {
+                let imageData = try Data(contentsOf: fileURL)
+                return UIImage(data: imageData)
+            } catch {}
+            return nil
+        }
+    
+    public static func saveImageInDocumentDirectory(memory: Memory) {
+        
+        if let image = memory.image {
+            let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!;
+            let fileURL = documentsUrl.appendingPathComponent(memory.id.uuidString)
+            if let imageData = image.pngData() {
+                try? imageData.write(to: fileURL, options: .atomic)
+            }
+        }
+        else {
+            //ToDo: Delete Image
+        }
+        
+    }
+    
     
     
 }

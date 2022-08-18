@@ -24,8 +24,16 @@ struct MemoryListEntryView: View {
             Text(memory.date.formatted(date: .long, time: .omitted))
                 .foregroundColor(.secondary)
             
-        }
+        }.listRowBackground(getListBackground()).frame(minHeight: 100)
         
+    }
+    
+    func getListBackground() -> AnyView {
+        if let image = memory.displayImage {
+            return AnyView(image.resizable().scaledToFill().frame(height: 100).clipped().opacity(0.3));
+        } else {
+            return AnyView(Color(uiColor: UIColor.systemBackground));
+        }
     }
 }
 

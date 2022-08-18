@@ -25,7 +25,7 @@ struct UpcomingMemoryListEntryView: View {
             
             Text("Am: \(specialDay.dateOfTheSpecialDay.formatted(date: .long, time: .omitted))")
                 .foregroundColor(.secondary)
-        }
+        }.frame(minHeight: 100)
     }
     
 
