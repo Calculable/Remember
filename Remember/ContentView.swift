@@ -23,6 +23,15 @@ struct ContentView: View {
                     Label("Memories", systemImage: "list.bullet")
                 }
 
+            TimelineView()
+                .tabItem {
+                    Label("Timeline", systemImage: "calendar.day.timeline.left")
+                }
+
+            
+            
+            
+            
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear")

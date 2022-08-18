@@ -32,6 +32,8 @@
 		3D13CB5B28ACE1E9001113BD /* NotificationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB5A28ACE1E9001113BD /* NotificationSettingsView.swift */; };
 		3D13CB5D28ACF7A9001113BD /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB5C28ACF7A9001113BD /* DateExtensions.swift */; };
 		3D13CB5F28AD364A001113BD /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB5E28AD364A001113BD /* SettingsHelper.swift */; };
+		3D13CB6728AE2C38001113BD /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB6628AE2C38001113BD /* TimelineView.swift */; };
+		3D13CB6928AE4BB7001113BD /* TimelineYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +62,8 @@
 		3D13CB5A28ACE1E9001113BD /* NotificationSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsView.swift; sourceTree = "<group>"; };
 		3D13CB5C28ACF7A9001113BD /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		3D13CB5E28AD364A001113BD /* SettingsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHelper.swift; sourceTree = "<group>"; };
+		3D13CB6628AE2C38001113BD /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
+		3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineYearView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 		3D13CB4A28ABB06C001113BD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3D13CB6528AE2C26001113BD /* Timeline */,
 				3D13CB4F28ABF8C9001113BD /* AddMemory */,
 				3D13CB4E28ABF8BA001113BD /* Settings */,
 				3D13CB4D28ABF8AD001113BD /* UpcomingMemories */,
@@ -199,6 +204,15 @@
 				3D13CB5E28AD364A001113BD /* SettingsHelper.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		3D13CB6528AE2C26001113BD /* Timeline */ = {
+			isa = PBXGroup;
+			children = (
+				3D13CB6628AE2C38001113BD /* TimelineView.swift */,
+				3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */,
+			);
+			path = Timeline;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,8 +308,10 @@
 				3D13CB5D28ACF7A9001113BD /* DateExtensions.swift in Sources */,
 				3D13CB1C28AA8FFC001113BD /* RememberApp.swift in Sources */,
 				3D13CB5F28AD364A001113BD /* SettingsHelper.swift in Sources */,
+				3D13CB6728AE2C38001113BD /* TimelineView.swift in Sources */,
 				3D13CB5428ABFF3C001113BD /* UpcomingMemoriesView-ViewModel.swift in Sources */,
 				3D13CB4328AB79B6001113BD /* StringExtensions.swift in Sources */,
+				3D13CB6928AE4BB7001113BD /* TimelineYearView.swift in Sources */,
 				3D13CB5928ACD60C001113BD /* NotificationHelper.swift in Sources */,
 				3D13CB4128AB7785001113BD /* BundleExtensions.swift in Sources */,
 				3D13CB5228ABF99D001113BD /* AddMemory-ViewModel.swift in Sources */,

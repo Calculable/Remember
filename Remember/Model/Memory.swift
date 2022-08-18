@@ -34,7 +34,6 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
     @Published private var longitude: Double?
     
     var coordinate: CLLocationCoordinate2D? {
-        
         get {
             guard let latitude = latitude else {
                 return nil
@@ -113,16 +112,19 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
         }
     
     public static func saveImageInDocumentDirectory(memory: Memory) {
+
+        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!;
+        let fileURL = documentsUrl.appendingPathComponent(memory.id.uuidString)
         
         if let image = memory.image {
-            let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!;
-            let fileURL = documentsUrl.appendingPathComponent(memory.id.uuidString)
+
             if let imageData = image.pngData() {
                 try? imageData.write(to: fileURL, options: .atomic)
             }
         }
         else {
             //ToDo: Delete Image
+            try? FileManager.default.removeItem(at: fileURL)
         }
         
     }

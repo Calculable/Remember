@@ -15,7 +15,26 @@ extension Calendar {
         let toDate = startOfDay(for: to) // <2>
         let numberOfDays = dateComponents([.day], from: fromDate, to: toDate) // <3>
         
-        return numberOfDays.day!
+        return abs(numberOfDays.day!)
+    }
+    
+    func customDate(day: Int, month: Int, year: Int) -> Date {
+        var components = DateComponents()
+        components.day = day
+        components.month = month
+        components.year = year
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        return date(from: components)!
+    }
+    
+    func firstDayOfYear(year: Int) -> Date { //january 1
+        return customDate(day: 1, month: 1, year: year)
+    }
+    
+    func lastDayOfYear(year: Int) -> Date { //december 31
+        return customDate(day: 31, month: 12, year: year)
     }
     
     func yearOf(date: Date) -> Int {

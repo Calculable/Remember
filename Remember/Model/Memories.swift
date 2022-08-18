@@ -34,17 +34,38 @@ class Memories: ObservableObject {
         memories.append(Memory(name: "Schulabschluss Sek"))
         memories.append(Memory(name: "Schulabschluss IMS"))
         memories.append(Memory(name: "App programmiert"))
+        
+        let firstDayOfYear = Calendar.current.firstDayOfYear(year: 2022)
+        let lastDayOfYear = Calendar.current.lastDayOfYear(year: 2022)
+
+        memories.append(Memory(name: "Jahresbeginn 1", date: firstDayOfYear))
+        memories.append(Memory(name: "Jahresbeginn 2", date: firstDayOfYear))
+        memories.append(Memory(name: "Jahresende 1", date: lastDayOfYear))
+        memories.append(Memory(name: "Jahresende 2", date: lastDayOfYear))
+
+        sortMemories()
         save()
     }
     
     func addMemory(_ newMemory: Memory) {
         memories.append(newMemory)
-        memories.sort()
-        memories.reverse()
+        sortMemories()
         save()
     }
     
+    func sortMemories() {
+        memories.sort()
+        memories.reverse()
+    }
+    
+    func removeAllMemories() {
+        memories = []
+        addExampleMemories()
+    }
+    
     func remove(_ memory: Memory) {
+        memory.image = nil //triggers deletion of the image
+
         memories.remove(at: memories.firstIndex(of: memory)!)
         save()
     }
@@ -56,6 +77,19 @@ class Memories: ObservableObject {
         save()
     }
     
+    func newestYear() -> Int? {
+        return memories.map({memory in Calendar.current.yearOf(date: memory.date)}).max();
+    }
+    
+    func oldestYear() -> Int? {
+        return memories.map({memory in Calendar.current.yearOf(date: memory.date)}).min();
+    }
+    
+    func memoriesForYear(_ year: Int) -> [Memory] {
+        return memories.filter { memory in
+            return Calendar.current.yearOf(date: memory.date) == year;
+        }
+    }
 
     
     private func save() {

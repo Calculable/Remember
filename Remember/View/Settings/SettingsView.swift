@@ -9,19 +9,22 @@ import SwiftUI
 
 struct SettingsView: View {
 
-    
+    @EnvironmentObject var memories: Memories
+
     var body: some View {
         
         NavigationView {
             List {
                 
                 NavigationLink {
-                    
-                    
                     NotificationSettingsView()
                     
                 } label: {
                     Text("Notifications")
+                }
+                
+                Button("Remove all custom memories", role: .destructive) {
+                    memories.removeAllMemories()
                 }
                 
                 
