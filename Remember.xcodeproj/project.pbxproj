@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D04CE3D28AF6D8C005D7A90 /* PrivacySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04CE3C28AF6D8C005D7A90 /* PrivacySettingsView.swift */; };
+		3D04CE3F28AF6FBB005D7A90 /* AuthenticationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04CE3E28AF6FBB005D7A90 /* AuthenticationHelper.swift */; };
+		3D04CE4228AF70DC005D7A90 /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04CE4128AF70DC005D7A90 /* LockView.swift */; };
 		3D13CB1C28AA8FFC001113BD /* RememberApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB1B28AA8FFC001113BD /* RememberApp.swift */; };
 		3D13CB1E28AA8FFC001113BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB1D28AA8FFC001113BD /* ContentView.swift */; };
 		3D13CB2028AA8FFE001113BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D13CB1F28AA8FFE001113BD /* Assets.xcassets */; };
@@ -37,6 +40,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D04CE3C28AF6D8C005D7A90 /* PrivacySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySettingsView.swift; sourceTree = "<group>"; };
+		3D04CE3E28AF6FBB005D7A90 /* AuthenticationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationHelper.swift; sourceTree = "<group>"; };
+		3D04CE4128AF70DC005D7A90 /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 		3D13CB1828AA8FFB001113BD /* Remember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remember.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D13CB1B28AA8FFC001113BD /* RememberApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberApp.swift; sourceTree = "<group>"; };
 		3D13CB1D28AA8FFC001113BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D04CE4028AF70BD005D7A90 /* Lock */ = {
+			isa = PBXGroup;
+			children = (
+				3D04CE4128AF70DC005D7A90 /* LockView.swift */,
+			);
+			path = Lock;
+			sourceTree = "<group>";
+		};
 		3D13CB0F28AA8FFB001113BD = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +156,7 @@
 		3D13CB4A28ABB06C001113BD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3D04CE4028AF70BD005D7A90 /* Lock */,
 				3D13CB6528AE2C26001113BD /* Timeline */,
 				3D13CB4F28ABF8C9001113BD /* AddMemory */,
 				3D13CB4E28ABF8BA001113BD /* Settings */,
@@ -176,6 +191,7 @@
 			children = (
 				3D13CB2D28AA9561001113BD /* SettingsView.swift */,
 				3D13CB5A28ACE1E9001113BD /* NotificationSettingsView.swift */,
+				3D04CE3C28AF6D8C005D7A90 /* PrivacySettingsView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -202,6 +218,7 @@
 			children = (
 				3D13CB5828ACD60C001113BD /* NotificationHelper.swift */,
 				3D13CB5E28AD364A001113BD /* SettingsHelper.swift */,
+				3D04CE3E28AF6FBB005D7A90 /* AuthenticationHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -292,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D13CB3028AA9C55001113BD /* MemoriesListView-ViewModel.swift in Sources */,
+				3D04CE3D28AF6D8C005D7A90 /* PrivacySettingsView.swift in Sources */,
 				3D13CB3228AA9DB6001113BD /* AddMemoryView.swift in Sources */,
 				3D13CB3F28AAB4E6001113BD /* MemoryListEntryView.swift in Sources */,
 				3D13CB2E28AA9561001113BD /* SettingsView.swift in Sources */,
@@ -303,6 +321,7 @@
 				3D13CB5628AC017B001113BD /* UpcomingMemoryListEntryView.swift in Sources */,
 				3D13CB3B28AAB08D001113BD /* Memories.swift in Sources */,
 				3D13CB4728AB8E04001113BD /* CalendarExtensions.swift in Sources */,
+				3D04CE3F28AF6FBB005D7A90 /* AuthenticationHelper.swift in Sources */,
 				3D13CB3428AAA29C001113BD /* ImagePicker.swift in Sources */,
 				3D13CB1E28AA8FFC001113BD /* ContentView.swift in Sources */,
 				3D13CB5D28ACF7A9001113BD /* DateExtensions.swift in Sources */,
@@ -312,6 +331,7 @@
 				3D13CB5428ABFF3C001113BD /* UpcomingMemoriesView-ViewModel.swift in Sources */,
 				3D13CB4328AB79B6001113BD /* StringExtensions.swift in Sources */,
 				3D13CB6928AE4BB7001113BD /* TimelineYearView.swift in Sources */,
+				3D04CE4228AF70DC005D7A90 /* LockView.swift in Sources */,
 				3D13CB5928ACD60C001113BD /* NotificationHelper.swift in Sources */,
 				3D13CB4128AB7785001113BD /* BundleExtensions.swift in Sources */,
 				3D13CB5228ABF99D001113BD /* AddMemory-ViewModel.swift in Sources */,
@@ -446,6 +466,7 @@
 				DEVELOPMENT_TEAM = FB3RP3NRT7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "You can use Face ID to unlock the app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -475,6 +496,7 @@
 				DEVELOPMENT_TEAM = FB3RP3NRT7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "You can use Face ID to unlock the app";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

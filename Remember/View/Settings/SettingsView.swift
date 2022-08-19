@@ -18,14 +18,25 @@ struct SettingsView: View {
                 
                 NavigationLink {
                     NotificationSettingsView()
-                    
                 } label: {
                     Text("Notifications")
                 }
                 
-                Button("Remove all custom memories", role: .destructive) {
-                    memories.removeAllMemories()
+                NavigationLink {
+                    PrivacySettingsView()
+                } label: {
+                    Text("Privacy")
                 }
+                
+                NavigationLink {
+                    Button("Remove all custom memories", role: .destructive) {
+                        memories.removeAllMemories()
+                    }
+                } label: {
+                    Text("Reset")
+                }
+                
+
                 
                 
             }
