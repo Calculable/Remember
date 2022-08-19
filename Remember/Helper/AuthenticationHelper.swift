@@ -12,12 +12,26 @@ struct AuthenticationHelper {
     
     @Binding var isUnlocked: Bool
     
-    func authenticate() {
+    static func checkIfBiometricsAreAvailable(onSuccess: (() -> Void)?, onError: ((NSError?) -> Void)?) {
         let context = LAContext()
         var error: NSError?
-
+        
         // check whether biometric authentication is possible
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            onSuccess?()
+        } else {
+            // no biometrics
+            onError?(error)
+        }
+        
+        
+    }
+    
+    func authenticate() {
+        
+        let context = LAContext()
+        
+        AuthenticationHelper.checkIfBiometricsAreAvailable() {
             // it's possible, so go ahead and use it
             let reason = "We need to unlock your data."
 
@@ -30,10 +44,13 @@ struct AuthenticationHelper {
                     isUnlocked = false
                 }
             }
-        } else {
+        } onError: { _ in
             // no biometrics
             isUnlocked = true //! a note was added to the UI to inform the user that the data will be accessible if biometrics are disabled in the system settings
         }
+
+
+      
     }
     
     
