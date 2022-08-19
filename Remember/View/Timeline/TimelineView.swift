@@ -12,6 +12,9 @@ struct TimelineView: View {
     
     @EnvironmentObject var memories: Memories
 
+    @State private var marginAmount = 1.0 //changes with pinch gesture
+
+
     var body: some View {
         
         /*let events = ["event1", "event2", "event3"]
@@ -22,9 +25,14 @@ struct TimelineView: View {
         
         
         NavigationView {
+            
+            VStack {
+                
+                Slider(value: $marginAmount, in: 0...1).padding()
+            
             ScrollView {
                 
-                VStack(spacing: 0.0) {
+                LazyVStack(spacing: 0.0) {
                     
                     let minYear = memories.oldestYear()
                     let maxYear = memories.newestYear()
@@ -36,7 +44,7 @@ struct TimelineView: View {
                         
                         ForEach(0..<amountOfYears, id: \.self) { decrementYear in //workaround to loop in reverse order
                             let currentYear = maxYear - decrementYear
-                            TimelineYearView(memories: memories.memoriesForYear(currentYear), year: currentYear)
+                            TimelineYearView(memories: memories.memoriesForYear(currentYear), year: currentYear, marginFactor: $marginAmount).padding()
                         }
                     } else {
                         Text("No Memories to display")
@@ -45,6 +53,8 @@ struct TimelineView: View {
                     
                 }
                 
+            }
+
             }.navigationBarTitle("Timeline")
                 
                 
