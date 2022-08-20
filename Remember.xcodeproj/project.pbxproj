@@ -10,6 +10,7 @@
 		3D04CE3D28AF6D8C005D7A90 /* PrivacySettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04CE3C28AF6D8C005D7A90 /* PrivacySettingsView.swift */; };
 		3D04CE3F28AF6FBB005D7A90 /* AuthenticationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04CE3E28AF6FBB005D7A90 /* AuthenticationHelper.swift */; };
 		3D04CE4228AF70DC005D7A90 /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04CE4128AF70DC005D7A90 /* LockView.swift */; };
+		3D04CE4428AFA0A2005D7A90 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04CE4328AFA0A2005D7A90 /* ViewExtensions.swift */; };
 		3D13CB1C28AA8FFC001113BD /* RememberApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB1B28AA8FFC001113BD /* RememberApp.swift */; };
 		3D13CB1E28AA8FFC001113BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB1D28AA8FFC001113BD /* ContentView.swift */; };
 		3D13CB2028AA8FFE001113BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D13CB1F28AA8FFE001113BD /* Assets.xcassets */; };
@@ -43,6 +44,8 @@
 		3D04CE3C28AF6D8C005D7A90 /* PrivacySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySettingsView.swift; sourceTree = "<group>"; };
 		3D04CE3E28AF6FBB005D7A90 /* AuthenticationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationHelper.swift; sourceTree = "<group>"; };
 		3D04CE4128AF70DC005D7A90 /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
+		3D04CE4328AFA0A2005D7A90 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		3D04CE4528AFA12A005D7A90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3D13CB1828AA8FFB001113BD /* Remember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remember.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D13CB1B28AA8FFC001113BD /* RememberApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberApp.swift; sourceTree = "<group>"; };
 		3D13CB1D28AA8FFC001113BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 		3D13CB1A28AA8FFB001113BD /* Remember */ = {
 			isa = PBXGroup;
 			children = (
+				3D04CE4528AFA12A005D7A90 /* Info.plist */,
 				3D13CB5728ACD5FC001113BD /* Helper */,
 				3D13CB5028ABF8D4001113BD /* Components */,
 				3D13CB4A28ABB06C001113BD /* View */,
@@ -149,6 +153,7 @@
 				3D13CB4228AB79B6001113BD /* StringExtensions.swift */,
 				3D13CB4628AB8E04001113BD /* CalendarExtensions.swift */,
 				3D13CB5C28ACF7A9001113BD /* DateExtensions.swift */,
+				3D04CE4328AFA0A2005D7A90 /* ViewExtensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -330,6 +335,7 @@
 				3D13CB6728AE2C38001113BD /* TimelineView.swift in Sources */,
 				3D13CB5428ABFF3C001113BD /* UpcomingMemoriesView-ViewModel.swift in Sources */,
 				3D13CB4328AB79B6001113BD /* StringExtensions.swift in Sources */,
+				3D04CE4428AFA0A2005D7A90 /* ViewExtensions.swift in Sources */,
 				3D13CB6928AE4BB7001113BD /* TimelineYearView.swift in Sources */,
 				3D04CE4228AF70DC005D7A90 /* LockView.swift in Sources */,
 				3D13CB5928ACD60C001113BD /* NotificationHelper.swift in Sources */,
@@ -466,7 +472,10 @@
 				DEVELOPMENT_TEAM = FB3RP3NRT7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Remember/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "You can use Face ID to unlock the app";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "You can save visual reminders for upcoming memories in your photo library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -496,7 +505,10 @@
 				DEVELOPMENT_TEAM = FB3RP3NRT7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Remember/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "You can use Face ID to unlock the app";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "You can save visual reminders for upcoming memories in your photo library";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

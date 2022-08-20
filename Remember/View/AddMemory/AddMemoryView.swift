@@ -24,7 +24,7 @@ struct AddMemoryView: View {
                     DatePicker("Date", selection: $viewModel.date, displayedComponents: .date)
                 }
                 
-                Section("Image") {
+                Section("Image (Optional)") {
                     Button("Select Image") {
                         viewModel.showImagePicker()
                     }.sheet(isPresented: $viewModel.showingImagePicker) {
@@ -37,6 +37,7 @@ struct AddMemoryView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(height: 200)
+                            .accessibilityHint("The image you chose for this memory")
                         
                         Button("Remove image", role: .destructive) {
                             viewModel.removeImage()
@@ -45,7 +46,7 @@ struct AddMemoryView: View {
                     
                 }
                 
-                Section("Location") {
+                Section("Location (Optional)") {
                     Button("Select location") {
                         viewModel.showMapPicker()
                         

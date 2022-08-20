@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Memories: ObservableObject {
     
@@ -35,13 +36,16 @@ class Memories: ObservableObject {
         memories.append(Memory(name: "Schulabschluss IMS"))
         memories.append(Memory(name: "App programmiert"))
         
-        let firstDayOfYear = Calendar.current.firstDayOfYear(year: 2022)
-        let lastDayOfYear = Calendar.current.lastDayOfYear(year: 2022)
+        let firstDayOfYear = Date.firstDayOfYear(year: 2022)
+        let lastDayOfYear = Date.lastDayOfYear(year: 2022)
 
         memories.append(Memory(name: "Jahresbeginn 1", date: firstDayOfYear))
         memories.append(Memory(name: "Jahresbeginn 2", date: firstDayOfYear))
         memories.append(Memory(name: "Jahresende 1", date: lastDayOfYear))
         memories.append(Memory(name: "Jahresende 2", date: lastDayOfYear))
+        
+        memories.append(Memory(name: "Moonlanding", date: Date(day: 16, month: 7, year: 1969), image: UIImage(named:"moon")))
+
 
         sortMemories()
         save()
@@ -78,16 +82,16 @@ class Memories: ObservableObject {
     }
     
     func newestYear() -> Int? {
-        return memories.map({memory in Calendar.current.yearOf(date: memory.date)}).max();
+        return memories.map({memory in memory.date.year()}).max();
     }
     
     func oldestYear() -> Int? {
-        return memories.map({memory in Calendar.current.yearOf(date: memory.date)}).min();
+        return memories.map({memory in memory.date.year()}).min();
     }
     
     func memoriesForYear(_ year: Int) -> [Memory] {
         return memories.filter { memory in
-            return Calendar.current.yearOf(date: memory.date) == year;
+            return memory.date.year() == year;
         }
     }
 

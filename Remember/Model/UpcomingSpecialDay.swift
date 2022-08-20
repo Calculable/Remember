@@ -19,7 +19,7 @@ struct UpcomingSpecialDay: Identifiable, Comparable {
     }
     
     var days:Int {
-        return Calendar.current.numberOfDaysBetween(memory.date, and: dateOfTheSpecialDay)
+        return memory.date.timeIntervalInDays(to: dateOfTheSpecialDay)
     }
     
     var years:Int {

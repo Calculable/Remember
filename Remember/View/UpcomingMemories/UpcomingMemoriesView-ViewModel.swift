@@ -25,10 +25,15 @@ extension UpcomingMemoriesView {
         }
         
         func nextAnniversary(of memory: Memory) -> UpcomingSpecialDay {
-            var nextAnniversary =  calendar.changeYearOf(date: memory.date, to: calendar.currentYear())
             
-            if (nextAnniversary < calendar.today() || (nextAnniversary == calendar.today() && calendar.yearOf(date: memory.date) == calendar.currentYear())) {
-                nextAnniversary = calendar.changeYearOf(date: memory.date, to: calendar.currentYear() + 1)
+            
+            
+            var nextAnniversary = memory.date
+            nextAnniversary.changeYear(to: Date.currentYear())
+            
+                        
+            if (nextAnniversary < calendar.today() || (nextAnniversary == calendar.today() && memory.date.year() == Date.currentYear())) {
+                nextAnniversary.changeYear(to: Date.currentYear()+1)
             }
             
             return UpcomingSpecialDay(memory: memory, dateOfTheSpecialDay: nextAnniversary, type: .year)
@@ -39,7 +44,7 @@ extension UpcomingMemoriesView {
             
             for specialDayInterval in specialDayIntervals {
                 let modifiedDate = Calendar.current.date(byAdding: .day, value: specialDayInterval, to: memory.date)!
-                if (calendar.isInLessThanAYear(modifiedDate)) {
+                if (modifiedDate.isInLessThanAYear()) {
                     specialDays.append(UpcomingSpecialDay(memory: memory, dateOfTheSpecialDay: modifiedDate, type: .day))
                 }
             }

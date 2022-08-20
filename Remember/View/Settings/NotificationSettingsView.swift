@@ -36,6 +36,7 @@ struct NotificationSettingsView: View {
         Form {
             
             Text("Notifications can be triggered for the anniversaries of the memories. Under the Memories tab, notifications can be turned on or off individually for each memory.\n\nPlease make sure that the app has permission to send notifications (iOS Settings > Notifications).")
+                .fixedSize(horizontal: false, vertical: true)
                 .font(.callout)
             
             

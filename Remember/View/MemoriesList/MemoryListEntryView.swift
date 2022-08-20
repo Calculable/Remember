@@ -10,6 +10,8 @@ import SwiftUI
 
 struct MemoryListEntryView: View {
     
+    @Environment(\.accessibilityReduceTransparency) var accessibilityReduceTransparency;
+    
     @StateObject var memory: Memory
     
     var body: some View {
@@ -29,11 +31,14 @@ struct MemoryListEntryView: View {
     }
     
     func getListBackground() -> AnyView {
-        if let image = memory.displayImage {
-            return AnyView(image.resizable().scaledToFill().frame(height: 100).clipped().opacity(0.3));
+        
+        if (memory.displayImage != nil && !accessibilityReduceTransparency) {
+            //use image as background
+            return AnyView(memory.displayImage!.resizable().scaledToFill().frame(height: 100).clipped().opacity(0.3));
         } else {
             return AnyView(Color(uiColor: UIColor.systemBackground));
         }
+
     }
 }
 

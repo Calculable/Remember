@@ -5,6 +5,9 @@
 //  Created by Jan Huber on 18.08.22.
 //
 
+// Hmmm... Maybe choosing a canvas to draw the timeline was not my best idea. See documentation from apple: "Use a canvas to improve performance for a drawing that doesn’t primarily involve text or require interactive elements." Also, canvas is not accessible for voice over users. (https://developer.apple.com/documentation/swiftui/canvas)
+
+
 import Foundation
 
 import SwiftUI
@@ -87,16 +90,16 @@ struct TimelineYearView: View {
     
     func calculateMarginTopToPreviousMemory(forMemoryAt index: Int) -> Int {
         let currentMemory = memories[index]
-        let comparisonDate = index == 0 ? Calendar.current.lastDayOfYear(year: year) : memories[index-1].date
-        let daysBetweenMemoryAndLastMemory = Calendar.current.numberOfDaysBetween(currentMemory.date, and: comparisonDate)
+        let comparisonDate = index == 0 ? Date.lastDayOfYear(year: year) : memories[index-1].date
+        let daysBetweenMemoryAndLastMemory = currentMemory.date.timeIntervalInDays(to: comparisonDate)
         let marginToPreviousMemory = Double(daysBetweenMemoryAndLastMemory)*marginFactor
         return Int(ceil(marginToPreviousMemory))
     }
     
     func calculateMarginBottomToNextMemory(forMemoryAt index: Int) -> Int {
         let currentMemory = memories[index]
-        let comparisonDate = index == memories.count-1 ? Calendar.current.firstDayOfYear(year: year) : memories[index+1].date
-        let daysBetweenMemoryAndNextMemory = Calendar.current.numberOfDaysBetween(currentMemory.date, and: comparisonDate)
+        let comparisonDate = index == memories.count-1 ? Date.firstDayOfYear(year: year) : memories[index+1].date
+        let daysBetweenMemoryAndNextMemory = currentMemory.date.timeIntervalInDays(to: comparisonDate)
         let marginToNextMemory = Double(daysBetweenMemoryAndNextMemory)*marginFactor
         return Int(ceil(marginToNextMemory))
     }

@@ -13,7 +13,7 @@ struct UpcomingMemoryListEntryView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(Calendar.current.describeReminingDays(specialDay.dateOfTheSpecialDay))
+            Text(describeReminingDays(specialDay.dateOfTheSpecialDay))
                 .foregroundColor(Color.red)
         
             switch(specialDay.type) {
@@ -25,7 +25,28 @@ struct UpcomingMemoryListEntryView: View {
             
             Text("Am: \(specialDay.dateOfTheSpecialDay.formatted(date: .long, time: .omitted))")
                 .foregroundColor(.secondary)
-        }.frame(minHeight: 100)
+        }
+        .frame(minHeight: 100)
+            .contextMenu {
+                Button("Save to photo gallery") {
+                    print("save to photo gallery")
+                    UIImageWriteToSavedPhotosAlbum(self.snapshot(), nil, nil, nil)
+
+                }
+            }
+    }
+    
+    func describeReminingDays(_ date: Date) -> String {
+        let numberOfReminingDays = Calendar.current.today().timeIntervalInDays(to: date)
+        
+        switch (numberOfReminingDays) {
+        case 0:
+            return "Today"
+        case 1:
+            return "Tomorrow"
+        default:
+            return "In \(numberOfReminingDays) days"
+        }
     }
     
 
@@ -34,8 +55,12 @@ struct UpcomingMemoryListEntryView: View {
 struct UpcomingMemoryListEntryView_Previews: PreviewProvider {
     static var previews: some View {
         let exampleMemory = Memory(name: "Example Memory")
-        let specialDay = UpcomingSpecialDay(memory: exampleMemory, dateOfTheSpecialDay: Calendar.current.changeYearOf(date: exampleMemory.date, to: 1), type: .year)
-        UpcomingMemoryListEntryView(specialDay: specialDay)
+        
+        var dateOfSpecialDay = exampleMemory.date
+        dateOfSpecialDay.changeYear(to: Date.currentYear() + 1)
+        
+        let specialDay = UpcomingSpecialDay(memory: exampleMemory, dateOfTheSpecialDay: dateOfSpecialDay, type: .year)
+        return UpcomingMemoryListEntryView(specialDay: specialDay)
     }
 }
 

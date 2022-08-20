@@ -12,6 +12,7 @@ struct ContentView: View {
     @StateObject private var memories: Memories = Memories()
     @AppStorage("biometric.authentication.enabled") private var enableBiometricAuthentication = false
     @Environment(\.scenePhase) var scenePhase
+    @Environment(\.accessibilityVoiceOverEnabled) var voiceOverEnabled
     
     @State private var isUnlocked = false
 
@@ -33,10 +34,14 @@ struct ContentView: View {
                             Label("Memories", systemImage: "list.bullet")
                         }
 
-                    TimelineView()
-                        .tabItem {
-                            Label("Timeline", systemImage: "calendar.day.timeline.left")
-                        }
+                    if (!voiceOverEnabled) { //Since the timeline view is created upon a canvas, it is not accessible unfortunately. ToDo: Replace with a better alternative.
+                        TimelineView()
+                            .tabItem {
+                                Label("Timeline", systemImage: "calendar.day.timeline.left")
+                            }
+                    }
+
+                    
                     
                     SettingsView()
                         .tabItem {
