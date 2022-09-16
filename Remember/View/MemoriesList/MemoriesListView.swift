@@ -20,31 +20,37 @@ struct MemoriesListView: View {
         NavigationView {
                 List {
                     ForEach(memories.memories) { memory in
-                        MemoryListEntryView(memory: memory)
-                            .swipeActions {
-                                Button(role: .destructive) {
-                                    notificationHelper.removeNotification(for: memory)
-                                    memories.remove(memory)
-                                
-                                } label: {
-                                    Label("Delete", systemImage: "minus.circle")
-                                }
-                            }
-                            .swipeActions(edge: .leading) {
-                                Button {
-                                    memories.toggleNotifications(for: memory)
-                                    notificationHelper.updateNotification(for: memory)
-
-                                } label: {
-                                    if memory.notificationsEnabled {
-                                        Label("Disable Notifications", systemImage: "bell.slash")
-                                    } else {
-                                        Label("Enable Notifications", systemImage: "bell")
-                                    }
+                        
+                        NavigationLink {
+                            MemoryDetailView(memory: memory)
+                        } label: {
+                            
+                            MemoryListEntryView(memory: memory)
+                                .swipeActions {
+                                    Button(role: .destructive) {
+                                        notificationHelper.removeNotification(for: memory)
+                                        memories.remove(memory)
                                     
+                                    } label: {
+                                        Label("Delete", systemImage: "minus.circle")
+                                    }
                                 }
-                                .tint(memory.notificationsEnabled ? .gray : .purple)
-                            }
+                                .swipeActions(edge: .leading) {
+                                    Button {
+                                        memories.toggleNotifications(for: memory)
+                                        notificationHelper.updateNotification(for: memory)
+
+                                    } label: {
+                                        if memory.notificationsEnabled {
+                                            Label("Disable Notifications", systemImage: "bell.slash")
+                                        } else {
+                                            Label("Enable Notifications", systemImage: "bell")
+                                        }
+                                        
+                                    }
+                                    .tint(memory.notificationsEnabled ? .gray : .purple)
+                                }
+                        }
                     }
                 }
                 .navigationTitle("Memories")

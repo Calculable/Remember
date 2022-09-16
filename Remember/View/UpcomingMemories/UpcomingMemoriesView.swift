@@ -23,7 +23,11 @@ struct UpcomingMemoriesView: View {
         NavigationView {
                 List {
                     ForEach(upcomingSpecialDays) { specialDay in
-                        UpcomingMemoryListEntryView(specialDay: specialDay)
+                        NavigationLink {
+                            MemoryDetailView(memory: specialDay.memory)
+                        } label: {
+                            UpcomingMemoryListEntryView(specialDay: specialDay)
+                        }
                     }
                 }
                 .navigationTitle("Special Days")

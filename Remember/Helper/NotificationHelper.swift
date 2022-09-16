@@ -9,7 +9,6 @@ import Foundation
 import UserNotifications
 import SwiftUI
 
-
 struct NotificationHelper {
     
     @AppStorage("notifications.days.before.event") private var daysBeforeEvent = 1

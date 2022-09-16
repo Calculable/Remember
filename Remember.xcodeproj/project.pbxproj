@@ -38,6 +38,7 @@
 		3D13CB5F28AD364A001113BD /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB5E28AD364A001113BD /* SettingsHelper.swift */; };
 		3D13CB6728AE2C38001113BD /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB6628AE2C38001113BD /* TimelineView.swift */; };
 		3D13CB6928AE4BB7001113BD /* TimelineYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */; };
+		3D1B891B28D438FE00A7046B /* MemoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1B891A28D438FE00A7046B /* MemoryDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		3D13CB5E28AD364A001113BD /* SettingsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHelper.swift; sourceTree = "<group>"; };
 		3D13CB6628AE2C38001113BD /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineYearView.swift; sourceTree = "<group>"; };
+		3D1B891A28D438FE00A7046B /* MemoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 		3D13CB4A28ABB06C001113BD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3D1B891928D438E100A7046B /* Details */,
 				3D04CE4028AF70BD005D7A90 /* Lock */,
 				3D13CB6528AE2C26001113BD /* Timeline */,
 				3D13CB4F28ABF8C9001113BD /* AddMemory */,
@@ -235,6 +238,14 @@
 				3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */,
 			);
 			path = Timeline;
+			sourceTree = "<group>";
+		};
+		3D1B891928D438E100A7046B /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				3D1B891A28D438FE00A7046B /* MemoryDetailView.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +337,7 @@
 				3D13CB5628AC017B001113BD /* UpcomingMemoryListEntryView.swift in Sources */,
 				3D13CB3B28AAB08D001113BD /* Memories.swift in Sources */,
 				3D13CB4728AB8E04001113BD /* CalendarExtensions.swift in Sources */,
+				3D1B891B28D438FE00A7046B /* MemoryDetailView.swift in Sources */,
 				3D04CE3F28AF6FBB005D7A90 /* AuthenticationHelper.swift in Sources */,
 				3D13CB3428AAA29C001113BD /* ImagePicker.swift in Sources */,
 				3D13CB1E28AA8FFC001113BD /* ContentView.swift in Sources */,
