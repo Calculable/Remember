@@ -19,6 +19,7 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
             Memory.saveImageInDocumentDirectory(memory: self)
         }
     }
+    @Published var notes: String
     
     var displayImage: Image? {
         guard let image = image else {
@@ -54,7 +55,7 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
     }
     
     private enum CodingKeys: String, CodingKey {
-        case id, name, date, latitude, longitude, notificationsEnabled
+        case id, name, date, latitude, longitude, notificationsEnabled, notes
     }
     
     required init(from decoder: Decoder) throws {
@@ -65,6 +66,7 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
         notificationsEnabled = try container.decode(Bool.self, forKey: .notificationsEnabled)
         latitude = try container.decode(Double?.self, forKey: .latitude)
         longitude = try container.decode(Double?.self, forKey: .longitude)
+        notes = try container.decode(String.self, forKey: .notes)
         image = Memory.loadImageFromDocumentDirectory(memory: self)
     }
     
@@ -76,19 +78,22 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
         try container.encode(notificationsEnabled, forKey: .notificationsEnabled)
         try container.encode(latitude, forKey: .latitude)
         try container.encode(longitude, forKey: .longitude)
-        
+        try container.encode(notes, forKey: .notes)
+
         
     }
     
     init(name: String, date: Date = Date.now) {
         self.name = name
         self.date = date
+        self.notes = ""
     }
     
-    convenience init(name: String, date: Date, image: UIImage? = nil, coordinate: CLLocationCoordinate2D? = nil) {
+    convenience init(name: String, date: Date, image: UIImage? = nil, coordinate: CLLocationCoordinate2D? = nil, notes: String = "") {
         self.init(name: name, date: date)
         self.image = image
         self.coordinate = coordinate
+        self.notes = notes
     }
     
     static func == (lhs: Memory, rhs: Memory) -> Bool {

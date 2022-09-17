@@ -88,7 +88,7 @@ struct AddMemoryView: View {
     
     func saveNewMemory() {
         let customCoordinate = viewModel.isCustomCoordinate ? viewModel.coordinate : nil
-        let newMemory = Memory(name: viewModel.name, date: viewModel.date, image: viewModel.image, coordinate: customCoordinate)
+        let newMemory = Memory(name: viewModel.name, date: viewModel.date, image: viewModel.image, coordinate: customCoordinate, notes: viewModel.notes)
         memories.addMemory(newMemory)
         dismiss()
     }
