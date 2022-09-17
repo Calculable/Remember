@@ -28,7 +28,7 @@ struct MemoryDetailView: View {
                 .foregroundColor(.secondary)
             
             if let image = memory.displayImage {
-                AnyView(image.resizable().scaledToFit().frame(maxWidth: .infinity).clipped().opacity(0.3));
+                AnyView(image.resizable().scaledToFit().frame(maxWidth: .infinity).clipped());
             }
             
             if memory.coordinate != nil {

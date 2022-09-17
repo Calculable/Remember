@@ -12,6 +12,7 @@ import MapKit
 struct AddMemoryView: View {
     
     @StateObject private var viewModel: ViewModel = ViewModel()
+
     @EnvironmentObject var memories: Memories
     @Environment(\.dismiss) var dismiss
     
@@ -70,6 +71,12 @@ struct AddMemoryView: View {
                         }
                     }
                 }
+                
+                Section("Notes (Optional)") {
+                    TextEditor(text: $viewModel.notes)
+                        .frame(minHeight: 200)
+                }
+                
             }
             .navigationBarTitle(Text("Add New Memory"), displayMode: .inline)
             .navigationBarItems(trailing:

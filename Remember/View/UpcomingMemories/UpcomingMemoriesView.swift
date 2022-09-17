@@ -30,7 +30,7 @@ struct UpcomingMemoriesView: View {
                         }
                     }
                 }
-                .navigationTitle("Special Days")
+                .navigationTitle("Upcoming")
             
             Text("Please select an upcoming special day to see the details")
                 

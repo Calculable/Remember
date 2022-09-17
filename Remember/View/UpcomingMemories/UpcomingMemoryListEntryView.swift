@@ -13,18 +13,23 @@ struct UpcomingMemoryListEntryView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text(describeReminingDays(specialDay.dateOfTheSpecialDay))
-                .foregroundColor(Color.red)
+            Text("\(Image(systemName: "calendar.circle")) \(specialDay.dateOfTheSpecialDay.formatted(date: .long, time: .omitted))  \n(\(describeRemainingDays(specialDay.dateOfTheSpecialDay)))")
+                .foregroundColor(remainingDaysTo(to: specialDay.dateOfTheSpecialDay) <= 7 ? .purple : .secondary)
+                                    
+                            
         
             switch(specialDay.type) {
             case .year:
-                Text("\(specialDay.years) Jahre seit: \(specialDay.memory.name)")
+                Text("\(specialDay.years) years since: \(specialDay.memory.name)")
+                    .font(.headline)
             case .day:
-                Text("\(specialDay.days) Tage seit: \(specialDay.memory.name)")
+                Text("\(specialDay.days) days since: \(specialDay.memory.name)")
+                    .font(.headline)
             }
             
-            Text("Am: \(specialDay.dateOfTheSpecialDay.formatted(date: .long, time: .omitted))")
-                .foregroundColor(.secondary)
+            
+            //Text("Am: \(specialDay.dateOfTheSpecialDay.formatted(date: .long, time: .omitted))")
+            //    .foregroundColor(.secondary)
         }
         .frame(minHeight: 100)
             .contextMenu {
@@ -36,16 +41,20 @@ struct UpcomingMemoryListEntryView: View {
             }
     }
     
-    func describeReminingDays(_ date: Date) -> String {
-        let numberOfReminingDays = Calendar.current.today().timeIntervalInDays(to: date)
+    func remainingDaysTo(to date: Date) -> Int {
+        return Calendar.current.today().timeIntervalInDays(to: date)
+    }
+    
+    func describeRemainingDays(_ date: Date) -> String {
+        let numberOfRemainingDays = remainingDaysTo(to: date)
         
-        switch (numberOfReminingDays) {
+        switch (numberOfRemainingDays) {
         case 0:
             return "Today"
         case 1:
             return "Tomorrow"
         default:
-            return "In \(numberOfReminingDays) days"
+            return "In \(numberOfRemainingDays) days"
         }
     }
     

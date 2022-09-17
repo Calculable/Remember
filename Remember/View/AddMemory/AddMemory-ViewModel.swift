@@ -18,6 +18,7 @@ extension AddMemoryView {
         @Published var name: String = ""
         @Published var date: Date = Date.now
         @Published var image: UIImage?
+        @Published var notes: String = ""
         
         var displayImage: Image? {
             guard let image = image else {

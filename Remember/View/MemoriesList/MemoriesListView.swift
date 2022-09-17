@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MemoriesListView: View {
     
-    
+    @Environment(\.accessibilityReduceTransparency) var accessibilityReduceTransparency;
+
     @StateObject private var viewModel: ViewModel = ViewModel()
     @EnvironmentObject var memories: Memories
 
@@ -35,24 +36,28 @@ struct MemoriesListView: View {
                                         Label("Delete", systemImage: "minus.circle")
                                     }
                                 }
-                                .swipeActions(edge: .leading) {
-                                    Button {
-                                        memories.toggleNotifications(for: memory)
-                                        notificationHelper.updateNotification(for: memory)
 
-                                    } label: {
-                                        if memory.notificationsEnabled {
-                                            Label("Disable Notifications", systemImage: "bell.slash")
-                                        } else {
-                                            Label("Enable Notifications", systemImage: "bell")
-                                        }
-                                        
-                                    }
-                                    .tint(memory.notificationsEnabled ? .gray : .purple)
+                                
+                        }.swipeActions(edge: .leading) {
+                            Button {
+                                memories.toggleNotifications(for: memory)
+                                notificationHelper.updateNotification(for: memory)
+
+                            } label: {
+                                if memory.notificationsEnabled {
+                                    Label("Disable Notifications", systemImage: "bell.slash")
+                                } else {
+                                    Label("Enable Notifications", systemImage: "bell")
                                 }
+                                
+                            }
+                            .tint(memory.notificationsEnabled ? .gray : .purple)
                         }
+                        .listRowBackground(getListBackground(memory: memory))
+
                     }
                 }
+                .environment(\.defaultMinListRowHeight, 100)
                 .navigationTitle("Memories")
                 .toolbar {
                     ToolbarItem() {
@@ -71,6 +76,17 @@ struct MemoriesListView: View {
         .sheet(isPresented: $viewModel.showAddMemorySheet) {
             AddMemoryView()
         }
+    }
+    
+    func getListBackground(memory: Memory) -> AnyView {
+        
+        if (memory.displayImage != nil && !accessibilityReduceTransparency) {
+            //use image as background
+            return AnyView(memory.displayImage!.resizable().scaledToFill().frame(height: 100).clipped().opacity(0.2));
+        } else {
+            return AnyView(Color(uiColor: UIColor.systemBackground));
+        }
+
     }
 }
 
