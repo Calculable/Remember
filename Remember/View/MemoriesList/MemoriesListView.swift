@@ -36,6 +36,7 @@ struct MemoriesListView: View {
                                         Label("Delete", systemImage: "minus.circle")
                                     }
                                 }
+                            
 
                                 
                         }.swipeActions(edge: .leading) {
@@ -53,11 +54,26 @@ struct MemoriesListView: View {
                             }
                             .tint(memory.notificationsEnabled ? .gray : .purple)
                         }
-                        .listRowBackground(getListBackground(memory: memory))
+
+                        .listRowBackground(
+                            GeometryReader { geo in
+                    
+                                getListBackground(memory: memory).frame(height: 158).frame(width: geo.size.width).clipped()
+
+                        })
+                        
+                        .listRowSeparator(.hidden)
 
                     }
+
+
+
+
+
                 }
-                .environment(\.defaultMinListRowHeight, 100)
+
+
+                .environment(\.defaultMinListRowHeight, 160)
                 .navigationTitle("Memories")
                 .toolbar {
                     ToolbarItem() {
@@ -82,9 +98,11 @@ struct MemoriesListView: View {
         
         if (memory.displayImage != nil && !accessibilityReduceTransparency) {
             //use image as background
-            return AnyView(memory.displayImage!.resizable().scaledToFill().frame(height: 100).clipped().opacity(0.2));
+            return AnyView(memory.displayImage!.resizable().scaledToFill().opacity(1).brightness(-0.5));
+            //return AnyView(Color(uiColor: UIColor.darkGray))
+
         } else {
-            return AnyView(Color(uiColor: UIColor.systemBackground));
+            return AnyView(Color(uiColor: UIColor.darkGray))
         }
 
     }

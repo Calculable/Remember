@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "moon@1x.jpg",
+      "filename" : "first_organ_transplant.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "moon@2x.jpg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "moon@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -16,17 +16,27 @@ struct MemoryListEntryView: View {
         
         VStack(alignment: .leading) {
             
-            HStack {
-                Image(systemName: memory.notificationsEnabled ? "bell.fill" : "bell.slash")
+                        
                 Text(memory.name)
                     .font(.headline)
-            }
+
+
+            
+                
             
             Text(memory.date.formatted(date: .long, time: .omitted))
-               
+                .foregroundColor(.white).padding([.top, .bottom], 6)
+
+            Image(systemName: memory.notificationsEnabled ? "bell.fill" : "bell.slash")
+                .foregroundColor(.white)
+
+
+
             
         }
-        
+
+            .foregroundColor(.white)
+
     }
     
 
