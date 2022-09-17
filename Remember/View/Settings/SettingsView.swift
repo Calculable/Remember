@@ -29,8 +29,12 @@ struct SettingsView: View {
                 }
                 
                 NavigationLink {
-                    Button("Remove all custom memories", role: .destructive) {
-                        memories.removeAllMemories()
+                    Form {
+                        
+                        Button("Remove all custom memories", role: .destructive) {
+                            memories.removeAllMemories()
+                        }
+                        
                     }
                 } label: {
                     Text("Reset")
@@ -41,7 +45,8 @@ struct SettingsView: View {
                 
             }
             .navigationTitle("Settings")
-        }
+            
+        }.navigationViewStyle(.stack)
         
         
     }

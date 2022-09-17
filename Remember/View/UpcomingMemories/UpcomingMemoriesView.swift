@@ -31,7 +31,10 @@ struct UpcomingMemoriesView: View {
                     }
                 }
                 .navigationTitle("Special Days")
-        }
+            
+            Text("Please select an upcoming special day to see the details")
+                
+        }.phoneOnlyStackNavigationView()
     }
     
 }
