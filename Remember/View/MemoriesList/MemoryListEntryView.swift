@@ -18,7 +18,8 @@ struct MemoryListEntryView: View {
             
                         
                 Text(memory.name)
-                    .font(.headline)
+                .font(.title2)
+                .fontWeight(.bold)
 
 
             

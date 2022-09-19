@@ -41,12 +41,17 @@ struct ContentView: View {
                             }
                     }
 
+                    MapView()
+                        .tabItem {
+                            Label("Map", systemImage: "map")
+                        }
                     
                     
                     SettingsView()
                         .tabItem {
                             Label("Settings", systemImage: "gear")
                         }
+                    
                     
                     
                 }

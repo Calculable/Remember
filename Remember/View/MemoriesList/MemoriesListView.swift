@@ -29,7 +29,6 @@ struct MemoriesListView: View {
                             MemoryListEntryView(memory: memory)
                                 .swipeActions {
                                     Button(role: .destructive) {
-                                        notificationHelper.removeNotification(for: memory)
                                         memories.remove(memory)
                                     
                                     } label: {
@@ -90,7 +89,7 @@ struct MemoriesListView: View {
         }
         .phoneOnlyStackNavigationView()
         .sheet(isPresented: $viewModel.showAddMemorySheet) {
-            AddMemoryView()
+            EditMemoryView()
         }
     }
     
@@ -98,7 +97,15 @@ struct MemoriesListView: View {
         
         if (memory.displayImage != nil && !accessibilityReduceTransparency) {
             //use image as background
-            return AnyView(memory.displayImage!.resizable().scaledToFill().opacity(1).brightness(-0.5));
+            return AnyView(
+                
+                ZStack {
+                    memory.displayImage!.resizable().scaledToFill().opacity(1)
+                    Rectangle()
+                           .fill(Color.black.opacity(0.5))
+                }
+            
+            );
             //return AnyView(Color(uiColor: UIColor.darkGray))
 
         } else {

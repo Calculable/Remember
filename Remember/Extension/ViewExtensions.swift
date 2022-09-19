@@ -9,11 +9,11 @@ import SwiftUI
 //source: https://www.hackingwithswift.com/quick-start/swiftui/how-to-convert-a-swiftui-view-to-an-image
 
 extension View {
-    func snapshot() -> UIImage {
+    func snapshot(width: Int, height: Int) -> UIImage {
         let controller = UIHostingController(rootView: self)
         let view = controller.view
 
-        let targetSize = CGSize(width: 400, height: 250)
+        let targetSize = CGSize(width: width, height: height)
         view?.bounds = CGRect(origin: .zero, size: targetSize)
         view?.backgroundColor = .clear
 

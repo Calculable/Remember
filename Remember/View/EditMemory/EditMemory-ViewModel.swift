@@ -9,7 +9,7 @@ import SwiftUI
 import MapKit
 
 
-extension AddMemoryView {
+extension EditMemoryView {
     @MainActor class ViewModel: ObservableObject {
         
         @Published var isCustomCoordinate = false
@@ -19,7 +19,10 @@ extension AddMemoryView {
         @Published var date: Date = Date.now
         @Published var image: UIImage?
         @Published var notes: String = ""
-        
+        @Published var notificationsEnabled = false
+
+        @Published var showingImagePicker = false
+
         var displayImage: Image? {
             guard let image = image else {
                 return nil
@@ -28,8 +31,23 @@ extension AddMemoryView {
             return Image(uiImage: image)
         }
         
-        @Published var showingImagePicker = false
+        init() {
+            
+        }
         
+        init(_ memory: Memory) {
+            if let memoryCoordinate = memory.coordinate {
+                isCustomCoordinate = true
+                coordinate = memoryCoordinate
+            }
+
+            name = memory.name
+            date = memory.date
+            image = memory.image
+            notes = memory.notes
+            notificationsEnabled = memory.notificationsEnabled
+        }
+                
         var saveDisabled:Bool {
             return name.isEmpty
         }

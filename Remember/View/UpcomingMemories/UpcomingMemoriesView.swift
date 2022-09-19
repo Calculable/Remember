@@ -21,7 +21,8 @@ struct UpcomingMemoriesView: View {
     var body: some View {
         
         NavigationView {
-                List {
+            ScrollView {
+                VStack {
                     ForEach(upcomingSpecialDays) { specialDay in
                         NavigationLink {
                             MemoryDetailView(memory: specialDay.memory)
@@ -32,8 +33,9 @@ struct UpcomingMemoriesView: View {
                 }
                 .navigationTitle("Upcoming")
             
-            Text("Please select an upcoming special day to see the details")
-                
+            }
+            
+            Text("Please select an upcoming memory to see the details")
         }.phoneOnlyStackNavigationView()
     }
     

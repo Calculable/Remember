@@ -1,5 +1,5 @@
 //
-//  AddMemoryView.swift
+//  EditMemoryView.swift
 //  Remember
 //
 //  Created by Jan Huber on 15.08.22.
@@ -9,12 +9,22 @@ import SwiftUI
 import LocationPicker
 import MapKit
 
-struct AddMemoryView: View {
+struct EditMemoryView: View {
     
     @StateObject private var viewModel: ViewModel = ViewModel()
 
     @EnvironmentObject var memories: Memories
     @Environment(\.dismiss) var dismiss
+    
+    private var existingMemory: Memory? = nil
+    
+    init() {
+    }
+    
+    init(toEdit memory: Memory) {
+        _viewModel = StateObject<EditMemoryView.ViewModel>(wrappedValue: ViewModel(memory))
+        existingMemory = memory
+    }
     
     var body: some View {
         
@@ -72,13 +82,23 @@ struct AddMemoryView: View {
                     }
                 }
                 
+                Section("Notifications") {
+                    
+                    Toggle(isOn: $viewModel.notificationsEnabled){
+                             Text("Enable yearly notifications")
+                    }
+                    
+                    
+                
+                }
+                
                 Section("Notes (Optional)") {
                     TextEditor(text: $viewModel.notes)
                         .frame(minHeight: 200)
                 }
                 
             }
-            .navigationBarTitle(Text("Add New Memory"), displayMode: .inline)
+            .navigationBarTitle(Text(existingMemory == nil ? "Add New Memory" : "Edit Memory"), displayMode: .inline)
             .navigationBarItems(trailing:
                 Button("Save", action: saveNewMemory)
                     .disabled(viewModel.saveDisabled)
@@ -87,6 +107,11 @@ struct AddMemoryView: View {
     }
     
     func saveNewMemory() {
+        
+        if let memory = existingMemory {
+            memories.remove(memory)
+        }
+        
         let customCoordinate = viewModel.isCustomCoordinate ? viewModel.coordinate : nil
         let newMemory = Memory(name: viewModel.name, date: viewModel.date, image: viewModel.image, coordinate: customCoordinate, notes: viewModel.notes)
         memories.addMemory(newMemory)
@@ -94,11 +119,11 @@ struct AddMemoryView: View {
     }
 }
 
-struct AddMemoryView_Previews: PreviewProvider {
+struct EditMemoryView_Previews: PreviewProvider {
     static var previews: some View {
         
         let memories = Memories()
-        AddMemoryView()
+        EditMemoryView()
             .environmentObject(memories)
     }
 }

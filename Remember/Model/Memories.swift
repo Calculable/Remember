@@ -12,6 +12,7 @@ import MapKit
 class Memories: ObservableObject {
     
     @Published private(set) var memories: [Memory] = []
+    let notificationHelper = NotificationHelper()
 
     
     init() {
@@ -75,6 +76,8 @@ class Memories: ObservableObject {
     }
     
     func remove(_ memory: Memory) {
+        notificationHelper.removeNotification(for: memory) //redundant because all notifications get recreated on save
+
         memory.image = nil //triggers deletion of the image
 
         memories.remove(at: memories.firstIndex(of: memory)!)
@@ -110,6 +113,8 @@ class Memories: ObservableObject {
         } catch {
             print("Unable to save data.")
         }
+        
+        notificationHelper.updateNotifications(memories: self)
     }
     
     private func getDocumentsDirectory() -> URL {

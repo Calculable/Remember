@@ -30,12 +30,19 @@ struct SettingsView: View {
                 
                 NavigationLink {
                     Form {
+                                                    
+                        Text("Warning: This step can not be undone")
+                                .fixedSize(horizontal: false, vertical: true)
+                                .font(.callout)
                         
-                        Button("Remove all custom memories", role: .destructive) {
-                            memories.removeAllMemories()
+                        Section {
+                            Button("Remove all custom memories", role: .destructive) {
+                                memories.removeAllMemories()
+                            }
                         }
                         
-                    }
+                    }.navigationTitle("Reset").navigationBarTitleDisplayMode(.inline)
+
                 } label: {
                     Text("Reset")
                 }
