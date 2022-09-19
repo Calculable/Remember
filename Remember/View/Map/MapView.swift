@@ -18,8 +18,8 @@ struct MapView: View {
     
     @State private var mapRegion = MKCoordinateRegion(MKMapRect
         .world)
-    
-    
+    @State private var selectedMemory: Memory? = nil
+
 
     
         
@@ -28,8 +28,36 @@ struct MapView: View {
         let memoriesWithMapLocaiton = memories.memories.filter {$0.coordinate != nil}
         
         Map(coordinateRegion: $mapRegion, annotationItems: memoriesWithMapLocaiton) { memory in
-            MapMarker(coordinate: memory.coordinate!)
+            
+            MapAnnotation(coordinate: memory.coordinate!) {
+                VStack{
+                    Text(memory.name)
+                        .font(.footnote)
+                        .padding(5)
+                        
+
+                        .background(Color.red)
+                        .foregroundColor(.white)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .opacity(0.9)
+                
+                    
+                    Image(systemName: "mappin.circle.fill")
+                        .font(.largeTitle)
+                        .foregroundColor(.red)
+                        .opacity(0.9)
+                    
+                }.onTapGesture {
+                    print("Hello World")
+                    selectedMemory = memory
+                }
+                
+            }
+
+        }.sheet(item: $selectedMemory) { memory in
+            MemoryDetailView(memory: memory)
         }
+    
         
     }
     
