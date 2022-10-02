@@ -10,9 +10,14 @@ import SwiftUI
 struct UpcomingMemoryListEntryView: View {
     
     @State var specialDay: UpcomingSpecialDay
+    @State private var showImageSavedNotification = false
+    @State private var uiImage: UIImage? = nil
+    @State var isScreenshot: Bool
+
     
     var body: some View {
         
+            
         
         ZStack {
             
@@ -35,9 +40,7 @@ struct UpcomingMemoryListEntryView: View {
                     .foregroundColor(remainingDaysTo(to: specialDay.dateOfTheSpecialDay) <= 7 ? .red : .white)
                     .multilineTextAlignment(.center)
                                         
-                             
-                Divider()
-            
+                                         
                 switch(specialDay.type) {
                 case .year:
                     Text("\(specialDay.years) years since: \(specialDay.memory.name)")
@@ -50,24 +53,32 @@ struct UpcomingMemoryListEntryView: View {
 
                 }
                 
-                
-                //Text("Am: \(specialDay.dateOfTheSpecialDay.formatted(date: .long, time: .omitted))")
-                //    .foregroundColor(.secondary)
-            }.padding()
+                if (!isScreenshot) {
+                    Button("Share") {
+                        print("save to photo gallery")
+                        let view = UpcomingMemoryListEntryView(specialDay: specialDay, isScreenshot: true)
+                        view.isScreenshot = true
+                        UIImageWriteToSavedPhotosAlbum(view.snapshot(width: 500, height: 500), nil, nil, nil)
+                        showImageSavedNotification = true
+
+                    }.buttonStyle(.borderedProminent)
+                }
+
+
+            }
 
                 
         }
-        .padding()
-        .frame(maxWidth: .infinity)
+        
+        .padding(isScreenshot ? 0 : 8)
             .aspectRatio(1, contentMode: .fill)
-            .contextMenu {
-                Button("Save to photo gallery") {
-                    print("save to photo gallery")
-                    UIImageWriteToSavedPhotosAlbum(self.snapshot(width: 500, height: 500), nil, nil, nil)
 
-                }
+            .alert("Image saved", isPresented: $showImageSavedNotification) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text("The image was saved to your photo gallery")
             }
-
+            .ignoresSafeArea()
     }
     
     func remainingDaysTo(to date: Date) -> Int {
@@ -98,7 +109,7 @@ struct UpcomingMemoryListEntryView_Previews: PreviewProvider {
         dateOfSpecialDay.changeYear(to: Date.currentYear() + 1)
         
         let specialDay = UpcomingSpecialDay(memory: exampleMemory, dateOfTheSpecialDay: dateOfSpecialDay, type: .year)
-        return UpcomingMemoryListEntryView(specialDay: specialDay)
+        return UpcomingMemoryListEntryView(specialDay: specialDay, isScreenshot: false)
     }
 }
 

@@ -34,7 +34,10 @@ struct NotificationHelper {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
         for memory in memories.memories {
-            updateNotification(for: memory)
+            if !memory.isMarkedForDeletion {
+                updateNotification(for: memory)
+            }
+            
         }
     }
 

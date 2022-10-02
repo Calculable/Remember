@@ -41,7 +41,7 @@ struct MemoryDetailView: View {
                     Text(memory.date.formatted(date: .long, time: .omitted))
                         .foregroundColor(.secondary)
                     
-                    if let image = memory.displayImage {
+                    if let image = memory.displayImage { //display image should not be in model
                         image.resizable().scaledToFit()
                             .frame(maxWidth: 700).clipped().padding([.bottom, .top], 20)
                     }
@@ -107,7 +107,7 @@ struct MemoryDetailView: View {
 struct MemoryDetailView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let memory = Memory(name: "Moonlanding", date: Date(day: 16, month: 7, year: 1969), image: UIImage(named:"moon"), coordinate: CLLocationCoordinate2D(latitude: 47.35296, longitude: 8.78047))
+        let memory = Memory(name: "Moonlanding", date: Date(day: 16, month: 7, year: 1969), image: UIImage(named:"moon"), coordinate: CLLocationCoordinate2D(latitude: 47.35296, longitude: 8.78047), notificationsEnabled: false)
         
         MemoryDetailView(memory: memory)
     }

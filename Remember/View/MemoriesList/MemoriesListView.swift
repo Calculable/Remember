@@ -20,7 +20,7 @@ struct MemoriesListView: View {
         
         NavigationView {
                 List {
-                    ForEach(memories.memories) { memory in
+                    ForEach(memories.availableMemories) { memory in
                         
                         NavigationLink {
                             MemoryDetailView(memory: memory)

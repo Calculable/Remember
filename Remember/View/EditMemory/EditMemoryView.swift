@@ -113,7 +113,7 @@ struct EditMemoryView: View {
         }
         
         let customCoordinate = viewModel.isCustomCoordinate ? viewModel.coordinate : nil
-        let newMemory = Memory(name: viewModel.name, date: viewModel.date, image: viewModel.image, coordinate: customCoordinate, notes: viewModel.notes)
+        let newMemory = Memory(name: viewModel.name, date: viewModel.date, image: viewModel.image, coordinate: customCoordinate, notes: viewModel.notes, notificationsEnabled: viewModel.notificationsEnabled)
         memories.addMemory(newMemory)
         dismiss()
     }

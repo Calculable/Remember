@@ -34,6 +34,9 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
     @Published private var latitude: Double?
     @Published private var longitude: Double?
     
+    @Published var isMarkedForDeletion: Bool = false
+
+    
     var coordinate: CLLocationCoordinate2D? {
         get {
             guard let latitude = latitude else {
@@ -53,6 +56,8 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
         }
         
     }
+    
+    
     
     private enum CodingKeys: String, CodingKey {
         case id, name, date, latitude, longitude, notificationsEnabled, notes
@@ -89,11 +94,12 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
         self.notes = ""
     }
     
-    convenience init(name: String, date: Date, image: UIImage? = nil, coordinate: CLLocationCoordinate2D? = nil, notes: String = "") {
+    convenience init(name: String, date: Date, image: UIImage? = nil, coordinate: CLLocationCoordinate2D? = nil, notes: String = "", notificationsEnabled: Bool) {
         self.init(name: name, date: date)
         self.image = image
         self.coordinate = coordinate
         self.notes = notes
+        self.notificationsEnabled = notificationsEnabled
     }
     
     static func == (lhs: Memory, rhs: Memory) -> Bool {

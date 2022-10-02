@@ -40,6 +40,7 @@
 		3D13CB6928AE4BB7001113BD /* TimelineYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */; };
 		3D1B891B28D438FE00A7046B /* MemoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1B891A28D438FE00A7046B /* MemoryDetailView.swift */; };
 		3DC24F2628D84B2200128AC2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC24F2528D84B2200128AC2 /* MapView.swift */; };
+		3DFF27F028E9699C00330C24 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF27EF28E9699C00330C24 /* ShareSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineYearView.swift; sourceTree = "<group>"; };
 		3D1B891A28D438FE00A7046B /* MemoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryDetailView.swift; sourceTree = "<group>"; };
 		3DC24F2528D84B2200128AC2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		3DFF27EF28E9699C00330C24 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 		3D13CB4A28ABB06C001113BD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3DFF27EE28E9697800330C24 /* ShareSheet */,
 				3DC24F2428D84B1100128AC2 /* Map */,
 				3D1B891928D438E100A7046B /* Details */,
 				3D04CE4028AF70BD005D7A90 /* Lock */,
@@ -259,6 +262,14 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		3DFF27EE28E9697800330C24 /* ShareSheet */ = {
+			isa = PBXGroup;
+			children = (
+				3DFF27EF28E9699C00330C24 /* ShareSheet.swift */,
+			);
+			path = ShareSheet;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -337,6 +348,7 @@
 			files = (
 				3D13CB3028AA9C55001113BD /* MemoriesListView-ViewModel.swift in Sources */,
 				3D04CE3D28AF6D8C005D7A90 /* PrivacySettingsView.swift in Sources */,
+				3DFF27F028E9699C00330C24 /* ShareSheet.swift in Sources */,
 				3D13CB3228AA9DB6001113BD /* EditMemoryView.swift in Sources */,
 				3D13CB3F28AAB4E6001113BD /* MemoryListEntryView.swift in Sources */,
 				3D13CB2E28AA9561001113BD /* SettingsView.swift in Sources */,

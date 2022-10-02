@@ -48,7 +48,6 @@ struct MapView: View {
                         .opacity(0.9)
                     
                 }.onTapGesture {
-                    print("Hello World")
                     selectedMemory = memory
                 }
                 

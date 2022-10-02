@@ -27,7 +27,7 @@ struct UpcomingMemoriesView: View {
                         NavigationLink {
                             MemoryDetailView(memory: specialDay.memory)
                         } label: {
-                            UpcomingMemoryListEntryView(specialDay: specialDay)
+                            UpcomingMemoryListEntryView(specialDay: specialDay, isScreenshot: false)
                         }
                     }
                 }
