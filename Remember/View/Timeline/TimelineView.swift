@@ -24,10 +24,8 @@ struct TimelineView: View {
         let titleOffset*/
         
         
-       
-            
-            VStack {
-                
+        NavigationView {
+                            
                 //Slider(value: $marginAmount, in: 0...1).padding()
             
             ScrollView {
@@ -53,12 +51,14 @@ struct TimelineView: View {
                     
                 }
                 
-            }
+            }.navigationTitle("Timeline")
+            
+        }
 
            
                 
                 
-        }
+        
         
     }
 }

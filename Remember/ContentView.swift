@@ -36,6 +36,7 @@ struct ContentView: View {
 
                     if (!voiceOverEnabled) { //Since the timeline view is created upon a canvas, it is not accessible unfortunately. ToDo: Replace with a better alternative.
                         TimelineView()
+                        
                             .tabItem {
                                 Label("Timeline", systemImage: "calendar.day.timeline.left")
                             }

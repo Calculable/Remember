@@ -29,6 +29,7 @@ struct TimelineYearView: View {
     
     var body: some View {
                     
+        
             Canvas { context, size in
 
                 
@@ -36,12 +37,13 @@ struct TimelineYearView: View {
                 linePath.move(to: CGPoint(x: 0, y: 0))
                 linePath.addLine(to: CGPoint(x: 0, y: size.height))
                 
-                context.stroke(linePath, with: .color(.purple), lineWidth: 20)
+                context.stroke(linePath, with: .color(.gray), lineWidth: 10)
                 
                 let textToDraw:Text = Text("\(String(year))").font(.title)
                 
                 context.draw(textToDraw, at: CGPoint(x: size.width - CGFloat(marginXYear), y: 0), anchor: .topTrailing)
                 
+
                 
                 var currentYPosition:Int = marginToTopForTheFirstMemmory
                 
@@ -50,15 +52,34 @@ struct TimelineYearView: View {
                     let currentMemory = memories[i]
                     currentYPosition += calculateMarginTopToPreviousMemory(forMemoryAt: i)
                     
-                    context.draw(Text("\(currentMemory.name)")
-                        .font(.title2)
-                        .fontWeight(.bold), at: CGPoint(x: marginXMemory, y: currentYPosition), anchor: .topLeading)
+                    var p = Path()
+                    
+                    p.move(to: CGPoint(x: 100, y: 100))
+
+                    let rect = CGRect(x: 0, y: currentYPosition+9, width: 10, height: 10)
+                    p.addRect(rect)
+                    
+                    context.stroke(p, with: .color(.gray), lineWidth: 10)
+                    
+                    let textToDraw = Text("\(currentMemory.name)")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                    
+                    //context.draw(textToDraw, at: CGPoint(x: marginXMemory, y: currentYPosition), anchor: .topLeading)
+                    
+                   // GeometryReader { geo in
+                    context.draw(textToDraw, in: CGRect(x: marginXMemory, y: currentYPosition, width: Int(size.width-50), height: 30))
+                    //}
+
                     
                     currentYPosition += marginYBetweenTitleAndYear
 
-                    context.draw(Text("\(currentMemory.date.formatted(date: .long, time: .omitted))")
-                        .font(.title2)
-                        .foregroundColor(Color.gray), at: CGPoint(x: marginXMemory, y: currentYPosition), anchor: .topLeading)
+                    let dateToDraw =
+                        Text("\(currentMemory.date.formatted(date: .long, time: .omitted))")
+                            .font(.title3)
+                            .foregroundColor(Color.gray)
+                    
+                    context.draw(dateToDraw, at: CGPoint(x: marginXMemory, y: currentYPosition), anchor: .topLeading)
                     
                     
                     currentYPosition += minimalMarginYBetweenTwoMemories //do some specing so that events on the same day do not overlap
