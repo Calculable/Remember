@@ -29,6 +29,12 @@ struct SettingsView: View {
                 }
                 
                 NavigationLink {
+                    DeletedMemoriesListView()
+                } label: {
+                    Text("Deleted Memories")
+                }
+                
+                NavigationLink {
                     Form {
                                                     
                         Text("Warning: This step can not be undone")

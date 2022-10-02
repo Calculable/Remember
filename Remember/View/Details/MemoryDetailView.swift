@@ -71,7 +71,7 @@ struct MemoryDetailView: View {
                         }.padding([.bottom, .top], 20)
                         .alert("Delete Memory", isPresented: $showingDeleteAlert) {
                             Button("Delete", role: .destructive, action: {
-                                memories.remove(memory)
+                                memories.markForDeletion(memory)
                                 isDeleted = true
                             })
                             Button("Cancel", role: .cancel) { }

@@ -39,8 +39,9 @@
 		3D13CB6728AE2C38001113BD /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB6628AE2C38001113BD /* TimelineView.swift */; };
 		3D13CB6928AE4BB7001113BD /* TimelineYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */; };
 		3D1B891B28D438FE00A7046B /* MemoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1B891A28D438FE00A7046B /* MemoryDetailView.swift */; };
+		3D2D081728E998C00036B26D /* MemoryListViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2D081628E998C00036B26D /* MemoryListViewBackground.swift */; };
+		3D2D081928E999980036B26D /* DeletedMemoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2D081828E999980036B26D /* DeletedMemoriesListView.swift */; };
 		3DC24F2628D84B2200128AC2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC24F2528D84B2200128AC2 /* MapView.swift */; };
-		3DFF27F028E9699C00330C24 /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFF27EF28E9699C00330C24 /* ShareSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,8 @@
 		3D13CB6628AE2C38001113BD /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineYearView.swift; sourceTree = "<group>"; };
 		3D1B891A28D438FE00A7046B /* MemoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryDetailView.swift; sourceTree = "<group>"; };
+		3D2D081628E998C00036B26D /* MemoryListViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryListViewBackground.swift; sourceTree = "<group>"; };
+		3D2D081828E999980036B26D /* DeletedMemoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletedMemoriesListView.swift; sourceTree = "<group>"; };
 		3DC24F2528D84B2200128AC2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		3DFF27EF28E9699C00330C24 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -186,6 +189,7 @@
 				3D13CB2B28AA9511001113BD /* MemoriesListView.swift */,
 				3D13CB2F28AA9C55001113BD /* MemoriesListView-ViewModel.swift */,
 				3D13CB3E28AAB4E6001113BD /* MemoryListEntryView.swift */,
+				3D2D081628E998C00036B26D /* MemoryListViewBackground.swift */,
 			);
 			path = MemoriesList;
 			sourceTree = "<group>";
@@ -206,6 +210,7 @@
 				3D13CB2D28AA9561001113BD /* SettingsView.swift */,
 				3D13CB5A28ACE1E9001113BD /* NotificationSettingsView.swift */,
 				3D04CE3C28AF6D8C005D7A90 /* PrivacySettingsView.swift */,
+				3D2D081828E999980036B26D /* DeletedMemoriesListView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -348,14 +353,15 @@
 			files = (
 				3D13CB3028AA9C55001113BD /* MemoriesListView-ViewModel.swift in Sources */,
 				3D04CE3D28AF6D8C005D7A90 /* PrivacySettingsView.swift in Sources */,
-				3DFF27F028E9699C00330C24 /* ShareSheet.swift in Sources */,
 				3D13CB3228AA9DB6001113BD /* EditMemoryView.swift in Sources */,
 				3D13CB3F28AAB4E6001113BD /* MemoryListEntryView.swift in Sources */,
 				3D13CB2E28AA9561001113BD /* SettingsView.swift in Sources */,
 				3D13CB5B28ACE1E9001113BD /* NotificationSettingsView.swift in Sources */,
 				3D13CB2A28AA948D001113BD /* UpcomingMemoriesView.swift in Sources */,
+				3D2D081928E999980036B26D /* DeletedMemoriesListView.swift in Sources */,
 				3DC24F2628D84B2200128AC2 /* MapView.swift in Sources */,
 				3D13CB2C28AA9511001113BD /* MemoriesListView.swift in Sources */,
+				3D2D081728E998C00036B26D /* MemoryListViewBackground.swift in Sources */,
 				3D13CB3D28AAB0FC001113BD /* Memory.swift in Sources */,
 				3D13CB4528AB7C6A001113BD /* UpcomingSpecialDay.swift in Sources */,
 				3D13CB5628AC017B001113BD /* UpcomingMemoryListEntryView.swift in Sources */,

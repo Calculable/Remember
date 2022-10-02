@@ -14,6 +14,7 @@ class Memories: ObservableObject {
     @Published private(set) var memories: [Memory] = []
     let notificationHelper = NotificationHelper()
 
+    
     var availableMemories: [Memory] {
         memories.filter {
             !$0.isMarkedForDeletion
@@ -45,6 +46,7 @@ class Memories: ObservableObject {
     
     func addExampleMemories() {
 
+       
         
         memories.append(Memory(name: "First man on the moon", date: Date(day: 21, month: 7, year: 1969), image: UIImage(named:"first_man_on_the_moon"), notes: "Apollo 11 was the American spaceflight that first landed humans on the Moon. Commander Neil Armstrong and lunar module pilot Buzz Aldrin landed the Apollo Lunar Module Eagle on July 20, 1969, at 20:17 UTC, and Armstrong became the first person to step onto the Moon's surface six hours and 39 minutes later, on July 21 at 02:56 UTC. Aldrin joined him 19 minutes later, and they spent about two and a quarter hours together exploring the site they had named Tranquility Base upon landing. Armstrong and Aldrin collected 47.5 pounds (21.5 kg) of lunar material to bring back to Earth as pilot Michael Collins flew the Command Module Columbia in lunar orbit, and were on the Moon's surface for 21 hours, 36 minutes before lifting off to rejoin Columbia.\n\nImage Credit: NASA on Unsplash\n\nSource: Apollo 11. (2022, 09 15). In Wikipedia. https://de.wikipedia.org/w/index.php?title=Apollo_11&oldid=226190691", notificationsEnabled: false))
 
@@ -88,14 +90,24 @@ class Memories: ObservableObject {
     }
     
     func markForDeletion(_ memory: Memory) {
+        objectWillChange.send()
+        
         notificationHelper.removeNotification(for: memory) //redundant because all notifications get recreated on save
         memory.isMarkedForDeletion = true
         save()
     }
     
     func restore(_ memory: Memory) {
+        objectWillChange.send()
+        
         memory.isMarkedForDeletion = false
         save()
+    }
+    
+    func deleteMarkedMemories() {
+        for memoryToDelete in memories {
+            remove(memoryToDelete)
+        }
     }
     
     func remove(_ memory: Memory) {

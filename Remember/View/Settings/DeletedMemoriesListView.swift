@@ -1,27 +1,24 @@
 //
-//  MemoriesListView.swift
+//  DeletedMemoriesListView.swift
 //  Remember
 //
-//  Created by Jan Huber on 15.08.22.
+//  Created by Jan Huber on 02.10.22.
 //
 
 import SwiftUI
 
-struct MemoriesListView: View {
+struct DeletedMemoriesListView: View {
     
     @Environment(\.accessibilityReduceTransparency) var accessibilityReduceTransparency;
 
     
-    @StateObject private var viewModel: ViewModel = ViewModel()
+    //@StateObject private var viewModel: ViewModel = ViewModel()
     @EnvironmentObject var memories: Memories
-
-    let notificationHelper = NotificationHelper()
     
     var body: some View {
         
-        NavigationView {
                 List {
-                    ForEach(memories.availableMemories) { memory in
+                    ForEach(memories.memoriesMarkedForDeletion) { memory in
                         
                         NavigationLink {
                             MemoryDetailView(memory: memory)
@@ -30,7 +27,7 @@ struct MemoriesListView: View {
                             MemoryListEntryView(memory: memory)
                                 .swipeActions {
                                     Button(role: .destructive) {
-                                        memories.markForDeletion(memory)
+                                        memories.remove(memory)
                                     
                                     } label: {
                                         Label("Delete", systemImage: "minus.circle")
@@ -41,18 +38,15 @@ struct MemoriesListView: View {
                                 
                         }.swipeActions(edge: .leading) {
                             Button {
-                                memories.toggleNotifications(for: memory)
-                                notificationHelper.updateNotification(for: memory)
 
+                                //Do Something
+                                memories.restore(memory)
+                                
                             } label: {
-                                if memory.notificationsEnabled {
-                                    Label("Disable Notifications", systemImage: "bell.slash")
-                                } else {
-                                    Label("Enable Notifications", systemImage: "bell")
-                                }
+                                Label("Restore", systemImage: "gobackward")
                                 
                             }
-                            .tint(memory.notificationsEnabled ? .gray : .purple)
+                            .tint(.orange)
                         }
 
                         .listRowBackground(
@@ -72,38 +66,34 @@ struct MemoriesListView: View {
 
                 }
 
-
-                .environment(\.defaultMinListRowHeight, 160)
-                .navigationTitle("Memories")
                 .toolbar {
                     ToolbarItem() {
                         Button {
-                            viewModel.showAddMemoryView()
+                            memories.deleteMarkedMemories()
                         } label: {
-                            Label("Add Memory", systemImage: "plus")
+                            Label("Delete Forever", systemImage: "xmark.bin.fill")
                         }
                     }
                 }
-            
-            Text("Please select a memory to see the details")
+                .environment(\.defaultMinListRowHeight, 160)
+                .navigationTitle("Deleted Memories")
+                .navigationBarTitleDisplayMode(.inline)
 
-        }
-        .phoneOnlyStackNavigationView()
-        .sheet(isPresented: $viewModel.showAddMemorySheet) {
-            EditMemoryView()
-        }
+        
+
+
     }
     
 
 }
 
-struct MemoriesListView_Previews: PreviewProvider {
+struct DeletedMemoriesListView_Previews: PreviewProvider {
     
     static var previews: some View {
         
         let memories = Memories()
         
-        return MemoriesListView()
+        return DeletedMemoriesListView()
             .environmentObject(memories)
     }
 }

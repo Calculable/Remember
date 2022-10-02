@@ -17,7 +17,7 @@ extension UpcomingMemoriesView {
         
         func generateUpcomingSpecialDays(memories: Memories) -> [UpcomingSpecialDay] {
             var result: [UpcomingSpecialDay] = []
-            for memory in memories.memories {
+            for memory in memories.availableMemories {
                 result.append(nextAnniversary(of: memory));
                 result.append(contentsOf: nextSpecialDayIntervals(of: memory))
             }

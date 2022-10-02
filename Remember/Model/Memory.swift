@@ -60,7 +60,7 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
     
     
     private enum CodingKeys: String, CodingKey {
-        case id, name, date, latitude, longitude, notificationsEnabled, notes
+        case id, name, date, latitude, longitude, notificationsEnabled, notes, isMarkedForDeletion
     }
     
     required init(from decoder: Decoder) throws {
@@ -72,6 +72,8 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
         latitude = try container.decode(Double?.self, forKey: .latitude)
         longitude = try container.decode(Double?.self, forKey: .longitude)
         notes = try container.decode(String.self, forKey: .notes)
+        isMarkedForDeletion = try container.decode(Bool.self, forKey: .isMarkedForDeletion)
+
         image = Memory.loadImageFromDocumentDirectory(memory: self)
     }
     
@@ -84,6 +86,7 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
         try container.encode(latitude, forKey: .latitude)
         try container.encode(longitude, forKey: .longitude)
         try container.encode(notes, forKey: .notes)
+        try container.encode(isMarkedForDeletion, forKey: .isMarkedForDeletion)
 
         
     }
