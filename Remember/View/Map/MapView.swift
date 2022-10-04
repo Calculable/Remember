@@ -36,7 +36,7 @@ struct MapView: View {
                         .padding(5)
                         
 
-                        .background(Color.red)
+                        .background(Color.background)
                         .foregroundColor(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
                         .opacity(0.9)
@@ -44,7 +44,7 @@ struct MapView: View {
                     
                     Image(systemName: "mappin.circle.fill")
                         .font(.largeTitle)
-                        .foregroundColor(.red)
+                        .foregroundColor(.background)
                         .opacity(0.9)
                     
                 }.onTapGesture {

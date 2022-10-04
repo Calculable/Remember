@@ -11,6 +11,7 @@
 		3D04CE3F28AF6FBB005D7A90 /* AuthenticationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04CE3E28AF6FBB005D7A90 /* AuthenticationHelper.swift */; };
 		3D04CE4228AF70DC005D7A90 /* LockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04CE4128AF70DC005D7A90 /* LockView.swift */; };
 		3D04CE4428AFA0A2005D7A90 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04CE4328AFA0A2005D7A90 /* ViewExtensions.swift */; };
+		3D128C7228EBF14300481562 /* ShapeStyleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D128C7128EBF14300481562 /* ShapeStyleExtensions.swift */; };
 		3D13CB1C28AA8FFC001113BD /* RememberApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB1B28AA8FFC001113BD /* RememberApp.swift */; };
 		3D13CB1E28AA8FFC001113BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB1D28AA8FFC001113BD /* ContentView.swift */; };
 		3D13CB2028AA8FFE001113BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D13CB1F28AA8FFE001113BD /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		3D04CE4128AF70DC005D7A90 /* LockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockView.swift; sourceTree = "<group>"; };
 		3D04CE4328AFA0A2005D7A90 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		3D04CE4528AFA12A005D7A90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		3D128C7128EBF14300481562 /* ShapeStyleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeStyleExtensions.swift; sourceTree = "<group>"; };
 		3D13CB1828AA8FFB001113BD /* Remember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remember.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D13CB1B28AA8FFC001113BD /* RememberApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberApp.swift; sourceTree = "<group>"; };
 		3D13CB1D28AA8FFC001113BD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				3D13CB4628AB8E04001113BD /* CalendarExtensions.swift */,
 				3D13CB5C28ACF7A9001113BD /* DateExtensions.swift */,
 				3D04CE4328AFA0A2005D7A90 /* ViewExtensions.swift */,
+				3D128C7128EBF14300481562 /* ShapeStyleExtensions.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				3D2D081928E999980036B26D /* DeletedMemoriesListView.swift in Sources */,
 				3DC24F2628D84B2200128AC2 /* MapView.swift in Sources */,
 				3D13CB2C28AA9511001113BD /* MemoriesListView.swift in Sources */,
+				3D128C7228EBF14300481562 /* ShapeStyleExtensions.swift in Sources */,
 				3D2D081728E998C00036B26D /* MemoryListViewBackground.swift in Sources */,
 				3D13CB3D28AAB0FC001113BD /* Memory.swift in Sources */,
 				3D13CB4528AB7C6A001113BD /* UpcomingSpecialDay.swift in Sources */,

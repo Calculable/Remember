@@ -57,7 +57,7 @@ struct MemoryDetailView: View {
                     
                     if memory.coordinate != nil {
                         Map(coordinateRegion: $mapRegion, annotationItems: [memory]) { memory in
-                            MapMarker(coordinate: memory.coordinate!)
+                            MapMarker(coordinate: memory.coordinate!, tint: .background)
                         }.aspectRatio(2, contentMode: .fill)
                             .frame(minHeight: 300)
                             .padding()
