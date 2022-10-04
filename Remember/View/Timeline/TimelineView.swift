@@ -52,8 +52,9 @@ struct TimelineView: View {
                 }
                 
             }.navigationTitle("Timeline")
+               
             
-        }
+        } .navigationViewStyle(.stack)
 
            
                 

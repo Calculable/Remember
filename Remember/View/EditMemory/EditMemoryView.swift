@@ -71,7 +71,9 @@ struct EditMemoryView: View {
                                 }, label: {
                                     Text("Close").foregroundColor(.red)
                                 }))
-                        }
+                               
+                            
+                        }.navigationViewStyle(.stack)
                     }
                     
                     if (viewModel.isCustomCoordinate) {

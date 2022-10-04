@@ -60,7 +60,7 @@ struct UpcomingMemoryListEntryView: View {
                         view.isScreenshot = true
                         UIImageWriteToSavedPhotosAlbum(view.snapshot(width: 500, height: 500), nil, nil, nil)
                         showImageSavedNotification = true
-
+ 
                     }.buttonStyle(.borderedProminent)
                 }
 

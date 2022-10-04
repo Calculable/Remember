@@ -81,7 +81,6 @@
 		3D2D081628E998C00036B26D /* MemoryListViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryListViewBackground.swift; sourceTree = "<group>"; };
 		3D2D081828E999980036B26D /* DeletedMemoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletedMemoriesListView.swift; sourceTree = "<group>"; };
 		3DC24F2528D84B2200128AC2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		3DFF27EF28E9699C00330C24 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,7 +169,6 @@
 		3D13CB4A28ABB06C001113BD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3DFF27EE28E9697800330C24 /* ShareSheet */,
 				3DC24F2428D84B1100128AC2 /* Map */,
 				3D1B891928D438E100A7046B /* Details */,
 				3D04CE4028AF70BD005D7A90 /* Lock */,
@@ -265,14 +263,6 @@
 				3DC24F2528D84B2200128AC2 /* MapView.swift */,
 			);
 			path = Map;
-			sourceTree = "<group>";
-		};
-		3DFF27EE28E9697800330C24 /* ShareSheet */ = {
-			isa = PBXGroup;
-			children = (
-				3DFF27EF28E9699C00330C24 /* ShareSheet.swift */,
-			);
-			path = ShareSheet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
