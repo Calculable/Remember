@@ -101,7 +101,7 @@ struct UpcomingMemoryListEntryView: View {
 
 }
 
-struct UpcomingMemoryListEntryView_Previews: PreviewProvider {
+class UpcomingMemoryListEntryView_Previews: PreviewProvider {
     static var previews: some View {
         let exampleMemory = Memory(name: "Example Memory")
         
@@ -111,5 +111,6 @@ struct UpcomingMemoryListEntryView_Previews: PreviewProvider {
         let specialDay = UpcomingSpecialDay(memory: exampleMemory, dateOfTheSpecialDay: dateOfSpecialDay, type: .year)
         return UpcomingMemoryListEntryView(specialDay: specialDay, isScreenshot: false)
     }
+
 }
 

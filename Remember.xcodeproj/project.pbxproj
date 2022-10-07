@@ -43,6 +43,7 @@
 		3D2D081728E998C00036B26D /* MemoryListViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2D081628E998C00036B26D /* MemoryListViewBackground.swift */; };
 		3D2D081928E999980036B26D /* DeletedMemoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2D081828E999980036B26D /* DeletedMemoriesListView.swift */; };
 		3DC24F2628D84B2200128AC2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC24F2528D84B2200128AC2 /* MapView.swift */; };
+		3DF4A1FD28EC763D005FE110 /* HotReloading in Frameworks */ = {isa = PBXBuildFile; productRef = 3DF4A1FC28EC763D005FE110 /* HotReloading */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3DF4A1FD28EC763D005FE110 /* HotReloading in Frameworks */,
 				3D13CB3728AAA76E001113BD /* LocationPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +288,7 @@
 			name = Remember;
 			packageProductDependencies = (
 				3D13CB3628AAA76E001113BD /* LocationPicker */,
+				3DF4A1FC28EC763D005FE110 /* HotReloading */,
 			);
 			productName = Remember;
 			productReference = 3D13CB1828AA8FFB001113BD /* Remember.app */;
@@ -317,6 +320,7 @@
 			mainGroup = 3D13CB0F28AA8FFB001113BD;
 			packageReferences = (
 				3D13CB3528AAA76E001113BD /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */,
+				3DF4A1FB28EC763D005FE110 /* XCRemoteSwiftPackageReference "HotReloading" */,
 			);
 			productRefGroup = 3D13CB1928AA8FFB001113BD /* Products */;
 			projectDirPath = "";
@@ -437,6 +441,9 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"\"-Xlinker -interposable\"",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -490,6 +497,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = (
+					"\"-Xlinker -interposable\"",
+				);
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -595,6 +605,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		3DF4A1FB28EC763D005FE110 /* XCRemoteSwiftPackageReference "HotReloading" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/johnno1962/HotReloading";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -602,6 +620,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3D13CB3528AAA76E001113BD /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */;
 			productName = LocationPicker;
+		};
+		3DF4A1FC28EC763D005FE110 /* HotReloading */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DF4A1FB28EC763D005FE110 /* XCRemoteSwiftPackageReference "HotReloading" */;
+			productName = HotReloading;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

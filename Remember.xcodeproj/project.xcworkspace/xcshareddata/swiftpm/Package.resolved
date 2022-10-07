@@ -1,12 +1,75 @@
 {
   "pins" : [
     {
+      "identity" : "dlkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnno1962/DLKit",
+      "state" : {
+        "revision" : "0c419bc7e248aa426712b52cb14e39ca4a5e7ecc",
+        "version" : "1.2.1"
+      }
+    },
+    {
+      "identity" : "hotreloading",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnno1962/HotReloading",
+      "state" : {
+        "revision" : "86cd7e42e742fd3d2795739cb57c92410b4943fc",
+        "version" : "4.5.3"
+      }
+    },
+    {
+      "identity" : "injectionscratch",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnno1962/InjectionScratch",
+      "state" : {
+        "revision" : "6c158cd2e9233dad709f1ac0b4e6ed6e4d3e6184",
+        "version" : "1.2.12"
+      }
+    },
+    {
       "identity" : "locationpickerforswiftui",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/alessiorubicini/LocationPickerForSwiftUI",
       "state" : {
         "revision" : "5758773d1da0179913e2251c8db681170c71c50d",
         "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "remote",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnno1962/Remote",
+      "state" : {
+        "revision" : "2a03313297a15f31b354dbf2b40c62ca9630b0a1",
+        "version" : "2.3.5"
+      }
+    },
+    {
+      "identity" : "swiftregex5",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnno1962/SwiftRegex5",
+      "state" : {
+        "revision" : "8ecb4a8570757b7f8bce72f82242742e13891f99",
+        "version" : "5.2.3"
+      }
+    },
+    {
+      "identity" : "swifttrace",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnno1962/SwiftTrace",
+      "state" : {
+        "revision" : "21aaa8b6d0f70d92e155300c45d4059ec93a952a",
+        "version" : "8.2.14"
+      }
+    },
+    {
+      "identity" : "xprobeplugin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnno1962/XprobePlugin",
+      "state" : {
+        "revision" : "069a8c03ae6663175c369e3858a8372ea3ee95f4",
+        "version" : "2.9.0"
       }
     }
   ],
