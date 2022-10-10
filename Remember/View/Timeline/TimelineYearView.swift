@@ -14,6 +14,9 @@ import SwiftUI
 
 struct TimelineYearView: View {
     
+    @Environment(\.colorScheme) var colorScheme
+
+    
     var memories: [Memory]
     var year: Int
     
@@ -59,7 +62,7 @@ struct TimelineYearView: View {
                     let rect = CGRect(x: 0, y: currentYPosition+9, width: 10, height: 10)
                     p.addRect(rect)
                     
-                    context.stroke(p, with: .color(.background), lineWidth: 10)
+                    context.stroke(p, with: .color(colorScheme == .dark ? .lightBackground : .background), lineWidth: 10)
                     
                     let textToDraw = Text("\(currentMemory.name)")
                         .font(.title3)
@@ -77,7 +80,7 @@ struct TimelineYearView: View {
                     let dateToDraw =
                         Text("\(currentMemory.date.formatted(date: .long, time: .omitted))")
                             .font(.title3)
-                            .foregroundColor(Color.background)
+                            .foregroundColor(colorScheme == .dark ? .lightBackground : .background)
                     
                     context.draw(dateToDraw, at: CGPoint(x: marginXMemory, y: currentYPosition), anchor: .topLeading)
                     
