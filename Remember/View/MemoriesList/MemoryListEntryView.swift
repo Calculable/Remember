@@ -17,21 +17,21 @@ struct MemoryListEntryView: View {
         
         VStack(alignment: .leading) {
             
-                        
+                     
+            Group {
                 Text(memory.name)
                 .font(.title2)
                 .fontWeight(.bold)
 
-
-            
+                Text(memory.date.formatted(date: .long, time: .omitted))
+                    .foregroundColor(.white).padding([.top, .bottom], 6)
                 
-            
-            Text(memory.date.formatted(date: .long, time: .omitted))
-                .foregroundColor(.white).padding([.top, .bottom], 6)
+            }.accessibilityElement(children: .combine)
 
             if (showNotificationSymbol) {
                 Image(systemName: memory.notificationsEnabled ? "bell.fill" : "bell.slash")
                     .foregroundColor(.white)
+                    .accessibilityLabel(memory.notificationsEnabled ? "yearly notifications are enabled for this memory" : "yearly notifications are disabled for this memory")
             }
 
 

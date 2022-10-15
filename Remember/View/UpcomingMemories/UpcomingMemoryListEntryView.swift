@@ -46,22 +46,28 @@ struct UpcomingMemoryListEntryView: View {
                 .accessibilityHidden(true)
             
             VStack(alignment: .center) {
-                Text("\(Image(systemName: "calendar.circle")) \(specialDay.dateOfTheSpecialDay.formatted(date: .long, time: .omitted))  \n(\(describeRemainingDays(specialDay.dateOfTheSpecialDay)))")
-                    .foregroundColor(remainingDaysTo(to: specialDay.dateOfTheSpecialDay) <= 7 ? .red : .white)
-                    .multilineTextAlignment(.center)
-                                        
-                                         
-                switch(specialDay.type) {
-                case .year:
-                    Text("\(specialDay.years) years since: \(specialDay.memory.name)")
-                        .font(.title)
-                        .foregroundColor(.white)
-                case .day:
-                    Text("\(specialDay.days) days since: \(specialDay.memory.name)")
-                        .font(.title)
-                        .foregroundColor(.white)
+                
+                Group {
+                    
+                
+                    Text("\(Image(decorative: "calendar.circle")) \(specialDay.dateOfTheSpecialDay.formatted(date: .long, time: .omitted))  \n(\(describeRemainingDays(specialDay.dateOfTheSpecialDay)))")
+                        .foregroundColor(remainingDaysTo(to: specialDay.dateOfTheSpecialDay) <= 7 ? .red : .white)
+                        .multilineTextAlignment(.center)
+                                            
+                                             
+                    switch(specialDay.type) {
+                    case .year:
+                        Text("\(specialDay.years) years since: \(specialDay.memory.name)")
+                            .font(.title)
+                            .foregroundColor(.white)
+                    case .day:
+                        Text("\(specialDay.days) days since: \(specialDay.memory.name)")
+                            .font(.title)
+                            .foregroundColor(.white)
 
-                }
+                    }
+                    
+                }.accessibilityElement(children: .combine)
                 
                 if (!isScreenshot) {
                     Button("Share") {
