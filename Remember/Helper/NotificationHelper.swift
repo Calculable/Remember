@@ -63,9 +63,9 @@ struct NotificationHelper {
         let content = UNMutableNotificationContent()
         
         switch daysBeforeEvent {
-            case 0: content.title = "New anniversary today"
-            case 1: content.title = "New anniversary tomorrow"
-            default: content.title = "New anniversary in \(daysBeforeEvent) days"
+            case 0: content.title = String(localized: "New anniversary today")
+            case 1: content.title = String(localized: "New anniversary tomorrow")
+            default: content.title = String(localized: "New anniversary in \(daysBeforeEvent) days")
         }
 
         content.subtitle = "\(memory.name) \(memory.date.formatted(date: .long, time: .omitted))"

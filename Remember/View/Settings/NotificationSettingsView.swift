@@ -21,11 +21,12 @@ struct NotificationSettingsView: View {
     func describeDaysBeforeEvent(_ daysBeforeEvent: Int) -> String {
         switch (daysBeforeEvent) {
         case 0:
-            return "On the same day"
+            return String(localized: "On the same day")
         case 1:
-            return "1 day before the event"
+            return String(localized: "1 day before the event")
         default:
-            return "\(daysBeforeEvent) days before the event"
+            return String(format: NSLocalizedString("%d days before the event", comment: "number of days before the event"), daysBeforeEvent)
+
         }
     }
     

@@ -58,24 +58,14 @@ struct UpcomingMemoryListEntryView: View {
                         .multilineTextAlignment(.center)
                         .accessibilityHidden(true)
                                             
-                                             
-                    switch(specialDay.type) {
-                    case .year:
-                        Text("\(specialDay.years) years since: \(specialDay.memory.name)")
-                            .font(.title)
-                            .foregroundColor(.white)
-                    case .day:
-                        Text("\(specialDay.days) days since: \(specialDay.memory.name)")
-                            .font(.title)
-                            .foregroundColor(.white)
-
-                    }
+                    Text("\(getTimeIntervallDescription(specialDay: specialDay)): \(specialDay.memory.name)")
+                        .font(.title)
+                        .foregroundColor(.white)
                     
                 }.accessibilityElement(children: .combine)
                 
                 if (!isScreenshot) {
                     Button("Share") {
-                        print("save to photo gallery")
                         let view = UpcomingMemoryListEntryView(specialDay: specialDay, isScreenshot: true)
                         view.isScreenshot = true
                         
@@ -121,6 +111,17 @@ struct UpcomingMemoryListEntryView: View {
     }
     
 
+    func getTimeIntervallDescription(specialDay: UpcomingSpecialDay) -> String {
+        switch(specialDay.type) {
+            case .year:
+            return String(format: NSLocalizedString("%d years since", comment: "number of days since the anniversary"), specialDay.years)
+
+            case .day:
+                return String(format: NSLocalizedString("%d days since", comment: "number of days since the anniversary"), specialDay.days)
+
+
+        }
+    }
     
     func remainingDaysTo(to date: Date) -> Int {
         return Calendar.current.today().timeIntervalInDays(to: date)
@@ -131,11 +132,12 @@ struct UpcomingMemoryListEntryView: View {
         
         switch (numberOfRemainingDays) {
         case 0:
-            return "Today"
+            return String(localized: "Today")
         case 1:
-            return "Tomorrow"
+            return String(localized: "Tomorrow")
         default:
-            return "In \(numberOfRemainingDays) days"
+            return String(format: NSLocalizedString("In %d days", comment: "number of days remaining days"), numberOfRemainingDays)
+
         }
     }
     

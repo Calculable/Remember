@@ -65,7 +65,7 @@ struct EditMemoryView: View {
                         NavigationView {
                             
                             // Just put the view into a sheet or navigation link
-                            LocationPicker(instructions: "Tap somewhere to select your coordinates", coordinates: $viewModel.coordinate)
+                            LocationPicker(instructions: String(localized: "Tap on the map to select your coordinates"), coordinates: $viewModel.coordinate)
                                 .navigationBarItems(leading: Button(action: {
                                     viewModel.showingMapPicker = false
                                 }, label: {

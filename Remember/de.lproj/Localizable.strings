@@ -1,0 +1,80 @@
+/* 
+  Localizable.strings
+  Remember
+
+  Created by Jan Huber on 15.10.22.
+  
+*/
+"%d days before the event" = "%d Tage vor dem Jubiläum";
+"%d days since" = "%d Tage seit";
+"%d years since" = "%d Jahre seit";
+"1 day before the event" = "1 Tag vor dem Jubiläum";
+"Add Memory" = "Erinnerung hinzufügen";
+"Add New Memory" = "Neue Erinnerung";
+"Are you sure?" = "Sind Sie sicher?";
+"Biometrics are disabled or not supported on this device" = "Biometrische Authentifizierung (FaceID / TouchID) ist für dieses Gerät deaktiviert oder nicht unterstützt";
+"Biometrics not available" = "Biometrische Authentifizierung (FaceID / TouchID) ist für dieses Gerät nicht unterstützt";
+"Cancel" = "Abbrechen";
+"Close" = "Schliessen";
+"Date" = "Datum";
+"Days before event" = "Tage vor dem Jubiläum";
+"Delete Forever" = "Endgültig löschen";
+"Delete Memory" = "Erinnerung löschen";
+"Delete" = "Löschen";
+"Deleted Memories" = "Gelöschte Erinnerungen";
+"Details" = "Details";
+"Disable Notifications" = "Benachrichtigungen deaktivieren";
+"Edit Memory" = "Erinnerung bearbeiten";
+"Edit" = "Bearbeiten";
+"Enable biometric authentication (if available)" = "Biometrische Authentifizierung aktivieren (falls verfügbar)";
+"Enable Notifications" = "Benachrichtigungen aktivieren";
+"Enable yearly notifications" = "jährliche Benachrichtigungen aktivieren";
+"General Inforamation" = "Allgemeine Informationen";
+"Image (Optional)" = "Bild (Optional)";
+"Image could not be saved" = "Das Bild konnte nicht gespeichert werden";
+"Image saved" = "Bild gespeichert";
+"In %d days" = "In %d Tagen";
+"Location (Optional)" = "Standort (Optional)";
+"Map" = "Karte";
+"Memories" = "Erinnerungen";
+"New anniversary in %d days" = "Neues Jubiläum in %d Tagen";
+"New memory today" = "Neues Jubiläum heute";
+"New memory tomorrow" = "Neues Jubiläum morgen";
+"No Memories to display" = "Keine Erinnerungen vorhanden";
+"Notes (Optional)" = "Notizen (Optional)";
+"Notifications can be triggered for the anniversaries of the memories. Under the Memories tab, notifications can be turned on or off individually for each memory.\n\nPlease make sure that the app has permission to send notifications (iOS Settings > Notifications)." = "Für die Jahrestage von Erinnerungen können Benachrichtigungen ausgelöst werden. Unter dem Tab 'Erinnerungen' können Sie die Benachrichtigungen für jede Erinnerung individuell ein- oder ausgeschalten.\n\nBitte stellen Sie sicher, dass die App über die Berechtigung zum Senden von Benachrichtigungen verfügt (iOS Einstellungen > Benachrichtigungen).";
+"Notifications" = "Benachrichtigungen";
+"OK" = "OK";
+"On the same day" = "Am gleichen Tag";
+"Please select a memory to see the details" = "Bitte wählen Sie eine Erinnerung, um die Details anzuzeigen";
+"Please select an upcoming memory to see the details" = "Bitte wählen Sie ein anstehendes Jubiläum, um die Details anzuzeigen";
+"Privacy" = "Privatsphäre";
+"Remove all custom memories" = "Alle angelegten Erinnerungen entfernen";
+"Remove image" = "Bild entfernen";
+"Remove location" = "Standort entfernen";
+"Reset" = "Zurücksetzen";
+"Restore" = "Wiederherstellen";
+"Save" = "Speichern";
+"Search memory" = "Nach Erinnerung suchen";
+"Search upcoming memory" = "Nach Jubiläum suchen";
+"Select Image" = "Bild auswählen";
+"Select location" = "Standort auswählen";
+"Settings" = "Einstellungen";
+"Share" = "Teilen";
+"show your memories" = "ihre Erinnerungen anzeigen";
+"Tap on the map to select your coordinates" = "Klicken Sie auf der Karte, um eine Koordinate auszuwählen";
+"The image was saved to your photo gallery" = "Das Bild wurde in der Fotogalerie gespeichert";
+"The image you chose for this memory" = "Das Bild, welches Sie für diese Erinnerung ausgewählt haben";
+"There was an error while saving the image" = "Beim Speichern des Bildes ist ein Fehler aufgetreten";
+"This memory was deleted" = "Diese Erinnerung wurde gelöscht";
+"Time of notifications" = "Uhrzeit der Benachrichtigung";
+"Timeline" = "Timeline";
+"Title" = "Titel";
+"Today" = "Heute";
+"Tomorrow" = "Morgen";
+"Unlock" = "Entsperren";
+"Upcoming" = "Jubiläen";
+"Warning: This step can not be undone" = "Achtung: Dieser Schritt kann nicht rückgängig gemacht werden";
+"yearly notifications are disabled for this memory" = "jährliche Benachrichtigungen sind für diese Erinnerung deaktiviert";
+"yearly notifications are enabled for this memory" = "jährliche Benachrichtigungen sind für diese Erinnerung aktiviert";
+"You can use Face ID or Touch ID to unlock the app. Please note that the data will be accessible if biometrics are disabled for this device." = "Sie können Face ID oder Touch ID verwenden, um die App zu entsperren. Bitte beachten Sie, dass die Daten zugänglich sind, wenn die biometrischen Funktionen für dieses Gerät deaktiviert sind.";

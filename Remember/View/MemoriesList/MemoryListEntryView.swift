@@ -31,7 +31,7 @@ struct MemoryListEntryView: View {
             if (showNotificationSymbol) {
                 Image(systemName: memory.notificationsEnabled ? "bell.fill" : "bell.slash")
                     .foregroundColor(.white)
-                    .accessibilityLabel(memory.notificationsEnabled ? "yearly notifications are enabled for this memory" : "yearly notifications are disabled for this memory")
+                    .accessibilityLabel(memory.notificationsEnabled ? String(localized: "yearly notifications are enabled for this memory") : String(localized: "yearly notifications are disabled for this memory"))
             }
 
 

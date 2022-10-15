@@ -33,7 +33,7 @@ struct AuthenticationHelper {
         
         AuthenticationHelper.checkIfBiometricsAreAvailable() {
             // it's possible, so go ahead and use it
-            let reason = "We need to unlock your data."
+            let reason = String(localized: "show your memories")
 
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
                 // authentication has now completed
