@@ -18,13 +18,13 @@ func getListBackground(memory: Memory, withReducedTransparency reducedTransparen
                 memory.displayImage!.resizable().scaledToFill().opacity(1)
                 Rectangle()
                     .fill(Color.black.opacity(increasedContrast ? 0.8 : 0.5))
-            }
+            }.accessibilityHidden(true)
         
-        );
+        )
         //return AnyView(Color(uiColor: UIColor.darkGray))
 
     } else {
-        return AnyView(Color(uiColor: UIColor.darkGray))
+        return AnyView(Color(uiColor: UIColor.darkGray).accessibilityHidden(true))
     }
 
 }

@@ -28,6 +28,7 @@ struct UpcomingMemoryListEntryView: View {
                 GeometryReader { geo in
         
                     Image(uiImage: image).resizable().scaledToFill().frame(width: geo.size.width).frame(height: geo.size.width).clipped()
+                        .accessibilityHidden(true)
                     
 
                 }
@@ -42,6 +43,7 @@ struct UpcomingMemoryListEntryView: View {
             
             Rectangle()
                 .fill(Color.black.opacity(backgroundOpacity))
+                .accessibilityHidden(true)
             
             VStack(alignment: .center) {
                 Text("\(Image(systemName: "calendar.circle")) \(specialDay.dateOfTheSpecialDay.formatted(date: .long, time: .omitted))  \n(\(describeRemainingDays(specialDay.dateOfTheSpecialDay)))")
