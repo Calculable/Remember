@@ -58,11 +58,11 @@ struct MemoriesListView: View {
                         .listRowBackground(
                             GeometryReader { geo in
                     
-                                getListBackground(memory: memory, withReducedTransparency: accessibilityReduceTransparency).frame(height: 158).frame(width: geo.size.width).clipped()
+                                getListBackground(memory: memory, withReducedTransparency: accessibilityReduceTransparency).frame(minHeight: 158).frame(width: geo.size.width).clipped()
 
                         })
                         
-                        .listRowSeparator(.hidden)
+                        //.listRowSeparator(.hidden)
 
                     }
 

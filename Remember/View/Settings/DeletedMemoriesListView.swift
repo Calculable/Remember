@@ -24,7 +24,7 @@ struct DeletedMemoriesListView: View {
                             MemoryDetailView(memory: memory)
                         } label: {
                             
-                            MemoryListEntryView(memory: memory)
+                            MemoryListEntryView(memory: memory, showNotificationSymbol: false)
                                 .swipeActions {
                                     Button(role: .destructive) {
                                         memories.remove(memory)
@@ -52,7 +52,7 @@ struct DeletedMemoriesListView: View {
                         .listRowBackground(
                             GeometryReader { geo in
                     
-                                getListBackground(memory: memory, withReducedTransparency: accessibilityReduceTransparency).frame(height: 158).frame(width: geo.size.width).clipped()
+                                getListBackground(memory: memory, withReducedTransparency: accessibilityReduceTransparency).frame(minHeight: 158).frame(width: geo.size.width).clipped()
 
                         })
                         

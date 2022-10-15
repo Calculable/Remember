@@ -11,7 +11,8 @@ import SwiftUI
 struct MemoryListEntryView: View {
         
     @StateObject var memory: Memory
-    
+    var showNotificationSymbol: Bool = true
+
     var body: some View {
         
         VStack(alignment: .leading) {
@@ -28,8 +29,11 @@ struct MemoryListEntryView: View {
             Text(memory.date.formatted(date: .long, time: .omitted))
                 .foregroundColor(.white).padding([.top, .bottom], 6)
 
-            Image(systemName: memory.notificationsEnabled ? "bell.fill" : "bell.slash")
-                .foregroundColor(.white)
+            if (showNotificationSymbol) {
+                Image(systemName: memory.notificationsEnabled ? "bell.fill" : "bell.slash")
+                    .foregroundColor(.white)
+            }
+
 
 
 

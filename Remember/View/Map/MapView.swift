@@ -53,9 +53,13 @@ struct MapView: View {
                 
             }
 
-        }.sheet(item: $selectedMemory) { memory in
+        }.dynamicTypeSize(...DynamicTypeSize.xxxLarge)
+        .sheet(item: $selectedMemory) { memory in
             MemoryDetailView(memory: memory)
         }
+
+        
+        
     
         
     }

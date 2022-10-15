@@ -92,6 +92,7 @@ struct TimelineYearView: View {
                 
             }
             .frame(height: requiredHeight())
+            .dynamicTypeSize(...DynamicTypeSize.xxLarge)
             //.border(Color.purple)
     }
     
