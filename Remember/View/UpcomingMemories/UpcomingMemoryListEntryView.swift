@@ -11,6 +11,9 @@ struct UpcomingMemoryListEntryView: View {
     
     @State var specialDay: UpcomingSpecialDay
     @State private var showImageSavedNotification = false
+    @State private var showImageSaveErrorNotification = false
+
+    
     @State private var uiImage: UIImage? = nil
     @State var isScreenshot: Bool
     @Environment(\.colorSchemeContrast) private var colorSchemeContrast
@@ -75,9 +78,21 @@ struct UpcomingMemoryListEntryView: View {
                         print("save to photo gallery")
                         let view = UpcomingMemoryListEntryView(specialDay: specialDay, isScreenshot: true)
                         view.isScreenshot = true
-                        UIImageWriteToSavedPhotosAlbum(view.snapshot(width: 500, height: 500), nil, nil, nil)
-                        showImageSavedNotification = true
- 
+                        
+                        let image = view.snapshot(width: 500, height: 500)
+                                 
+                        let imageSaver = ImageSaver()
+                        imageSaver.errorHandler = { _ in
+                            showImageSaveErrorNotification = true
+                        }
+                        
+                        imageSaver.successHandler = {
+                            showImageSavedNotification = true
+                        }
+                        
+                        
+                        imageSaver.writeToPhotoAlbum(image: image)
+                         
                     }.buttonStyle(.borderedProminent).tint(.background)
                 }
 
@@ -95,8 +110,17 @@ struct UpcomingMemoryListEntryView: View {
             } message: {
                 Text("The image was saved to your photo gallery")
             }
+            .alert("Image could not be saved", isPresented: $showImageSaveErrorNotification) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text("There was an error while saving the image")
+            }
+        
+        
             .ignoresSafeArea()
     }
+    
+
     
     func remainingDaysTo(to date: Date) -> Int {
         return Calendar.current.today().timeIntervalInDays(to: date)
