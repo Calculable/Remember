@@ -50,9 +50,10 @@ struct UpcomingMemoryListEntryView: View {
                 Group {
                     
                 
-                    Text("\(Image(decorative: "calendar.circle")) \(specialDay.dateOfTheSpecialDay.formatted(date: .long, time: .omitted))  \n(\(describeRemainingDays(specialDay.dateOfTheSpecialDay)))")
+                    Text("\(Image(systemName: "calendar.circle")) \(specialDay.dateOfTheSpecialDay.formatted(date: .long, time: .omitted))  \n(\(describeRemainingDays(specialDay.dateOfTheSpecialDay)))")
                         .foregroundColor(remainingDaysTo(to: specialDay.dateOfTheSpecialDay) <= 7 ? .red : .white)
                         .multilineTextAlignment(.center)
+                        .accessibilityHidden(true)
                                             
                                              
                     switch(specialDay.type) {

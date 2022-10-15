@@ -11,7 +11,7 @@ struct MemoriesListView: View {
     
     @Environment(\.accessibilityReduceTransparency) var accessibilityReduceTransparency;
     @Environment(\.colorSchemeContrast) private var colorSchemeContrast
-
+    @State private var searchText = ""
     
     @StateObject private var viewModel: ViewModel = ViewModel()
     @EnvironmentObject var memories: Memories
@@ -22,7 +22,7 @@ struct MemoriesListView: View {
         
         NavigationView {
                 List {
-                    ForEach(memories.availableMemories) { memory in
+                    ForEach(filteredMemories) { memory in
                         
                         NavigationLink {
                             MemoryDetailView(memory: memory)
@@ -76,6 +76,7 @@ struct MemoriesListView: View {
 
 
                 }
+                .searchable(text: $searchText, prompt: "Search memory")
 
 
                 .environment(\.defaultMinListRowHeight, 160)
@@ -96,6 +97,14 @@ struct MemoriesListView: View {
         .phoneOnlyStackNavigationView()
         .sheet(isPresented: $viewModel.showAddMemorySheet) {
             EditMemoryView()
+        }
+    }
+    
+    var filteredMemories: [Memory] {
+        if searchText.isEmpty {
+            return memories.availableMemories
+        } else {
+            return memories.availableMemories.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
     }
     

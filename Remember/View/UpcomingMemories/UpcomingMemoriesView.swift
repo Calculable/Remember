@@ -13,9 +13,20 @@ struct UpcomingMemoriesView: View {
     
     @StateObject private var viewModel: ViewModel = ViewModel()
     @EnvironmentObject var memories: Memories
+    @State private var searchText = ""
+
     
-    var upcomingSpecialDays: [UpcomingSpecialDay] {
-        return viewModel.generateUpcomingSpecialDays(memories: memories)
+    
+    var filteredUpcomingSpecialDays: [UpcomingSpecialDay] {
+        let upcomingSpecialDays = viewModel.generateUpcomingSpecialDays(memories: memories)
+        
+        if searchText.isEmpty {
+            return upcomingSpecialDays
+        } else {
+            return upcomingSpecialDays.filter { $0.memory.name.localizedCaseInsensitiveContains(searchText) }
+        }
+        
+        
     }
     
     var body: some View {
@@ -23,7 +34,7 @@ struct UpcomingMemoriesView: View {
         NavigationView {
             ScrollView {
                 VStack {
-                    ForEach(upcomingSpecialDays) { specialDay in
+                    ForEach(filteredUpcomingSpecialDays) { specialDay in
                         NavigationLink {
                             MemoryDetailView(memory: specialDay.memory)
                         } label: {
@@ -33,11 +44,14 @@ struct UpcomingMemoriesView: View {
                 }
                 .navigationTitle("Upcoming")
             
-            }
+            }.searchable(text: $searchText, prompt: "Search upcoming memory")
+
             
             Text("Please select an upcoming memory to see the details")
         }.phoneOnlyStackNavigationView()
     }
+    
+    
     
 }
 
