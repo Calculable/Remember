@@ -8,10 +8,7 @@
 import Foundation
 import SwiftUI
 
-
-
-
-func getListBackground(memory: Memory, withReducedTransparency reducedTransparency: Bool = false) -> AnyView {
+func getListBackground(memory: Memory, withReducedTransparency reducedTransparency: Bool = false, withIncreasedContrast increasedContrast: Bool = false) -> AnyView {
     
     if (memory.displayImage != nil && !reducedTransparency) {
         //use image as background
@@ -20,7 +17,7 @@ func getListBackground(memory: Memory, withReducedTransparency reducedTransparen
             ZStack {
                 memory.displayImage!.resizable().scaledToFill().opacity(1)
                 Rectangle()
-                       .fill(Color.black.opacity(0.5))
+                    .fill(Color.black.opacity(increasedContrast ? 0.8 : 0.5))
             }
         
         );

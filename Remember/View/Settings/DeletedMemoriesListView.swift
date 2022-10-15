@@ -10,7 +10,7 @@ import SwiftUI
 struct DeletedMemoriesListView: View {
     
     @Environment(\.accessibilityReduceTransparency) var accessibilityReduceTransparency;
-
+    @Environment(\.colorSchemeContrast) private var colorSchemeContrast
     
     //@StateObject private var viewModel: ViewModel = ViewModel()
     @EnvironmentObject var memories: Memories
@@ -51,12 +51,15 @@ struct DeletedMemoriesListView: View {
 
                         .listRowBackground(
                             GeometryReader { geo in
+                                
+                                let increasedContrast = colorSchemeContrast == .increased
                     
-                                getListBackground(memory: memory, withReducedTransparency: accessibilityReduceTransparency).frame(minHeight: 158).frame(width: geo.size.width).clipped()
+                                getListBackground(memory: memory, withReducedTransparency: accessibilityReduceTransparency, withIncreasedContrast: increasedContrast).frame(minHeight: 158).frame(width: geo.size.width).clipped()
 
                         })
                         
-                        .listRowSeparator(.hidden)
+                        .listRowSeparatorTint(.gray)
+                        .listStyle(.insetGrouped)
 
                     }
 

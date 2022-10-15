@@ -13,6 +13,8 @@ struct UpcomingMemoryListEntryView: View {
     @State private var showImageSavedNotification = false
     @State private var uiImage: UIImage? = nil
     @State var isScreenshot: Bool
+    @Environment(\.colorSchemeContrast) private var colorSchemeContrast
+    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
 
     
     var body: some View {
@@ -32,8 +34,14 @@ struct UpcomingMemoryListEntryView: View {
                 
             } //todo: display image should not be in model
             
+            let increasedContrast = colorSchemeContrast == .increased
+
+            let backgroundOpacity = reduceTransparency ? 1 : (increasedContrast ? 0.8 : 0.5)
+            
+            
+            
             Rectangle()
-                   .fill(Color.black.opacity(0.5))
+                .fill(Color.black.opacity(backgroundOpacity))
             
             VStack(alignment: .center) {
                 Text("\(Image(systemName: "calendar.circle")) \(specialDay.dateOfTheSpecialDay.formatted(date: .long, time: .omitted))  \n(\(describeRemainingDays(specialDay.dateOfTheSpecialDay)))")

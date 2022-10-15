@@ -19,6 +19,7 @@ struct MapView: View {
     @State private var mapRegion = MKCoordinateRegion(MKMapRect
         .world)
     @State private var selectedMemory: Memory? = nil
+    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
 
 
     
@@ -39,13 +40,13 @@ struct MapView: View {
                         .background(Color.background)
                         .foregroundColor(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .opacity(0.9)
+                        .opacity(reduceTransparency ? 1.0 : 0.9)
                 
                     
                     Image(systemName: "mappin.circle.fill")
                         .font(.largeTitle)
                         .foregroundColor(.background)
-                        .opacity(0.9)
+                        .opacity(reduceTransparency ? 1.0 : 0.9)
                     
                 }.onTapGesture {
                     selectedMemory = memory
