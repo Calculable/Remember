@@ -105,7 +105,7 @@ class Memories: ObservableObject {
     }
     
     func deleteMarkedMemories() {
-        for memoryToDelete in memories {
+        for memoryToDelete in memoriesMarkedForDeletion {
             remove(memoryToDelete)
         }
     }
