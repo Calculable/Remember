@@ -44,9 +44,21 @@
 		3D2D081928E999980036B26D /* DeletedMemoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2D081828E999980036B26D /* DeletedMemoriesListView.swift */; };
 		3D2E6BED28FAF5F600C1CC4D /* ImageSaverHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E6BEC28FAF5F600C1CC4D /* ImageSaverHelper.swift */; };
 		3D2E6BF028FAFD9B00C1CC4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D2E6BF228FAFD9B00C1CC4D /* Localizable.strings */; };
+		3D2E6BFB28FD164600C1CC4D /* RememberTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E6BFA28FD164600C1CC4D /* RememberTests.swift */; };
+		3D2E6C0228FD169800C1CC4D /* ExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E6C0128FD169800C1CC4D /* ExampleTests.swift */; };
 		3DC24F2628D84B2200128AC2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC24F2528D84B2200128AC2 /* MapView.swift */; };
 		3DF4A1FD28EC763D005FE110 /* HotReloading in Frameworks */ = {isa = PBXBuildFile; productRef = 3DF4A1FC28EC763D005FE110 /* HotReloading */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3D2E6BFC28FD164600C1CC4D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D13CB1028AA8FFB001113BD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D13CB1728AA8FFB001113BD;
+			remoteInfo = Remember;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		3D04CE3C28AF6D8C005D7A90 /* PrivacySettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacySettingsView.swift; sourceTree = "<group>"; };
@@ -88,6 +100,9 @@
 		3D2E6BEC28FAF5F600C1CC4D /* ImageSaverHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaverHelper.swift; sourceTree = "<group>"; };
 		3D2E6BF128FAFD9B00C1CC4D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D2E6BF328FAFDC400C1CC4D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3D2E6BF828FD164600C1CC4D /* RememberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RememberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D2E6BFA28FD164600C1CC4D /* RememberTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberTests.swift; sourceTree = "<group>"; };
+		3D2E6C0128FD169800C1CC4D /* ExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTests.swift; sourceTree = "<group>"; };
 		3DC24F2528D84B2200128AC2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -98,6 +113,13 @@
 			files = (
 				3DF4A1FD28EC763D005FE110 /* HotReloading in Frameworks */,
 				3D13CB3728AAA76E001113BD /* LocationPicker in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D2E6BF528FD164600C1CC4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				3D13CB1A28AA8FFB001113BD /* Remember */,
+				3D2E6BF928FD164600C1CC4D /* RememberTests */,
 				3D13CB1928AA8FFB001113BD /* Products */,
 			);
 			sourceTree = "<group>";
@@ -124,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				3D13CB1828AA8FFB001113BD /* Remember.app */,
+				3D2E6BF828FD164600C1CC4D /* RememberTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -269,6 +293,15 @@
 			path = Details;
 			sourceTree = "<group>";
 		};
+		3D2E6BF928FD164600C1CC4D /* RememberTests */ = {
+			isa = PBXGroup;
+			children = (
+				3D2E6BFA28FD164600C1CC4D /* RememberTests.swift */,
+				3D2E6C0128FD169800C1CC4D /* ExampleTests.swift */,
+			);
+			path = RememberTests;
+			sourceTree = "<group>";
+		};
 		3DC24F2428D84B1100128AC2 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -301,6 +334,24 @@
 			productReference = 3D13CB1828AA8FFB001113BD /* Remember.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3D2E6BF728FD164600C1CC4D /* RememberTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D2E6BFE28FD164600C1CC4D /* Build configuration list for PBXNativeTarget "RememberTests" */;
+			buildPhases = (
+				3D2E6BF428FD164600C1CC4D /* Sources */,
+				3D2E6BF528FD164600C1CC4D /* Frameworks */,
+				3D2E6BF628FD164600C1CC4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D2E6BFD28FD164600C1CC4D /* PBXTargetDependency */,
+			);
+			name = RememberTests;
+			productName = RememberTests;
+			productReference = 3D2E6BF828FD164600C1CC4D /* RememberTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -313,6 +364,10 @@
 				TargetAttributes = {
 					3D13CB1728AA8FFB001113BD = {
 						CreatedOnToolsVersion = 13.4.1;
+					};
+					3D2E6BF728FD164600C1CC4D = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 3D13CB1728AA8FFB001113BD;
 					};
 				};
 			};
@@ -335,6 +390,7 @@
 			projectRoot = "";
 			targets = (
 				3D13CB1728AA8FFB001113BD /* Remember */,
+				3D2E6BF728FD164600C1CC4D /* RememberTests */,
 			);
 		};
 /* End PBXProject section */
@@ -347,6 +403,13 @@
 				3D13CB2328AA8FFE001113BD /* Preview Assets.xcassets in Resources */,
 				3D2E6BF028FAFD9B00C1CC4D /* Localizable.strings in Resources */,
 				3D13CB2028AA8FFE001113BD /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D2E6BF628FD164600C1CC4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,7 +457,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3D2E6BF428FD164600C1CC4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D2E6C0228FD169800C1CC4D /* ExampleTests.swift in Sources */,
+				3D2E6BFB28FD164600C1CC4D /* RememberTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3D2E6BFD28FD164600C1CC4D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D13CB1728AA8FFB001113BD /* Remember */;
+			targetProxy = 3D2E6BFC28FD164600C1CC4D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3D2E6BF228FAFD9B00C1CC4D /* Localizable.strings */ = {
@@ -593,6 +673,42 @@
 			};
 			name = Release;
 		};
+		3D2E6BFF28FD164600C1CC4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FB3RP3NRT7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.janhuber.Remember.RememberTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Remember.app/Remember";
+			};
+			name = Debug;
+		};
+		3D2E6C0028FD164600C1CC4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FB3RP3NRT7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.janhuber.Remember.RememberTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Remember.app/Remember";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -610,6 +726,15 @@
 			buildConfigurations = (
 				3D13CB2728AA8FFE001113BD /* Debug */,
 				3D13CB2828AA8FFE001113BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D2E6BFE28FD164600C1CC4D /* Build configuration list for PBXNativeTarget "RememberTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D2E6BFF28FD164600C1CC4D /* Debug */,
+				3D2E6C0028FD164600C1CC4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
