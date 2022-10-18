@@ -122,28 +122,13 @@
             filePath = "RememberTests/MemoriesTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "testOldestYearCanBeExtractedFromMemories()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "E80ABD9E-6A51-40DD-9BFB-B6870743AC22 - ad10847c7410e17e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RememberTests.MemoriesTests.testMemoriesForASpecificYearCanBeReturned() -&gt; ()"
-                  moduleName = "RememberTests"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/jan/Documents/Projekte/Aktive%20Projekte/Remember/Remember/RememberTests/MemoriesTests.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "137"
-                  endingLineNumber = "137"
-                  offsetFromSymbolStart = "500">
-               </Location>
-               <Location
-                  uuid = "E80ABD9E-6A51-40DD-9BFB-B6870743AC22 - 13817790966c0da9"
+                  uuid = "E80ABD9E-6A51-40DD-9BFB-B6870743AC22 - 13817790966c1465"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -153,8 +138,23 @@
                   urlString = "file:///Users/jan/Documents/Projekte/Aktive%20Projekte/Remember/Remember/RememberTests/MemoriesTests.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "137"
-                  endingLineNumber = "137"
+                  startingLineNumber = "189"
+                  endingLineNumber = "189"
+                  offsetFromSymbolStart = "2140">
+               </Location>
+               <Location
+                  uuid = "E80ABD9E-6A51-40DD-9BFB-B6870743AC22 - 13817790966c1404"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RememberTests.MemoriesTests.testOldestYearCanBeExtractedFromMemories() -&gt; ()"
+                  moduleName = "RememberTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jan/Documents/Projekte/Aktive%20Projekte/Remember/Remember/RememberTests/MemoriesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "188"
+                  endingLineNumber = "188"
                   offsetFromSymbolStart = "2004">
                </Location>
             </Locations>
@@ -170,10 +170,42 @@
             filePath = "RememberTests/MemoriesTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
             landmarkName = "testMemoriesForASpecificYearCanBeReturned()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "67EC9B99-AF68-4734-80A0-DD19E4B24D9A - ad10847c7410f70e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RememberTests.MemoriesTests.testMemoriesForASpecificYearCanBeReturned() -&gt; ()"
+                  moduleName = "RememberTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jan/Documents/Projekte/Aktive%20Projekte/Remember/Remember/RememberTests/MemoriesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "217"
+                  endingLineNumber = "217"
+                  offsetFromSymbolStart = "2940">
+               </Location>
+               <Location
+                  uuid = "67EC9B99-AF68-4734-80A0-DD19E4B24D9A - ad10847c7410f70e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RememberTests.MemoriesTests.testMemoriesForASpecificYearCanBeReturned() -&gt; ()"
+                  moduleName = "RememberTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jan/Documents/Projekte/Aktive%20Projekte/Remember/Remember/RememberTests/MemoriesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "217"
+                  endingLineNumber = "217"
+                  offsetFromSymbolStart = "2708">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -186,10 +218,42 @@
             filePath = "RememberTests/MemoriesTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
             landmarkName = "testMemoriesForASpecificYearCanBeReturned()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "44864FC5-D2C9-451E-A8BF-1DA7EC16A394 - ad10847c7410f4f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RememberTests.MemoriesTests.testMemoriesForASpecificYearCanBeReturned() -&gt; ()"
+                  moduleName = "RememberTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jan/Documents/Projekte/Aktive%20Projekte/Remember/Remember/RememberTests/MemoriesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "218"
+                  endingLineNumber = "218"
+                  offsetFromSymbolStart = "3176">
+               </Location>
+               <Location
+                  uuid = "44864FC5-D2C9-451E-A8BF-1DA7EC16A394 - ad10847c7410f4f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RememberTests.MemoriesTests.testMemoriesForASpecificYearCanBeReturned() -&gt; ()"
+                  moduleName = "RememberTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jan/Documents/Projekte/Aktive%20Projekte/Remember/Remember/RememberTests/MemoriesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "218"
+                  endingLineNumber = "218"
+                  offsetFromSymbolStart = "2940">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -202,10 +266,42 @@
             filePath = "RememberTests/MemoriesTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "testMemoriesForASpecificYearCanBeReturned()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AB47ED08-6B3E-4295-8487-4B77953174C4 - ad10847c7410f4b3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RememberTests.MemoriesTests.testMemoriesForASpecificYearCanBeReturned() -&gt; ()"
+                  moduleName = "RememberTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jan/Documents/Projekte/Aktive%20Projekte/Remember/Remember/RememberTests/MemoriesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "220"
+                  endingLineNumber = "220"
+                  offsetFromSymbolStart = "3328">
+               </Location>
+               <Location
+                  uuid = "AB47ED08-6B3E-4295-8487-4B77953174C4 - ad10847c7410f4d0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RememberTests.MemoriesTests.testMemoriesForASpecificYearCanBeReturned() -&gt; ()"
+                  moduleName = "RememberTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jan/Documents/Projekte/Aktive%20Projekte/Remember/Remember/RememberTests/MemoriesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "219"
+                  endingLineNumber = "219"
+                  offsetFromSymbolStart = "3176">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

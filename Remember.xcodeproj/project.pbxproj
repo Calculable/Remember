@@ -47,6 +47,7 @@
 		3D2E6BED28FAF5F600C1CC4D /* ImageSaverHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E6BEC28FAF5F600C1CC4D /* ImageSaverHelper.swift */; };
 		3D2E6BF028FAFD9B00C1CC4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D2E6BF228FAFD9B00C1CC4D /* Localizable.strings */; };
 		3D2E6C0428FD194800C1CC4D /* DateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E6C0328FD194800C1CC4D /* DateExtensionsTests.swift */; };
+		3D50727A28FE72CE0041FE28 /* MemoriesSaverHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50727928FE72CE0041FE28 /* MemoriesSaverHelper.swift */; };
 		3DC24F2628D84B2200128AC2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC24F2528D84B2200128AC2 /* MapView.swift */; };
 		3DF4A1FD28EC763D005FE110 /* HotReloading in Frameworks */ = {isa = PBXBuildFile; productRef = 3DF4A1FC28EC763D005FE110 /* HotReloading */; };
 /* End PBXBuildFile section */
@@ -105,6 +106,7 @@
 		3D2E6BF328FAFDC400C1CC4D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D2E6BF828FD164600C1CC4D /* RememberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RememberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D2E6C0328FD194800C1CC4D /* DateExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionsTests.swift; sourceTree = "<group>"; };
+		3D50727928FE72CE0041FE28 /* MemoriesSaverHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoriesSaverHelper.swift; sourceTree = "<group>"; };
 		3DC24F2528D84B2200128AC2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -274,6 +276,7 @@
 				3D13CB5E28AD364A001113BD /* SettingsHelper.swift */,
 				3D04CE3E28AF6FBB005D7A90 /* AuthenticationHelper.swift */,
 				3D2E6BEC28FAF5F600C1CC4D /* ImageSaverHelper.swift */,
+				3D50727928FE72CE0041FE28 /* MemoriesSaverHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				3D13CB3D28AAB0FC001113BD /* Memory.swift in Sources */,
 				3D13CB4528AB7C6A001113BD /* UpcomingSpecialDay.swift in Sources */,
 				3D13CB5628AC017B001113BD /* UpcomingMemoryListEntryView.swift in Sources */,
+				3D50727A28FE72CE0041FE28 /* MemoriesSaverHelper.swift in Sources */,
 				3D13CB3B28AAB08D001113BD /* Memories.swift in Sources */,
 				3D13CB4728AB8E04001113BD /* CalendarExtensions.swift in Sources */,
 				3D1B891B28D438FE00A7046B /* MemoryDetailView.swift in Sources */,

@@ -30,8 +30,18 @@ class NotificationHelperSpy: NotificationHelper {
     func notificationsWereUpdated() -> Bool  {
         return numberOfNotificationUpdates > 0
     }
+
+}
+
+class MemoriesSaverHelperMock: MemoriesSaverHelper {
+    
+    override func save(memories: [Memory]) {
+    }
     
     
+    override func loadMemoriesFromDisk() -> [Memory]  {
+        return []
+    }
 }
 
 
@@ -39,10 +49,12 @@ class MemoriesTests: XCTestCase {
     
     var subject: Memories!
     var notificationHelperSty = NotificationHelperSpy()
+    var saverHelperMock = MemoriesSaverHelperMock()
 
     
     override func setUp() {
-        subject = Memories(notificationHelper: notificationHelperSty)
+        subject = Memories(notificationHelper: notificationHelperSty, memoriesSaverHelper: saverHelperMock)
+        subject.addExampleMemories()
     }
     
     override func tearDown() {

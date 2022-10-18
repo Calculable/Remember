@@ -14,7 +14,8 @@ class Memories: ObservableObject {
     
     @Published private(set) var memories: [Memory] = []
     let notificationHelper: NotificationHelper
-    
+    let memoriesSaverHelper: MemoriesSaverHelper
+
     var availableMemories: [Memory] {
         memories.filter {
             !$0.isMarkedForDeletion
@@ -28,11 +29,12 @@ class Memories: ObservableObject {
     }
     
     
-    init(notificationHelper: NotificationHelper = NotificationHelper()) {
+    init(notificationHelper: NotificationHelper = NotificationHelper(), memoriesSaverHelper: MemoriesSaverHelper = MemoriesSaverHelper()) {
         self.notificationHelper = notificationHelper
-        
+        self.memoriesSaverHelper = memoriesSaverHelper
+
         do {
-            memories = try Bundle.main.decode(getSavePath())
+            memories = try memoriesSaverHelper.loadMemoriesFromDisk()
         } catch {
             print("Existing memories not found. App probably oppened for the first time")
             print(error.localizedDescription)
@@ -40,10 +42,6 @@ class Memories: ObservableObject {
             addExampleMemories()
         }
         
-    }
-    
-    func getSavePath() -> URL {
-        getDocumentsDirectory().appendingPathComponent("memories.json")
     }
     
     func addExampleMemories() {
@@ -146,22 +144,11 @@ class Memories: ObservableObject {
 
     
     private func save() {
-        do {
-            let data = try JSONEncoder().encode(memories)
-            try data.write(to: getSavePath(), options:[.atomic, .completeFileProtection])
-        } catch {
-            print("Unable to save data.")
-        }
+        
+        memoriesSaverHelper.save(memories: memories)
         
         notificationHelper.updateNotifications(memories: self)
     }
     
-    private func getDocumentsDirectory() -> URL {
-        // find all possible documents directories for this user
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-
-        // just send back the first one, which ought to be the only one
-        return paths[0]
-    }
     
 }
