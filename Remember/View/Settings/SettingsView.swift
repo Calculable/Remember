@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SettingsView: View {
-
     @EnvironmentObject var memories: Memories
 
     var body: some View {
@@ -31,24 +30,11 @@ struct SettingsView: View {
                 NavigationLink {
                     DeletedMemoriesListView()
                 } label: {
-                    Text("Deleted Memories")
+                    Text("Deleted Memories").badge(memories.memoriesMarkedForDeletion.count)
                 }
                 
                 NavigationLink {
-                    Form {
-                                                    
-                        Text("Warning: This step can not be undone")
-                                .fixedSize(horizontal: false, vertical: true)
-                                .font(.callout)
-                        
-                        Section {
-                            Button("Remove all custom memories", role: .destructive) {
-                                memories.removeAllMemories()
-                            }
-                        }
-                        
-                    }.navigationTitle("Reset").navigationBarTitleDisplayMode(.inline)
-
+                    ResetMemoriesView()
                 } label: {
                     Text("Reset")
                 }

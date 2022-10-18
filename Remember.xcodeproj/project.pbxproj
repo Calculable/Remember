@@ -48,6 +48,7 @@
 		3D2E6BF028FAFD9B00C1CC4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D2E6BF228FAFD9B00C1CC4D /* Localizable.strings */; };
 		3D2E6C0428FD194800C1CC4D /* DateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E6C0328FD194800C1CC4D /* DateExtensionsTests.swift */; };
 		3D50727A28FE72CE0041FE28 /* MemoriesSaverHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50727928FE72CE0041FE28 /* MemoriesSaverHelper.swift */; };
+		3D50727C28FE82910041FE28 /* ResetMemoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50727B28FE82910041FE28 /* ResetMemoriesView.swift */; };
 		3DC24F2628D84B2200128AC2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC24F2528D84B2200128AC2 /* MapView.swift */; };
 		3DF4A1FD28EC763D005FE110 /* HotReloading in Frameworks */ = {isa = PBXBuildFile; productRef = 3DF4A1FC28EC763D005FE110 /* HotReloading */; };
 /* End PBXBuildFile section */
@@ -107,6 +108,7 @@
 		3D2E6BF828FD164600C1CC4D /* RememberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RememberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D2E6C0328FD194800C1CC4D /* DateExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionsTests.swift; sourceTree = "<group>"; };
 		3D50727928FE72CE0041FE28 /* MemoriesSaverHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoriesSaverHelper.swift; sourceTree = "<group>"; };
+		3D50727B28FE82910041FE28 /* ResetMemoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetMemoriesView.swift; sourceTree = "<group>"; };
 		3DC24F2528D84B2200128AC2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,6 +250,7 @@
 				3D13CB5A28ACE1E9001113BD /* NotificationSettingsView.swift */,
 				3D04CE3C28AF6D8C005D7A90 /* PrivacySettingsView.swift */,
 				3D2D081828E999980036B26D /* DeletedMemoriesListView.swift */,
+				3D50727B28FE82910041FE28 /* ResetMemoriesView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				3D13CB5D28ACF7A9001113BD /* DateExtensions.swift in Sources */,
 				3D13CB1C28AA8FFC001113BD /* RememberApp.swift in Sources */,
 				3D13CB5F28AD364A001113BD /* SettingsHelper.swift in Sources */,
+				3D50727C28FE82910041FE28 /* ResetMemoriesView.swift in Sources */,
 				3D13CB6728AE2C38001113BD /* TimelineView.swift in Sources */,
 				3D13CB5428ABFF3C001113BD /* UpcomingMemoriesView-ViewModel.swift in Sources */,
 				3D13CB4328AB79B6001113BD /* StringExtensions.swift in Sources */,

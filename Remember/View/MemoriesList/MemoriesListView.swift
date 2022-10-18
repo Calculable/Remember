@@ -15,7 +15,10 @@ struct MemoriesListView: View {
     
     @StateObject private var viewModel: ViewModel = ViewModel()
     @EnvironmentObject var memories: Memories
-
+    
+    @AppStorage("neverDeletedAMemory") private var neverDeletedAMemory = true
+    @State private var showDeleteMemoryAlert = false
+    
     let notificationHelper = NotificationHelper()
     
     var body: some View {
@@ -31,11 +34,24 @@ struct MemoriesListView: View {
                             MemoryListEntryView(memory: memory)
                                 .swipeActions {
                                     Button(role: .destructive) {
+                                        
+                                        
                                         memories.markForDeletion(memory)
+                                        
+                                        if (neverDeletedAMemory) {
+                                            //show notification
+                                            neverDeletedAMemory = false
+                                            showDeleteMemoryAlert = true
+                                            
+                                        }
                                     
                                     } label: {
                                         Label("Delete", systemImage: "minus.circle")
                                     }
+                                }.alert("Memory deleted", isPresented: $showDeleteMemoryAlert) {
+                                    Button("OK", role: .cancel) { }
+                                } message: {
+                                    Text("Deleted Memories can be restored under Settings > Deleted Memories")
                                 }
                             
 

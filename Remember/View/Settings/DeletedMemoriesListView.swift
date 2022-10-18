@@ -15,7 +15,15 @@ struct DeletedMemoriesListView: View {
     //@StateObject private var viewModel: ViewModel = ViewModel()
     @EnvironmentObject var memories: Memories
     
+    @State private var showDeleteConfirmationAlert = false
+    
     var body: some View {
+        
+        Group {
+            
+        
+        if memories.memoriesMarkedForDeletion.count > 0 {
+            
         
                 List {
                     ForEach(memories.memoriesMarkedForDeletion) { memory in
@@ -66,23 +74,36 @@ struct DeletedMemoriesListView: View {
 
 
 
-
                 }
+        } else {
+            Text("No deleted memories")
+        }
 
-                .toolbar {
-                    ToolbarItem() {
-                        Button {
+               
+        }
+        .toolbar {
+            ToolbarItem() {
+                Button {
+                    //show confirmation dialog
+                    showDeleteConfirmationAlert = true
+                    
+                } label: {
+                    Label("Delete Forever", systemImage: "xmark.bin.fill")
+                }.disabled(memories.memoriesMarkedForDeletion.count == 0)
+                    .alert("Delete Forever", isPresented: $showDeleteConfirmationAlert) {
+                        Button("Delete", role: .destructive, action: {
                             memories.deleteMarkedMemories()
-                        } label: {
-                            Label("Delete Forever", systemImage: "xmark.bin.fill")
-                        }
+                        })
+                        Button("Cancel", role: .cancel) { }
+                    } message: {
+                        Text("Are you sure? Finally deleted memories cannot be restored anymore.")
                     }
-                }
-                .environment(\.defaultMinListRowHeight, 160)
-                .navigationTitle("Deleted Memories")
-                .navigationBarTitleDisplayMode(.inline)
+            }
+        }
+        .environment(\.defaultMinListRowHeight, 160)
+        .navigationTitle("Deleted Memories")
+        .navigationBarTitleDisplayMode(.inline)
 
-        
 
 
     }

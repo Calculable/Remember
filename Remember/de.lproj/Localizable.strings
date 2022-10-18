@@ -5,6 +5,7 @@
   Created by Jan Huber on 15.10.22.
   
 */
+
 "%d days before the event" = "%d Tage vor dem Jubiläum";
 "%d days since" = "%d Tage seit";
 "%d years since" = "%d Jahre seit";
@@ -12,6 +13,9 @@
 "Add Memory" = "Erinnerung hinzufügen";
 "Add New Memory" = "Neue Erinnerung";
 "Are you sure?" = "Sind Sie sicher?";
+"Are you sure? Finally deleted memories cannot be restored anymore." = "Sind Sie sicher? Endgültig gelöschte Erinnerungen können nicht wiederhergestellt werden.";
+"Are you sure to delete all your memories? This step can not be undone." = "Sind Sie sicher, dass Sie alle Ihre Erinnerungen löschen möchten? Dieser Schritt kann nicht rückgängig gemacht werden";
+
 "Biometrics are disabled or not supported on this device" = "Biometrische Authentifizierung (FaceID / TouchID) ist für dieses Gerät deaktiviert oder nicht unterstützt";
 "Biometrics not available" = "Biometrische Authentifizierung (FaceID / TouchID) ist für dieses Gerät nicht unterstützt";
 "Cancel" = "Abbrechen";
@@ -21,7 +25,14 @@
 "Delete Forever" = "Endgültig löschen";
 "Delete Memory" = "Erinnerung löschen";
 "Delete" = "Löschen";
+"Delete custom memories" = "Eigene Erinnerungen löschen";
+
 "Deleted Memories" = "Gelöschte Erinnerungen";
+"Deleted Memories can be restored under Settings > Deleted Memories" = "gelöschte Erinnerungen können unter Einstellungen > Gelöschte Erinnerungen wiederhergestellt werden";
+"Memories deleted" = "Erinnerungen gelöscht";
+
+"Memory deleted" = "Erinnerung gelöscht";
+
 "Details" = "Details";
 "Disable Notifications" = "Benachrichtigungen deaktivieren";
 "Edit Memory" = "Erinnerung bearbeiten";
@@ -41,6 +52,7 @@
 "New memory today" = "Neues Jubiläum heute";
 "New memory tomorrow" = "Neues Jubiläum morgen";
 "No Memories to display" = "Keine Erinnerungen vorhanden";
+"No deleted memories" = "Keine gelöschten Erinnerungen vorhanden";
 "Notes (Optional)" = "Notizen (Optional)";
 "Notifications can be triggered for the anniversaries of the memories. Under the Memories tab, notifications can be turned on or off individually for each memory.\n\nPlease make sure that the app has permission to send notifications (iOS Settings > Notifications)." = "Für die Jahrestage von Erinnerungen können Benachrichtigungen ausgelöst werden. Unter dem Tab 'Erinnerungen' können Sie die Benachrichtigungen für jede Erinnerung individuell ein- oder ausgeschalten.\n\nBitte stellen Sie sicher, dass die App über die Berechtigung zum Senden von Benachrichtigungen verfügt (iOS Einstellungen > Benachrichtigungen).";
 "Notifications" = "Benachrichtigungen";
@@ -65,6 +77,7 @@
 "Tap on the map to select your coordinates" = "Klicken Sie auf der Karte, um eine Koordinate auszuwählen";
 "The image was saved to your photo gallery" = "Das  wurde in der Fotogalerie gespeichert";
 "The image you chose for this memory" = "Das , welches Sie für diese Erinnerung ausgewählt haben";
+"The memories were successfully deleted" = "Die Erinnerungen wurden erfolgreich gelöscht";
 "There was an error while saving the image" = "Beim Speichern des es ist ein Fehler aufgetreten";
 "This memory was deleted" = "Diese Erinnerung wurde gelöscht";
 "Time of notifications" = "Uhrzeit der Benachrichtigung";

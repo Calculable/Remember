@@ -17,8 +17,9 @@ struct MemoryDetailView: View {
     @State private var showingDeleteAlert = false
     @EnvironmentObject var memories: Memories
     @State var isDeleted = false
+    @AppStorage("neverDeletedAMemory") private var neverDeletedAMemory = true
+    @State private var showDeleteMemoryAlert = false
 
-    
     init(memory: Memory) {
         self._memory = State<Memory>(wrappedValue: memory)
         self._mapRegion =  State<MKCoordinateRegion>(wrappedValue: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: memory.coordinate?.latitude ?? 0, longitude: memory.coordinate?.longitude ?? 0), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)))
@@ -65,6 +66,13 @@ struct MemoryDetailView: View {
                     }
                     
                         
+                    if (memory.isMarkedForDeletion) {
+                        Button("Restore") {
+                            memories.restore(memory)
+                        }.padding([.bottom, .top], 20)
+                    } else {
+                        
+                    
 
                         Button("Delete", role: .destructive) {
                             showingDeleteAlert = true
@@ -73,13 +81,25 @@ struct MemoryDetailView: View {
                             Button("Delete", role: .destructive, action: {
                                 memories.markForDeletion(memory)
                                 isDeleted = true
+                                
+                                if (neverDeletedAMemory) {
+                                    //show notification
+                                    neverDeletedAMemory = false
+                                    showDeleteMemoryAlert = true
+                                    
+                                }
+                                
                             })
                             Button("Cancel", role: .cancel) { }
                         } message: {
                             Text("Are you sure?")
+                        }.alert("Memory deleted", isPresented: $showDeleteMemoryAlert) {
+                            Button("OK", role: .cancel) { }
+                        } message: {
+                            Text("Deleted Memories can be restored under Settings > Deleted Memories")
                         }
                     
-            
+                    }
                     
                 }.padding()
                 
