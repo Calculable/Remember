@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 import MapKit
 
+
 class Memories: ObservableObject {
     
     @Published private(set) var memories: [Memory] = []
-    let notificationHelper = NotificationHelper()
-
+    let notificationHelper: NotificationHelper
     
     var availableMemories: [Memory] {
         memories.filter {
@@ -28,7 +28,9 @@ class Memories: ObservableObject {
     }
     
     
-    init() {
+    init(notificationHelper: NotificationHelper = NotificationHelper()) {
+        self.notificationHelper = notificationHelper
+        
         do {
             memories = try Bundle.main.decode(getSavePath())
         } catch {

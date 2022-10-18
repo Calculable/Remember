@@ -9,7 +9,7 @@ import Foundation
 import UserNotifications
 import SwiftUI
 
-struct NotificationHelper {
+class NotificationHelper {
     
     @AppStorage("notifications.days.before.event") private var daysBeforeEvent = 1
     @AppStorage("notification.time") private var timeOfNotifications = SettingsHelper.getDefaultNotificationTime()
@@ -46,11 +46,11 @@ struct NotificationHelper {
 
         center.getNotificationSettings { settings in
             if settings.authorizationStatus == .authorized {
-                sendNotification(notificationTrigger: notificationTrigger, memory: memory)
+                self.sendNotification(notificationTrigger: notificationTrigger, memory: memory)
             } else {
                 center.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
                     if success {
-                        sendNotification(notificationTrigger: notificationTrigger, memory: memory)
+                        self.sendNotification(notificationTrigger: notificationTrigger, memory: memory)
                     } else {
                         print("notifications not enabled")
                     }

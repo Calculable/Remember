@@ -52,5 +52,161 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            uuid = "9A25D9EC-3780-4843-9F21-A46D174A68D9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            breakpointStackSelectionBehavior = "1"
+            scope = "1"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "06450B6F-F0DD-458C-BD70-C002F896AA01"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RememberTests/DateExtensionsTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "testIsInLessThanAYearIsFalseIfTheSecondDateIsAfterTheFirstDate()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "06450B6F-F0DD-458C-BD70-C002F896AA01 - ed1e89293ee2b155"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RememberTests.DateExtensionsTests.testIsInLessThanAYearIsFalseIfTheSecondDateIsAfterTheFirstDate() -&gt; ()"
+                  moduleName = "RememberTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jan/Documents/Projekte/Aktive%20Projekte/Remember/Remember/RememberTests/DateExtensionsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "312">
+               </Location>
+               <Location
+                  uuid = "06450B6F-F0DD-458C-BD70-C002F896AA01 - 52389ec58149f393"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RememberTests.DateExtensionsTests.testIsInLessThanAYearIsFalseIfTheSecondDateIsAfterTheFirstDate() -&gt; ()"
+                  moduleName = "eval101.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jan/Documents/Projekte/Aktive%20Projekte/Remember/Remember/RememberTests/DateExtensionsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "97"
+                  endingLineNumber = "97"
+                  offsetFromSymbolStart = "312">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E80ABD9E-6A51-40DD-9BFB-B6870743AC22"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RememberTests/MemoriesTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "176"
+            endingLineNumber = "176"
+            landmarkName = "testOldestYearCanBeExtractedFromMemories()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E80ABD9E-6A51-40DD-9BFB-B6870743AC22 - ad10847c7410e17e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RememberTests.MemoriesTests.testMemoriesForASpecificYearCanBeReturned() -&gt; ()"
+                  moduleName = "RememberTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jan/Documents/Projekte/Aktive%20Projekte/Remember/Remember/RememberTests/MemoriesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "500">
+               </Location>
+               <Location
+                  uuid = "E80ABD9E-6A51-40DD-9BFB-B6870743AC22 - 13817790966c0da9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RememberTests.MemoriesTests.testOldestYearCanBeExtractedFromMemories() -&gt; ()"
+                  moduleName = "RememberTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jan/Documents/Projekte/Aktive%20Projekte/Remember/Remember/RememberTests/MemoriesTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "2004">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "67EC9B99-AF68-4734-80A0-DD19E4B24D9A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RememberTests/MemoriesTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "205"
+            endingLineNumber = "205"
+            landmarkName = "testMemoriesForASpecificYearCanBeReturned()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44864FC5-D2C9-451E-A8BF-1DA7EC16A394"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RememberTests/MemoriesTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
+            landmarkName = "testMemoriesForASpecificYearCanBeReturned()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AB47ED08-6B3E-4295-8487-4B77953174C4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RememberTests/MemoriesTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
+            landmarkName = "testMemoriesForASpecificYearCanBeReturned()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
