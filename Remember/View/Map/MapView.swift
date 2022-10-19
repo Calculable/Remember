@@ -26,7 +26,7 @@ struct MapView: View {
         
     var body: some View {
         
-        let memoriesWithMapLocaiton = memories.memories.filter {$0.coordinate != nil}
+        let memoriesWithMapLocaiton = memories.availableMemories.filter {$0.coordinate != nil}
         
         Map(coordinateRegion: $mapRegion, annotationItems: memoriesWithMapLocaiton) { memory in
             
@@ -57,7 +57,7 @@ struct MapView: View {
         }.dynamicTypeSize(...DynamicTypeSize.xxxLarge)
         .sheet(item: $selectedMemory) { memory in
             MemoryDetailView(memory: memory)
-        }
+        }.ignoresSafeArea()
 
         
         

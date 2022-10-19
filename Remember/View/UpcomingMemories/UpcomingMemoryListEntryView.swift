@@ -54,7 +54,7 @@ struct UpcomingMemoryListEntryView: View {
                     
                 
                     Text("\(Image(systemName: "calendar.circle")) \(specialDay.dateOfTheSpecialDay.formatted(date: .long, time: .omitted))  \n(\(describeRemainingDays(specialDay.dateOfTheSpecialDay)))")
-                        .foregroundColor(remainingDaysTo(to: specialDay.dateOfTheSpecialDay) <= 7 ? .red : .white)
+                        .foregroundColor(remainingDaysTo(to: specialDay.dateOfTheSpecialDay) <= 7 ? .white : .white)
                         .multilineTextAlignment(.center)
                         .accessibilityHidden(true)
                                             

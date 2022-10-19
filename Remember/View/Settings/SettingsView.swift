@@ -21,11 +21,11 @@ struct SettingsView: View {
                     Text("Notifications")
                 }
                 
-                NavigationLink {
+                /*NavigationLink {
                     PrivacySettingsView()
                 } label: {
                     Text("Privacy")
-                }
+                }*/
                 
                 NavigationLink {
                     DeletedMemoriesListView()

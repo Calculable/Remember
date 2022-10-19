@@ -16,12 +16,17 @@ struct EditMemoryView: View {
     @EnvironmentObject var memories: Memories
     @Environment(\.dismiss) var dismiss
     
-    private var existingMemory: Memory? = nil
+    @State private var existingMemory: Memory? = nil
     
-    init() {
+    var onMemoryUpdated: ((Memory) -> Void)?
+
+    
+    init(onMemoryUpdated: ((Memory) -> Void)? = nil) {
+        self.onMemoryUpdated = onMemoryUpdated
     }
     
-    init(toEdit memory: Memory) {
+    init(toEdit memory: Memory, onMemoryUpdated: ((Memory) -> Void)? = nil) {
+        self.init(onMemoryUpdated: onMemoryUpdated)
         _viewModel = StateObject<EditMemoryView.ViewModel>(wrappedValue: ViewModel(memory))
         existingMemory = memory
     }
@@ -117,6 +122,9 @@ struct EditMemoryView: View {
         let customCoordinate = viewModel.isCustomCoordinate ? viewModel.coordinate : nil
         let newMemory = Memory(name: viewModel.name, date: viewModel.date, image: viewModel.image, coordinate: customCoordinate, notes: viewModel.notes, notificationsEnabled: viewModel.notificationsEnabled)
         memories.addMemory(newMemory)
+        
+        existingMemory = newMemory
+        onMemoryUpdated?(newMemory)
         dismiss()
     }
 }
@@ -125,7 +133,7 @@ struct EditMemoryView_Previews: PreviewProvider {
     static var previews: some View {
         
         let memories = Memories()
-        EditMemoryView()
+        EditMemoryView(toEdit: memories.memories.first!)
             .environmentObject(memories)
     }
 }

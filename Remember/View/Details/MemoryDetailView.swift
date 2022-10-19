@@ -19,7 +19,7 @@ struct MemoryDetailView: View {
     @State var isDeleted = false
     @AppStorage("neverDeletedAMemory") private var neverDeletedAMemory = true
     @State private var showDeleteMemoryAlert = false
-
+    
     init(memory: Memory) {
         self._memory = State<Memory>(wrappedValue: memory)
         self._mapRegion =  State<MKCoordinateRegion>(wrappedValue: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: memory.coordinate?.latitude ?? 0, longitude: memory.coordinate?.longitude ?? 0), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)))
@@ -117,7 +117,9 @@ struct MemoryDetailView: View {
                     }
                 }
                 .sheet(isPresented: $showEditMemorySheet) {
-                    EditMemoryView(toEdit: memory)
+                    EditMemoryView(toEdit: memory, onMemoryUpdated: { newMemory in
+                        self.memory = newMemory //refresh view
+                    })
                 }
         }
     }
