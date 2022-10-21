@@ -23,14 +23,13 @@ struct ResetMemoriesView: View {
             
             Section {
                 Button("Remove all custom memories", role: .destructive) {
-                    showConfirmationAlert = true
+                    displayConfirmationAlert()
                     
                 }.disabled(memories.memories.count == 0)
             }
             .alert("Delete custom memories", isPresented: $showConfirmationAlert) {
                 Button("Delete", role: .destructive, action: {
-                    memories.removeAllMemories()
-                    showDeletionSuccessDialog = true
+                    removeAllMemories()
                 })
                 Button("Cancel", role: .cancel) { }
             } message: {
@@ -46,7 +45,16 @@ struct ResetMemoriesView: View {
 
         
     }
-    
+
+    private func removeAllMemories() {
+        memories.removeAllMemories()
+        showDeletionSuccessDialog = true
+    }
+
+    private func displayConfirmationAlert() {
+        showConfirmationAlert = true
+    }
+
 }
 
 struct ResetMemoriesView_Previews: PreviewProvider {

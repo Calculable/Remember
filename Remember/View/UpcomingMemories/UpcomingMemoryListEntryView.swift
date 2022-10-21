@@ -36,7 +36,7 @@ struct UpcomingMemoryListEntryView: View {
 
                 }
                 
-            } //todo: display image should not be in model
+            }
             
             let increasedContrast = colorSchemeContrast == .increased
 
@@ -66,23 +66,8 @@ struct UpcomingMemoryListEntryView: View {
                 
                 if (!isScreenshot) {
                     Button("Share") {
-                        let view = UpcomingMemoryListEntryView(anniversary: anniversary, isScreenshot: true)
-                        view.isScreenshot = true
-                        
-                        let image = view.snapshot(width: 500, height: 500)
-                                 
-                        let imageSaver = ImageSaver()
-                        imageSaver.errorHandler = { _ in
-                            showImageSaveErrorNotification = true
-                        }
-                        
-                        imageSaver.successHandler = {
-                            showImageSavedNotification = true
-                        }
-                        
-                        
-                        imageSaver.writeToPhotoAlbum(image: image)
-                         
+                        shareMemoryImage()
+
                     }.buttonStyle(.borderedProminent).tint(.background)
                 }
 
@@ -109,7 +94,26 @@ struct UpcomingMemoryListEntryView: View {
         
             .ignoresSafeArea()
     }
-    
+
+    private func shareMemoryImage() {
+        let view = UpcomingMemoryListEntryView(anniversary: anniversary, isScreenshot: true)
+        view.isScreenshot = true
+
+        let image = view.snapshot(width: 500, height: 500)
+
+        let imageSaver = ImageSaver()
+        imageSaver.errorHandler = { _ in
+            showImageSaveErrorNotification = true
+        }
+
+        imageSaver.successHandler = {
+            showImageSavedNotification = true
+        }
+
+
+        imageSaver.writeToPhotoAlbum(image: image)
+    }
+
 
     func getTimeIntervallDescription(anniversary: Anniversary) -> String {
         switch(anniversary.type) {
@@ -124,7 +128,7 @@ struct UpcomingMemoryListEntryView: View {
     }
     
     func remainingDaysTo(to date: Date) -> Int {
-        return Calendar.current.today().timeIntervalInDays(to: date)
+        Calendar.current.today().timeIntervalInDays(to: date)
     }
     
     func describeRemainingDays(_ date: Date) -> String {

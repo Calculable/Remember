@@ -48,8 +48,8 @@ struct DeletedMemoriesListView: View {
                             Button {
 
                                 //Do Something
-                                memories.restore(memory)
-                                
+                                restore(memory)
+
                             } label: {
                                 Label("Restore", systemImage: "gobackward")
                                 
@@ -85,14 +85,14 @@ struct DeletedMemoriesListView: View {
             ToolbarItem() {
                 Button {
                     //show confirmation dialog
-                    showDeleteConfirmationAlert = true
+                    displayDeleteConfirmationAlert()
                     
                 } label: {
                     Label("Delete Forever", systemImage: "xmark.bin.fill")
                 }.disabled(memories.memoriesMarkedForDeletion.count == 0)
                     .alert("Delete Forever", isPresented: $showDeleteConfirmationAlert) {
                         Button("Delete", role: .destructive, action: {
-                            memories.deleteMarkedMemories()
+                            deleteMarkedMemories()
                         })
                         Button("Cancel", role: .cancel) { }
                     } message: {
@@ -107,8 +107,19 @@ struct DeletedMemoriesListView: View {
 
 
     }
-    
 
+    private func deleteMarkedMemories() {
+        memories.deleteMarkedMemories()
+    }
+
+    private func displayDeleteConfirmationAlert() {
+        showDeleteConfirmationAlert = true
+    }
+
+
+    private func restore(_ memory: Memory) {
+        memories.restore(memory)
+    }
 }
 
 struct DeletedMemoriesListView_Previews: PreviewProvider {

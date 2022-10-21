@@ -52,8 +52,8 @@ struct NotificationSettingsView: View {
                     ForEach(availableNotificationDaysBeforeEvent, id: \.self) {
                         Text(describeDaysBeforeEvent($0))
                     }
-                }.onChange(of: selectedNotificationDaysBeforeEvent) { newValue in
-                    notificationsHelper.updateNotifications(memories: memories)
+                }.onChange(of: selectedNotificationDaysBeforeEvent) { _ in
+                            updateNotifications()
                 }
                 
             }
@@ -62,7 +62,11 @@ struct NotificationSettingsView: View {
         .navigationTitle("Notifications")
         .navigationBarTitleDisplayMode(.inline)
     }
-    
+
+    private func updateNotifications() {
+        notificationsHelper.updateNotifications(memories: memories)
+    }
+
 }
 
 struct NotificationSettingsView_Previews: PreviewProvider {

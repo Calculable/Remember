@@ -35,15 +35,8 @@ struct MemoriesListView: View {
                                 .swipeActions {
                                     Button(role: .destructive) {
                                         
-                                        
-                                        memories.markForDeletion(memory)
-                                        
-                                        if (neverDeletedAMemory) {
-                                            //show notification
-                                            neverDeletedAMemory = false
-                                            showDeleteMemoryAlert = true
-                                            
-                                        }
+                                        markMemoryForDeletion(memory)
+
                                     
                                     } label: {
                                         Label("Delete", systemImage: "minus.circle")
@@ -58,9 +51,7 @@ struct MemoriesListView: View {
                                 
                         }.swipeActions(edge: .leading) {
                             Button {
-                                memories.toggleNotifications(for: memory)
-                                notificationHelper.updateNotification(for: memory)
-
+                                toggleNotification(forMemory: memory)
                             } label: {
                                 if memory.notificationsEnabled {
                                     Label("Disable Notifications", systemImage: "bell.slash")
@@ -123,8 +114,22 @@ struct MemoriesListView: View {
             return memories.availableMemories.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
     }
-    
 
+
+    private func toggleNotification(forMemory memory: Memory) {
+        memories.toggleNotifications(for: memory)
+    }
+
+    private func markMemoryForDeletion(_ memory: Memory) {
+        memories.markForDeletion(memory)
+
+        if (neverDeletedAMemory) {
+            //show notification
+            neverDeletedAMemory = false
+            showDeleteMemoryAlert = true
+
+        }
+    }
 }
 
 struct MemoriesListView_Previews: PreviewProvider {

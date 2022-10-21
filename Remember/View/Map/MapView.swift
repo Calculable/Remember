@@ -15,22 +15,11 @@ struct MapView: View {
         
     @StateObject private var viewModel: ViewModel = ViewModel()
 
-    //@State private var mapRegion:MKCoordinateRegion
-    @EnvironmentObject var memories: Memories
-    
-    @State private var mapRegion = MKCoordinateRegion(MKMapRect
-        .world)
-    @State private var selectedMemory: Memory? = nil
-    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
-
-
-    
-        
     var body: some View {
         
-        let memoriesWithMapLocaiton = memories.availableMemories.filter {$0.coordinate != nil}
+        let memoriesWithMapLocation = viewModel.memoriesWithMapLocation
         
-        Map(coordinateRegion: $mapRegion, annotationItems: memoriesWithMapLocaiton) { memory in
+        Map(coordinateRegion: $viewModel.mapRegion, annotationItems: memoriesWithMapLocation) { memory in
             
             MapAnnotation(coordinate: memory.coordinate!) {
                 VStack{
@@ -42,22 +31,22 @@ struct MapView: View {
                         .background(Color.background)
                         .foregroundColor(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .opacity(reduceTransparency ? 1.0 : 0.9)
+                        .opacity(viewModel.reduceTransparency ? 1.0 : 0.9)
                 
                     
                     Image(systemName: "mappin.circle.fill")
                         .font(.largeTitle)
                         .foregroundColor(.background)
-                        .opacity(reduceTransparency ? 1.0 : 0.9)
+                        .opacity(viewModel.reduceTransparency ? 1.0 : 0.9)
                     
                 }.onTapGesture {
-                    selectedMemory = memory
+                    viewModel.selectMemory(memory: memory)
                 }
                 
             }
 
         }.dynamicTypeSize(...DynamicTypeSize.xxxLarge)
-        .sheet(item: $selectedMemory) { memory in
+            .sheet(item: $viewModel.selectedMemory) { memory in
             MemoryDetailView(memory: memory)
         }.ignoresSafeArea()
 

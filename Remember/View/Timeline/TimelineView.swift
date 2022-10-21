@@ -32,17 +32,14 @@ struct TimelineView: View {
                 
                 LazyVStack(spacing: 0.0) {
                     
-                    let minYear = memories.oldestYear()
+
+                    let amountOfYears = amountOfYears()
                     let maxYear = memories.newestYear()
-                    
-                   
-                    
-                    if let minYear = minYear, let maxYear = maxYear {
-                        let amountOfYears = (maxYear-minYear)+1
-                        
+
+                    if amountOfYears > 0 {
                         ForEach(0..<amountOfYears, id: \.self) { decrementYear in //workaround to loop in reverse order
-                            let currentYear = maxYear - decrementYear
-                            TimelineYearView(memories: memories.memoriesForYear(currentYear), year: currentYear, marginFactor: $marginAmount).padding()
+                            let currentYearToDisplay = maxYear! - decrementYear
+                            TimelineYearView(memories: memories.memoriesForYear(currentYearToDisplay), year: currentYearToDisplay, marginFactor: $marginAmount).padding()
                         }
                     } else {
                         Text("No Memories to display")
@@ -55,11 +52,22 @@ struct TimelineView: View {
                
             
         } .navigationViewStyle(.stack)
-
-           
-                
-                
-        
-        
     }
+
+        func amountOfYears() -> Int {
+            let minYear = memories.oldestYear()
+            let maxYear = memories.newestYear()
+
+            if let minYear = minYear, let maxYear = maxYear {
+                let amountOfYears = (maxYear - minYear) + 1
+                return amountOfYears
+            } else {
+                return 0
+            }
+        }
+                
+                
+        
+        
+    
 }

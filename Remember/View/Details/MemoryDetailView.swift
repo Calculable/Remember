@@ -79,16 +79,7 @@ struct MemoryDetailView: View {
                         }.padding([.bottom, .top], 20)
                         .alert("Delete Memory", isPresented: $showingDeleteAlert) {
                             Button("Delete", role: .destructive, action: {
-                                memories.markForDeletion(memory)
-                                isDeleted = true
-                                
-                                if (neverDeletedAMemory) {
-                                    //show notification
-                                    neverDeletedAMemory = false
-                                    showDeleteMemoryAlert = true
-                                    
-                                }
-                                
+                                markForDeletion()
                             })
                             Button("Cancel", role: .cancel) { }
                         } message: {
@@ -110,7 +101,7 @@ struct MemoryDetailView: View {
                 .toolbar {
                     ToolbarItem() {
                         Button {
-                            showEditMemorySheet = true
+                            displayEditMemorySheet()
                         } label: {
                             Label("Edit", systemImage: "pencil")
                         }
@@ -118,12 +109,32 @@ struct MemoryDetailView: View {
                 }
                 .sheet(isPresented: $showEditMemorySheet) {
                     EditMemoryView(toEdit: memory, onMemoryUpdated: { newMemory in
-                        self.memory = newMemory //refresh view
+                        refreshView(withMemory: newMemory) //refresh view
                     })
                 }
         }
     }
-    
+
+    private func refreshView(withMemory memory: Memory) {
+        self.memory = memory
+    }
+
+    private func displayEditMemorySheet() {
+        showEditMemorySheet = true
+    }
+
+    private func markForDeletion() {
+        memories.markForDeletion(memory)
+        isDeleted = true
+
+        if (neverDeletedAMemory) {
+            //show notification
+            neverDeletedAMemory = false
+            showDeleteMemoryAlert = true
+
+        }
+    }
+
 }
 
 struct MemoryDetailView_Previews: PreviewProvider {

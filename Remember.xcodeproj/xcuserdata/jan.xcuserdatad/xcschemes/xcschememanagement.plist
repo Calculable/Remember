@@ -17,21 +17,21 @@
 		<key>SwiftRegex5 (Playground) 1.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<false />
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
 		<key>SwiftRegex5 (Playground) 2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<false />
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
 		<key>SwiftRegex5 (Playground).xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
+			<false />
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
@@ -41,12 +41,12 @@
 		<key>3D13CB1728AA8FFB001113BD</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>3D2E6BF728FD164600C1CC4D</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 	</dict>
 </dict>
