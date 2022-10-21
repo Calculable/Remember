@@ -42,6 +42,7 @@
 		3D13CB6728AE2C38001113BD /* TimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB6628AE2C38001113BD /* TimelineView.swift */; };
 		3D13CB6928AE4BB7001113BD /* TimelineYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */; };
 		3D1B891B28D438FE00A7046B /* MemoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1B891A28D438FE00A7046B /* MemoryDetailView.swift */; };
+		3D1C9B4A29028F12007DFC6A /* ExampleMemories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B4929028F12007DFC6A /* ExampleMemories.swift */; };
 		3D2D081728E998C00036B26D /* MemoryListViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2D081628E998C00036B26D /* MemoryListViewBackground.swift */; };
 		3D2D081928E999980036B26D /* DeletedMemoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2D081828E999980036B26D /* DeletedMemoriesListView.swift */; };
 		3D2E6BED28FAF5F600C1CC4D /* ImageSaverHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E6BEC28FAF5F600C1CC4D /* ImageSaverHelper.swift */; };
@@ -106,6 +107,7 @@
 		3D13CB6628AE2C38001113BD /* TimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineView.swift; sourceTree = "<group>"; };
 		3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineYearView.swift; sourceTree = "<group>"; };
 		3D1B891A28D438FE00A7046B /* MemoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryDetailView.swift; sourceTree = "<group>"; };
+		3D1C9B4929028F12007DFC6A /* ExampleMemories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleMemories.swift; sourceTree = "<group>"; };
 		3D2D081628E998C00036B26D /* MemoryListViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryListViewBackground.swift; sourceTree = "<group>"; };
 		3D2D081828E999980036B26D /* DeletedMemoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletedMemoriesListView.swift; sourceTree = "<group>"; };
 		3D2E6BEC28FAF5F600C1CC4D /* ImageSaverHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaverHelper.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				3D13CB3A28AAB08D001113BD /* Memories.swift */,
 				3D13CB3C28AAB0FC001113BD /* Memory.swift */,
 				3D13CB4428AB7C6A001113BD /* UpcomingSpecialDay.swift */,
+				3D1C9B4929028F12007DFC6A /* ExampleMemories.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				3D04CE3F28AF6FBB005D7A90 /* AuthenticationHelper.swift in Sources */,
 				3D13CB3428AAA29C001113BD /* ImagePicker.swift in Sources */,
 				3D13CB1E28AA8FFC001113BD /* ContentView.swift in Sources */,
+				3D1C9B4A29028F12007DFC6A /* ExampleMemories.swift in Sources */,
 				3D13CB5D28ACF7A9001113BD /* DateExtensions.swift in Sources */,
 				3D13CB1C28AA8FFC001113BD /* RememberApp.swift in Sources */,
 				3D13CB5F28AD364A001113BD /* SettingsHelper.swift in Sources */,

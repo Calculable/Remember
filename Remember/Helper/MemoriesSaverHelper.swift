@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class MemoriesSaverHelper {
     
@@ -14,8 +15,8 @@ class MemoriesSaverHelper {
         do {
             let data = try JSONEncoder().encode(memories)
             try data.write(to: getSavePath(), options:[.atomic, .completeFileProtection])
-        } catch {
-            print("Unable to save data.")
+        } catch let error {
+            print("Unable to save data. " + error.localizedDescription)
         }
         
     }
@@ -28,12 +29,45 @@ class MemoriesSaverHelper {
         return try Bundle.main.decode(getSavePath())
     }
     
-    private func getDocumentsDirectory() -> URL {
+    func getDocumentsDirectory() -> URL {
         // find all possible documents directories for this user
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 
         // just send back the first one, which ought to be the only one
         return paths[0]
+    }
+    
+    
+    func loadImageFromDocumentDirectory(memory: Memory) -> UIImage? {
+            let documentsUrl = getDocumentsDirectory()
+            let fileURL = documentsUrl.appendingPathComponent(memory.id.uuidString)
+            do {
+                let imageData = try Data(contentsOf: fileURL)
+                return UIImage(data: imageData)
+            } catch {
+                print("Cannot load image: " + fileURL.path)
+                print(error.localizedDescription)
+                return nil
+            }
+            
+        }
+    
+    func getMemoryImageFileUrl(memory: Memory) -> URL {
+        let documentsUrl = getDocumentsDirectory()
+        return documentsUrl.appendingPathComponent(memory.id.uuidString)
+    }
+    
+    func saveImageInDocumentDirectory(memory: Memory) {
+        let fileURL = getMemoryImageFileUrl(memory: memory)
+        if let imageData = memory.image?.pngData() {
+            try? imageData.write(to: fileURL, options: .atomic)
+        }
+    }
+    
+    
+    func deleteImageInDocumentDirectory(memory: Memory) {
+        let fileURL = getMemoryImageFileUrl(memory: memory)
+        try? FileManager.default.removeItem(at: fileURL)
     }
     
 }

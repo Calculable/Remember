@@ -42,8 +42,8 @@ struct MemoryDetailView: View {
                     Text(memory.date.formatted(date: .long, time: .omitted))
                         .foregroundColor(.secondary)
                     
-                    if let image = memory.displayImage { //display image should not be in model
-                        image.resizable().scaledToFit()
+                    if let image = memory.image { //display image should not be in model
+                        Image(uiImage: image).resizable().scaledToFit()
                             .frame(maxWidth: 700).clipped().padding([.bottom, .top], 20)
                     }
 

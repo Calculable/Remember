@@ -11,23 +11,22 @@ import MapKit
 
 class Memory: Identifiable, ObservableObject, Comparable, Codable {
     
+    let memoriesSaverHelper = MemoriesSaverHelper()
     @Published var id = UUID()
     @Published var name: String
     @Published var date: Date
     @Published var image: UIImage? {
         didSet {
-            Memory.saveImageInDocumentDirectory(memory: self)
+            if image == nil {
+                memoriesSaverHelper.saveImageInDocumentDirectory(memory: self)
+            } else {
+                memoriesSaverHelper.deleteImageInDocumentDirectory(memory: self)
+            }
         }
     }
+    
     @Published var notes: String
     
-    var displayImage: Image? {
-        guard let image = image else {
-            return nil
-        }
-        
-        return Image(uiImage: image)
-    }
     
     @Published var notificationsEnabled = false
     
@@ -58,23 +57,8 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
     }
     
     
-    
     private enum CodingKeys: String, CodingKey {
         case id, name, date, latitude, longitude, notificationsEnabled, notes, isMarkedForDeletion
-    }
-    
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        id = try container.decode(UUID.self, forKey: .id)
-        name = try container.decode(String.self, forKey: .name)
-        date = try container.decode(Date.self, forKey: .date)
-        notificationsEnabled = try container.decode(Bool.self, forKey: .notificationsEnabled)
-        latitude = try container.decode(Double?.self, forKey: .latitude)
-        longitude = try container.decode(Double?.self, forKey: .longitude)
-        notes = try container.decode(String.self, forKey: .notes)
-        isMarkedForDeletion = try container.decode(Bool.self, forKey: .isMarkedForDeletion)
-
-        image = Memory.loadImageFromDocumentDirectory(memory: self)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -90,6 +74,23 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
 
         
     }
+  
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: .id)
+        name = try container.decode(String.self, forKey: .name)
+        date = try container.decode(Date.self, forKey: .date)
+        notificationsEnabled = try container.decode(Bool.self, forKey: .notificationsEnabled)
+        latitude = try container.decode(Double?.self, forKey: .latitude)
+        longitude = try container.decode(Double?.self, forKey: .longitude)
+        notes = try container.decode(String.self, forKey: .notes)
+        isMarkedForDeletion = try container.decode(Bool.self, forKey: .isMarkedForDeletion)
+
+        image = Memory.loadImageFromDocumentDirectory(memory: self)
+    }
+    
+
     
     init(name: String, date: Date = Date.now) {
         self.name = name
@@ -125,24 +126,7 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
             return nil
         }
     
-    public static func saveImageInDocumentDirectory(memory: Memory) {
-
-        let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!;
-        let fileURL = documentsUrl.appendingPathComponent(memory.id.uuidString)
-        
-        if let image = memory.image {
-
-            if let imageData = image.pngData() {
-                try? imageData.write(to: fileURL, options: .atomic)
-            }
-        }
-        else {
-            //ToDo: Delete Image
-            try? FileManager.default.removeItem(at: fileURL)
-        }
-        
-    }
-    
+  
     
     
 }

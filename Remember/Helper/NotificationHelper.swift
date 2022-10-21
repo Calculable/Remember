@@ -13,7 +13,7 @@ class NotificationHelper {
     
     @AppStorage("notifications.days.before.event") private var daysBeforeEvent = 1
     @AppStorage("notification.time") private var timeOfNotifications = SettingsHelper.getDefaultNotificationTime()
-
+    
     
     func removeNotification(for memory: Memory) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [memory.id.uuidString]);
@@ -23,76 +23,98 @@ class NotificationHelper {
         
         removeNotification(for: memory)
         
-        if (memory.notificationsEnabled) {
+        if (memory.notificationsEnabled && !memory.isMarkedForDeletion) {
             let trigger = createNotificationTriggerFor(date: memory.date);
             tryToSendNotification(notificationTrigger: trigger, memory: memory)
         }
     }
-
-
+    
+    
     func updateNotifications(memories: Memories) {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
-        
         for memory in memories.memories {
-            if !memory.isMarkedForDeletion {
-                updateNotification(for: memory)
-            }
-            
+            updateNotification(for: memory)
         }
     }
-
+    
     func tryToSendNotification(notificationTrigger: UNNotificationTrigger, memory: Memory) {
-        let center = UNUserNotificationCenter.current()
-
-        center.getNotificationSettings { settings in
-            if settings.authorizationStatus == .authorized {
-                self.sendNotification(notificationTrigger: notificationTrigger, memory: memory)
-            } else {
-                center.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-                    if success {
-                        self.sendNotification(notificationTrigger: notificationTrigger, memory: memory)
-                    } else {
-                        print("notifications not enabled")
-                    }
-                }
+        Task.init {
+            let isAuthorizedToSendNotification = await requestNotificationAuthorization()
+            guard isAuthorizedToSendNotification else {
+                return
             }
+            self.sendNotification(notificationTrigger: notificationTrigger, memory: memory)
         }
     }
-
-    private func sendNotification(notificationTrigger: UNNotificationTrigger, memory: Memory) {
-        let content = UNMutableNotificationContent()
-        
-        switch daysBeforeEvent {
-            case 0: content.title = String(localized: "New anniversary today")
-            case 1: content.title = String(localized: "New anniversary tomorrow")
-            default: content.title = String(localized: "New anniversary in \(daysBeforeEvent) days")
+    
+    private func notificationsAuthorized() async -> Bool {
+        let center = UNUserNotificationCenter.current()
+        let settings = await center.notificationSettings()
+        return settings.authorizationStatus == .authorized
+    }
+    
+    private func requestNotificationAuthorization() async -> Bool {
+        let center = UNUserNotificationCenter.current()
+        if (await notificationsAuthorized()) {
+            return true
+        } else {
+            do {
+                return try await center.requestAuthorization(options: [.alert, .badge, .sound])
+            } catch let error {
+                print("Error while requesting authorization from notification center: " + error.localizedDescription)
+                return false
+            }
         }
-
-        content.subtitle = "\(memory.name) \(memory.date.formatted(date: .long, time: .omitted))"
+       
+    }
+    
+    private func notificationTitle(daysBeforeEvent: Int) -> String {
+        switch daysBeforeEvent {
+            case 0: return String(localized: "New anniversary today")
+            case 1: return String(localized: "New anniversary tomorrow")
+            default: return String(localized: "New anniversary in \(daysBeforeEvent) days")
+        }
+    }
+    
+    private func notificationSubtitle(memory: Memory) -> String {
+        return "\(memory.name) \(memory.date.formatted(date: .long, time: .omitted))"
+    }
+    
+    private func createNotificationContentForMemory(memory: Memory) -> UNMutableNotificationContent {
+        let content = UNMutableNotificationContent()
+        content.title = notificationTitle(daysBeforeEvent: daysBeforeEvent)
+        content.subtitle = notificationSubtitle(memory: memory)
         content.sound = UNNotificationSound.default
-
+        return content
+    }
+    
+    
+    private func sendNotification(notificationTrigger: UNNotificationTrigger, memory: Memory) {
+        let notificationContent = createNotificationContentForMemory(memory: memory)
+        
         // choose a random identifier
-        let request = UNNotificationRequest(identifier: memory.id.uuidString, content: content, trigger: notificationTrigger)
-
+        let request = UNNotificationRequest(identifier: memory.id.uuidString, content: notificationContent, trigger: notificationTrigger)
+        
         // add our notification request
         UNUserNotificationCenter.current().add(request)
     }
-
-    private func createNotificationTriggerFor(date: Date) -> UNNotificationTrigger {
-        
+    
+    private func createNotificationDateComponents(forEventDate date: Date) -> DateComponents {
         var notificationDate = DateComponents()
+        let shiftedDate = Calendar.current.date(byAdding: .day, value: -(daysBeforeEvent), to: date)!
         notificationDate.hour = Calendar.current.component(.hour, from: timeOfNotifications)
         notificationDate.minute = Calendar.current.component(.minute, from: timeOfNotifications)
         notificationDate.second = 0
-        
-        let shiftedDate = Calendar.current.date(byAdding: .day, value: -(daysBeforeEvent), to: date)!
-        
         notificationDate.day = Calendar.current.component(.day, from: shiftedDate)
         notificationDate.month = Calendar.current.component(.month, from: shiftedDate)
-        
-        let trigger = UNCalendarNotificationTrigger(dateMatching: notificationDate, repeats: true) //repeat once per year
+        return notificationDate
+    }
+    
+    
+    private func createNotificationTriggerFor(date: Date) -> UNNotificationTrigger {
+        let trigger = UNCalendarNotificationTrigger(dateMatching: createNotificationDateComponents(forEventDate: date), repeats: true) //repeat once per year
         return trigger;
         
     }
-
+    
 }
