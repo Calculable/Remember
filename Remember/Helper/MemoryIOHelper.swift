@@ -22,14 +22,14 @@ struct MemoryIOHelper {
     }
     
     private func getSavePath() -> URL {
-        MemoryIOHelper.getDocumentsDirectory().appendingPathComponent("memories.json")
+        getDocumentsDirectory().appendingPathComponent("memories.json")
     }
     
     func loadMemoriesFromDisk() throws -> [Memory]  {
         return try Bundle.main.decode(getSavePath())
     }
     
-    static func getDocumentsDirectory() -> URL {
+    func getDocumentsDirectory() -> URL {
         // find all possible documents directories for this user
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 
@@ -38,9 +38,8 @@ struct MemoryIOHelper {
     }
     
     
-    static func loadImageFromDocumentDirectory(memory: Memory) -> UIImage? {
-            let documentsUrl = getDocumentsDirectory()
-            let fileURL = documentsUrl.appendingPathComponent(memory.id.uuidString)
+    func loadImageFromDocumentDirectory(memory: Memory) -> UIImage? {
+        let fileURL = getMemoryImageFileUrl(memory: memory)
             do {
                 let imageData = try Data(contentsOf: fileURL)
                 return UIImage(data: imageData)
@@ -53,7 +52,7 @@ struct MemoryIOHelper {
         }
     
     func getMemoryImageFileUrl(memory: Memory) -> URL {
-        let documentsUrl = MemoryIOHelper.getDocumentsDirectory()
+        let documentsUrl = getDocumentsDirectory()
         return documentsUrl.appendingPathComponent(memory.id.uuidString)
     }
     

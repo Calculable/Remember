@@ -1,5 +1,5 @@
 //
-//  UpcomingSpecialDay.swift
+//  Anniversary.swift
 //  Remember
 //
 //  Created by Jan Huber on 16.08.22.
@@ -7,29 +7,29 @@
 
 import Foundation
 
-struct UpcomingSpecialDay: Identifiable, Comparable {
+struct Anniversary: Identifiable, Comparable {
     
     let id = UUID()
     let memory: Memory
-    let dateOfTheSpecialDay: Date
-    let type: SpecialDayType
+    let date: Date
+    let type: AnniversaryType
     
-    static func < (lhs: UpcomingSpecialDay, rhs: UpcomingSpecialDay) -> Bool {
-        lhs.dateOfTheSpecialDay < rhs.dateOfTheSpecialDay
+    static func < (lhs: Anniversary, rhs: Anniversary) -> Bool {
+        lhs.date < rhs.date
     }
     
     var days:Int {
-        return memory.date.timeIntervalInDays(to: dateOfTheSpecialDay)
+        return memory.date.timeIntervalInDays(to: date)
     }
     
     var years:Int {
-        let year1 = Calendar.current.dateComponents([.year], from: dateOfTheSpecialDay).year!
+        let year1 = Calendar.current.dateComponents([.year], from: date).year!
         let year2 = Calendar.current.dateComponents([.year], from: memory.date).year!
         return year1 - year2
         
     }
     
-    enum SpecialDayType {
+    enum AnniversaryType {
         case day, year
     }
     

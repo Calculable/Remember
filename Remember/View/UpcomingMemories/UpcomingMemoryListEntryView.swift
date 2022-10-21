@@ -9,7 +9,7 @@ import SwiftUI
 
 struct UpcomingMemoryListEntryView: View {
     
-    @State var specialDay: UpcomingSpecialDay
+    @State var anniversary: Anniversary
     @State private var showImageSavedNotification = false
     @State private var showImageSaveErrorNotification = false
 
@@ -27,7 +27,7 @@ struct UpcomingMemoryListEntryView: View {
         ZStack {
             
             
-            if let image = specialDay.memory.image {
+            if let image = anniversary.memory.image {
                 GeometryReader { geo in
         
                     Image(uiImage: image).resizable().scaledToFill().frame(width: geo.size.width).frame(height: geo.size.width).clipped()
@@ -53,12 +53,12 @@ struct UpcomingMemoryListEntryView: View {
                 Group {
                     
                 
-                    Text("\(Image(systemName: "calendar.circle")) \(specialDay.dateOfTheSpecialDay.formatted(date: .long, time: .omitted))  \n(\(describeRemainingDays(specialDay.dateOfTheSpecialDay)))")
-                        .foregroundColor(remainingDaysTo(to: specialDay.dateOfTheSpecialDay) <= 7 ? .white : .white)
+                    Text("\(Image(systemName: "calendar.circle")) \(anniversary.date.formatted(date: .long, time: .omitted))  \n(\(describeRemainingDays(anniversary.date)))")
+                        .foregroundColor(remainingDaysTo(to: anniversary.date) <= 7 ? .white : .white)
                         .multilineTextAlignment(.center)
                         .accessibilityHidden(true)
                                             
-                    Text("\(getTimeIntervallDescription(specialDay: specialDay)): \(specialDay.memory.name)")
+                    Text("\(getTimeIntervallDescription(anniversary: anniversary)): \(anniversary.memory.name)")
                         .font(.title)
                         .foregroundColor(.white)
                     
@@ -66,7 +66,7 @@ struct UpcomingMemoryListEntryView: View {
                 
                 if (!isScreenshot) {
                     Button("Share") {
-                        let view = UpcomingMemoryListEntryView(specialDay: specialDay, isScreenshot: true)
+                        let view = UpcomingMemoryListEntryView(anniversary: anniversary, isScreenshot: true)
                         view.isScreenshot = true
                         
                         let image = view.snapshot(width: 500, height: 500)
@@ -111,13 +111,13 @@ struct UpcomingMemoryListEntryView: View {
     }
     
 
-    func getTimeIntervallDescription(specialDay: UpcomingSpecialDay) -> String {
-        switch(specialDay.type) {
+    func getTimeIntervallDescription(anniversary: Anniversary) -> String {
+        switch(anniversary.type) {
             case .year:
-            return String(format: NSLocalizedString("%d years since", comment: "number of days since the anniversary"), specialDay.years)
+            return String(format: NSLocalizedString("%d years since", comment: "number of days since the anniversary"), anniversary.years)
 
             case .day:
-                return String(format: NSLocalizedString("%d days since", comment: "number of days since the anniversary"), specialDay.days)
+                return String(format: NSLocalizedString("%d days since", comment: "number of days since the anniversary"), anniversary.days)
 
 
         }
@@ -148,11 +148,11 @@ class UpcomingMemoryListEntryView_Previews: PreviewProvider {
     static var previews: some View {
         let exampleMemory = Memory(name: "Example Memory")
         
-        var dateOfSpecialDay = exampleMemory.date
-        dateOfSpecialDay.changeYear(to: Date.currentYear() + 1)
+        var dateOfTheAnniversary = exampleMemory.date
+        dateOfTheAnniversary.changeYear(to: Date.currentYear() + 1)
         
-        let specialDay = UpcomingSpecialDay(memory: exampleMemory, dateOfTheSpecialDay: dateOfSpecialDay, type: .year)
-        return UpcomingMemoryListEntryView(specialDay: specialDay, isScreenshot: false)
+        let anniversary = Anniversary(memory: exampleMemory, date: dateOfTheAnniversary, type: .year)
+        return UpcomingMemoryListEntryView(anniversary: anniversary, isScreenshot: false)
     }
 
 }

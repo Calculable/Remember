@@ -17,13 +17,13 @@ struct UpcomingMemoriesView: View {
 
     
     
-    var filteredUpcomingSpecialDays: [UpcomingSpecialDay] {
-        let upcomingSpecialDays = viewModel.generateUpcomingSpecialDays(memories: memories)
+    var filteredAnniversaries: [Anniversary] {
+        let Anniversaries = viewModel.generateAnniversaries(memories: memories)
         
         if searchText.isEmpty {
-            return upcomingSpecialDays
+            return Anniversaries
         } else {
-            return upcomingSpecialDays.filter { $0.memory.name.localizedCaseInsensitiveContains(searchText) }
+            return Anniversaries.filter { $0.memory.name.localizedCaseInsensitiveContains(searchText) }
         }
         
         
@@ -34,11 +34,11 @@ struct UpcomingMemoriesView: View {
         NavigationView {
             ScrollView {
                 VStack {
-                    ForEach(filteredUpcomingSpecialDays) { specialDay in
+                    ForEach(filteredAnniversaries) { anniversary in
                         NavigationLink {
-                            MemoryDetailView(memory: specialDay.memory)
+                            MemoryDetailView(memory: anniversary.memory)
                         } label: {
-                            UpcomingMemoryListEntryView(specialDay: specialDay, isScreenshot: false)
+                            UpcomingMemoryListEntryView(anniversary: anniversary, isScreenshot: false)
                         }
                     }
                 }

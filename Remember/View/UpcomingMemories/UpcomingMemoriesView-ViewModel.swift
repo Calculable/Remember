@@ -15,8 +15,8 @@ extension UpcomingMemoriesView {
         let calendar = Calendar.current;
 
         
-        func generateUpcomingSpecialDays(memories: Memories) -> [UpcomingSpecialDay] {
-            var result: [UpcomingSpecialDay] = []
+        func generateAnniversaries(memories: Memories) -> [Anniversary] {
+            var result: [Anniversary] = []
             for memory in memories.availableMemories {
                 result.append(nextAnniversary(of: memory));
                 result.append(contentsOf: nextSpecialDayIntervals(of: memory))
@@ -24,7 +24,7 @@ extension UpcomingMemoriesView {
             return result.sorted()
         }
         
-        func nextAnniversary(of memory: Memory) -> UpcomingSpecialDay {
+        func nextAnniversary(of memory: Memory) -> Anniversary {
             
             
             
@@ -36,19 +36,19 @@ extension UpcomingMemoriesView {
                 nextAnniversary.changeYear(to: Date.currentYear()+1)
             }
             
-            return UpcomingSpecialDay(memory: memory, dateOfTheSpecialDay: nextAnniversary, type: .year)
+            return Anniversary(memory: memory, date: nextAnniversary, type: .year)
         }
         
-        func nextSpecialDayIntervals(of memory: Memory) -> [UpcomingSpecialDay] {
-            var specialDays:[UpcomingSpecialDay] = []
+        func nextSpecialDayIntervals(of memory: Memory) -> [Anniversary] {
+            var anniversaries:[Anniversary] = []
             
             for specialDayInterval in specialDayIntervals {
                 let modifiedDate = Calendar.current.date(byAdding: .day, value: specialDayInterval, to: memory.date)!
                 if (modifiedDate.isInLessThanAYear()) {
-                    specialDays.append(UpcomingSpecialDay(memory: memory, dateOfTheSpecialDay: modifiedDate, type: .day))
+                    anniversaries.append(Anniversary(memory: memory, date: modifiedDate, type: .day))
                 }
             }
-            return specialDays
+            return anniversaries
         }
         
     }
