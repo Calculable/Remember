@@ -10,7 +10,6 @@ import Foundation
 
 struct UpcomingMemoriesView: View {
     
-    
     @StateObject private var viewModel: ViewModel = ViewModel()
     @EnvironmentObject var memories: Memories
     @State private var searchText = ""

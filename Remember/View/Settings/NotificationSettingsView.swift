@@ -9,7 +9,9 @@ import SwiftUI
 
 
 struct NotificationSettingsView: View {
-    
+
+    @StateObject private var viewModel = ViewModel()
+
     let availableNotificationDaysBeforeEvent = 0...7
     
     @EnvironmentObject var memories: Memories
