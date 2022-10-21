@@ -48,7 +48,7 @@
 		3D2E6BED28FAF5F600C1CC4D /* ImageSaverHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E6BEC28FAF5F600C1CC4D /* ImageSaverHelper.swift */; };
 		3D2E6BF028FAFD9B00C1CC4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D2E6BF228FAFD9B00C1CC4D /* Localizable.strings */; };
 		3D2E6C0428FD194800C1CC4D /* DateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E6C0328FD194800C1CC4D /* DateExtensionsTests.swift */; };
-		3D50727A28FE72CE0041FE28 /* MemoriesSaverHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50727928FE72CE0041FE28 /* MemoriesSaverHelper.swift */; };
+		3D50727A28FE72CE0041FE28 /* MemoryIOHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50727928FE72CE0041FE28 /* MemoryIOHelper.swift */; };
 		3D50727C28FE82910041FE28 /* ResetMemoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50727B28FE82910041FE28 /* ResetMemoriesView.swift */; };
 		3D50728028FF171D0041FE28 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3D50727F28FF171D0041FE28 /* README.md */; };
 		3DBC9D2828FFD38A005372DE /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC9D2728FFD38A005372DE /* header.png */; };
@@ -115,7 +115,7 @@
 		3D2E6BF328FAFDC400C1CC4D /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D2E6BF828FD164600C1CC4D /* RememberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RememberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D2E6C0328FD194800C1CC4D /* DateExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionsTests.swift; sourceTree = "<group>"; };
-		3D50727928FE72CE0041FE28 /* MemoriesSaverHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoriesSaverHelper.swift; sourceTree = "<group>"; };
+		3D50727928FE72CE0041FE28 /* MemoryIOHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryIOHelper.swift; sourceTree = "<group>"; };
 		3D50727B28FE82910041FE28 /* ResetMemoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetMemoriesView.swift; sourceTree = "<group>"; };
 		3D50727F28FF171D0041FE28 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		3DBC9D2728FFD38A005372DE /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
@@ -296,7 +296,7 @@
 				3D13CB5E28AD364A001113BD /* SettingsHelper.swift */,
 				3D04CE3E28AF6FBB005D7A90 /* AuthenticationHelper.swift */,
 				3D2E6BEC28FAF5F600C1CC4D /* ImageSaverHelper.swift */,
-				3D50727928FE72CE0041FE28 /* MemoriesSaverHelper.swift */,
+				3D50727928FE72CE0041FE28 /* MemoryIOHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -479,7 +479,7 @@
 				3D13CB3D28AAB0FC001113BD /* Memory.swift in Sources */,
 				3D13CB4528AB7C6A001113BD /* UpcomingSpecialDay.swift in Sources */,
 				3D13CB5628AC017B001113BD /* UpcomingMemoryListEntryView.swift in Sources */,
-				3D50727A28FE72CE0041FE28 /* MemoriesSaverHelper.swift in Sources */,
+				3D50727A28FE72CE0041FE28 /* MemoryIOHelper.swift in Sources */,
 				3D13CB3B28AAB08D001113BD /* Memories.swift in Sources */,
 				3D13CB4728AB8E04001113BD /* CalendarExtensions.swift in Sources */,
 				3D1B891B28D438FE00A7046B /* MemoryDetailView.swift in Sources */,

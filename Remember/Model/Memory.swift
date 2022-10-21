@@ -11,16 +11,17 @@ import MapKit
 
 class Memory: Identifiable, ObservableObject, Comparable, Codable {
     
-    let memoriesSaverHelper = MemoriesSaverHelper()
+    let memoryIOHelper = MemoryIOHelper()
     @Published var id = UUID()
     @Published var name: String
     @Published var date: Date
     @Published var image: UIImage? {
         didSet {
             if image == nil {
-                memoriesSaverHelper.saveImageInDocumentDirectory(memory: self)
+                memoryIOHelper.deleteImageInDocumentDirectory(memory: self)
+
             } else {
-                memoriesSaverHelper.deleteImageInDocumentDirectory(memory: self)
+                memoryIOHelper.saveImageInDocumentDirectory(memory: self)
             }
         }
     }
@@ -87,7 +88,7 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
         notes = try container.decode(String.self, forKey: .notes)
         isMarkedForDeletion = try container.decode(Bool.self, forKey: .isMarkedForDeletion)
 
-        image = Memory.loadImageFromDocumentDirectory(memory: self)
+        image = MemoryIOHelper.loadImageFromDocumentDirectory(memory: self)
     }
     
 
@@ -115,18 +116,6 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
         return lhs.date < rhs.date
     }
     
-    
-    public static func loadImageFromDocumentDirectory(memory: Memory) -> UIImage? {
-            let documentsUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!;
-            let fileURL = documentsUrl.appendingPathComponent(memory.id.uuidString)
-            do {
-                let imageData = try Data(contentsOf: fileURL)
-                return UIImage(data: imageData)
-            } catch {}
-            return nil
-        }
-    
-  
-    
+
     
 }

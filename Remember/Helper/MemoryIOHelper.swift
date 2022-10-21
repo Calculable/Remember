@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class MemoriesSaverHelper {
+struct MemoryIOHelper {
     
     func save(memories: [Memory]) {
                 
@@ -22,14 +22,14 @@ class MemoriesSaverHelper {
     }
     
     private func getSavePath() -> URL {
-        getDocumentsDirectory().appendingPathComponent("memories.json")
+        MemoryIOHelper.getDocumentsDirectory().appendingPathComponent("memories.json")
     }
     
     func loadMemoriesFromDisk() throws -> [Memory]  {
         return try Bundle.main.decode(getSavePath())
     }
     
-    func getDocumentsDirectory() -> URL {
+    static func getDocumentsDirectory() -> URL {
         // find all possible documents directories for this user
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
 
@@ -38,7 +38,7 @@ class MemoriesSaverHelper {
     }
     
     
-    func loadImageFromDocumentDirectory(memory: Memory) -> UIImage? {
+    static func loadImageFromDocumentDirectory(memory: Memory) -> UIImage? {
             let documentsUrl = getDocumentsDirectory()
             let fileURL = documentsUrl.appendingPathComponent(memory.id.uuidString)
             do {
@@ -53,7 +53,7 @@ class MemoriesSaverHelper {
         }
     
     func getMemoryImageFileUrl(memory: Memory) -> URL {
-        let documentsUrl = getDocumentsDirectory()
+        let documentsUrl = MemoryIOHelper.getDocumentsDirectory()
         return documentsUrl.appendingPathComponent(memory.id.uuidString)
     }
     

@@ -14,7 +14,7 @@ class Memories: ObservableObject {
     
     @Published private(set) var memories: [Memory] = []
     let notificationHelper: NotificationHelper
-    let memoriesSaverHelper: MemoriesSaverHelper
+    let memoryIOHelper: MemoryIOHelper
 
     var availableMemories: [Memory] {
         memories.filter {
@@ -28,12 +28,12 @@ class Memories: ObservableObject {
         }
     }
     
-    init(notificationHelper: NotificationHelper = NotificationHelper(), memoriesSaverHelper: MemoriesSaverHelper = MemoriesSaverHelper()) {
+    init(notificationHelper: NotificationHelper = NotificationHelper(), memoryIOHelper: MemoryIOHelper = MemoryIOHelper()) {
         self.notificationHelper = notificationHelper
-        self.memoriesSaverHelper = memoriesSaverHelper
+        self.memoryIOHelper = memoryIOHelper
 
         do {
-            memories = try memoriesSaverHelper.loadMemoriesFromDisk()
+            memories = try memoryIOHelper.loadMemoriesFromDisk()
         } catch {
             print("Existing memories not found. App probably oppened for the first time")
             print(error.localizedDescription)
@@ -118,7 +118,7 @@ class Memories: ObservableObject {
     
     private func save() {
         
-        memoriesSaverHelper.save(memories: memories)
+        memoryIOHelper.save(memories: memories)
         
         notificationHelper.updateNotifications(memories: self)
     }
