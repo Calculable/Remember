@@ -43,7 +43,18 @@
 		3D13CB6928AE4BB7001113BD /* TimelineYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */; };
 		3D1B891B28D438FE00A7046B /* MemoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1B891A28D438FE00A7046B /* MemoryDetailView.swift */; };
 		3D1C9B4A29028F12007DFC6A /* ExampleMemories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B4929028F12007DFC6A /* ExampleMemories.swift */; };
-		3D2D081728E998C00036B26D /* MemoryListViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2D081628E998C00036B26D /* MemoryListViewBackground.swift */; };
+		3D1C9B4E2902A187007DFC6A /* MapView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B4D2902A187007DFC6A /* MapView-ViewModel.swift */; };
+		3D1C9B502902A202007DFC6A /* MemoryDetailView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B4F2902A202007DFC6A /* MemoryDetailView-ViewModel.swift */; };
+		3D1C9B522902A216007DFC6A /* LockView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B512902A216007DFC6A /* LockView-ViewModel.swift */; };
+		3D1C9B542902A223007DFC6A /* TimelineView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B532902A223007DFC6A /* TimelineView-ViewModel.swift */; };
+		3D1C9B562902A236007DFC6A /* TimelineYearView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B552902A236007DFC6A /* TimelineYearView-ViewModel.swift */; };
+		3D1C9B582902A257007DFC6A /* NotificationSettingsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B572902A257007DFC6A /* NotificationSettingsView-ViewModel.swift */; };
+		3D1C9B5A2902A279007DFC6A /* PrivacySettingsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B592902A279007DFC6A /* PrivacySettingsView-ViewModel.swift */; };
+		3D1C9B5C2902A290007DFC6A /* DeletedMemoriesListView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B5B2902A290007DFC6A /* DeletedMemoriesListView-ViewModel.swift */; };
+		3D1C9B5E2902A2BA007DFC6A /* ResetMemoriesView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B5D2902A2BA007DFC6A /* ResetMemoriesView-ViewModel.swift */; };
+		3D1C9B602902A2DC007DFC6A /* UpcomingMemoryListEntryView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B5F2902A2DC007DFC6A /* UpcomingMemoryListEntryView-ViewModel.swift */; };
+		3D1C9B622902A317007DFC6A /* MemoryListEntryView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B612902A317007DFC6A /* MemoryListEntryView-ViewModel.swift */; };
+		3D2D081728E998C00036B26D /* ColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2D081628E998C00036B26D /* ColorHelper.swift */; };
 		3D2D081928E999980036B26D /* DeletedMemoriesListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2D081828E999980036B26D /* DeletedMemoriesListView.swift */; };
 		3D2E6BED28FAF5F600C1CC4D /* ImageSaverHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2E6BEC28FAF5F600C1CC4D /* ImageSaverHelper.swift */; };
 		3D2E6BF028FAFD9B00C1CC4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D2E6BF228FAFD9B00C1CC4D /* Localizable.strings */; };
@@ -108,7 +119,18 @@
 		3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineYearView.swift; sourceTree = "<group>"; };
 		3D1B891A28D438FE00A7046B /* MemoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryDetailView.swift; sourceTree = "<group>"; };
 		3D1C9B4929028F12007DFC6A /* ExampleMemories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleMemories.swift; sourceTree = "<group>"; };
-		3D2D081628E998C00036B26D /* MemoryListViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryListViewBackground.swift; sourceTree = "<group>"; };
+		3D1C9B4D2902A187007DFC6A /* MapView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView-ViewModel.swift"; sourceTree = "<group>"; };
+		3D1C9B4F2902A202007DFC6A /* MemoryDetailView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoryDetailView-ViewModel.swift"; sourceTree = "<group>"; };
+		3D1C9B512902A216007DFC6A /* LockView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LockView-ViewModel.swift"; sourceTree = "<group>"; };
+		3D1C9B532902A223007DFC6A /* TimelineView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimelineView-ViewModel.swift"; sourceTree = "<group>"; };
+		3D1C9B552902A236007DFC6A /* TimelineYearView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimelineYearView-ViewModel.swift"; sourceTree = "<group>"; };
+		3D1C9B572902A257007DFC6A /* NotificationSettingsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationSettingsView-ViewModel.swift"; sourceTree = "<group>"; };
+		3D1C9B592902A279007DFC6A /* PrivacySettingsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrivacySettingsView-ViewModel.swift"; sourceTree = "<group>"; };
+		3D1C9B5B2902A290007DFC6A /* DeletedMemoriesListView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DeletedMemoriesListView-ViewModel.swift"; sourceTree = "<group>"; };
+		3D1C9B5D2902A2BA007DFC6A /* ResetMemoriesView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ResetMemoriesView-ViewModel.swift"; sourceTree = "<group>"; };
+		3D1C9B5F2902A2DC007DFC6A /* UpcomingMemoryListEntryView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UpcomingMemoryListEntryView-ViewModel.swift"; sourceTree = "<group>"; };
+		3D1C9B612902A317007DFC6A /* MemoryListEntryView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoryListEntryView-ViewModel.swift"; sourceTree = "<group>"; };
+		3D2D081628E998C00036B26D /* ColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHelper.swift; sourceTree = "<group>"; };
 		3D2D081828E999980036B26D /* DeletedMemoriesListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeletedMemoriesListView.swift; sourceTree = "<group>"; };
 		3D2E6BEC28FAF5F600C1CC4D /* ImageSaverHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaverHelper.swift; sourceTree = "<group>"; };
 		3D2E6BF128FAFD9B00C1CC4D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -150,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				3D04CE4128AF70DC005D7A90 /* LockView.swift */,
+				3D1C9B512902A216007DFC6A /* LockView-ViewModel.swift */,
 			);
 			path = Lock;
 			sourceTree = "<group>";
@@ -245,7 +268,7 @@
 				3D13CB2B28AA9511001113BD /* MemoriesListView.swift */,
 				3D13CB2F28AA9C55001113BD /* MemoriesListView-ViewModel.swift */,
 				3D13CB3E28AAB4E6001113BD /* MemoryListEntryView.swift */,
-				3D2D081628E998C00036B26D /* MemoryListViewBackground.swift */,
+				3D1C9B612902A317007DFC6A /* MemoryListEntryView-ViewModel.swift */,
 			);
 			path = MemoriesList;
 			sourceTree = "<group>";
@@ -256,6 +279,7 @@
 				3D13CB2928AA948D001113BD /* UpcomingMemoriesView.swift */,
 				3D13CB5328ABFF3C001113BD /* UpcomingMemoriesView-ViewModel.swift */,
 				3D13CB5528AC017B001113BD /* UpcomingMemoryListEntryView.swift */,
+				3D1C9B5F2902A2DC007DFC6A /* UpcomingMemoryListEntryView-ViewModel.swift */,
 			);
 			path = UpcomingMemories;
 			sourceTree = "<group>";
@@ -265,9 +289,13 @@
 			children = (
 				3D13CB2D28AA9561001113BD /* SettingsView.swift */,
 				3D13CB5A28ACE1E9001113BD /* NotificationSettingsView.swift */,
+				3D1C9B572902A257007DFC6A /* NotificationSettingsView-ViewModel.swift */,
 				3D04CE3C28AF6D8C005D7A90 /* PrivacySettingsView.swift */,
 				3D2D081828E999980036B26D /* DeletedMemoriesListView.swift */,
 				3D50727B28FE82910041FE28 /* ResetMemoriesView.swift */,
+				3D1C9B592902A279007DFC6A /* PrivacySettingsView-ViewModel.swift */,
+				3D1C9B5B2902A290007DFC6A /* DeletedMemoriesListView-ViewModel.swift */,
+				3D1C9B5D2902A2BA007DFC6A /* ResetMemoriesView-ViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -292,6 +320,7 @@
 		3D13CB5728ACD5FC001113BD /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				3D2D081628E998C00036B26D /* ColorHelper.swift */,
 				3D13CB5828ACD60C001113BD /* NotificationHelper.swift */,
 				3D13CB5E28AD364A001113BD /* SettingsHelper.swift */,
 				3D04CE3E28AF6FBB005D7A90 /* AuthenticationHelper.swift */,
@@ -306,6 +335,8 @@
 			children = (
 				3D13CB6628AE2C38001113BD /* TimelineView.swift */,
 				3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */,
+				3D1C9B532902A223007DFC6A /* TimelineView-ViewModel.swift */,
+				3D1C9B552902A236007DFC6A /* TimelineYearView-ViewModel.swift */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -314,6 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				3D1B891A28D438FE00A7046B /* MemoryDetailView.swift */,
+				3D1C9B4F2902A202007DFC6A /* MemoryDetailView-ViewModel.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -344,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				3DC24F2528D84B2200128AC2 /* MapView.swift */,
+				3D1C9B4D2902A187007DFC6A /* MapView-ViewModel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -468,26 +501,37 @@
 				3D04CE3D28AF6D8C005D7A90 /* PrivacySettingsView.swift in Sources */,
 				3D13CB3228AA9DB6001113BD /* EditMemoryView.swift in Sources */,
 				3D13CB3F28AAB4E6001113BD /* MemoryListEntryView.swift in Sources */,
+				3D1C9B5E2902A2BA007DFC6A /* ResetMemoriesView-ViewModel.swift in Sources */,
+				3D1C9B542902A223007DFC6A /* TimelineView-ViewModel.swift in Sources */,
+				3D1C9B5A2902A279007DFC6A /* PrivacySettingsView-ViewModel.swift in Sources */,
 				3D13CB2E28AA9561001113BD /* SettingsView.swift in Sources */,
 				3D13CB5B28ACE1E9001113BD /* NotificationSettingsView.swift in Sources */,
 				3D13CB2A28AA948D001113BD /* UpcomingMemoriesView.swift in Sources */,
 				3D2D081928E999980036B26D /* DeletedMemoriesListView.swift in Sources */,
+				3D1C9B4E2902A187007DFC6A /* MapView-ViewModel.swift in Sources */,
 				3DC24F2628D84B2200128AC2 /* MapView.swift in Sources */,
+				3D1C9B5C2902A290007DFC6A /* DeletedMemoriesListView-ViewModel.swift in Sources */,
 				3D13CB2C28AA9511001113BD /* MemoriesListView.swift in Sources */,
 				3D128C7228EBF14300481562 /* ShapeStyleExtensions.swift in Sources */,
-				3D2D081728E998C00036B26D /* MemoryListViewBackground.swift in Sources */,
+				3D2D081728E998C00036B26D /* ColorHelper.swift in Sources */,
+				3D1C9B622902A317007DFC6A /* MemoryListEntryView-ViewModel.swift in Sources */,
+				3D1C9B502902A202007DFC6A /* MemoryDetailView-ViewModel.swift in Sources */,
 				3D13CB3D28AAB0FC001113BD /* Memory.swift in Sources */,
+				3D1C9B602902A2DC007DFC6A /* UpcomingMemoryListEntryView-ViewModel.swift in Sources */,
 				3D13CB4528AB7C6A001113BD /* UpcomingSpecialDay.swift in Sources */,
 				3D13CB5628AC017B001113BD /* UpcomingMemoryListEntryView.swift in Sources */,
 				3D50727A28FE72CE0041FE28 /* MemoryIOHelper.swift in Sources */,
 				3D13CB3B28AAB08D001113BD /* Memories.swift in Sources */,
+				3D1C9B582902A257007DFC6A /* NotificationSettingsView-ViewModel.swift in Sources */,
 				3D13CB4728AB8E04001113BD /* CalendarExtensions.swift in Sources */,
 				3D1B891B28D438FE00A7046B /* MemoryDetailView.swift in Sources */,
 				3D04CE3F28AF6FBB005D7A90 /* AuthenticationHelper.swift in Sources */,
 				3D13CB3428AAA29C001113BD /* ImagePicker.swift in Sources */,
 				3D13CB1E28AA8FFC001113BD /* ContentView.swift in Sources */,
+				3D1C9B522902A216007DFC6A /* LockView-ViewModel.swift in Sources */,
 				3D1C9B4A29028F12007DFC6A /* ExampleMemories.swift in Sources */,
 				3D13CB5D28ACF7A9001113BD /* DateExtensions.swift in Sources */,
+				3D1C9B562902A236007DFC6A /* TimelineYearView-ViewModel.swift in Sources */,
 				3D13CB1C28AA8FFC001113BD /* RememberApp.swift in Sources */,
 				3D13CB5F28AD364A001113BD /* SettingsHelper.swift in Sources */,
 				3D50727C28FE82910041FE28 /* ResetMemoriesView.swift in Sources */,

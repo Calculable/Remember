@@ -13,6 +13,8 @@ import MapKit
 
 struct MapView: View {
         
+    @StateObject private var viewModel: ViewModel = ViewModel()
+
     //@State private var mapRegion:MKCoordinateRegion
     @EnvironmentObject var memories: Memories
     
