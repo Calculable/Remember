@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct UpcomingMemoryListEntryView: View {
-    
+
+    @StateObject private var viewModel = ViewModel()
+
     @State var anniversary: Anniversary
     @State private var showImageSavedNotification = false
     @State private var showImageSaveErrorNotification = false
