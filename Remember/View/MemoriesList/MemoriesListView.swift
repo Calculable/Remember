@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct MemoriesListView: View {
-
-    @StateObject private var viewModel = ViewModel()
-
+    
     @Environment(\.accessibilityReduceTransparency) var accessibilityReduceTransparency;
     @Environment(\.colorSchemeContrast) private var colorSchemeContrast
     @State private var searchText = ""
     
+    @StateObject private var viewModel: ViewModel = ViewModel()
     @EnvironmentObject var memories: Memories
     
     @AppStorage("neverDeletedAMemory") private var neverDeletedAMemory = true
-    @State var showDeleteMemoryAlert = false
+    @State private var showDeleteMemoryAlert = false
     
     let notificationHelper = NotificationHelper()
     

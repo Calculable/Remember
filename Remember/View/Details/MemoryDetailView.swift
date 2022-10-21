@@ -9,20 +9,27 @@ import SwiftUI
 import MapKit
 
 struct MemoryDetailView: View {
-
-    @StateObject private var viewModel: ViewModel
-
+    
+    @State var memory: Memory
+    
+    @State private var mapRegion:MKCoordinateRegion
+    @State var showEditMemorySheet = false
+    @State private var showingDeleteAlert = false
+    @EnvironmentObject var memories: Memories
+    @State var isDeleted = false
+    @AppStorage("neverDeletedAMemory") private var neverDeletedAMemory = true
+    @State private var showDeleteMemoryAlert = false
+    
     init(memory: Memory) {
-        self._viewModel = StateObject<ViewModel>(wrappedValue: ViewModel(memory: memory))
-
-
+        self._memory = State<Memory>(wrappedValue: memory)
+        self._mapRegion =  State<MKCoordinateRegion>(wrappedValue: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: memory.coordinate?.latitude ?? 0, longitude: memory.coordinate?.longitude ?? 0), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)))
     }
     
         
     var body: some View {
         
         
-        if (viewModel.isDeleted) {
+        if (isDeleted) {
             Text("This memory was deleted")
         } else {
             
@@ -31,26 +38,26 @@ struct MemoryDetailView: View {
                 
             
                 VStack(alignment: .leading) {
-                    Text(viewModel.memory.name).font(.largeTitle)
-                    Text(viewModel.memory.date.formatted(date: .long, time: .omitted))
+                    Text(memory.name).font(.largeTitle)
+                    Text(memory.date.formatted(date: .long, time: .omitted))
                         .foregroundColor(.secondary)
                     
-                    if let image = viewModel.memory.image { //display image should not be in model
+                    if let image = memory.image { //display image should not be in model
                         Image(uiImage: image).resizable().scaledToFit()
                             .frame(maxWidth: 700).clipped().padding([.bottom, .top], 20)
                     }
 
 
                     
-                    Text(viewModel.memory.notes)
+                    Text(memory.notes)
                     
 
                     
                     
                     
                     
-                    if viewModel.memory.coordinate != nil {
-                        Map(coordinateRegion: $viewModel.mapRegion, annotationItems: [viewModel.memory]) { memory in
+                    if memory.coordinate != nil {
+                        Map(coordinateRegion: $mapRegion, annotationItems: [memory]) { memory in
                             MapMarker(coordinate: memory.coordinate!, tint: .background)
                         }.aspectRatio(2, contentMode: .fill)
                             .frame(minHeight: 300)
@@ -59,25 +66,25 @@ struct MemoryDetailView: View {
                     }
                     
                         
-                    if (viewModel.memory.isMarkedForDeletion) {
+                    if (memory.isMarkedForDeletion) {
                         Button("Restore") {
-                            viewModel.restore(viewModel.memory)
+                            memories.restore(memory)
                         }.padding([.bottom, .top], 20)
                     } else {
                         
                     
 
                         Button("Delete", role: .destructive) {
-                            viewModel.displayDeleteAlert()
+                            showingDeleteAlert = true
                         }.padding([.bottom, .top], 20)
-                        .alert("Delete Memory", isPresented: $viewModel.showingDeleteAlert) {
+                        .alert("Delete Memory", isPresented: $showingDeleteAlert) {
                             Button("Delete", role: .destructive, action: {
-                                viewModel.markForDeletion()
+                                markForDeletion()
                             })
                             Button("Cancel", role: .cancel) { }
                         } message: {
                             Text("Are you sure?")
-                        }.alert("Memory deleted", isPresented: $viewModel.showDeleteMemoryAlert) {
+                        }.alert("Memory deleted", isPresented: $showDeleteMemoryAlert) {
                             Button("OK", role: .cancel) { }
                         } message: {
                             Text("Deleted Memories can be restored under Settings > Deleted Memories")
@@ -94,20 +101,39 @@ struct MemoryDetailView: View {
                 .toolbar {
                     ToolbarItem() {
                         Button {
-                            viewModel.displayEditMemorySheet()
+                            displayEditMemorySheet()
                         } label: {
                             Label("Edit", systemImage: "pencil")
                         }
                     }
                 }
-                .sheet(isPresented: $viewModel.showEditMemorySheet) {
-                    EditMemoryView(toEdit: viewModel.memory, onMemoryUpdated: { newMemory in
-                        viewModel.refreshView(withMemory: newMemory) //refresh view
+                .sheet(isPresented: $showEditMemorySheet) {
+                    EditMemoryView(toEdit: memory, onMemoryUpdated: { newMemory in
+                        refreshView(withMemory: newMemory) //refresh view
                     })
                 }
         }
     }
 
+    private func refreshView(withMemory memory: Memory) {
+        self.memory = memory
+    }
+
+    private func displayEditMemorySheet() {
+        showEditMemorySheet = true
+    }
+
+    private func markForDeletion() {
+        memories.markForDeletion(memory)
+        isDeleted = true
+
+        if (neverDeletedAMemory) {
+            //show notification
+            neverDeletedAMemory = false
+            showDeleteMemoryAlert = true
+
+        }
+    }
 
 }
 

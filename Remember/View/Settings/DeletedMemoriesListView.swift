@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct DeletedMemoriesListView: View {
-
-    @StateObject private var viewModel = ViewModel()
-
+    
     @Environment(\.accessibilityReduceTransparency) var accessibilityReduceTransparency;
     @Environment(\.colorSchemeContrast) private var colorSchemeContrast
     

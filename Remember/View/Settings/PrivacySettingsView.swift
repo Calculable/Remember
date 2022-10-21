@@ -9,8 +9,7 @@ import SwiftUI
 
 
 struct PrivacySettingsView: View {
-    @StateObject private var viewModel = ViewModel()
-
+        
     @EnvironmentObject var memories: Memories
 
     @AppStorage("biometric.authentication.enabled") private var enableBiometricAuthentication = false
