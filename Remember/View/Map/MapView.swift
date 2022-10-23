@@ -11,10 +11,10 @@ import Foundation
 import SwiftUI
 import MapKit
 
+
 struct MapView: View {
         
     @EnvironmentObject var memories: Memories
-    @Environment(\.accessibilityReduceTransparency)  var reduceTransparency
     
     @State private var mapRegion = MKCoordinateRegion(MKMapRect
         .world)
@@ -28,27 +28,14 @@ struct MapView: View {
     
     var body: some View {
         
-        let memoriesWithMapLocation = memories.memoriesWithMapLocation
         
-        Map(coordinateRegion: $mapRegion, annotationItems: memoriesWithMapLocation) { memory in
+        Map(coordinateRegion: $mapRegion, annotationItems: memories.memoriesWithMapLocation) { memory in
             
             MapAnnotation(coordinate: memory.coordinate!) {
                 VStack{
-                    Text(memory.name)
-                        .font(.footnote)
-                        .padding(5)
-                        
-
-                        .background(Color.background)
-                        .foregroundColor(.white)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .opacity(reduceTransparency ? 1.0 : 0.9)
-                
                     
-                    Image(systemName: "mappin.circle.fill")
-                        .font(.largeTitle)
-                        .foregroundColor(.background)
-                        .opacity(reduceTransparency ? 1.0 : 0.9)
+                    MapAnnotationContent(title: memory.name)
+                    
                     
                 }.onTapGesture {
                     selectMemory(memory: memory)

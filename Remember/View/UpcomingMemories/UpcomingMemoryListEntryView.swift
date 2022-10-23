@@ -19,7 +19,16 @@ struct UpcomingMemoryListEntryView: View {
     @Environment(\.colorSchemeContrast) private var colorSchemeContrast
     @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
 
-    
+    var increasedContrast: Bool {
+        colorSchemeContrast == .increased
+    }
+
+    var backgroundOpacity: Double {
+        reduceTransparency ? 1 : (increasedContrast ? 0.8 : 0.5)
+    }
+
+
+
     var body: some View {
         
             
@@ -37,13 +46,7 @@ struct UpcomingMemoryListEntryView: View {
                 }
                 
             }
-            
-            let increasedContrast = colorSchemeContrast == .increased
 
-            let backgroundOpacity = reduceTransparency ? 1 : (increasedContrast ? 0.8 : 0.5)
-            
-            
-            
             Rectangle()
                 .fill(Color.black.opacity(backgroundOpacity))
                 .accessibilityHidden(true)

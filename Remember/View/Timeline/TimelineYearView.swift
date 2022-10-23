@@ -34,57 +34,27 @@ struct TimelineYearView: View {
                     
         
             Canvas { context, size in
+                drawLine(size: size, context: context)
+                drawYear(context: context, size: size)
 
-                
-                var linePath = Path()
-                linePath.move(to: CGPoint(x: 0, y: 0))
-                linePath.addLine(to: CGPoint(x: 0, y: size.height))
-                
-                context.stroke(linePath, with: .color(.background), lineWidth: 10)
-                
-                let textToDraw:Text = Text("\(String(year))").font(.title)
-                
-                context.draw(textToDraw, at: CGPoint(x: size.width - CGFloat(marginXYear), y: 0), anchor: .topTrailing)
-                
 
-                
                 var currentYPosition:Int = marginToTopForTheFirstMemmory
                 
                 for i in 0..<memories.count {
                     
                     let currentMemory = memories[i]
                     currentYPosition += calculateMarginTopToPreviousMemory(forMemoryAt: i)
-                    
-                    var p = Path()
-                    
-                    p.move(to: CGPoint(x: 100, y: 100))
 
-                    let rect = CGRect(x: 0, y: currentYPosition+9, width: 10, height: 10)
-                    p.addRect(rect)
-                    
-                    context.stroke(p, with: .color(colorScheme == .dark ? .lightBackground : .background), lineWidth: 10)
-                    
-                    let textToDraw = Text("\(currentMemory.name)")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                    
-                    //context.draw(textToDraw, at: CGPoint(x: marginXMemory, y: currentYPosition), anchor: .topLeading)
-                    
-                   // GeometryReader { geo in
-                    context.draw(textToDraw, in: CGRect(x: marginXMemory, y: currentYPosition, width: Int(size.width-50), height: 30))
-                    //}
 
-                    
+                    drawMemoryIndicator(currentYPosition: currentYPosition, context: context)
+                    drawMemoryTitle(currentMemory: currentMemory, context: context, currentYPosition: currentYPosition, size: size)
+
+
                     currentYPosition += marginYBetweenTitleAndYear
 
-                    let dateToDraw =
-                        Text("\(currentMemory.date.formatted(date: .long, time: .omitted))")
-                            .font(.title3)
-                            .foregroundColor(colorScheme == .dark ? .lightBackground : .background)
-                    
-                    context.draw(dateToDraw, at: CGPoint(x: marginXMemory, y: currentYPosition), anchor: .topLeading)
-                    
-                    
+                    drawMemoryDate(currentMemory: currentMemory, context: context, currentYPosition: currentYPosition)
+
+
                     currentYPosition += minimalMarginYBetweenTwoMemories //do some specing so that events on the same day do not overlap
                     
                 }
@@ -95,7 +65,52 @@ struct TimelineYearView: View {
             .dynamicTypeSize(...DynamicTypeSize.xxLarge)
             //.border(Color.purple)
     }
-    
+
+    private func drawMemoryDate(currentMemory: Memory, context: GraphicsContext, currentYPosition: Int) {
+        let dateToDraw =
+            Text("\(currentMemory.date.formatted(date: .long, time: .omitted))")
+                .font(.title3)
+                .foregroundColor(colorScheme == .dark ? .lightBackground : .background)
+
+        context.draw(dateToDraw, at: CGPoint(x: marginXMemory, y: currentYPosition), anchor: .topLeading)
+    }
+
+    private func drawMemoryTitle(currentMemory: Memory, context: GraphicsContext, currentYPosition: Int, size: CGSize) {
+        let textToDraw = Text("\(currentMemory.name)")
+            .font(.title3)
+            .fontWeight(.bold)
+
+        //context.draw(textToDraw, at: CGPoint(x: marginXMemory, y: currentYPosition), anchor: .topLeading)
+
+        // GeometryReader { geo in
+        context.draw(textToDraw, in: CGRect(x: marginXMemory, y: currentYPosition, width: Int(size.width-50), height: 30))
+        //}
+    }
+
+    private func drawMemoryIndicator(currentYPosition: Int, context: GraphicsContext) {
+        var p = Path()
+
+        p.move(to: CGPoint(x: 100, y: 100))
+
+        let rect = CGRect(x: 0, y: currentYPosition+9, width: 10, height: 10)
+        p.addRect(rect)
+
+        context.stroke(p, with: .color(colorScheme == .dark ? .lightBackground : .background), lineWidth: 10)
+    }
+
+    private func drawYear(context: GraphicsContext, size: CGSize) {
+        let textToDraw:Text = Text("\(String(year))").font(.title)
+        context.draw(textToDraw, at: CGPoint(x: size.width - CGFloat(marginXYear), y: 0), anchor: .topTrailing)
+    }
+
+    private func drawLine(size: CGSize, context: GraphicsContext) {
+        var linePath = Path()
+        linePath.move(to: CGPoint(x: 0, y: 0))
+        linePath.addLine(to: CGPoint(x: 0, y: size.height))
+
+        context.stroke(linePath, with: .color(.background), lineWidth: 10)
+    }
+
     func requiredHeight() -> CGFloat {
         var totalHeight = 0
         totalHeight += marginToTopForTheFirstMemmory

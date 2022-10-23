@@ -10,38 +10,39 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var memories: Memories
 
+    var notificationNavigationLink: some View  {
+        NavigationLink {
+            NotificationSettingsView()
+        } label: {
+            Text("Notifications")
+        }
+    }
+
+    var deletedMemoriesNavigationLink: some View  {
+        NavigationLink {
+            DeletedMemoriesListView()
+        } label: {
+            Text("Deleted Memories").badge(memories.memoriesMarkedForDeletion.count)
+        }
+    }
+
+    var resetMemoriesNavigationLink: some View  {
+        NavigationLink {
+            ResetMemoriesView()
+        } label: {
+            Text("Reset")
+        }
+    }
+
     var body: some View {
         
         NavigationView {
             List {
                 
-                NavigationLink {
-                    NotificationSettingsView()
-                } label: {
-                    Text("Notifications")
-                }
-                
-                /*NavigationLink {
-                    PrivacySettingsView()
-                } label: {
-                    Text("Privacy")
-                }*/
-                
-                NavigationLink {
-                    DeletedMemoriesListView()
-                } label: {
-                    Text("Deleted Memories").badge(memories.memoriesMarkedForDeletion.count)
-                }
-                
-                NavigationLink {
-                    ResetMemoriesView()
-                } label: {
-                    Text("Reset")
-                }
-                
+                notificationNavigationLink
+                deletedMemoriesNavigationLink
+                resetMemoriesNavigationLink
 
-                
-                
             }
             .navigationTitle("Settings")
                         

@@ -27,7 +27,6 @@ extension UpcomingMemoryListEntryView {
         
         func shareMemoryImage() {
             let view = UpcomingMemoryListEntryView(anniversary: anniversary, isScreenshot: true)
-            isScreenshot = true
 
             let image = view.snapshot(width: 500, height: 500)
 

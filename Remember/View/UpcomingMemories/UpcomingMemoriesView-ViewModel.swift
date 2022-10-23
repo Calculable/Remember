@@ -16,9 +16,6 @@ extension UpcomingMemoriesView {
 
         @Published var searchText = ""
 
-        init() {
-            
-        }
         
         func generateAnniversaries(memories: Memories) -> [Anniversary] {
             var result: [Anniversary] = []

@@ -13,6 +13,7 @@
 		3D04CE4428AFA0A2005D7A90 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D04CE4328AFA0A2005D7A90 /* ViewExtensions.swift */; };
 		3D089A8928FD73E90079A2F0 /* ViewExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D089A8828FD73E90079A2F0 /* ViewExtensionsTest.swift */; };
 		3D089A8B28FD75690079A2F0 /* MemoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D089A8A28FD75690079A2F0 /* MemoriesTests.swift */; };
+		3D09F28A29056BB400D856A0 /* MapAnnotationContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09F28929056BB400D856A0 /* MapAnnotationContent.swift */; };
 		3D128C7228EBF14300481562 /* ShapeStyleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D128C7128EBF14300481562 /* ShapeStyleExtensions.swift */; };
 		3D13CB1C28AA8FFC001113BD /* RememberApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB1B28AA8FFC001113BD /* RememberApp.swift */; };
 		3D13CB1E28AA8FFC001113BD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB1D28AA8FFC001113BD /* ContentView.swift */; };
@@ -80,6 +81,7 @@
 		3D04CE4528AFA12A005D7A90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3D089A8828FD73E90079A2F0 /* ViewExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensionsTest.swift; sourceTree = "<group>"; };
 		3D089A8A28FD75690079A2F0 /* MemoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoriesTests.swift; sourceTree = "<group>"; };
+		3D09F28929056BB400D856A0 /* MapAnnotationContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationContent.swift; sourceTree = "<group>"; };
 		3D128C7128EBF14300481562 /* ShapeStyleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapeStyleExtensions.swift; sourceTree = "<group>"; };
 		3D13CB1828AA8FFB001113BD /* Remember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remember.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D13CB1B28AA8FFC001113BD /* RememberApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RememberApp.swift; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 			isa = PBXGroup;
 			children = (
 				3DC24F2528D84B2200128AC2 /* MapView.swift */,
+				3D09F28929056BB400D856A0 /* MapAnnotationContent.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D04CE3D28AF6D8C005D7A90 /* PrivacySettingsView.swift in Sources */,
+				3D09F28A29056BB400D856A0 /* MapAnnotationContent.swift in Sources */,
 				3D13CB3228AA9DB6001113BD /* EditMemoryView.swift in Sources */,
 				3D13CB3F28AAB4E6001113BD /* MemoryListEntryView.swift in Sources */,
 				3D13CB2E28AA9561001113BD /* SettingsView.swift in Sources */,

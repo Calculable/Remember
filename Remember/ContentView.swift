@@ -16,6 +16,42 @@ struct ContentView: View {
     
     @State private var isUnlocked = false
 
+    var upcomingMemoriesTab: some View {
+        UpcomingMemoriesView()
+                .tabItem {
+                    Label("Upcoming", systemImage: "flame")
+                }
+    }
+
+    var memoriesListTab: some View {
+        MemoriesListView()
+                .tabItem {
+                    Label("Memories", systemImage: "list.bullet")
+                }
+    }
+
+    var timelineTab: some View {
+        TimelineView()
+
+                .tabItem {
+                    Label("Timeline", systemImage: "calendar.day.timeline.left")
+                }
+    }
+
+    var mapTab: some View {
+        MapView()
+                .tabItem {
+                    Label("Map", systemImage: "map")
+                }
+    }
+
+    var settingsTab: some View {
+        SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }
+    }
+
     var body: some View {
         
         VStack {
@@ -24,37 +60,19 @@ struct ContentView: View {
             if (enableBiometricAuthentication == false || isUnlocked == true) {
             
                 TabView {
-                    UpcomingMemoriesView()
-                        .tabItem {
-                            Label("Upcoming", systemImage: "flame")
-                        }
-                    
-                    MemoriesListView()
-                        .tabItem {
-                            Label("Memories", systemImage: "list.bullet")
-                        }
+
+                    upcomingMemoriesTab
+
+                   memoriesListTab
 
                     if (!voiceOverEnabled) { //Since the timeline view is created upon a canvas, it is not accessible unfortunately. ToDo: Replace with a better alternative.
-                        TimelineView()
-                        
-                            .tabItem {
-                                Label("Timeline", systemImage: "calendar.day.timeline.left")
-                            }
+                        timelineTab
                     }
 
-                    MapView()
-                        .tabItem {
-                            Label("Map", systemImage: "map")
-                        }
-                    
-                    
-                    SettingsView()
-                        .tabItem {
-                            Label("Settings", systemImage: "gear")
-                        }
-                    
-                    
-                    
+
+                    mapTab
+                    settingsTab
+
                 }
                 .environmentObject(memories)
                 

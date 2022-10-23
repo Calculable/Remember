@@ -17,23 +17,23 @@ struct MemoryDetailView: View {
 
     init(memory: Memory) {
         self._viewModel = StateObject<ViewModel>(wrappedValue: ViewModel(memory: memory))
-
-
     }
-    
+
+    let noContentView = Text("This memory was deleted")
+
         
     var body: some View {
         
         
         if (viewModel.isDeleted) {
-            Text("This memory was deleted")
+            noContentView
         } else {
             
         
             ScrollView {
                 
-            
                 VStack(alignment: .leading) {
+                    
                     Text(viewModel.memory.name).font(.largeTitle)
                     Text(viewModel.memory.date.formatted(date: .long, time: .omitted))
                         .foregroundColor(.secondary)
