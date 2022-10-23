@@ -9,20 +9,24 @@ import SwiftUI
 
 struct MemoriesListView: View {
 
-    @StateObject private var viewModel = ViewModel()
-
     @Environment(\.accessibilityReduceTransparency) var accessibilityReduceTransparency;
     @Environment(\.colorSchemeContrast) private var colorSchemeContrast
     @EnvironmentObject var memories: Memories
     @AppStorage("neverDeletedAMemory") var neverDeletedAMemory = true
+    @State private var showAddMemorySheet = false
+    @State private var showDeleteMemoryAlert = false
+    @State private var searchText = ""
 
-    let notificationHelper = NotificationHelper()
+    func showAddMemoryView() {
+        showAddMemorySheet = true
+    }
+    
     
     var body: some View {
         
         NavigationView {
                 List {
-                    ForEach(memories.filteredMemories(searchText: viewModel.searchText)) { memory in
+                    ForEach(memories.filteredMemories(searchText: searchText)) { memory in
                         
                         NavigationLink {
                             MemoryDetailView(memory: memory)
@@ -38,7 +42,7 @@ struct MemoriesListView: View {
                                     } label: {
                                         Label("Delete", systemImage: "minus.circle")
                                     }
-                                }.alert("Memory deleted", isPresented: $viewModel.showDeleteMemoryAlert) {
+                                }.alert("Memory deleted", isPresented: $showDeleteMemoryAlert) {
                                     Button("OK", role: .cancel) { }
                                 } message: {
                                     Text("Deleted Memories can be restored under Settings > Deleted Memories")
@@ -78,7 +82,7 @@ struct MemoriesListView: View {
 
 
                 }
-                .searchable(text: $viewModel.searchText, prompt: "Search memory")
+                .searchable(text: $searchText, prompt: "Search memory")
 
 
                 .environment(\.defaultMinListRowHeight, 160)
@@ -86,7 +90,7 @@ struct MemoriesListView: View {
                 .toolbar {
                     ToolbarItem() {
                         Button {
-                            viewModel.showAddMemoryView()
+                            showAddMemoryView()
                         } label: {
                             Label("Add Memory", systemImage: "plus")
                         }
@@ -97,7 +101,7 @@ struct MemoriesListView: View {
 
         }
         .phoneOnlyStackNavigationView()
-        .sheet(isPresented: $viewModel.showAddMemorySheet) {
+        .sheet(isPresented: $showAddMemorySheet) {
             EditMemoryView()
         }
     }
@@ -108,7 +112,7 @@ struct MemoriesListView: View {
         if (neverDeletedAMemory) {
             //show notification
             
-            viewModel.showDeleteMemoryAlert = true
+            showDeleteMemoryAlert = true
 
         }
         
