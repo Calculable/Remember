@@ -22,18 +22,12 @@ extension MemoryDetailView {
         @Published var mapRegion:MKCoordinateRegion
         @Published var showEditMemorySheet = false
         @Published var showingDeleteAlert = false
-        @EnvironmentObject var memories: Memories
         @Published private(set) var isDeleted = false
-        @AppStorage("neverDeletedAMemory") private var neverDeletedAMemory = true
         @Published var showDeleteMemoryAlert = false
 
 
         func displayDeleteAlert() {
             showingDeleteAlert = true
-        }
-
-        func restore(_ memory: Memory) {
-            memories.restore(memory)
         }
 
         func refreshView(withMemory memory: Memory) {
@@ -43,18 +37,11 @@ extension MemoryDetailView {
         func displayEditMemorySheet() {
             showEditMemorySheet = true
         }
-
-        func markForDeletion() {
-            memories.markForDeletion(memory)
+        
+        func markAsDeleted() {
             isDeleted = true
-
-            if (neverDeletedAMemory) {
-                //show notification
-                neverDeletedAMemory = false
-                showDeleteMemoryAlert = true
-
-            }
         }
+
 
     }
 }

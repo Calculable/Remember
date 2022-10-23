@@ -13,20 +13,16 @@ struct MemoriesListView: View {
 
     @Environment(\.accessibilityReduceTransparency) var accessibilityReduceTransparency;
     @Environment(\.colorSchemeContrast) private var colorSchemeContrast
-    @State private var searchText = ""
-    
     @EnvironmentObject var memories: Memories
-    
-    @AppStorage("neverDeletedAMemory") private var neverDeletedAMemory = true
-    @State var showDeleteMemoryAlert = false
-    
+    @AppStorage("neverDeletedAMemory") var neverDeletedAMemory = true
+
     let notificationHelper = NotificationHelper()
     
     var body: some View {
         
         NavigationView {
                 List {
-                    ForEach(filteredMemories) { memory in
+                    ForEach(memories.filteredMemories(searchText: viewModel.searchText)) { memory in
                         
                         NavigationLink {
                             MemoryDetailView(memory: memory)
@@ -36,13 +32,13 @@ struct MemoriesListView: View {
                                 .swipeActions {
                                     Button(role: .destructive) {
                                         
-                                        markMemoryForDeletion(memory)
+                                        markMemoryForDeletion(memory: memory)
 
                                     
                                     } label: {
                                         Label("Delete", systemImage: "minus.circle")
                                     }
-                                }.alert("Memory deleted", isPresented: $showDeleteMemoryAlert) {
+                                }.alert("Memory deleted", isPresented: $viewModel.showDeleteMemoryAlert) {
                                     Button("OK", role: .cancel) { }
                                 } message: {
                                     Text("Deleted Memories can be restored under Settings > Deleted Memories")
@@ -52,7 +48,7 @@ struct MemoriesListView: View {
                                 
                         }.swipeActions(edge: .leading) {
                             Button {
-                                toggleNotification(forMemory: memory)
+                                memories.toggleNotifications(for: memory)
                             } label: {
                                 if memory.notificationsEnabled {
                                     Label("Disable Notifications", systemImage: "bell.slash")
@@ -66,9 +62,7 @@ struct MemoriesListView: View {
 
                         .listRowBackground(
                             GeometryReader { geo in
-                    
                                 let increasedContrast = colorSchemeContrast == .increased
-
                                 getListBackground(memory: memory, withReducedTransparency: accessibilityReduceTransparency, withIncreasedContrast: increasedContrast).frame(minHeight: 158).frame(width: geo.size.width).clipped()
 
                         })
@@ -84,7 +78,7 @@ struct MemoriesListView: View {
 
 
                 }
-                .searchable(text: $searchText, prompt: "Search memory")
+                .searchable(text: $viewModel.searchText, prompt: "Search memory")
 
 
                 .environment(\.defaultMinListRowHeight, 160)
@@ -108,29 +102,21 @@ struct MemoriesListView: View {
         }
     }
     
-    var filteredMemories: [Memory] {
-        if searchText.isEmpty {
-            return memories.availableMemories
-        } else {
-            return memories.availableMemories.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
-        }
-    }
-
-
-    private func toggleNotification(forMemory memory: Memory) {
-        memories.toggleNotifications(for: memory)
-    }
-
-    private func markMemoryForDeletion(_ memory: Memory) {
+    func markMemoryForDeletion(memory: Memory) {
         memories.markForDeletion(memory)
-
+        
         if (neverDeletedAMemory) {
             //show notification
-            neverDeletedAMemory = false
-            showDeleteMemoryAlert = true
+            
+            viewModel.showDeleteMemoryAlert = true
 
         }
+        
+        neverDeletedAMemory = false
+        
     }
+    
+
 }
 
 struct MemoriesListView_Previews: PreviewProvider {

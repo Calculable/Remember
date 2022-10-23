@@ -11,6 +11,9 @@ import MapKit
 struct MemoryDetailView: View {
 
     @StateObject private var viewModel: ViewModel
+    @EnvironmentObject var memories: Memories
+    @AppStorage("neverDeletedAMemory") var neverDeletedAMemory = true
+
 
     init(memory: Memory) {
         self._viewModel = StateObject<ViewModel>(wrappedValue: ViewModel(memory: memory))
@@ -61,7 +64,7 @@ struct MemoryDetailView: View {
                         
                     if (viewModel.memory.isMarkedForDeletion) {
                         Button("Restore") {
-                            viewModel.restore(viewModel.memory)
+                            memories.restore(viewModel.memory)
                         }.padding([.bottom, .top], 20)
                     } else {
                         
@@ -72,7 +75,7 @@ struct MemoryDetailView: View {
                         }.padding([.bottom, .top], 20)
                         .alert("Delete Memory", isPresented: $viewModel.showingDeleteAlert) {
                             Button("Delete", role: .destructive, action: {
-                                viewModel.markForDeletion()
+                                markForDeletion(memory: viewModel.memory)
                             })
                             Button("Cancel", role: .cancel) { }
                         } message: {
@@ -106,6 +109,20 @@ struct MemoryDetailView: View {
                     })
                 }
         }
+    }
+    
+    func markForDeletion(memory: Memory) {
+        memories.markForDeletion(memory)
+        viewModel.markAsDeleted()
+
+        if (neverDeletedAMemory) {
+            //show notification
+            viewModel.showDeleteMemoryAlert = true
+
+        }
+        
+        neverDeletedAMemory = false
+
     }
 
 

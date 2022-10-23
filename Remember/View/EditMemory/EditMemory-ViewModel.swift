@@ -20,7 +20,6 @@ extension EditMemoryView {
         @Published var image: UIImage?
         @Published var notes: String = ""
         @Published var notificationsEnabled = false
-
         @Published var showingImagePicker = false
 
         var displayImage: Image? {

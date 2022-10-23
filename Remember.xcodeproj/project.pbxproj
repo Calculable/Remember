@@ -43,7 +43,6 @@
 		3D13CB6928AE4BB7001113BD /* TimelineYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */; };
 		3D1B891B28D438FE00A7046B /* MemoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1B891A28D438FE00A7046B /* MemoryDetailView.swift */; };
 		3D1C9B4A29028F12007DFC6A /* ExampleMemories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B4929028F12007DFC6A /* ExampleMemories.swift */; };
-		3D1C9B4E2902A187007DFC6A /* MapView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B4D2902A187007DFC6A /* MapView-ViewModel.swift */; };
 		3D1C9B502902A202007DFC6A /* MemoryDetailView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B4F2902A202007DFC6A /* MemoryDetailView-ViewModel.swift */; };
 		3D1C9B542902A223007DFC6A /* TimelineView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B532902A223007DFC6A /* TimelineView-ViewModel.swift */; };
 		3D1C9B582902A257007DFC6A /* NotificationSettingsView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D1C9B572902A257007DFC6A /* NotificationSettingsView-ViewModel.swift */; };
@@ -116,7 +115,6 @@
 		3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineYearView.swift; sourceTree = "<group>"; };
 		3D1B891A28D438FE00A7046B /* MemoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryDetailView.swift; sourceTree = "<group>"; };
 		3D1C9B4929028F12007DFC6A /* ExampleMemories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleMemories.swift; sourceTree = "<group>"; };
-		3D1C9B4D2902A187007DFC6A /* MapView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapView-ViewModel.swift"; sourceTree = "<group>"; };
 		3D1C9B4F2902A202007DFC6A /* MemoryDetailView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoryDetailView-ViewModel.swift"; sourceTree = "<group>"; };
 		3D1C9B532902A223007DFC6A /* TimelineView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimelineView-ViewModel.swift"; sourceTree = "<group>"; };
 		3D1C9B572902A257007DFC6A /* NotificationSettingsView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationSettingsView-ViewModel.swift"; sourceTree = "<group>"; };
@@ -367,7 +365,6 @@
 			isa = PBXGroup;
 			children = (
 				3DC24F2528D84B2200128AC2 /* MapView.swift */,
-				3D1C9B4D2902A187007DFC6A /* MapView-ViewModel.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -499,7 +496,6 @@
 				3D13CB5B28ACE1E9001113BD /* NotificationSettingsView.swift in Sources */,
 				3D13CB2A28AA948D001113BD /* UpcomingMemoriesView.swift in Sources */,
 				3D2D081928E999980036B26D /* DeletedMemoriesListView.swift in Sources */,
-				3D1C9B4E2902A187007DFC6A /* MapView-ViewModel.swift in Sources */,
 				3DC24F2628D84B2200128AC2 /* MapView.swift in Sources */,
 				3D1C9B5C2902A290007DFC6A /* DeletedMemoriesListView-ViewModel.swift in Sources */,
 				3D13CB2C28AA9511001113BD /* MemoriesListView.swift in Sources */,

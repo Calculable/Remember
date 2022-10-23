@@ -13,13 +13,24 @@ import MapKit
 
 struct MapView: View {
         
-    @StateObject private var viewModel: ViewModel = ViewModel()
-
+    @EnvironmentObject var memories: Memories
+    @Environment(\.accessibilityReduceTransparency)  var reduceTransparency
+    
+    @State private var mapRegion = MKCoordinateRegion(MKMapRect
+        .world)
+    @State private var selectedMemory: Memory? = nil
+    
+    
+    func selectMemory(memory: Memory) {
+        selectedMemory = memory
+    }
+    
+    
     var body: some View {
         
-        let memoriesWithMapLocation = viewModel.memoriesWithMapLocation
+        let memoriesWithMapLocation = memories.memoriesWithMapLocation
         
-        Map(coordinateRegion: $viewModel.mapRegion, annotationItems: memoriesWithMapLocation) { memory in
+        Map(coordinateRegion: $mapRegion, annotationItems: memoriesWithMapLocation) { memory in
             
             MapAnnotation(coordinate: memory.coordinate!) {
                 VStack{
@@ -31,22 +42,22 @@ struct MapView: View {
                         .background(Color.background)
                         .foregroundColor(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .opacity(viewModel.reduceTransparency ? 1.0 : 0.9)
+                        .opacity(reduceTransparency ? 1.0 : 0.9)
                 
                     
                     Image(systemName: "mappin.circle.fill")
                         .font(.largeTitle)
                         .foregroundColor(.background)
-                        .opacity(viewModel.reduceTransparency ? 1.0 : 0.9)
+                        .opacity(reduceTransparency ? 1.0 : 0.9)
                     
                 }.onTapGesture {
-                    viewModel.selectMemory(memory: memory)
+                    selectMemory(memory: memory)
                 }
                 
             }
 
         }.dynamicTypeSize(...DynamicTypeSize.xxxLarge)
-            .sheet(item: $viewModel.selectedMemory) { memory in
+            .sheet(item: $selectedMemory) { memory in
             MemoryDetailView(memory: memory)
         }.ignoresSafeArea()
 

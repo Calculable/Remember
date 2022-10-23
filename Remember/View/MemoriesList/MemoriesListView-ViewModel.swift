@@ -11,10 +11,16 @@ extension MemoriesListView {
     @MainActor class ViewModel: ObservableObject {
 
         @Published var showAddMemorySheet = false
-        
+        @Published var showDeleteMemoryAlert = false
+        @Published var searchText = ""
+
         func showAddMemoryView() {
             showAddMemorySheet = true
         }
+
+
+
+
 
     }
 }

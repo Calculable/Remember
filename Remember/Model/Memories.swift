@@ -28,6 +28,10 @@ class Memories: ObservableObject {
         }
     }
     
+    var memoriesWithMapLocation: [Memory] {
+        availableMemories.filter {$0.coordinate != nil}
+    }
+    
     init(notificationHelper: NotificationHelper = NotificationHelper(), memoryIOHelper: MemoryIOHelper = MemoryIOHelper()) {
         self.notificationHelper = notificationHelper
         self.memoryIOHelper = memoryIOHelper
@@ -112,6 +116,14 @@ class Memories: ObservableObject {
     func memoriesForYear(_ year: Int) -> [Memory] {
         return memories.filter { memory in
             return memory.date.year() == year;
+        }
+    }
+
+    func filteredMemories(searchText: String) -> [Memory] {
+        if searchText.isEmpty {
+            return availableMemories
+        } else {
+            return availableMemories.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
     }
 
