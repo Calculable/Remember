@@ -9,15 +9,13 @@ import SwiftUI
 
 struct UpcomingMemoryListEntryView: View {
 
-    @StateObject private var viewModel = ViewModel()
 
-    @State var anniversary: Anniversary
-    @State private var showImageSavedNotification = false
-    @State private var showImageSaveErrorNotification = false
-
+    @StateObject private var viewModel: ViewModel
     
-    @State private var uiImage: UIImage? = nil
-    @State var isScreenshot: Bool
+    init(anniversary: Anniversary, isScreenshot: Bool = false) {
+        _viewModel = StateObject<ViewModel>(wrappedValue: ViewModel(anniversary: anniversary, isScreenshot: isScreenshot))
+    }
+
     @Environment(\.colorSchemeContrast) private var colorSchemeContrast
     @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
 
@@ -29,7 +27,7 @@ struct UpcomingMemoryListEntryView: View {
         ZStack {
             
             
-            if let image = anniversary.memory.image {
+            if let image = viewModel.anniversary.memory.image {
                 GeometryReader { geo in
         
                     Image(uiImage: image).resizable().scaledToFill().frame(width: geo.size.width).frame(height: geo.size.width).clipped()
@@ -55,20 +53,20 @@ struct UpcomingMemoryListEntryView: View {
                 Group {
                     
                 
-                    Text("\(Image(systemName: "calendar.circle")) \(anniversary.date.formatted(date: .long, time: .omitted))  \n(\(describeRemainingDays(anniversary.date)))")
-                        .foregroundColor(remainingDaysTo(to: anniversary.date) <= 7 ? .white : .white)
+                    Text("\(Image(systemName: "calendar.circle")) \(viewModel.anniversary.date.formatted(date: .long, time: .omitted))  \n(\(viewModel.describeRemainingDays(viewModel.anniversary.date)))")
+                        .foregroundColor(viewModel.remainingDaysTo(to: viewModel.anniversary.date) <= 7 ? .white : .white)
                         .multilineTextAlignment(.center)
                         .accessibilityHidden(true)
                                             
-                    Text("\(getTimeIntervallDescription(anniversary: anniversary)): \(anniversary.memory.name)")
+                    Text("\(viewModel.getTimeIntervallDescription(anniversary: viewModel.anniversary)): \(viewModel.anniversary.memory.name)")
                         .font(.title)
                         .foregroundColor(.white)
                     
                 }.accessibilityElement(children: .combine)
                 
-                if (!isScreenshot) {
+                if (!viewModel.isScreenshot) {
                     Button("Share") {
-                        shareMemoryImage()
+                        viewModel.shareMemoryImage()
 
                     }.buttonStyle(.borderedProminent).tint(.background)
                 }
@@ -79,15 +77,15 @@ struct UpcomingMemoryListEntryView: View {
                 
         }
         
-        .padding(isScreenshot ? 0 : 8)
+        .padding(viewModel.isScreenshot ? 0 : 8)
             .aspectRatio(1, contentMode: .fill)
 
-            .alert("Image saved", isPresented: $showImageSavedNotification) {
+            .alert("Image saved", isPresented: $viewModel.showImageSavedNotification) {
                 Button("OK", role: .cancel) { }
             } message: {
                 Text("The image was saved to your photo gallery")
             }
-            .alert("Image could not be saved", isPresented: $showImageSaveErrorNotification) {
+            .alert("Image could not be saved", isPresented: $viewModel.showImageSaveErrorNotification) {
                 Button("OK", role: .cancel) { }
             } message: {
                 Text("There was an error while saving the image")
@@ -97,55 +95,7 @@ struct UpcomingMemoryListEntryView: View {
             .ignoresSafeArea()
     }
 
-    private func shareMemoryImage() {
-        let view = UpcomingMemoryListEntryView(anniversary: anniversary, isScreenshot: true)
-        view.isScreenshot = true
-
-        let image = view.snapshot(width: 500, height: 500)
-
-        let imageSaver = ImageSaver()
-        imageSaver.errorHandler = { _ in
-            showImageSaveErrorNotification = true
-        }
-
-        imageSaver.successHandler = {
-            showImageSavedNotification = true
-        }
-
-
-        imageSaver.writeToPhotoAlbum(image: image)
-    }
-
-
-    func getTimeIntervallDescription(anniversary: Anniversary) -> String {
-        switch(anniversary.type) {
-            case .year:
-            return String(format: NSLocalizedString("%d years since", comment: "number of days since the anniversary"), anniversary.years)
-
-            case .day:
-                return String(format: NSLocalizedString("%d days since", comment: "number of days since the anniversary"), anniversary.days)
-
-
-        }
-    }
     
-    func remainingDaysTo(to date: Date) -> Int {
-        Calendar.current.today().timeIntervalInDays(to: date)
-    }
-    
-    func describeRemainingDays(_ date: Date) -> String {
-        let numberOfRemainingDays = remainingDaysTo(to: date)
-        
-        switch (numberOfRemainingDays) {
-        case 0:
-            return String(localized: "Today")
-        case 1:
-            return String(localized: "Tomorrow")
-        default:
-            return String(format: NSLocalizedString("In %d days", comment: "number of days remaining days"), numberOfRemainingDays)
-
-        }
-    }
     
 
 }

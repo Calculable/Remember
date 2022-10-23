@@ -6,9 +6,73 @@
 //
 
 import Foundation
+import SwiftUI
 
 extension UpcomingMemoryListEntryView {
     @MainActor class ViewModel: ObservableObject {
-    
+        
+        init(anniversary: Anniversary, isScreenshot: Bool = false) {
+            self.anniversary = anniversary
+            self.isScreenshot = isScreenshot
+        }
+        
+        @Published private(set) var anniversary: Anniversary
+        @Published var showImageSavedNotification = false
+        @Published var showImageSaveErrorNotification = false
+
+        
+        @Published private(set) var uiImage: UIImage? = nil
+        @Published private(set) var isScreenshot: Bool
+        
+        
+        func shareMemoryImage() {
+            let view = UpcomingMemoryListEntryView(anniversary: anniversary, isScreenshot: true)
+            isScreenshot = true
+
+            let image = view.snapshot(width: 500, height: 500)
+
+            let imageSaver = ImageSaver()
+            imageSaver.errorHandler = { _ in
+                self.showImageSaveErrorNotification = true
+            }
+
+            imageSaver.successHandler = {
+                self.showImageSavedNotification = true
+            }
+
+
+            imageSaver.writeToPhotoAlbum(image: image)
+        }
+
+
+        func getTimeIntervallDescription(anniversary: Anniversary) -> String {
+            switch(anniversary.type) {
+                case .year:
+                return String(format: NSLocalizedString("%d years since", comment: "number of days since the anniversary"), anniversary.years)
+
+                case .day:
+                    return String(format: NSLocalizedString("%d days since", comment: "number of days since the anniversary"), anniversary.days)
+
+
+            }
+        }
+        
+        func remainingDaysTo(to date: Date) -> Int {
+            Calendar.current.today().timeIntervalInDays(to: date)
+        }
+        
+        func describeRemainingDays(_ date: Date) -> String {
+            let numberOfRemainingDays = remainingDaysTo(to: date)
+            
+            switch (numberOfRemainingDays) {
+            case 0:
+                return String(localized: "Today")
+            case 1:
+                return String(localized: "Tomorrow")
+            default:
+                return String(format: NSLocalizedString("In %d days", comment: "number of days remaining days"), numberOfRemainingDays)
+
+            }
+        }
     }
 }
