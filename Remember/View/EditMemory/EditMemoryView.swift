@@ -16,19 +16,11 @@ struct EditMemoryView: View {
     @EnvironmentObject var memories: Memories
     @Environment(\.dismiss) var dismiss
     
-    @State private var existingMemory: Memory? = nil
-    
-    var onMemoryUpdated: ((Memory) -> Void)?
 
     
-    init(onMemoryUpdated: ((Memory) -> Void)? = nil) {
-        self.onMemoryUpdated = onMemoryUpdated
-    }
-    
-    init(toEdit memory: Memory, onMemoryUpdated: ((Memory) -> Void)? = nil) {
+    init(toEdit memory: Memory? = nil, onMemoryUpdated: ((Memory) -> Void)? = nil) {
         self.init(onMemoryUpdated: onMemoryUpdated)
-        _viewModel = StateObject<EditMemoryView.ViewModel>(wrappedValue: ViewModel(memory))
-        existingMemory = memory
+        _viewModel = StateObject<EditMemoryView.ViewModel>(wrappedValue: ViewModel(memory, onMemoryUpdated: onMemoryUpdated))
     }
     
     var body: some View {
@@ -105,28 +97,18 @@ struct EditMemoryView: View {
                 }
                 
             }
-            .navigationBarTitle(Text(existingMemory == nil ? "Add New Memory" : "Edit Memory"), displayMode: .inline)
+            .navigationBarTitle(Text(viewModel.existingMemory == nil ? "Add New Memory" : "Edit Memory"), displayMode: .inline)
             .navigationBarItems(trailing:
-                Button("Save", action: saveNewMemory)
+                                    Button("Save", action: {
+                viewModel.saveNewMemory(memories: memories)
+                dismiss()
+            })
                     .disabled(viewModel.saveDisabled)
             )
         }
     }
     
-    func saveNewMemory() {
-        
-        if let memory = existingMemory {
-            memories.remove(memory)
-        }
-        
-        let customCoordinate = viewModel.isCustomCoordinate ? viewModel.coordinate : nil
-        let newMemory = Memory(name: viewModel.name, date: viewModel.date, image: viewModel.image, coordinate: customCoordinate, notes: viewModel.notes, notificationsEnabled: viewModel.notificationsEnabled)
-        memories.addMemory(newMemory)
-        
-        existingMemory = newMemory
-        onMemoryUpdated?(newMemory)
-        dismiss()
-    }
+
 }
 
 struct EditMemoryView_Previews: PreviewProvider {

@@ -10,20 +10,13 @@ import SwiftUI
 
 struct TimelineView: View {
 
-    @StateObject private var viewModel = ViewModel()
-
     @EnvironmentObject var memories: Memories
 
+    
     @State private var marginAmount = 1.0 //changes with pinch gesture
 
 
     var body: some View {
-        
-        /*let events = ["event1", "event2", "event3"]
-        
-        let heightPerEvent =
-        let totalHeight = events.count * 30;
-        let titleOffset*/
         
         
         NavigationView {
