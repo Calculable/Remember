@@ -19,7 +19,6 @@ struct EditMemoryView: View {
 
     
     init(toEdit memory: Memory? = nil, onMemoryUpdated: ((Memory) -> Void)? = nil) {
-        self.init(onMemoryUpdated: onMemoryUpdated)
         _viewModel = StateObject<EditMemoryView.ViewModel>(wrappedValue: ViewModel(memory, onMemoryUpdated: onMemoryUpdated))
     }
     
