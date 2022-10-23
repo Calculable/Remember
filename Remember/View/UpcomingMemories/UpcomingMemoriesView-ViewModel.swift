@@ -14,6 +14,11 @@ extension UpcomingMemoriesView {
         
         let calendar = Calendar.current;
 
+        @Published var searchText = ""
+
+        init() {
+            
+        }
         
         func generateAnniversaries(memories: Memories) -> [Anniversary] {
             var result: [Anniversary] = []
@@ -49,6 +54,18 @@ extension UpcomingMemoriesView {
                 }
             }
             return anniversaries
+        }
+        
+        func filteredAnniversaries(memories: Memories) -> [Anniversary]{
+            let anniversaries = generateAnniversaries(memories: memories)
+            
+            if searchText.isEmpty {
+                return anniversaries
+            } else {
+                return anniversaries.filter { $0.memory.name.localizedCaseInsensitiveContains(searchText) }
+            }
+            
+            
         }
         
     }

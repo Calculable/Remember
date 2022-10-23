@@ -12,28 +12,14 @@ struct UpcomingMemoriesView: View {
     
     @StateObject private var viewModel: ViewModel = ViewModel()
     @EnvironmentObject var memories: Memories
-    @State var searchText = ""
 
-    
-    
-    var filteredAnniversaries: [Anniversary] {
-        let Anniversaries = viewModel.generateAnniversaries(memories: memories)
-        
-        if searchText.isEmpty {
-            return Anniversaries
-        } else {
-            return Anniversaries.filter { $0.memory.name.localizedCaseInsensitiveContains(searchText) }
-        }
-        
-        
-    }
     
     var body: some View {
         
         NavigationView {
             ScrollView {
                 VStack {
-                    ForEach(filteredAnniversaries) { anniversary in
+                    ForEach(viewModel.filteredAnniversaries(memories: memories)) { anniversary in
                         NavigationLink {
                             MemoryDetailView(memory: anniversary.memory)
                         } label: {
@@ -43,7 +29,7 @@ struct UpcomingMemoriesView: View {
                 }
                 .navigationTitle("Upcoming")
             
-            }.searchable(text: $searchText, prompt: "Search upcoming memory")
+            }.searchable(text: $viewModel.searchText, prompt: "Search upcoming memory")
 
             
             Text("Please select an upcoming memory to see the details")

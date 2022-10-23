@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ResetMemoriesView: View {
-    @StateObject private var viewModel = ViewModel()
 
     @EnvironmentObject var memories: Memories
     @State private var showConfirmationAlert = false
