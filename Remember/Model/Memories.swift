@@ -60,11 +60,6 @@ class Memories: ObservableObject {
         save()
     }
 
-    func sortMemories() {
-        memories.sort()
-        memories.reverse()
-    }
-
     func removeAllMemories() {
         memories = []
         addExampleMemories()
@@ -137,6 +132,11 @@ class Memories: ObservableObject {
         memoryIOHelper.saveMemories(memories)
 
         notificationHelper.updateNotifications(forMemories: self)
+    }
+    
+    private func sortMemories() {
+        memories.sort()
+        memories.reverse()
     }
 
 

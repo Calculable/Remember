@@ -47,7 +47,7 @@ struct MapView: View {
 
     }
 
-    func select(memory: Memory) {
+    private func select(memory: Memory) {
         selectedMemory = memory
     }
 

@@ -48,7 +48,7 @@ struct TimelineView: View {
                 .navigationViewStyle(.stack)
     }
 
-    func amountOfYears() -> Int {
+    private func amountOfYears() -> Int {
         let minYear = memories.oldestYear()
         let maxYear = memories.newestYear()
 

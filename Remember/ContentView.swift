@@ -99,11 +99,11 @@ struct ContentView: View {
 
     }
 
-    func authenticate() {
+    private func authenticate() {
         AuthenticationHelper(isUnlocked: $isUnlocked, reason: "show your memories").authenticate()
     }
 
-    func lock() {
+    private func lock() {
         isUnlocked = false
     }
 }

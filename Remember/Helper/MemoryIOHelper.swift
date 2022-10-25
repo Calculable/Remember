@@ -26,14 +26,6 @@ class MemoryIOHelper {
         return try Bundle.main.decode(getSavePath())
     }
 
-    func getDocumentsDirectory() -> URL {
-        // find all possible documents directories for this user
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-
-        // just send back the first one, which ought to be the only one
-        return paths[0]
-    }
-
 
     func loadImageFromDocumentDirectory(forMemory memory: Memory) -> UIImage? {
         let fileURL = getImageFileURL(forMemory: memory)
@@ -48,10 +40,6 @@ class MemoryIOHelper {
 
     }
 
-    func getImageFileURL(forMemory memory: Memory) -> URL {
-        let documentsUrl = getDocumentsDirectory()
-        return documentsUrl.appendingPathComponent(memory.id.uuidString)
-    }
 
     func saveImageInDocumentDirectory(forMemory memory: Memory) {
         let fileURL = getImageFileURL(forMemory: memory)
@@ -64,6 +52,19 @@ class MemoryIOHelper {
     func deleteImageInDocumentDirectory(forMemory memory: Memory) {
         let fileURL = getImageFileURL(forMemory: memory)
         try? FileManager.default.removeItem(at: fileURL)
+    }
+    
+    private func getDocumentsDirectory() -> URL {
+        // find all possible documents directories for this user
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+        // just send back the first one, which ought to be the only one
+        return paths[0]
+    }
+
+    private func getImageFileURL(forMemory memory: Memory) -> URL {
+        let documentsUrl = getDocumentsDirectory()
+        return documentsUrl.appendingPathComponent(memory.id.uuidString)
     }
 
     private func getSavePath() -> URL {

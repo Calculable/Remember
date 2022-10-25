@@ -70,7 +70,7 @@ extension Date {
         return isInLessThanAYear(after: Calendar.current.today())
     }
 
-    func isInLessThanAYear(after otherDate: Date) -> Bool {
+    private func isInLessThanAYear(after otherDate: Date) -> Bool {
         var otherDateCopy = otherDate
         otherDateCopy.changeYear(to: Date.currentYear() + 1)
         return (self < otherDateCopy) && (self >= otherDate)

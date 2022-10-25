@@ -20,16 +20,6 @@ class NotificationHelper {
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [memory.id.uuidString]);
     }
 
-    func updateNotification(forMemory memory: Memory) {
-
-        removeNotification(forMemory: memory)
-
-        if (memory.notificationsEnabled && !memory.isMarkedForDeletion) {
-            let trigger = createNotificationTriggerFor(date: memory.date);
-            tryToSendNotification(notificationTrigger: trigger, memory: memory)
-        }
-    }
-
 
     func updateNotifications(forMemories memories: Memories) {
         notificationCenter.removeAllPendingNotificationRequests()
@@ -37,6 +27,7 @@ class NotificationHelper {
             updateNotification(forMemory: memory)
         }
     }
+    
 
     func tryToSendNotification(notificationTrigger: UNNotificationTrigger, memory: Memory) {
         Task.init {
@@ -45,6 +36,16 @@ class NotificationHelper {
                 return
             }
             self.sendNotification(notificationTrigger: notificationTrigger, memory: memory)
+        }
+    }
+    
+    private func updateNotification(forMemory memory: Memory) {
+
+        removeNotification(forMemory: memory)
+
+        if (memory.notificationsEnabled && !memory.isMarkedForDeletion) {
+            let trigger = createNotificationTriggerFor(date: memory.date);
+            tryToSendNotification(notificationTrigger: trigger, memory: memory)
         }
     }
 

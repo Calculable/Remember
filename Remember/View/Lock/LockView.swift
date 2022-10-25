@@ -18,7 +18,7 @@ struct LockView: View {
             Button("Unlock", action: unlockAction)
 
         }
-                .onAppear(perform: unlockAction)
+        .onAppear(perform: unlockAction)
 
     }
 }
