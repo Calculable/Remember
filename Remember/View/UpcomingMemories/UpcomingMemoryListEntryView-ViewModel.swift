@@ -44,7 +44,7 @@ extension UpcomingMemoryListEntryView {
         }
 
 
-        func getTimeIntervallDescription(anniversary: Anniversary) -> String {
+        func timeIntervalDescription(anniversary: Anniversary) -> String {
             switch(anniversary.type) {
                 case .year:
                 return String(format: NSLocalizedString("%d years since", comment: "number of days since the anniversary"), anniversary.years)
@@ -56,12 +56,12 @@ extension UpcomingMemoryListEntryView {
             }
         }
         
-        func remainingDaysTo(to date: Date) -> Int {
+        func remainingDays(to date: Date) -> Int {
             Calendar.current.today().timeIntervalInDays(to: date)
         }
         
-        func describeRemainingDays(_ date: Date) -> String {
-            let numberOfRemainingDays = remainingDaysTo(to: date)
+        func describeRemainingDays(until date: Date) -> String {
+            let numberOfRemainingDays = remainingDays(to: date)
             
             switch (numberOfRemainingDays) {
             case 0:

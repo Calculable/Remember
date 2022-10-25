@@ -18,6 +18,7 @@ extension MemoryDetailView {
         }
 
         @Published private(set) var memory: Memory
+        @AppStorage("neverDeletedAMemory") var neverDeletedAMemory = true
 
         @Published var mapRegion:MKCoordinateRegion
         @Published var showEditMemorySheet = false
@@ -40,6 +41,20 @@ extension MemoryDetailView {
         
         func markAsDeleted() {
             isDeleted = true
+        }
+        
+        func markForDeletion(memories: Memories) {
+            memories.markForDeletion(memory)
+            markAsDeleted()
+
+            if (neverDeletedAMemory) {
+                //show notification
+                showDeleteMemoryAlert = true
+
+            }
+            
+            neverDeletedAMemory = false
+
         }
 
 

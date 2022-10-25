@@ -71,7 +71,7 @@ class Memories: ObservableObject {
     func markForDeletion(_ memory: Memory) {
         objectWillChange.send()
         
-        notificationHelper.removeNotification(for: memory) //redundant because all notifications get recreated on save
+        notificationHelper.removeNotification(forMemory: memory) //redundant because all notifications get recreated on save
         memory.isMarkedForDeletion = true
         save()
     }
@@ -90,7 +90,7 @@ class Memories: ObservableObject {
     }
     
     func remove(_ memory: Memory) {
-        notificationHelper.removeNotification(for: memory) //redundant because all notifications get recreated on save
+        notificationHelper.removeNotification(forMemory: memory) //redundant because all notifications get recreated on save
 
         memory.image = nil //triggers deletion of the image
 
@@ -130,9 +130,9 @@ class Memories: ObservableObject {
     
     private func save() {
         
-        memoryIOHelper.save(memories: memories)
+        memoryIOHelper.saveMemories(memories)
         
-        notificationHelper.updateNotifications(memories: self)
+        notificationHelper.updateNotifications(forMemories: self)
     }
     
     

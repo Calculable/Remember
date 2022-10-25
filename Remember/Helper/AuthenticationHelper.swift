@@ -5,12 +5,15 @@
 //  Created by Jan Huber on 19.08.22.
 //
 
+//source: Partially copied from the 100 days of SwiftUI course
+
 import SwiftUI
 import LocalAuthentication
 
 struct AuthenticationHelper {
     
     @Binding var isUnlocked: Bool
+    @State var reason: String
     
     static func checkIfBiometricsAreAvailable(onSuccess: (() -> Void)?, onError: ((NSError?) -> Void)?) {
         let context = LAContext()
@@ -32,9 +35,6 @@ struct AuthenticationHelper {
         let context = LAContext()
         
         AuthenticationHelper.checkIfBiometricsAreAvailable() {
-            // it's possible, so go ahead and use it
-            let reason = String(localized: "show your memories")
-
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
                 // authentication has now completed
                 if success {

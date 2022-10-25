@@ -67,7 +67,7 @@ struct MemoriesListView: View {
                         .listRowBackground(
                             GeometryReader { geo in
                                 let increasedContrast = colorSchemeContrast == .increased
-                                getListBackground(memory: memory, withReducedTransparency: accessibilityReduceTransparency, withIncreasedContrast: increasedContrast).frame(minHeight: 158).frame(width: geo.size.width).clipped()
+                                getListBackground(forMemory: memory, withReducedTransparency: accessibilityReduceTransparency, withIncreasedContrast: increasedContrast).frame(minHeight: 158).frame(width: geo.size.width).clipped()
 
                         })
                         

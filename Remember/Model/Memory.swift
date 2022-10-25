@@ -18,10 +18,10 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
     @Published var image: UIImage? {
         didSet {
             if image == nil {
-                memoryIOHelper.deleteImageInDocumentDirectory(memory: self)
+                memoryIOHelper.deleteImageInDocumentDirectory(forMemory: self)
 
             } else {
-                memoryIOHelper.saveImageInDocumentDirectory(memory: self)
+                memoryIOHelper.saveImageInDocumentDirectory(forMemory: self)
             }
         }
     }
@@ -87,7 +87,7 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
         longitude = try container.decode(Double?.self, forKey: .longitude)
         notes = try container.decode(String.self, forKey: .notes)
         isMarkedForDeletion = try container.decode(Bool.self, forKey: .isMarkedForDeletion)
-        image = memoryIOHelper.loadImageFromDocumentDirectory(memory: self)
+        image = memoryIOHelper.loadImageFromDocumentDirectory(forMemory: self)
     }
     
 

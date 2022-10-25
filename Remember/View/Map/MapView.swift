@@ -21,7 +21,7 @@ struct MapView: View {
     @State private var selectedMemory: Memory? = nil
     
     
-    func selectMemory(memory: Memory) {
+    func select(memory: Memory) {
         selectedMemory = memory
     }
     
@@ -38,7 +38,7 @@ struct MapView: View {
                     
                     
                 }.onTapGesture {
-                    selectMemory(memory: memory)
+                    select(memory: memory)
                 }
                 
             }

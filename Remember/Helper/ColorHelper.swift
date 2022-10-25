@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-func getListBackground(memory: Memory, withReducedTransparency reducedTransparency: Bool = false, withIncreasedContrast increasedContrast: Bool = false) -> AnyView {
+func getListBackground(forMemory memory: Memory, withReducedTransparency reducedTransparency: Bool = false, withIncreasedContrast increasedContrast: Bool = false) -> AnyView {
     
     if (memory.image != nil && !reducedTransparency) {
         //use image as background
@@ -21,7 +21,6 @@ func getListBackground(memory: Memory, withReducedTransparency reducedTransparen
             }.accessibilityHidden(true)
         
         )
-        //return AnyView(Color(uiColor: UIColor.darkGray))
 
     } else {
         return AnyView(Color(uiColor: UIColor.darkGray).accessibilityHidden(true))

@@ -8,7 +8,7 @@
 import Foundation
 
 struct SettingsHelper {
-    static func getDefaultNotificationTime() -> Date {
+    static func defaultNotificationTime() -> Date {
         var components = DateComponents()
         components.hour = 9
         components.minute = 0

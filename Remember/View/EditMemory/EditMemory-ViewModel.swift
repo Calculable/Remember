@@ -34,10 +34,6 @@ extension EditMemoryView {
             return Image(uiImage: image)
         }
         
-        init() {
-            
-        }
-        
         
         
         init(_ memory: Memory? = nil, onMemoryUpdated: ((Memory) -> Void)? = nil) {

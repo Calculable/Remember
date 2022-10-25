@@ -22,7 +22,7 @@ struct DeletedMemoriesListView: View {
         Group {
             
         
-        if memories.memoriesMarkedForDeletion.count > 0 {
+        if !memories.memoriesMarkedForDeletion.isEmpty {
             
         
                 List {
@@ -62,7 +62,7 @@ struct DeletedMemoriesListView: View {
                                 
                                 let increasedContrast = colorSchemeContrast == .increased
                     
-                                getListBackground(memory: memory, withReducedTransparency: accessibilityReduceTransparency, withIncreasedContrast: increasedContrast).frame(minHeight: 158).frame(width: geo.size.width).clipped()
+                                getListBackground(forMemory: memory, withReducedTransparency: accessibilityReduceTransparency, withIncreasedContrast: increasedContrast).frame(minHeight: 158).frame(width: geo.size.width).clipped()
 
                         })
                         
@@ -84,7 +84,6 @@ struct DeletedMemoriesListView: View {
         .toolbar {
             ToolbarItem() {
                 Button {
-                    //show confirmation dialog
                     displayDeleteConfirmationAlert()
                     
                 } label: {

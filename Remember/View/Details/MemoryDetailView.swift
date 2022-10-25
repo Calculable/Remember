@@ -12,7 +12,6 @@ struct MemoryDetailView: View {
 
     @StateObject private var viewModel: ViewModel
     @EnvironmentObject var memories: Memories
-    @AppStorage("neverDeletedAMemory") var neverDeletedAMemory = true
 
 
     init(memory: Memory) {
@@ -75,7 +74,7 @@ struct MemoryDetailView: View {
                         }.padding([.bottom, .top], 20)
                         .alert("Delete Memory", isPresented: $viewModel.showingDeleteAlert) {
                             Button("Delete", role: .destructive, action: {
-                                markForDeletion(memory: viewModel.memory)
+                                viewModel.markForDeletion(memories: memories)
                             })
                             Button("Cancel", role: .cancel) { }
                         } message: {
@@ -111,19 +110,6 @@ struct MemoryDetailView: View {
         }
     }
     
-    func markForDeletion(memory: Memory) {
-        memories.markForDeletion(memory)
-        viewModel.markAsDeleted()
-
-        if (neverDeletedAMemory) {
-            //show notification
-            viewModel.showDeleteMemoryAlert = true
-
-        }
-        
-        neverDeletedAMemory = false
-
-    }
 
 
 }

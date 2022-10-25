@@ -11,17 +11,14 @@ import SwiftUI
 struct TimelineView: View {
 
     @EnvironmentObject var memories: Memories
-
-    
     @State private var marginAmount = 1.0 //changes with pinch gesture
-
-
+    
     var body: some View {
         
         
         NavigationView {
                             
-                //Slider(value: $marginAmount, in: 0...1).padding()
+            //Slider(value: $marginAmount, in: 0...1).padding()
             
             ScrollView {
                 
@@ -40,7 +37,6 @@ struct TimelineView: View {
                         Text("No Memories to display")
 
                     }
-                    
                 }
                 
             }.navigationTitle("Timeline")

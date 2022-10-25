@@ -43,7 +43,6 @@ struct PrivacySettingsView: View {
         .navigationTitle("Privacy")
         .navigationBarTitleDisplayMode(.inline)
     }
-    //checkIfBiometricsAreAvailable
     
     func checkIfBiometricsAvailable() {
         if (enableBiometricAuthentication) {

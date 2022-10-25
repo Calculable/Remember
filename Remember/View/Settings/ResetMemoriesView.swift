@@ -25,7 +25,7 @@ struct ResetMemoriesView: View {
                 Button("Remove all custom memories", role: .destructive) {
                     displayConfirmationAlert()
                     
-                }.disabled(memories.memories.count == 0)
+                }.disabled(memories.memories.isEmpty)
             }
             .alert("Delete custom memories", isPresented: $showConfirmationAlert) {
                 Button("Delete", role: .destructive, action: {

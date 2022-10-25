@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MemoryIOHelper {
     
-    func save(memories: [Memory]) {
+    func saveMemories(_ memories: [Memory]) {
                 
         do {
             let data = try JSONEncoder().encode(memories)
@@ -38,8 +38,8 @@ struct MemoryIOHelper {
     }
     
     
-    func loadImageFromDocumentDirectory(memory: Memory) -> UIImage? {
-        let fileURL = getMemoryImageFileUrl(memory: memory)
+    func loadImageFromDocumentDirectory(forMemory memory: Memory) -> UIImage? {
+        let fileURL = getImageFileURL(forMemory: memory)
             do {
                 let imageData = try Data(contentsOf: fileURL)
                 return UIImage(data: imageData)
@@ -51,21 +51,21 @@ struct MemoryIOHelper {
             
         }
     
-    func getMemoryImageFileUrl(memory: Memory) -> URL {
+    func getImageFileURL(forMemory memory: Memory) -> URL {
         let documentsUrl = getDocumentsDirectory()
         return documentsUrl.appendingPathComponent(memory.id.uuidString)
     }
     
-    func saveImageInDocumentDirectory(memory: Memory) {
-        let fileURL = getMemoryImageFileUrl(memory: memory)
+    func saveImageInDocumentDirectory(forMemory memory: Memory) {
+        let fileURL = getImageFileURL(forMemory: memory)
         if let imageData = memory.image?.pngData() {
             try? imageData.write(to: fileURL, options: .atomic)
         }
     }
     
     
-    func deleteImageInDocumentDirectory(memory: Memory) {
-        let fileURL = getMemoryImageFileUrl(memory: memory)
+    func deleteImageInDocumentDirectory(forMemory memory: Memory) {
+        let fileURL = getImageFileURL(forMemory: memory)
         try? FileManager.default.removeItem(at: fileURL)
     }
     

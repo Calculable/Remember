@@ -56,12 +56,12 @@ struct UpcomingMemoryListEntryView: View {
                 Group {
                     
                 
-                    Text("\(Image(systemName: "calendar.circle")) \(viewModel.anniversary.date.formatted(date: .long, time: .omitted))  \n(\(viewModel.describeRemainingDays(viewModel.anniversary.date)))")
-                        .foregroundColor(viewModel.remainingDaysTo(to: viewModel.anniversary.date) <= 7 ? .white : .white)
+                    Text("\(Image(systemName: "calendar.circle")) \(viewModel.anniversary.date.formatted(date: .long, time: .omitted))  \n(\(viewModel.describeRemainingDays(until: viewModel.anniversary.date)))")
+                        .foregroundColor(viewModel.remainingDays(to: viewModel.anniversary.date) <= 7 ? .white : .white)
                         .multilineTextAlignment(.center)
                         .accessibilityHidden(true)
                                             
-                    Text("\(viewModel.getTimeIntervallDescription(anniversary: viewModel.anniversary)): \(viewModel.anniversary.memory.name)")
+                    Text("\(viewModel.timeIntervalDescription(anniversary: viewModel.anniversary)): \(viewModel.anniversary.memory.name)")
                         .font(.title)
                         .foregroundColor(.white)
                     

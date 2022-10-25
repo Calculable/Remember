@@ -12,16 +12,17 @@ import SwiftUI
 class NotificationHelper {
     
     @AppStorage("notifications.days.before.event") private var daysBeforeEvent = 1
-    @AppStorage("notification.time") private var timeOfNotifications = SettingsHelper.getDefaultNotificationTime()
+    @AppStorage("notification.time") private var timeOfNotifications = SettingsHelper.defaultNotificationTime()
     
+    let notificationCenter = UNUserNotificationCenter.current()
     
-    func removeNotification(for memory: Memory) {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [memory.id.uuidString]);
+    func removeNotification(forMemory memory: Memory) {
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: [memory.id.uuidString]);
     }
     
-    func updateNotification(for memory: Memory) {
+    func updateNotification(forMemory memory: Memory) {
         
-        removeNotification(for: memory)
+        removeNotification(forMemory: memory)
         
         if (memory.notificationsEnabled && !memory.isMarkedForDeletion) {
             let trigger = createNotificationTriggerFor(date: memory.date);
@@ -30,10 +31,10 @@ class NotificationHelper {
     }
     
     
-    func updateNotifications(memories: Memories) {
-        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+    func updateNotifications(forMemories memories: Memories) {
+        notificationCenter.removeAllPendingNotificationRequests()
         for memory in memories.memories {
-            updateNotification(for: memory)
+            updateNotification(forMemory: memory)
         }
     }
     
@@ -48,13 +49,13 @@ class NotificationHelper {
     }
     
     private func notificationsAuthorized() async -> Bool {
-        let center = UNUserNotificationCenter.current()
+        let center = notificationCenter
         let settings = await center.notificationSettings()
         return settings.authorizationStatus == .authorized
     }
     
     private func requestNotificationAuthorization() async -> Bool {
-        let center = UNUserNotificationCenter.current()
+        let center = notificationCenter
         if (await notificationsAuthorized()) {
             return true
         } else {
@@ -76,27 +77,27 @@ class NotificationHelper {
         }
     }
     
-    private func notificationSubtitle(memory: Memory) -> String {
+    private func notificationSubtitle(forMemory memory: Memory) -> String {
         return "\(memory.name) \(memory.date.formatted(date: .long, time: .omitted))"
     }
     
-    private func createNotificationContentForMemory(memory: Memory) -> UNMutableNotificationContent {
+    private func createNotificationContent(forMemory memory: Memory) -> UNMutableNotificationContent {
         let content = UNMutableNotificationContent()
         content.title = notificationTitle(daysBeforeEvent: daysBeforeEvent)
-        content.subtitle = notificationSubtitle(memory: memory)
+        content.subtitle = notificationSubtitle(forMemory: memory)
         content.sound = UNNotificationSound.default
         return content
     }
     
     
     private func sendNotification(notificationTrigger: UNNotificationTrigger, memory: Memory) {
-        let notificationContent = createNotificationContentForMemory(memory: memory)
+        let notificationContent = createNotificationContent(forMemory: memory)
         
         // choose a random identifier
         let request = UNNotificationRequest(identifier: memory.id.uuidString, content: notificationContent, trigger: notificationTrigger)
         
         // add our notification request
-        UNUserNotificationCenter.current().add(request)
+        notificationCenter.add(request)
     }
     
     private func createNotificationDateComponents(forEventDate date: Date) -> DateComponents {

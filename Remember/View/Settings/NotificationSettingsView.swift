@@ -15,7 +15,7 @@ struct NotificationSettingsView: View {
     @EnvironmentObject var memories: Memories
 
     @AppStorage("notifications.days.before.event") private var selectedNotificationDaysBeforeEvent = 1
-    @AppStorage("notification.time") private var timeOfNotifications = SettingsHelper.getDefaultNotificationTime()
+    @AppStorage("notification.time") private var timeOfNotifications = SettingsHelper.defaultNotificationTime()
     
     
     
@@ -35,14 +35,14 @@ struct NotificationSettingsView: View {
                 
                 DatePicker("Time of notifications", selection: $timeOfNotifications, displayedComponents: .hourAndMinute)
                     .onChange(of: timeOfNotifications) { _ in
-                        viewModel.notificationsHelper.updateNotifications(memories: memories)
+                        viewModel.notificationsHelper.updateNotifications(forMemories: memories)
                     }
                 Picker("Days before event", selection: $selectedNotificationDaysBeforeEvent) {
                     ForEach(viewModel.availableNotificationDaysBeforeEvent, id: \.self) {
                         Text(viewModel.describeDaysBeforeEvent($0))
                     }
                 }.onChange(of: selectedNotificationDaysBeforeEvent) { _ in
-                    viewModel.notificationsHelper.updateNotifications(memories: memories)
+                    viewModel.notificationsHelper.updateNotifications(forMemories: memories)
                 }
                 
             }

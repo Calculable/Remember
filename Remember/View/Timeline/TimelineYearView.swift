@@ -15,134 +15,49 @@ import SwiftUI
 struct TimelineYearView: View {
     
     @Environment(\.colorScheme) var colorScheme
+    @StateObject private var viewModel: ViewModel
 
-    
-    var memories: [Memory]
-    var year: Int
-    
-    
-    @Binding var marginFactor: Double
-    
-    @State private var marginXYear = 30
-    @State private var marginXMemory = 30
-    @State private var minimalMarginYBetweenTwoMemories = 50
-    @State private var marginYBetweenTitleAndYear = 30
-
-    @State private var marginToTopForTheFirstMemmory = 50
+    init(memories: [Memory], year: Int, marginFactor: Binding<Double> = .constant(1.0)) {
+        _viewModel = StateObject<ViewModel>(wrappedValue: ViewModel(memories: memories, year: year, marginFactor: marginFactor))
+    }
     
     var body: some View {
                     
         
             Canvas { context, size in
-                drawLine(size: size, context: context)
-                drawYear(context: context, size: size)
+                viewModel.drawLine(size: size, context: context)
+                viewModel.drawYear(context: context, size: size)
 
 
-                var currentYPosition:Int = marginToTopForTheFirstMemmory
+                var currentYPosition:Int = viewModel.marginToTopForTheFirstMemmory
                 
-                for i in 0..<memories.count {
+                for i in 0..<viewModel.memories.count {
                     
-                    let currentMemory = memories[i]
-                    currentYPosition += calculateMarginTopToPreviousMemory(forMemoryAt: i)
+                    let currentMemory = viewModel.memories[i]
+                    currentYPosition += viewModel.marginTopToPreviousMemory(forMemoryAt: i)
 
 
-                    drawMemoryIndicator(currentYPosition: currentYPosition, context: context)
-                    drawMemoryTitle(currentMemory: currentMemory, context: context, currentYPosition: currentYPosition, size: size)
+                    viewModel.drawMemoryIndicator(currentYPosition: currentYPosition, context: context, colorScheme: colorScheme)
+                    viewModel.drawMemoryTitle(currentMemory: currentMemory, context: context, currentYPosition: currentYPosition, size: size)
 
 
-                    currentYPosition += marginYBetweenTitleAndYear
+                    currentYPosition += viewModel.marginYBetweenTitleAndYear
 
-                    drawMemoryDate(currentMemory: currentMemory, context: context, currentYPosition: currentYPosition)
+                    viewModel.drawMemoryDate(currentMemory: currentMemory, context: context, currentYPosition: currentYPosition, colorScheme: colorScheme)
 
 
-                    currentYPosition += minimalMarginYBetweenTwoMemories //do some specing so that events on the same day do not overlap
+                    currentYPosition += viewModel.minimalMarginYBetweenTwoMemories //do some specing so that events on the same day do not overlap
                     
                 }
                 
                 
             }
-            .frame(height: requiredHeight())
+            .frame(height: viewModel.requiredHeight())
             .dynamicTypeSize(...DynamicTypeSize.xxLarge)
             //.border(Color.purple)
     }
 
-    private func drawMemoryDate(currentMemory: Memory, context: GraphicsContext, currentYPosition: Int) {
-        let dateToDraw =
-            Text("\(currentMemory.date.formatted(date: .long, time: .omitted))")
-                .font(.title3)
-                .foregroundColor(colorScheme == .dark ? .lightBackground : .background)
-
-        context.draw(dateToDraw, at: CGPoint(x: marginXMemory, y: currentYPosition), anchor: .topLeading)
-    }
-
-    private func drawMemoryTitle(currentMemory: Memory, context: GraphicsContext, currentYPosition: Int, size: CGSize) {
-        let textToDraw = Text("\(currentMemory.name)")
-            .font(.title3)
-            .fontWeight(.bold)
-
-        //context.draw(textToDraw, at: CGPoint(x: marginXMemory, y: currentYPosition), anchor: .topLeading)
-
-        // GeometryReader { geo in
-        context.draw(textToDraw, in: CGRect(x: marginXMemory, y: currentYPosition, width: Int(size.width-50), height: 30))
-        //}
-    }
-
-    private func drawMemoryIndicator(currentYPosition: Int, context: GraphicsContext) {
-        var p = Path()
-
-        p.move(to: CGPoint(x: 100, y: 100))
-
-        let rect = CGRect(x: 0, y: currentYPosition+9, width: 10, height: 10)
-        p.addRect(rect)
-
-        context.stroke(p, with: .color(colorScheme == .dark ? .lightBackground : .background), lineWidth: 10)
-    }
-
-    private func drawYear(context: GraphicsContext, size: CGSize) {
-        let textToDraw:Text = Text("\(String(year))").font(.title)
-        context.draw(textToDraw, at: CGPoint(x: size.width - CGFloat(marginXYear), y: 0), anchor: .topTrailing)
-    }
-
-    private func drawLine(size: CGSize, context: GraphicsContext) {
-        var linePath = Path()
-        linePath.move(to: CGPoint(x: 0, y: 0))
-        linePath.addLine(to: CGPoint(x: 0, y: size.height))
-
-        context.stroke(linePath, with: .color(.background), lineWidth: 10)
-    }
-
-    func requiredHeight() -> CGFloat {
-        var totalHeight = 0
-        totalHeight += marginToTopForTheFirstMemmory
-        
-        for i in 0..<memories.count {
-            totalHeight += calculateMarginTopToPreviousMemory(forMemoryAt: i)
-        }
-        
-        if (memories.count >= 1) {
-            totalHeight += calculateMarginBottomToNextMemory(forMemoryAt: memories.count-1)
-        }
-        
-        totalHeight += (minimalMarginYBetweenTwoMemories+marginYBetweenTitleAndYear)*memories.count
-        
-        return CGFloat(totalHeight)
-    }
     
-    func calculateMarginTopToPreviousMemory(forMemoryAt index: Int) -> Int {
-        let currentMemory = memories[index]
-        let comparisonDate = index == 0 ? Date.lastDayOfYear(year: year) : memories[index-1].date
-        let daysBetweenMemoryAndLastMemory = currentMemory.date.timeIntervalInDays(to: comparisonDate)
-        let marginToPreviousMemory = Double(daysBetweenMemoryAndLastMemory)*marginFactor
-        return Int(ceil(marginToPreviousMemory))
-    }
-    
-    func calculateMarginBottomToNextMemory(forMemoryAt index: Int) -> Int {
-        let currentMemory = memories[index]
-        let comparisonDate = index == memories.count-1 ? Date.firstDayOfYear(year: year) : memories[index+1].date
-        let daysBetweenMemoryAndNextMemory = currentMemory.date.timeIntervalInDays(to: comparisonDate)
-        let marginToNextMemory = Double(daysBetweenMemoryAndNextMemory)*marginFactor
-        return Int(ceil(marginToNextMemory))
-    }
     
     
     
