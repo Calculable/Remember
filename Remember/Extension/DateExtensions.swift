@@ -22,13 +22,7 @@ extension Date: RawRepresentable {
 
 extension Date {
 
-    
-    func timeIntervalInDays(to: Date) -> Int {
-        let toDate = Calendar.current.startOfDay(for: to) // <2>
-        let numberOfDays = Calendar.current.dateComponents([.day], from:  Calendar.current.startOfDay(for: self), to: toDate) // <3>
-        
-        return abs(numberOfDays.day!)
-    }
+
 
     public init(day: Int, month: Int, year: Int) {
         var components = DateComponents()
@@ -40,21 +34,8 @@ extension Date {
         components.second = 0
         self = Calendar.current.date(from: components)!
     }
-
-    static func firstDayOfYear(year: Int) -> Date { //january 1
-        return Date(day: 1, month: 1, year: year)
-    }
-
-    static func lastDayOfYear(year: Int) -> Date { //december 31
-        return Date(day: 31, month: 12, year: year)
-    }
-
-    func year() -> Int {
-        return Calendar.current.component(.year, from: self)
-    }
-
-
-
+    
+    
     mutating func changeYear(to year: Int) {
         var dateComponents = Calendar.current.dateComponents([.month, .day], from: self)
         dateComponents.year = year
@@ -65,6 +46,26 @@ extension Date {
         return Date().year()
     }
     
+    static func firstDayOfYear(year: Int) -> Date { //january 1
+        return Date(day: 1, month: 1, year: year)
+    }
+
+    static func lastDayOfYear(year: Int) -> Date { //december 31
+        return Date(day: 31, month: 12, year: year)
+    }
+    
+    func timeIntervalInDays(to: Date) -> Int {
+        let toDate = Calendar.current.startOfDay(for: to) // <2>
+        let numberOfDays = Calendar.current.dateComponents([.day], from:  Calendar.current.startOfDay(for: self), to: toDate) // <3>
+        
+        return abs(numberOfDays.day!)
+    }
+
+
+    func year() -> Int {
+        return Calendar.current.component(.year, from: self)
+    }
+
 
     func isInLessThanAYear() -> Bool {
         return isInLessThanAYear(after: Calendar.current.today())

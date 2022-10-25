@@ -12,19 +12,18 @@ import MapKit
 extension MemoryDetailView {
     @MainActor class ViewModel: ObservableObject {
 
-        init(memory: Memory) {
-            self.memory = memory
-            self.mapRegion =  MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: memory.coordinate?.latitude ?? 0, longitude: memory.coordinate?.longitude ?? 0), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
-        }
-
-        @Published private(set) var memory: Memory
         @AppStorage("neverDeletedAMemory") var neverDeletedAMemory = true
-
+        @Published private(set) var memory: Memory
         @Published var mapRegion:MKCoordinateRegion
         @Published var showEditMemorySheet = false
         @Published var showingDeleteAlert = false
         @Published private(set) var isDeleted = false
         @Published var showDeleteMemoryAlert = false
+        
+        init(memory: Memory) {
+            self.memory = memory
+            self.mapRegion =  MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: memory.coordinate?.latitude ?? 0, longitude: memory.coordinate?.longitude ?? 0), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+        }
 
 
         func displayDeleteAlert() {

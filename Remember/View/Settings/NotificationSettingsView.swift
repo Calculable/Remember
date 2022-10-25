@@ -9,16 +9,13 @@ import SwiftUI
 
 
 struct NotificationSettingsView: View {
-
-    @StateObject private var viewModel = ViewModel()
     
     @EnvironmentObject var memories: Memories
-
     @AppStorage("notifications.days.before.event") private var selectedNotificationDaysBeforeEvent = 1
     @AppStorage("notification.time") private var timeOfNotifications = SettingsHelper.defaultNotificationTime()
-    
-    
-    
+    @StateObject private var viewModel = ViewModel()
+
+        
     var body: some View {
         
         

@@ -10,7 +10,6 @@ import SwiftUI
 
 struct MapAnnotationContent: View {
     @Environment(\.accessibilityReduceTransparency)  var reduceTransparency
-
     @State var title: String
 
     var body: some View {

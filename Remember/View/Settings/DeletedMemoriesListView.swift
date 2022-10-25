@@ -11,8 +11,6 @@ struct DeletedMemoriesListView: View {
 
     @Environment(\.accessibilityReduceTransparency) var accessibilityReduceTransparency;
     @Environment(\.colorSchemeContrast) private var colorSchemeContrast
-    
-    //@StateObject private var viewModel: ViewModel = ViewModel()
     @EnvironmentObject var memories: Memories
     
     @State private var showDeleteConfirmationAlert = false

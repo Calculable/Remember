@@ -21,9 +21,6 @@ class MemoryIOHelper {
         
     }
     
-    private func getSavePath() -> URL {
-        getDocumentsDirectory().appendingPathComponent("memories.json")
-    }
     
     func loadMemoriesFromDisk() throws -> [Memory]  {
         return try Bundle.main.decode(getSavePath())
@@ -67,6 +64,10 @@ class MemoryIOHelper {
     func deleteImageInDocumentDirectory(forMemory memory: Memory) {
         let fileURL = getImageFileURL(forMemory: memory)
         try? FileManager.default.removeItem(at: fileURL)
+    }
+    
+    private func getSavePath() -> URL {
+        getDocumentsDirectory().appendingPathComponent("memories.json")
     }
     
 }

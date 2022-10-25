@@ -11,9 +11,9 @@ import SwiftUI
 extension TimelineYearView {
     @MainActor class ViewModel: ObservableObject {
 
+        @Binding private(set) var marginFactor: Double
         @Published var memories: [Memory]
         @Published var year: Int
-        @Binding private(set) var marginFactor: Double
 
          var marginXYear = 30
          var marginXMemory = 30

@@ -20,12 +20,6 @@ struct MapView: View {
         .world)
     @State private var selectedMemory: Memory? = nil
     
-    
-    func select(memory: Memory) {
-        selectedMemory = memory
-    }
-    
-    
     var body: some View {
         
         
@@ -47,12 +41,13 @@ struct MapView: View {
             .sheet(item: $selectedMemory) { memory in
             MemoryDetailView(memory: memory)
         }.ignoresSafeArea()
-
-        
-        
-    
         
     }
+    
+    func select(memory: Memory) {
+        selectedMemory = memory
+    }
+    
     
 }
 

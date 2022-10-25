@@ -10,14 +10,13 @@ import SwiftUI
 struct UpcomingMemoryListEntryView: View {
 
 
+    @Environment(\.colorSchemeContrast) private var colorSchemeContrast
+    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
     @StateObject private var viewModel: ViewModel
-    
+
     init(anniversary: Anniversary, isScreenshot: Bool = false) {
         _viewModel = StateObject<ViewModel>(wrappedValue: ViewModel(anniversary: anniversary, isScreenshot: isScreenshot))
     }
-
-    @Environment(\.colorSchemeContrast) private var colorSchemeContrast
-    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
 
     var increasedContrast: Bool {
         colorSchemeContrast == .increased
@@ -30,8 +29,6 @@ struct UpcomingMemoryListEntryView: View {
 
 
     var body: some View {
-        
-            
         
         ZStack {
             

@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    
-    @StateObject private var memories: Memories = Memories()
-    @AppStorage("biometric.authentication.enabled") private var enableBiometricAuthentication = false
+
     @Environment(\.scenePhase) var scenePhase
     @Environment(\.accessibilityVoiceOverEnabled) var voiceOverEnabled
-    
+    @AppStorage("biometric.authentication.enabled") private var enableBiometricAuthentication = false
+
+    @StateObject private var memories: Memories = Memories()
     @State private var isUnlocked = false
 
     var upcomingMemoriesTab: some View {

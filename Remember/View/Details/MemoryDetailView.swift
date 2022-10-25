@@ -10,22 +10,18 @@ import MapKit
 
 struct MemoryDetailView: View {
 
-    @StateObject private var viewModel: ViewModel
     @EnvironmentObject var memories: Memories
-
+    @StateObject private var viewModel: ViewModel
 
     init(memory: Memory) {
         self._viewModel = StateObject<ViewModel>(wrappedValue: ViewModel(memory: memory))
     }
-
-    let noContentView = Text("This memory was deleted")
-
-        
+    
     var body: some View {
         
         
         if (viewModel.isDeleted) {
-            noContentView
+            Text("This memory was deleted")
         } else {
             
         

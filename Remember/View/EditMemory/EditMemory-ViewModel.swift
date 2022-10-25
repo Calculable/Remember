@@ -22,7 +22,7 @@ extension EditMemoryView {
         @Published var notificationsEnabled = false
         @Published var showingImagePicker = false
         @Published var existingMemory: Memory? = nil
-        
+
         var onMemoryUpdated: ((Memory) -> Void)?
 
 
@@ -33,8 +33,10 @@ extension EditMemoryView {
             
             return Image(uiImage: image)
         }
-        
-        
+                
+        var saveDisabled:Bool {
+            return name.isEmpty
+        }
         
         init(_ memory: Memory? = nil, onMemoryUpdated: ((Memory) -> Void)? = nil) {
             
@@ -55,10 +57,6 @@ extension EditMemoryView {
             
             self.onMemoryUpdated = onMemoryUpdated
 
-        }
-                
-        var saveDisabled:Bool {
-            return name.isEmpty
         }
         
         func removeImage() {

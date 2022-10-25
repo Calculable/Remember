@@ -9,9 +9,10 @@ import SwiftUI
 import Foundation
 
 struct UpcomingMemoriesView: View {
-    
-    @StateObject private var viewModel: ViewModel = ViewModel()
+
     @EnvironmentObject var memories: Memories
+
+    @StateObject private var viewModel: ViewModel = ViewModel()
 
     
     var body: some View {

@@ -29,8 +29,4 @@ struct Anniversary: Identifiable, Comparable {
         
     }
     
-    enum AnniversaryType {
-        case day, year
-    }
-    
 }

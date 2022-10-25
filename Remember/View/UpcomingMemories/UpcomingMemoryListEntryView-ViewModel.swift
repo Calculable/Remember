@@ -11,19 +11,17 @@ import SwiftUI
 extension UpcomingMemoryListEntryView {
     @MainActor class ViewModel: ObservableObject {
         
-        init(anniversary: Anniversary, isScreenshot: Bool = false) {
-            self.anniversary = anniversary
-            self.isScreenshot = isScreenshot
-        }
         
         @Published private(set) var anniversary: Anniversary
         @Published var showImageSavedNotification = false
         @Published var showImageSaveErrorNotification = false
-
-        
         @Published private(set) var uiImage: UIImage? = nil
         @Published private(set) var isScreenshot: Bool
         
+        init(anniversary: Anniversary, isScreenshot: Bool = false) {
+            self.anniversary = anniversary
+            self.isScreenshot = isScreenshot
+        }
         
         func shareMemoryImage() {
             let view = UpcomingMemoryListEntryView(anniversary: anniversary, isScreenshot: true)

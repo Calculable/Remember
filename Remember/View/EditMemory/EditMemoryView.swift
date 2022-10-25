@@ -11,13 +11,10 @@ import MapKit
 
 struct EditMemoryView: View {
     
+    @Environment(\.dismiss) var dismiss
+    @EnvironmentObject var memories: Memories
     @StateObject private var viewModel: ViewModel = ViewModel()
 
-    @EnvironmentObject var memories: Memories
-    @Environment(\.dismiss) var dismiss
-    
-
-    
     init(toEdit memory: Memory? = nil, onMemoryUpdated: ((Memory) -> Void)? = nil) {
         _viewModel = StateObject<EditMemoryView.ViewModel>(wrappedValue: ViewModel(memory, onMemoryUpdated: onMemoryUpdated))
     }
