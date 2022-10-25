@@ -12,21 +12,13 @@ struct MemoriesListView: View {
     @Environment(\.accessibilityReduceTransparency) var accessibilityReduceTransparency;
     @Environment(\.colorSchemeContrast) private var colorSchemeContrast
     @EnvironmentObject var memories: Memories
-    @AppStorage("neverDeletedAMemory") var neverDeletedAMemory = true
-    @State private var showAddMemorySheet = false
-    @State private var showDeleteMemoryAlert = false
-    @State private var searchText = ""
+    @StateObject private var viewModel = ViewModel()
 
-    func showAddMemoryView() {
-        showAddMemorySheet = true
-    }
-    
-    
     var body: some View {
         
         NavigationView {
                 List {
-                    ForEach(memories.filteredMemories(searchText: searchText)) { memory in
+                    ForEach(memories.filteredMemories(searchText: viewModel.searchText)) { memory in
                         
                         NavigationLink {
                             MemoryDetailView(memory: memory)
@@ -36,13 +28,13 @@ struct MemoriesListView: View {
                                 .swipeActions {
                                     Button(role: .destructive) {
                                         
-                                        markMemoryForDeletion(memory: memory)
+                                        viewModel.markMemoryForDeletion(memories: memories, memory: memory)
 
                                     
                                     } label: {
                                         Label("Delete", systemImage: "minus.circle")
                                     }
-                                }.alert("Memory deleted", isPresented: $showDeleteMemoryAlert) {
+                                }.alert("Memory deleted", isPresented: $viewModel.showDeleteMemoryAlert) {
                                     Button("OK", role: .cancel) { }
                                 } message: {
                                     Text("Deleted Memories can be restored under Settings > Deleted Memories")
@@ -82,7 +74,7 @@ struct MemoriesListView: View {
 
 
                 }
-                .searchable(text: $searchText, prompt: "Search memory")
+                .searchable(text: $viewModel.searchText, prompt: "Search memory")
 
 
                 .environment(\.defaultMinListRowHeight, 160)
@@ -90,7 +82,7 @@ struct MemoriesListView: View {
                 .toolbar {
                     ToolbarItem() {
                         Button {
-                            showAddMemoryView()
+                            viewModel.showAddMemoryView()
                         } label: {
                             Label("Add Memory", systemImage: "plus")
                         }
@@ -101,24 +93,13 @@ struct MemoriesListView: View {
 
         }
         .phoneOnlyStackNavigationView()
-        .sheet(isPresented: $showAddMemorySheet) {
+        .sheet(isPresented: $viewModel.showAddMemorySheet) {
             EditMemoryView()
         }
     }
     
-    func markMemoryForDeletion(memory: Memory) {
-        memories.markForDeletion(memory)
-        
-        if (neverDeletedAMemory) {
-            //show notification
-            
-            showDeleteMemoryAlert = true
 
-        }
-        
-        neverDeletedAMemory = false
-        
-    }
+    
     
 
 }

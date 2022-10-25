@@ -16,11 +16,11 @@ class NotificationHelperSpy: NotificationHelper {
     var numberOfNotificationUpdates = 0
 
     
-    override func removeNotification(for memory: Memory) {
+    override func removeNotification(forMemory memory: Memory) {
         memoriesWithRemovedNotifications.append(memory)
     }
     
-    override func updateNotifications(memories: Memories) {
+    override func updateNotifications(forMemories memories: Memories) {
         numberOfNotificationUpdates+=1
     }
     
@@ -33,9 +33,9 @@ class NotificationHelperSpy: NotificationHelper {
 
 }
 
-class MemoriesSaverHelperMock: MemoriesSaverHelper {
+class MemoriesIOHelperMock: MemoryIOHelper {
     
-    override func save(memories: [Memory]) {
+    override func saveMemories(_ memories: [Memory]) {
     }
     
     
@@ -49,11 +49,11 @@ class MemoriesTests: XCTestCase {
     
     var subject: Memories!
     var notificationHelperSty = NotificationHelperSpy()
-    var saverHelperMock = MemoriesSaverHelperMock()
+    var ioHelperMock = MemoriesIOHelperMock()
 
     
     override func setUp() {
-        subject = Memories(notificationHelper: notificationHelperSty, memoriesSaverHelper: saverHelperMock)
+        subject = Memories(notificationHelper: notificationHelperSty, memoryIOHelper: ioHelperMock)
         subject.addExampleMemories()
     }
     
@@ -120,7 +120,7 @@ class MemoriesTests: XCTestCase {
         
         let memory = subject.memories.first!
         
-        subject.markForDeletion(subject.memories.first!)
+        subject.markForDeletion(memory)
         subject.restore(memory)
         
         XCTAssert(subject.memoriesMarkedForDeletion.count == 0)

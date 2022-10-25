@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct MemoryIOHelper {
+class MemoryIOHelper {
     
     func saveMemories(_ memories: [Memory]) {
                 
