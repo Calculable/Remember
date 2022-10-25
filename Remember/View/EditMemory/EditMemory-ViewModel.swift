@@ -11,7 +11,7 @@ import MapKit
 
 extension EditMemoryView {
     @MainActor class ViewModel: ObservableObject {
-        
+
         @Published var isCustomCoordinate = false
         @Published var coordinate = CLLocationCoordinate2D(latitude: 46.818188, longitude: 8.227512)
         @Published var showingMapPicker = false
@@ -30,17 +30,17 @@ extension EditMemoryView {
             guard let image = image else {
                 return nil
             }
-            
+
             return Image(uiImage: image)
         }
-                
-        var saveDisabled:Bool {
+
+        var saveDisabled: Bool {
             return name.isEmpty
         }
-        
+
         init(_ memory: Memory? = nil, onMemoryUpdated: ((Memory) -> Void)? = nil) {
-            
-            
+
+
             if let memory = memory {
                 if let memoryCoordinate = memory.coordinate {
                     isCustomCoordinate = true
@@ -54,36 +54,36 @@ extension EditMemoryView {
                 self.notificationsEnabled = memory.notificationsEnabled
                 self.existingMemory = memory
             }
-            
+
             self.onMemoryUpdated = onMemoryUpdated
 
         }
-        
+
         func removeImage() {
             image = nil
         }
-        
+
         func showImagePicker() {
             showingImagePicker = true
         }
-        
+
         func showMapPicker() {
             showingMapPicker = true
         }
-        
+
         func saveNewMemory(memories: Memories) {
-            
+
             if let memory = existingMemory {
                 memories.remove(memory)
             }
-            
+
             let customCoordinate = isCustomCoordinate ? coordinate : nil
             let newMemory = Memory(name: name, date: date, image: image, coordinate: customCoordinate, notes: notes, notificationsEnabled: notificationsEnabled)
             memories.addMemory(newMemory)
-            
+
             existingMemory = newMemory
             onMemoryUpdated?(newMemory)
-            
+
         }
     }
 }

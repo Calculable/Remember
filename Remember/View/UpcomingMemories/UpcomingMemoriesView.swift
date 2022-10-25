@@ -14,9 +14,9 @@ struct UpcomingMemoriesView: View {
 
     @StateObject private var viewModel: ViewModel = ViewModel()
 
-    
+
     var body: some View {
-        
+
         NavigationView {
             ScrollView {
                 VStack {
@@ -28,24 +28,25 @@ struct UpcomingMemoriesView: View {
                         }
                     }
                 }
-                .navigationTitle("Upcoming")
-            
-            }.searchable(text: $viewModel.searchText, prompt: "Search upcoming memory")
+                        .navigationTitle("Upcoming")
 
-            
+            }
+                    .searchable(text: $viewModel.searchText, prompt: "Search upcoming memory")
+
+
             Text("Please select an upcoming memory to see the details")
-        }.phoneOnlyStackNavigationView()
+        }
+                .phoneOnlyStackNavigationView()
     }
-    
-    
-    
+
+
 }
 
 struct UpcomingMemoriesView_Previews: PreviewProvider {
     static var previews: some View {
         let memories = Memories()
         return UpcomingMemoriesView()
-            .environmentObject(memories)
+                .environmentObject(memories)
     }
 }
 

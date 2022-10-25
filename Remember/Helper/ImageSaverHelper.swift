@@ -1,5 +1,5 @@
-
 //source: This class was partially copied from the 100 days of swift course
+
 import Foundation
 import SwiftUI
 
@@ -13,7 +13,7 @@ class ImageSaver: NSObject {
     }
 
     @objc func saveCompleted(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-         if let error = error {
+        if let error = error {
             errorHandler?(error)
         } else {
             successHandler?()

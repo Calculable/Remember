@@ -53,17 +53,17 @@ struct ContentView: View {
     }
 
     var body: some View {
-        
+
         VStack {
-            
-        
+
+
             if (enableBiometricAuthentication == false || isUnlocked == true) {
-            
+
                 TabView {
 
                     upcomingMemoriesTab
 
-                   memoriesListTab
+                    memoriesListTab
 
                     if (!voiceOverEnabled) { //Since the timeline view is created upon a canvas, it is not accessible unfortunately. ToDo: Replace with a better alternative.
                         timelineTab
@@ -74,34 +74,35 @@ struct ContentView: View {
                     settingsTab
 
                 }
-                .environmentObject(memories)
-                
+                        .environmentObject(memories)
+
             } else {
                 LockView() {
                     authenticate()
                 }
             }
-            
-        }.onChange(of: scenePhase) { newPhase in
-            
-            switch newPhase {
-                case .active : break
-                case .inactive:
-                    lock()
-                case .background:
-                    lock()
-                        
-                @unknown default: print("Unknown")
-            }
 
         }
+                .onChange(of: scenePhase) { newPhase in
+
+                    switch newPhase {
+                    case .active: break
+                    case .inactive:
+                        lock()
+                    case .background:
+                        lock()
+
+                    @unknown default: print("Unknown")
+                    }
+
+                }
 
     }
-    
+
     func authenticate() {
         AuthenticationHelper(isUnlocked: $isUnlocked, reason: "show your memories").authenticate()
     }
-    
+
     func lock() {
         isUnlocked = false
     }

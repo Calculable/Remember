@@ -11,7 +11,7 @@ extension Memory: Codable {
     private enum CodingKeys: String, CodingKey {
         case id, name, date, latitude, longitude, notificationsEnabled, notes, isMarkedForDeletion
     }
-    
+
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
@@ -23,7 +23,7 @@ extension Memory: Codable {
         try container.encode(notes, forKey: .notes)
         try container.encode(isMarkedForDeletion, forKey: .isMarkedForDeletion)
 
-        
+
     }
 
 }

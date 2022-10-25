@@ -13,6 +13,6 @@ struct SettingsHelper {
         components.hour = 9
         components.minute = 0
         return Calendar.current.date(from: components)! //gibt ein Optional zurück
-        
+
     }
 }

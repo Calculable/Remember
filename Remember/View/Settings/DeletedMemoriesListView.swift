@@ -12,95 +12,94 @@ struct DeletedMemoriesListView: View {
     @Environment(\.accessibilityReduceTransparency) var accessibilityReduceTransparency;
     @Environment(\.colorSchemeContrast) private var colorSchemeContrast
     @EnvironmentObject var memories: Memories
-    
+
     @State private var showDeleteConfirmationAlert = false
-    
+
     var body: some View {
-        
+
         Group {
-            
-        
-        if !memories.memoriesMarkedForDeletion.isEmpty {
-            
-        
+
+
+            if !memories.memoriesMarkedForDeletion.isEmpty {
+
+
                 List {
                     ForEach(memories.memoriesMarkedForDeletion) { memory in
-                        
+
                         NavigationLink {
                             MemoryDetailView(memory: memory)
                         } label: {
-                            
+
                             MemoryListEntryView(memory: memory, showNotificationSymbol: false)
-                                .swipeActions {
-                                    Button(role: .destructive) {
-                                        memories.remove(memory)
-                                    
-                                    } label: {
-                                        Label("Delete", systemImage: "minus.circle")
+                                    .swipeActions {
+                                        Button(role: .destructive) {
+                                            memories.remove(memory)
+
+                                        } label: {
+                                            Label("Delete", systemImage: "minus.circle")
+                                        }
                                     }
-                                }
-                            
 
-                                
-                        }.swipeActions(edge: .leading) {
-                            Button {
 
-                                //Do Something
-                                restore(memory)
-
-                            } label: {
-                                Label("Restore", systemImage: "gobackward")
-                                
-                            }
-                            .tint(.orange)
                         }
+                                .swipeActions(edge: .leading) {
+                                    Button {
 
-                        .listRowBackground(
-                            GeometryReader { geo in
-                                
-                                let increasedContrast = colorSchemeContrast == .increased
-                    
-                                getListBackground(forMemory: memory, withReducedTransparency: accessibilityReduceTransparency, withIncreasedContrast: increasedContrast).frame(minHeight: 158).frame(width: geo.size.width).clipped()
+                                        //Do Something
+                                        restore(memory)
 
-                        })
-                        
-                        .listRowSeparatorTint(.gray)
-                        .listStyle(.insetGrouped)
+                                    } label: {
+                                        Label("Restore", systemImage: "gobackward")
+
+                                    }
+                                            .tint(.orange)
+                                }
+
+                                .listRowBackground(
+                                        GeometryReader { geo in
+
+                                            let increasedContrast = colorSchemeContrast == .increased
+
+                                            getListBackground(forMemory: memory, withReducedTransparency: accessibilityReduceTransparency, withIncreasedContrast: increasedContrast).frame(minHeight: 158).frame(width: geo.size.width).clipped()
+
+                                        })
+
+                                .listRowSeparatorTint(.gray)
+                                .listStyle(.insetGrouped)
 
                     }
-
-
 
 
                 }
-        } else {
-            Text("No deleted memories")
-        }
-
-               
-        }
-        .toolbar {
-            ToolbarItem() {
-                Button {
-                    displayDeleteConfirmationAlert()
-                    
-                } label: {
-                    Label("Delete Forever", systemImage: "xmark.bin.fill")
-                }.disabled(memories.memoriesMarkedForDeletion.count == 0)
-                    .alert("Delete Forever", isPresented: $showDeleteConfirmationAlert) {
-                        Button("Delete", role: .destructive, action: {
-                            deleteMarkedMemories()
-                        })
-                        Button("Cancel", role: .cancel) { }
-                    } message: {
-                        Text("Are you sure? Finally deleted memories cannot be restored anymore.")
-                    }
+            } else {
+                Text("No deleted memories")
             }
-        }
-        .environment(\.defaultMinListRowHeight, 160)
-        .navigationTitle("Deleted Memories")
-        .navigationBarTitleDisplayMode(.inline)
 
+
+        }
+                .toolbar {
+                    ToolbarItem() {
+                        Button {
+                            displayDeleteConfirmationAlert()
+
+                        } label: {
+                            Label("Delete Forever", systemImage: "xmark.bin.fill")
+                        }
+                                .disabled(memories.memoriesMarkedForDeletion.count == 0)
+                                .alert("Delete Forever", isPresented: $showDeleteConfirmationAlert) {
+                                    Button("Delete", role: .destructive, action: {
+                                        deleteMarkedMemories()
+                                    })
+                                    Button("Cancel", role: .cancel) {
+                                    }
+                                } message: {
+                                    Text("Are you sure? Finally deleted memories cannot be restored anymore.")
+                                }
+                    }
+                }
+                .environment(\.defaultMinListRowHeight, 160)
+                .navigationTitle("Deleted Memories")
+                .navigationBarTitleDisplayMode(.inline)
 
 
     }
@@ -120,13 +119,13 @@ struct DeletedMemoriesListView: View {
 }
 
 struct DeletedMemoriesListView_Previews: PreviewProvider {
-    
+
     static var previews: some View {
-        
+
         let memories = Memories()
-        
+
         return DeletedMemoriesListView()
-            .environmentObject(memories)
+                .environmentObject(memories)
     }
 }
 

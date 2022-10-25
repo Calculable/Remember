@@ -24,10 +24,12 @@ extension ImagePicker {
 
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
             picker.dismiss(animated: true)
-            
+
             // Exit if no selection was made
-            guard let provider = results.first?.itemProvider else { return }
-            
+            guard let provider = results.first?.itemProvider else {
+                return
+            }
+
             // If this has an image we can use, use it
             if provider.canLoadObject(ofClass: UIImage.self) {
                 provider.loadObject(ofClass: UIImage.self) { image, _ in
@@ -39,5 +41,5 @@ extension ImagePicker {
         }
     }
 
-    
+
 }

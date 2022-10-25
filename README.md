@@ -1,15 +1,15 @@
-# Remember: An iOS-App to celebrate your memories 🎉 
+# Remember: An iOS-App to celebrate your memories 🎉
 
-## Remember is a native Swift UI Cathalist-App 
+## Remember is a native Swift UI Cathalist-App
 
-Remember is a place where you can store your important memories. It notifies you before important anniversaries so you never miss an oportunity to celebrate. 
- 
+Remember is a place where you can store your important memories. It notifies you before important anniversaries so you
+never miss an oportunity to celebrate.
+
 ![Remember App](./Documentation/header.png)
- 
-## Use Remember to store historic moments or personal memories 
+
+## Use Remember to store historic moments or personal memories
 
 ![Remember App](./Documentation/historic.jpeg)
-
 
 ## See which anniversaries are upcoming and share it with your friends
 

@@ -14,15 +14,15 @@ extension MemoryDetailView {
 
         @AppStorage("neverDeletedAMemory") var neverDeletedAMemory = true
         @Published private(set) var memory: Memory
-        @Published var mapRegion:MKCoordinateRegion
+        @Published var mapRegion: MKCoordinateRegion
         @Published var showEditMemorySheet = false
         @Published var showingDeleteAlert = false
         @Published private(set) var isDeleted = false
         @Published var showDeleteMemoryAlert = false
-        
+
         init(memory: Memory) {
             self.memory = memory
-            self.mapRegion =  MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: memory.coordinate?.latitude ?? 0, longitude: memory.coordinate?.longitude ?? 0), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+            self.mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: memory.coordinate?.latitude ?? 0, longitude: memory.coordinate?.longitude ?? 0), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
         }
 
 
@@ -37,11 +37,11 @@ extension MemoryDetailView {
         func displayEditMemorySheet() {
             showEditMemorySheet = true
         }
-        
+
         func markAsDeleted() {
             isDeleted = true
         }
-        
+
         func markForDeletion(memories: Memories) {
             memories.markForDeletion(memory)
             markAsDeleted()
@@ -51,7 +51,7 @@ extension MemoryDetailView {
                 showDeleteMemoryAlert = true
 
             }
-            
+
             neverDeletedAMemory = false
 
         }

@@ -10,7 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var memories: Memories
 
-    var notificationNavigationLink: some View  {
+    var notificationNavigationLink: some View {
         NavigationLink {
             NotificationSettingsView()
         } label: {
@@ -18,7 +18,7 @@ struct SettingsView: View {
         }
     }
 
-    var deletedMemoriesNavigationLink: some View  {
+    var deletedMemoriesNavigationLink: some View {
         NavigationLink {
             DeletedMemoriesListView()
         } label: {
@@ -26,7 +26,7 @@ struct SettingsView: View {
         }
     }
 
-    var resetMemoriesNavigationLink: some View  {
+    var resetMemoriesNavigationLink: some View {
         NavigationLink {
             ResetMemoriesView()
         } label: {
@@ -35,23 +35,24 @@ struct SettingsView: View {
     }
 
     var body: some View {
-        
+
         NavigationView {
             List {
-                
+
                 notificationNavigationLink
                 deletedMemoriesNavigationLink
                 resetMemoriesNavigationLink
 
             }
-            .navigationTitle("Settings")
-                        
-        }.navigationViewStyle(.stack)
-        
-        
+                    .navigationTitle("Settings")
+
+        }
+                .navigationViewStyle(.stack)
+
+
     }
 
-    
+
 }
 
 struct SettingsView_Previews: PreviewProvider {

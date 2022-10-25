@@ -9,41 +9,39 @@
 import SwiftUI
 
 struct MemoryListEntryView: View {
-        
+
     @StateObject var memory: Memory
     var showNotificationSymbol: Bool = true
 
     var body: some View {
-        
+
         VStack(alignment: .leading) {
-            
-                     
+
+
             Group {
                 Text(memory.name)
-                .font(.title2)
-                .fontWeight(.bold)
+                        .font(.title2)
+                        .fontWeight(.bold)
 
                 Text(memory.date.formatted(date: .long, time: .omitted))
-                    .foregroundColor(.white).padding([.top, .bottom], 6)
-                
-            }.accessibilityElement(children: .combine)
+                        .foregroundColor(.white).padding([.top, .bottom], 6)
+
+            }
+                    .accessibilityElement(children: .combine)
 
             if (showNotificationSymbol) {
                 Image(systemName: memory.notificationsEnabled ? "bell.fill" : "bell.slash")
-                    .foregroundColor(.white)
-                    .accessibilityLabel(memory.notificationsEnabled ? String(localized: "yearly notifications are enabled for this memory") : String(localized: "yearly notifications are disabled for this memory"))
+                        .foregroundColor(.white)
+                        .accessibilityLabel(memory.notificationsEnabled ? String(localized: "yearly notifications are enabled for this memory") : String(localized: "yearly notifications are disabled for this memory"))
             }
 
 
-
-
-            
         }
 
-            .foregroundColor(.white)
+                .foregroundColor(.white)
 
     }
-    
+
 
 }
 

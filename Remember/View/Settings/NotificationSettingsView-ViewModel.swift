@@ -9,8 +9,8 @@ import Foundation
 
 extension NotificationSettingsView {
     @MainActor class ViewModel: ObservableObject {
-        
-        
+
+
         let notificationsHelper = NotificationHelper()
         let availableNotificationDaysBeforeEvent = 0...7
 
@@ -25,7 +25,7 @@ extension NotificationSettingsView {
 
             }
         }
-        
+
 
     }
 }

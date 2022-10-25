@@ -25,12 +25,12 @@ struct ImagePicker: UIViewControllerRepresentable {
     }
 
     func updateUIViewController(_ uiViewController: PHPickerViewController, context: Context) {
-       //not needed
+        //not needed
     }
-    
+
     func makeCoordinator() -> Coordinator { //diese Methode wird automatisch von SwiftUI aufgerufen.!!!
         Coordinator(self)
     }
-    
+
 
 }

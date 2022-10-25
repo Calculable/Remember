@@ -9,11 +9,11 @@ import Foundation
 
 extension Date: RawRepresentable {
     private static let formatter = ISO8601DateFormatter()
-    
+
     public var rawValue: String {
         Date.formatter.string(from: self)
     }
-    
+
     public init?(rawValue: String) {
         self = Date.formatter.date(from: rawValue) ?? Date()
     }
@@ -21,7 +21,6 @@ extension Date: RawRepresentable {
 
 
 extension Date {
-
 
 
     public init(day: Int, month: Int, year: Int) {
@@ -34,8 +33,8 @@ extension Date {
         components.second = 0
         self = Calendar.current.date(from: components)!
     }
-    
-    
+
+
     mutating func changeYear(to year: Int) {
         var dateComponents = Calendar.current.dateComponents([.month, .day], from: self)
         dateComponents.year = year
@@ -45,7 +44,7 @@ extension Date {
     static func currentYear() -> Int {
         return Date().year()
     }
-    
+
     static func firstDayOfYear(year: Int) -> Date { //january 1
         return Date(day: 1, month: 1, year: year)
     }
@@ -53,11 +52,11 @@ extension Date {
     static func lastDayOfYear(year: Int) -> Date { //december 31
         return Date(day: 31, month: 12, year: year)
     }
-    
+
     func timeIntervalInDays(to: Date) -> Int {
         let toDate = Calendar.current.startOfDay(for: to) // <2>
-        let numberOfDays = Calendar.current.dateComponents([.day], from:  Calendar.current.startOfDay(for: self), to: toDate) // <3>
-        
+        let numberOfDays = Calendar.current.dateComponents([.day], from: Calendar.current.startOfDay(for: self), to: toDate) // <3>
+
         return abs(numberOfDays.day!)
     }
 

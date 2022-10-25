@@ -11,14 +11,14 @@ import SwiftUI
 import LocalAuthentication
 
 struct AuthenticationHelper {
-    
+
     @Binding var isUnlocked: Bool
     @State var reason: String
-    
+
     static func checkIfBiometricsAreAvailable(onSuccess: (() -> Void)?, onError: ((NSError?) -> Void)?) {
         let context = LAContext()
         var error: NSError?
-        
+
         // check whether biometric authentication is possible
         if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
             onSuccess?()
@@ -26,14 +26,14 @@ struct AuthenticationHelper {
             // no biometrics
             onError?(error)
         }
-        
-        
+
+
     }
-    
+
     func authenticate() {
-        
+
         let context = LAContext()
-        
+
         AuthenticationHelper.checkIfBiometricsAreAvailable() {
             context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
                 // authentication has now completed
@@ -50,8 +50,7 @@ struct AuthenticationHelper {
         }
 
 
-      
     }
-    
-    
+
+
 }
