@@ -10,17 +10,16 @@ import UserNotifications
 import SwiftUI
 
 class NotificationHelper {
-
+    
     @AppStorage("notifications.days.before.event") private var daysBeforeEvent = 1
     @AppStorage("notification.time") private var timeOfNotifications = SettingsHelper.defaultNotificationTime()
-
-    let notificationCenter = UNUserNotificationCenter.current()
-
+    
+    private let notificationCenter = UNUserNotificationCenter.current()
+    
     func removeNotification(forMemory memory: Memory) {
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [memory.id.uuidString]);
     }
-
-
+    
     func updateNotifications(forMemories memories: Memories) {
         notificationCenter.removeAllPendingNotificationRequests()
         for memory in memories.memories {
@@ -28,7 +27,6 @@ class NotificationHelper {
         }
     }
     
-
     func tryToSendNotification(notificationTrigger: UNNotificationTrigger, memory: Memory) {
         Task.init {
             let isAuthorizedToSendNotification = await requestNotificationAuthorization()
@@ -40,21 +38,21 @@ class NotificationHelper {
     }
     
     private func updateNotification(forMemory memory: Memory) {
-
+        
         removeNotification(forMemory: memory)
-
+        
         if (memory.notificationsEnabled && !memory.isMarkedForDeletion) {
             let trigger = createNotificationTriggerFor(date: memory.date);
             tryToSendNotification(notificationTrigger: trigger, memory: memory)
         }
     }
-
+    
     private func notificationsAuthorized() async -> Bool {
         let center = notificationCenter
         let settings = await center.notificationSettings()
         return settings.authorizationStatus == .authorized
     }
-
+    
     private func requestNotificationAuthorization() async -> Bool {
         let center = notificationCenter
         if (await notificationsAuthorized()) {
@@ -67,21 +65,20 @@ class NotificationHelper {
                 return false
             }
         }
-
     }
-
+    
     private func notificationTitle(daysBeforeEvent: Int) -> String {
         switch daysBeforeEvent {
-        case 0: return String(localized: "New anniversary today")
-        case 1: return String(localized: "New anniversary tomorrow")
-        default: return String(localized: "New anniversary in \(daysBeforeEvent) days")
+            case 0: return String(localized: "New anniversary today")
+            case 1: return String(localized: "New anniversary tomorrow")
+            default: return String(localized: "New anniversary in \(daysBeforeEvent) days")
         }
     }
-
+    
     private func notificationSubtitle(forMemory memory: Memory) -> String {
         return "\(memory.name) \(memory.date.formatted(date: .long, time: .omitted))"
     }
-
+    
     private func createNotificationContent(forMemory memory: Memory) -> UNMutableNotificationContent {
         let content = UNMutableNotificationContent()
         content.title = notificationTitle(daysBeforeEvent: daysBeforeEvent)
@@ -89,18 +86,18 @@ class NotificationHelper {
         content.sound = UNNotificationSound.default
         return content
     }
-
-
+    
+    
     private func sendNotification(notificationTrigger: UNNotificationTrigger, memory: Memory) {
         let notificationContent = createNotificationContent(forMemory: memory)
-
+        
         // choose a random identifier
         let request = UNNotificationRequest(identifier: memory.id.uuidString, content: notificationContent, trigger: notificationTrigger)
-
+        
         // add our notification request
         notificationCenter.add(request)
     }
-
+    
     private func createNotificationDateComponents(forEventDate date: Date) -> DateComponents {
         var notificationDate = DateComponents()
         let shiftedDate = Calendar.current.date(byAdding: .day, value: -(daysBeforeEvent), to: date)!
@@ -111,12 +108,10 @@ class NotificationHelper {
         notificationDate.month = Calendar.current.component(.month, from: shiftedDate)
         return notificationDate
     }
-
-
+    
     private func createNotificationTriggerFor(date: Date) -> UNNotificationTrigger {
         let trigger = UNCalendarNotificationTrigger(dateMatching: createNotificationDateComponents(forEventDate: date), repeats: true) //repeat once per year
         return trigger;
-
     }
-
+    
 }

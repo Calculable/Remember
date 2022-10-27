@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @EnvironmentObject var memories: Memories
-
+    @EnvironmentObject private var memories: Memories
+    
     var notificationNavigationLink: some View {
         NavigationLink {
             NotificationSettingsView()
@@ -17,7 +17,7 @@ struct SettingsView: View {
             Text("Notifications")
         }
     }
-
+    
     var deletedMemoriesNavigationLink: some View {
         NavigationLink {
             DeletedMemoriesListView()
@@ -25,7 +25,7 @@ struct SettingsView: View {
             Text("Deleted Memories").badge(memories.memoriesMarkedForDeletion.count)
         }
     }
-
+    
     var resetMemoriesNavigationLink: some View {
         NavigationLink {
             ResetMemoriesView()
@@ -33,26 +33,18 @@ struct SettingsView: View {
             Text("Reset")
         }
     }
-
+    
     var body: some View {
-
         NavigationView {
             List {
-
                 notificationNavigationLink
                 deletedMemoriesNavigationLink
                 resetMemoriesNavigationLink
-
             }
-                    .navigationTitle("Settings")
-
+            .navigationTitle("Settings")
         }
-                .navigationViewStyle(.stack)
-
-
+        .navigationViewStyle(.stack)
     }
-
-
 }
 
 struct SettingsView_Previews: PreviewProvider {

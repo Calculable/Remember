@@ -9,24 +9,24 @@ import Foundation
 import SwiftUI
 
 class MemoryIOHelper {
-
+    
     func saveMemories(_ memories: [Memory]) {
-
+        
         do {
             let data = try JSONEncoder().encode(memories)
             try data.write(to: getSavePath(), options: [.atomic, .completeFileProtection])
         } catch let error {
             print("Unable to save data. " + error.localizedDescription)
         }
-
+        
     }
-
-
+    
+    
     func loadMemoriesFromDisk() throws -> [Memory] {
         return try Bundle.main.decode(getSavePath())
     }
-
-
+    
+    
     func loadImageFromDocumentDirectory(forMemory memory: Memory) -> UIImage? {
         let fileURL = getImageFileURL(forMemory: memory)
         do {
@@ -37,18 +37,18 @@ class MemoryIOHelper {
             print(error.localizedDescription)
             return nil
         }
-
+        
     }
-
-
+    
+    
     func saveImageInDocumentDirectory(forMemory memory: Memory) {
         let fileURL = getImageFileURL(forMemory: memory)
         if let imageData = memory.image?.pngData() {
             try? imageData.write(to: fileURL, options: .atomic)
         }
     }
-
-
+    
+    
     func deleteImageInDocumentDirectory(forMemory memory: Memory) {
         let fileURL = getImageFileURL(forMemory: memory)
         try? FileManager.default.removeItem(at: fileURL)
@@ -57,18 +57,18 @@ class MemoryIOHelper {
     private func getDocumentsDirectory() -> URL {
         // find all possible documents directories for this user
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-
+        
         // just send back the first one, which ought to be the only one
         return paths[0]
     }
-
+    
     private func getImageFileURL(forMemory memory: Memory) -> URL {
         let documentsUrl = getDocumentsDirectory()
         return documentsUrl.appendingPathComponent(memory.id.uuidString)
     }
-
+    
     private func getSavePath() -> URL {
         getDocumentsDirectory().appendingPathComponent("memories.json")
     }
-
+    
 }

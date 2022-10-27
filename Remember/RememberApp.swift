@@ -9,8 +9,6 @@ import SwiftUI
 
 @main
 struct RememberApp: App {
-
-
     init() {
         #if DEBUG
         var injectionBundlePath = "/Applications/InjectionIII.app/Contents/Resources"
@@ -22,7 +20,6 @@ struct RememberApp: App {
         Bundle(path: injectionBundlePath)?.load()
         #endif
     }
-
 
     var body: some Scene {
         WindowGroup {
