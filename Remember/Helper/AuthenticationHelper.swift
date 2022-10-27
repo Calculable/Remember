@@ -1,12 +1,3 @@
-//
-//  AuthenticationHelper.swift
-//  Remember
-//
-//  Created by Jan Huber on 19.08.22.
-//
-
-//source: Partially copied from the 100 days of SwiftUI course
-
 import SwiftUI
 import LocalAuthentication
 

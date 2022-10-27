@@ -1,10 +1,3 @@
-//
-//  MemoriesSaverHelper.swift
-//  Remember
-//
-//  Created by Jan Huber on 18.10.22.
-//
-
 import Foundation
 import SwiftUI
 

@@ -1,10 +1,3 @@
-//
-//  NotificationSettingsView.swift
-//  Remember
-//
-//  Created by Jan Huber on 17.08.22.
-//
-
 import SwiftUI
 
 struct PrivacySettingsView: View {

@@ -1,10 +1,3 @@
-//
-//  AddMemory-ViewModel.swift
-//  Remember
-//
-//  Created by Jan Huber on 16.08.22.
-//
-
 import SwiftUI
 import MapKit
 

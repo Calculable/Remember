@@ -1,10 +1,3 @@
-//
-//  MemoryListViewBackground.swift
-//  Remember
-//
-//  Created by Jan Huber on 02.10.22.
-//
-
 import Foundation
 import SwiftUI
 

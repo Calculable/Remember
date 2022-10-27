@@ -1,10 +1,3 @@
-//
-//  TimelineYearView.swift
-//  Remember
-//
-//  Created by Jan Huber on 18.08.22.
-//
-
 // Hmmm... Maybe choosing a canvas to draw the timeline was not my best idea. See documentation from apple: "Use a canvas to improve performance for a drawing that doesn’t primarily involve text or require interactive elements." Also, canvas is not accessible for voice over users. (https://developer.apple.com/documentation/swiftui/canvas)
 
 

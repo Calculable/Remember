@@ -1,10 +1,3 @@
-//
-//  ViewExtensions.swift
-//  Remember
-//
-//  Created by Jan Huber on 19.08.22.
-//
-
 import SwiftUI
 
 //source: https://www.hackingwithswift.com/quick-start/swiftui/how-to-convert-a-swiftui-view-to-an-image

@@ -1,10 +1,3 @@
-//
-//  ShapeStyleExtensions.swift
-//  Remember
-//
-//  Created by Jan Huber on 04.10.22.
-//
-
 import SwiftUI
 
 extension ShapeStyle where Self == Color {

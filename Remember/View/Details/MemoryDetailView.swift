@@ -1,10 +1,3 @@
-//
-//  MemoryDetailView.swift
-//  Remember
-//
-//  Created by Jan Huber on 16.09.22.
-//
-
 import SwiftUI
 import MapKit
 

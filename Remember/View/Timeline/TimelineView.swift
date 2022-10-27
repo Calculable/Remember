@@ -1,10 +1,3 @@
-//
-//  TimelineView.swift
-//  Remember
-//
-//  Created by Jan Huber on 18.08.22.
-//
-
 import Foundation
 import SwiftUI
 

@@ -1,10 +1,3 @@
-//
-//  MapAnnotationContent.swift
-//  Remember
-//
-//  Created by Jan Huber on 23.10.22.
-//
-
 import Foundation
 import SwiftUI
 

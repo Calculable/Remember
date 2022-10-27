@@ -1,10 +1,3 @@
-//
-//  Anniversary.swift
-//  Remember
-//
-//  Created by Jan Huber on 16.08.22.
-//
-
 import Foundation
 
 struct Anniversary: Identifiable, Comparable {

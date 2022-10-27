@@ -1,10 +1,3 @@
-//
-//  ResetMemoriesView.swift
-//  Remember
-//
-//  Created by Jan Huber on 18.10.22.
-//
-
 import SwiftUI
 
 struct ResetMemoriesView: View {

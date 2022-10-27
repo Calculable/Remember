@@ -1,10 +1,3 @@
-//
-//  NotificationHelper.swift
-//  Remember
-//
-//  Created by Jan Huber on 17.08.22.
-//
-
 import Foundation
 import UserNotifications
 import SwiftUI

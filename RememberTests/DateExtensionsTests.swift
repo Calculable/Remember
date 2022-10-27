@@ -1,10 +1,3 @@
-//
-//  DateExtensionsTests.swift
-//  RememberTests
-//
-//  Created by Jan Huber on 17.10.22.
-//
-
 import XCTest
 
 @testable

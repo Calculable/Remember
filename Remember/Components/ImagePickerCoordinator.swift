@@ -1,10 +1,3 @@
-//
-//  ImagePickerCoordinator.swift
-//  Remember
-//
-//  Created by Jan Huber on 25.10.22.
-//
-
 //modified source: https://www.hackingwithswift.com/books/ios-swiftui/importing-an-image-into-swiftui-using-phpickerviewcontroller
 
 import Foundation
