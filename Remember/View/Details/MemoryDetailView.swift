@@ -1,6 +1,8 @@
 import SwiftUI
 import MapKit
 
+
+/// This view is shown when a memory is clicked and contains all the details about a memory
 struct MemoryDetailView: View {
     
     @EnvironmentObject private var memories: Memories

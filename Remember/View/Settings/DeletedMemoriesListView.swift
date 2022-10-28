@@ -1,5 +1,7 @@
 import SwiftUI
 
+
+/// Displays a list of "deleted" memories. From here, the memories can either be restored or finally be deleted forever.
 struct DeletedMemoriesListView: View {
     
     @Environment(\.accessibilityReduceTransparency) private var accessibilityReduceTransparency;

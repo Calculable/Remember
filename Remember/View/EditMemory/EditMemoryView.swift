@@ -2,6 +2,8 @@ import SwiftUI
 import LocationPicker
 import MapKit
 
+
+/// Displays a form to edit an existing memory or create a new memory
 struct EditMemoryView: View {
     
     @Environment(\.dismiss) private var dismiss

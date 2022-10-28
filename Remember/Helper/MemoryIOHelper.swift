@@ -1,6 +1,8 @@
 import Foundation
 import SwiftUI
 
+
+/// Contains helper functions to load memory-related data from the disk or write memory-related data to the disk
 class MemoryIOHelper {
     
     func saveMemories(_ memories: [Memory]) {

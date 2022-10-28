@@ -1,6 +1,8 @@
 import Foundation
 import SwiftUI
 
+
+/// Displays a graphical timeline with a list of events
 struct TimelineView: View {
     
     @EnvironmentObject private var memories: Memories

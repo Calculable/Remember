@@ -76,7 +76,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
             endingLineNumber = "86"
-            landmarkName = "testIsInLessThanAYearIsCorrectForTwoDatesThatDifferByExactlyYear()"
+            landmarkName = "testIsInLessThanAYearIsFalseIfTheSecondDateIsAfterTheFirstDate()"
             landmarkType = "7">
             <Locations>
                <Location

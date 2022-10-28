@@ -3,6 +3,8 @@ import MapKit
 
 
 extension EditMemoryView {
+    
+    /// View model for the EditMemoryView
     @MainActor class ViewModel: ObservableObject {
         
         @Published private(set) var isCustomCoordinate = false

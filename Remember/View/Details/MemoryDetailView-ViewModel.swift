@@ -3,6 +3,8 @@ import SwiftUI
 import MapKit
 
 extension MemoryDetailView {
+    
+    /// The ViewModel for MemoryDetailView
     @MainActor class ViewModel: ObservableObject {
         
         @AppStorage("neverDeletedAMemory") var neverDeletedAMemory = true

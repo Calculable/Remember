@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Displays a list of memories
 struct MemoriesListView: View {
     
     @Environment(\.accessibilityReduceTransparency) private var accessibilityReduceTransparency;

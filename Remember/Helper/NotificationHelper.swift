@@ -2,6 +2,8 @@ import Foundation
 import UserNotifications
 import SwiftUI
 
+
+/// Contains helper functions to work with the notification center
 class NotificationHelper {
     
     @AppStorage("notifications.days.before.event") private var daysBeforeEvent = 1

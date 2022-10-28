@@ -3,6 +3,8 @@
 import Foundation
 import SwiftUI
 
+
+/// Saves images to the user's photo library
 class ImageSaver: NSObject {
     
     var successHandler: (() -> Void)?

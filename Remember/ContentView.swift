@@ -1,5 +1,7 @@
 import SwiftUI
 
+
+/// The main content view from the app. This view is shown when the app gets started.
 struct ContentView: View {
     
     @Environment(\.scenePhase) var scenePhase

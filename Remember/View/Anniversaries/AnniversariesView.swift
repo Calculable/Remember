@@ -1,6 +1,7 @@
 import SwiftUI
 import Foundation
 
+/// Displays a list of upcoming anniversaries (= memories that occures exactely 1, 2, 3... years ago or a special number of days ago, for example 1000 days)
 struct AnniversariesView: View {
     
     @EnvironmentObject private var memories: Memories

@@ -1,5 +1,7 @@
 import SwiftUI
 
+
+/// This view is part of the settings and allows the user to reset the data for this app. If the data is reseted, all the user-created memories are deleted and a list of default memorires gets imported to the app
 struct ResetMemoriesView: View {
     
     @EnvironmentObject private var memories: Memories

@@ -1,5 +1,7 @@
 import Foundation
 
+
+/// Contains helper functions for the "Settings"-Tab of the app
 struct SettingsHelper {
     
     static func defaultNotificationTime() -> Date {

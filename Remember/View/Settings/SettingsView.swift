@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Displays the app's settings overview
 struct SettingsView: View {
     @EnvironmentObject private var memories: Memories
     

@@ -1,5 +1,7 @@
 import SwiftUI
 
+
+/// Displays the privacy settings containing the option to turn on or off the biometric authentication. This view is not (yet) part of the final application since a fallback-option is missing for the biometric authentication. This would lead to a problem if the biometric authentication is turned on for the app and later turned off system-wide in the iOS Settings.
 struct PrivacySettingsView: View {
     @EnvironmentObject private var memories: Memories
     @AppStorage("biometric.authentication.enabled") private var enableBiometricAuthentication = false

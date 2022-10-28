@@ -3,6 +3,7 @@ import UIKit
 import MapKit
 
 
+/// Manages the data of the application. Contains a sequence of memory items and provices functionality to save, load, filter edit delete or restore memories. A single instance of this class is accessible for the View's as EnvironmentObject
 class Memories: ObservableObject {
     
     @Published private(set) var memories: [Memory] = []

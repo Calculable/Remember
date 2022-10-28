@@ -5,6 +5,8 @@ import Foundation
 
 import SwiftUI
 
+
+/// Part of the TimelineView. Displays a graphical timeline for a list of events that happen in a specific year
 struct TimelineYearView: View {
     
     @Environment(\.colorScheme) private var colorScheme

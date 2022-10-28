@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 import MapKit
 
+/// A memory represents an event that occured some day in the past. Each memory has at least a title and a date. Additional information like a location, image or custom notes can be added as well
 class Memory: Identifiable, ObservableObject, Comparable, Codable {
     
     let memoryIOHelper = MemoryIOHelper()

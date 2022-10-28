@@ -2,6 +2,8 @@ import Foundation
 import SwiftUI
 
 extension AnniversaryListEntryView {
+    
+    /// The view model for the AnniversaryListEntryView
     @MainActor class ViewModel: ObservableObject {
         @Published private(set) var anniversary: Anniversary
         @Published var showImageSavedNotification = false

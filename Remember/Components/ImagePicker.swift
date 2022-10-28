@@ -5,6 +5,8 @@ import PhotosUI
 
 //modified source: https://www.hackingwithswift.com/books/ios-swiftui/importing-an-image-into-swiftui-using-phpickerviewcontroller
 
+
+/// Makes the image picker available for Swift UI
 struct ImagePicker: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = PHPickerViewController

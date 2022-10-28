@@ -2,6 +2,9 @@ import Foundation
 import SwiftUI
 
 extension TimelineYearView {
+    
+    
+    /// View Model for the TimelineYearView
     @MainActor class ViewModel: ObservableObject {
         
         @Binding private(set) var marginFactor: Double

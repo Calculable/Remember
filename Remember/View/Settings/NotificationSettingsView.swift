@@ -1,6 +1,7 @@
 import SwiftUI
 
 
+/// Displays the notification settings
 struct NotificationSettingsView: View {
     
     @EnvironmentObject private var memories: Memories

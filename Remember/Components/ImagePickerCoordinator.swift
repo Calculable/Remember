@@ -5,8 +5,11 @@ import UIKit
 import SwiftUI
 import PhotosUI
 
+
 extension ImagePicker {
     
+    
+    /// Makes the image picker from UIKit work together with SwiftUI
     class Coordinator: NSObject, PHPickerViewControllerDelegate {
         
         var parent: ImagePicker

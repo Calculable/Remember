@@ -1,6 +1,8 @@
 import Foundation
 
 extension AnniversariesView {
+    
+    /// the view model for the AnniversariesView
     @MainActor class ViewModel: ObservableObject {
         
         @Published var searchText = ""

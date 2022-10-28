@@ -1,5 +1,6 @@
 import Foundation
 
+/// An enniversary represents the date on which a memory occured exactely 1, 2, 3... years ago or a special number of days ago, for example 1000 days
 struct Anniversary: Identifiable, Comparable {
     
     let id = UUID()

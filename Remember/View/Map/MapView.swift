@@ -5,6 +5,7 @@ import SwiftUI
 import MapKit
 
 
+/// Displays a map showing the location of all the memories
 struct MapView: View {
     
     @EnvironmentObject private var memories: Memories

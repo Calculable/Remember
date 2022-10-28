@@ -1,5 +1,7 @@
 import SwiftUI
 
+
+/// Represents the view for a single list-entry in the AnniversariesView. Contains information about the upcoming anniversary of a memory.
 struct AnniversaryListEntryView: View {
     
     @Environment(\.colorSchemeContrast) private var colorSchemeContrast

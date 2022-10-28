@@ -2,6 +2,8 @@ import Foundation
 import SwiftUI
 
 extension MemoriesListView {
+    
+    /// The view model for the MemoriesListView
     @MainActor class ViewModel: ObservableObject {
         
         @AppStorage("neverDeletedAMemory") private var neverDeletedAMemory = true

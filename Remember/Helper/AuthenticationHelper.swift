@@ -1,6 +1,8 @@
 import SwiftUI
 import LocalAuthentication
 
+
+/// Contains functionality for biometric authentification (FaceID, TouchID, ...)
 struct AuthenticationHelper {
     
     @Binding var isUnlocked: Bool
