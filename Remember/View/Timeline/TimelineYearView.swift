@@ -1,8 +1,6 @@
 // Hmmm... Maybe choosing a canvas to draw the timeline was not my best idea. See documentation from apple: "Use a canvas to improve performance for a drawing that doesn’t primarily involve text or require interactive elements." Also, canvas is not accessible for voice over users. (https://developer.apple.com/documentation/swiftui/canvas)
 
-
 import Foundation
-
 import SwiftUI
 
 
@@ -18,11 +16,11 @@ struct TimelineYearView: View {
     
     var body: some View {
         Canvas { context, size in
-            viewModel.drawLine(size: size, context: context)
+            viewModel.drawLine(size: size, context: context) //draws the timeline-view at the side of the screen
             viewModel.drawYear(context: context, size: size)
             var currentYPosition: Int = viewModel.marginToTopForTheFirstMemmory
             
-            for i in 0..<viewModel.memories.count {
+            for i in 0..<viewModel.memories.count { //draw the title for each memory that happened in this year
                 let currentMemory = viewModel.memories[i]
                 currentYPosition += viewModel.marginTopToPreviousMemory(forMemoryAt: i)
                 

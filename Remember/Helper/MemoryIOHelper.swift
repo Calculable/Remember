@@ -5,6 +5,7 @@ import SwiftUI
 /// Contains helper functions to load memory-related data from the disk or write memory-related data to the disk
 class MemoryIOHelper {
     
+    /// Stores a list of memory on the local disk. Previously existing data is overwritten.
     func saveMemories(_ memories: [Memory]) {
         
         do {
@@ -13,15 +14,14 @@ class MemoryIOHelper {
         } catch let error {
             print("Unable to save data. " + error.localizedDescription)
         }
-        
     }
     
-    
+    /// Loads previously stored memories from the disk again
     func loadMemoriesFromDisk() throws -> [Memory] {
         return try Bundle.main.decode(getSavePath())
     }
     
-    
+    /// Loads the image data for a memory from the disk and converts it to a displayable image
     func loadImageFromDocumentDirectory(forMemory memory: Memory) -> UIImage? {
         let fileURL = getImageFileURL(forMemory: memory)
         do {
@@ -32,10 +32,9 @@ class MemoryIOHelper {
             print(error.localizedDescription)
             return nil
         }
-        
     }
     
-    
+    /// Saves the image data for a memory from the disk
     func saveImageInDocumentDirectory(forMemory memory: Memory) {
         let fileURL = getImageFileURL(forMemory: memory)
         if let imageData = memory.image?.pngData() {
@@ -43,7 +42,7 @@ class MemoryIOHelper {
         }
     }
     
-    
+    /// Deletes the image data for a memory from the disk
     func deleteImageInDocumentDirectory(forMemory memory: Memory) {
         let fileURL = getImageFileURL(forMemory: memory)
         try? FileManager.default.removeItem(at: fileURL)

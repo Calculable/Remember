@@ -40,7 +40,7 @@ struct ResetMemoriesView: View {
     }
     
     private func removeAllMemories() {
-        memories.removeAllMemories()
+        memories.removeAllMemories() //This step can not be undone. In contrast to deleting individual memories, reseting the app does not put the memories under "deleted memories" but deletes them directly.
         showDeletionSuccessDialog = true
     }
     

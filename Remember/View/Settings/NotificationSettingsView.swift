@@ -5,10 +5,16 @@ import SwiftUI
 struct NotificationSettingsView: View {
     
     @EnvironmentObject private var memories: Memories
-    @AppStorage("notifications.days.before.event") private var selectedNotificationDaysBeforeEvent = 1
+    
+    /// describes how many days before an anniversary a local notification should be triggeret
+    @AppStorage("notifications.days.before.anniversary") private var selectedNotificationDaysBeforeAnniversary = 1
+    
+    /// describes at which time of the day notifications should be triggeret
     @AppStorage("notification.time") private var timeOfNotifications = SettingsHelper.defaultNotificationTime()
+    
     private let notificationsHelper = NotificationHelper()
-    private let availableNotificationDaysBeforeEvent = 0...7
+    
+    private let availableNotificationDaysBeforeAnniversary = 0...7 //available options in the user interface
     
     var body: some View {
         Form {
@@ -22,12 +28,12 @@ struct NotificationSettingsView: View {
                     .onChange(of: timeOfNotifications) { _ in
                         notificationsHelper.updateNotifications(forMemories: memories)
                     }
-                Picker("Days before event", selection: $selectedNotificationDaysBeforeEvent) {
-                    ForEach(availableNotificationDaysBeforeEvent, id: \.self) {
+                Picker("Days before event", selection: $selectedNotificationDaysBeforeAnniversary) {
+                    ForEach(availableNotificationDaysBeforeAnniversary, id: \.self) {
                         Text(describeDaysBeforeEvent($0))
                     }
                 }
-                .onChange(of: selectedNotificationDaysBeforeEvent) { _ in
+                .onChange(of: selectedNotificationDaysBeforeAnniversary) { _ in
                     notificationsHelper.updateNotifications(forMemories: memories)
                 }
             }

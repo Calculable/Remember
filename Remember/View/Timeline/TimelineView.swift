@@ -6,13 +6,14 @@ import SwiftUI
 struct TimelineView: View {
     
     @EnvironmentObject private var memories: Memories
-    @State private var marginAmount = 1.0 //changes with pinch gesture
+    @State private var marginAmount = 1.0 //represents how much the memories are visually "spread" apart. In an older version of the app this value could be changed with a pinch-gesture. However it turned out that this feature was rather confusing. Therefore for now this value is just a constant
     
     var body: some View {
         NavigationView {
             //Slider(value: $marginAmount, in: 0...1).padding()
             ScrollView {
                 LazyVStack(spacing: 0.0) {
+                    //Shows a list of memories that happened for each year.
                     let amountOfYears = amountOfYears()
                     let maxYear = memories.newestYear()
                     if amountOfYears > 0 {
@@ -31,6 +32,7 @@ struct TimelineView: View {
         .navigationViewStyle(.stack)
     }
     
+    ///Calculates how many years are shown in total in the timeline. This value depends on the years where the stored memories happened. 
     private func amountOfYears() -> Int {
         let minYear = memories.oldestYear()
         let maxYear = memories.newestYear()

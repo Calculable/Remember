@@ -18,7 +18,6 @@ struct PrivacySettingsView: View {
                     Text("Biometrics are disabled or not supported on this device")
                 }
             Section {
-                
                 Toggle(isOn: $enableBiometricAuthentication) {
                     Text("Enable biometric authentication (if available)")
                 }

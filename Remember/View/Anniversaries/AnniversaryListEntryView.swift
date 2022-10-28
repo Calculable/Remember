@@ -25,7 +25,6 @@ struct AnniversaryListEntryView: View {
         ZStack {
             if let image = viewModel.anniversary.memory.image {
                 GeometryReader { geo in
-                    
                     Image(uiImage: image).resizable().scaledToFill().frame(width: geo.size.width).frame(height: geo.size.width).clipped()
                         .accessibilityHidden(true)
                 }
@@ -48,7 +47,7 @@ struct AnniversaryListEntryView: View {
                 }
                 .accessibilityElement(children: .combine)
                 
-                if (!viewModel.isScreenshot) {
+                if (!viewModel.isScreenshot) { //if the user saves a picture from this view, the share-button itself should not be on the image
                     Button("Share") {
                         viewModel.shareMemoryImage()
                     }
@@ -56,8 +55,8 @@ struct AnniversaryListEntryView: View {
                 }
             }
         }
-        .padding(viewModel.isScreenshot ? 0 : 8)
-        .aspectRatio(1, contentMode: .fill)
+        .padding(viewModel.isScreenshot ? 0 : 8) //if the user saves a picture from this view, there should not be any "border" around the image
+        .aspectRatio(1, contentMode: .fill) //the list entries should always be displayed in a square-shape
         .alert("Image saved", isPresented: $viewModel.showImageSavedNotification) {
             Button("OK", role: .cancel) {
             }

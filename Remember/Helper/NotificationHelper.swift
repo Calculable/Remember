@@ -6,15 +6,22 @@ import SwiftUI
 /// Contains helper functions to work with the notification center
 class NotificationHelper {
     
-    @AppStorage("notifications.days.before.event") private var daysBeforeEvent = 1
+    /// describes how many days before an anniversary a local notification should be triggeret
+    @AppStorage("notifications.days.before.anniversary") private var daysBeforeAnniversary = 1
+    
+    /// describes at which time of the day notifications should be triggeret
     @AppStorage("notification.time") private var timeOfNotifications = SettingsHelper.defaultNotificationTime()
     
     private let notificationCenter = UNUserNotificationCenter.current()
     
+    /// removes all pending notifications for a memory
+    /// - Parameter memory: the memory for which all pending notifications should be removed
     func removeNotification(forMemory memory: Memory) {
         notificationCenter.removePendingNotificationRequests(withIdentifiers: [memory.id.uuidString]);
     }
     
+    /// updating pending notifications for a memory should always be done if something about the memory was changed: for example the title or the date. Otherwise the user would receive notifications with outdated-information
+    /// - Parameter memories: the memory for which all pending notifications should be updated
     func updateNotifications(forMemories memories: Memories) {
         notificationCenter.removeAllPendingNotificationRequests()
         for memory in memories.memories {
@@ -22,6 +29,10 @@ class NotificationHelper {
         }
     }
     
+    /// Sends a local notification. If the notification cannot be pushed to the device (for example because the user has deactivated notifications), the notification is ignored
+    /// - Parameters:
+    ///   - notificationTrigger: the trigger that describes when the notification should be sent
+    ///   - memory: the memory for which a notification should be generated
     func tryToSendNotification(notificationTrigger: UNNotificationTrigger, memory: Memory) {
         Task.init {
             let isAuthorizedToSendNotification = await requestNotificationAuthorization()
@@ -76,7 +87,7 @@ class NotificationHelper {
     
     private func createNotificationContent(forMemory memory: Memory) -> UNMutableNotificationContent {
         let content = UNMutableNotificationContent()
-        content.title = notificationTitle(daysBeforeEvent: daysBeforeEvent)
+        content.title = notificationTitle(daysBeforeEvent: daysBeforeAnniversary)
         content.subtitle = notificationSubtitle(forMemory: memory)
         content.sound = UNNotificationSound.default
         return content
@@ -95,7 +106,7 @@ class NotificationHelper {
     
     private func createNotificationDateComponents(forEventDate date: Date) -> DateComponents {
         var notificationDate = DateComponents()
-        let shiftedDate = Calendar.current.date(byAdding: .day, value: -(daysBeforeEvent), to: date)!
+        let shiftedDate = Calendar.current.date(byAdding: .day, value: -(daysBeforeAnniversary), to: date)!
         notificationDate.hour = Calendar.current.component(.hour, from: timeOfNotifications)
         notificationDate.minute = Calendar.current.component(.minute, from: timeOfNotifications)
         notificationDate.second = 0

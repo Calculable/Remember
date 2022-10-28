@@ -21,7 +21,7 @@ struct AnniversariesView: View {
                 }
                 .navigationTitle("Upcoming")
             }
-            .searchable(text: $viewModel.searchText, prompt: "Search upcoming memory")
+            .searchable(text: $viewModel.searchText, prompt: "Search upcoming memory") //show search bar
             
             Text("Please select an upcoming memory to see the details")
         }

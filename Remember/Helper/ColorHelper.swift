@@ -7,7 +7,7 @@ import SwiftUI
 ///   - memory: the memory for which the background is generated. If available, the stored image or the memory is used as background, otherwise a color is used
 ///   - reducedTransparency: indicates if the transparency should be reduced for accessibility
 ///   - increasedContrast: indicates if the contrast should be increased for accessibility
-/// - Returns: <#description#>
+/// - Returns: the view to be used as background for a memory
 func getListBackground(forMemory memory: Memory, withReducedTransparency reducedTransparency: Bool = false, withIncreasedContrast increasedContrast: Bool = false) -> AnyView {
     if (memory.image != nil && !reducedTransparency) {
         return AnyView(

@@ -58,6 +58,7 @@ extension TimelineYearView {
             context.stroke(linePath, with: .color(.background), lineWidth: 10)
         }
         
+        ///Calculates the height that is required to render the TimelineYearView in a proper manner.
         func requiredHeight() -> CGFloat {
             var totalHeight = 0
             totalHeight += marginToTopForTheFirstMemmory

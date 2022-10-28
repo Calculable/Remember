@@ -18,7 +18,7 @@ struct MemoriesListView: View {
                         MemoryListEntryView(memory: memory)
                             .swipeActions {
                                 Button(role: .destructive) {
-                                    viewModel.markMemoryForDeletion(memories: memories, memory: memory)
+                                    viewModel.markMemoryForDeletion(memories: memories, memory: memory) //"deleted" memories can still be restored
                                 } label: {
                                     Label("Delete", systemImage: "minus.circle")
                                 }

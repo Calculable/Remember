@@ -31,7 +31,7 @@ struct MapView: View {
     }
     
     private func select(memory: Memory) {
-        selectedMemory = memory
+        selectedMemory = memory //shows details for the selected memory
     }
 }
 

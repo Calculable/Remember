@@ -51,8 +51,6 @@ struct EditMemoryView: View {
                     }
                     .sheet(isPresented: $viewModel.showingMapPicker, onDismiss: { viewModel.markAsCustomCoordinate() }) {
                         NavigationView {
-                            
-                            // Just put the view into a sheet or navigation link
                             LocationPicker(instructions: String(localized: "Tap on the map to select your coordinates"), coordinates: $viewModel.coordinate)
                                 .navigationBarItems(leading: Button(action: {
                                     viewModel.showingMapPicker = false
@@ -72,7 +70,6 @@ struct EditMemoryView: View {
                 }
                 
                 Section("Notifications") {
-                    
                     Toggle(isOn: $viewModel.notificationsEnabled) {
                         Text("Enable yearly notifications")
                     }

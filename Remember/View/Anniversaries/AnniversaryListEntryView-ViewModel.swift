@@ -9,7 +9,7 @@ extension AnniversaryListEntryView {
         @Published var showImageSavedNotification = false
         @Published var showImageSaveErrorNotification = false
         @Published private(set) var uiImage: UIImage? = nil
-        @Published private(set) var isScreenshot: Bool
+        @Published private(set) var isScreenshot: Bool //By clicking on "Share", a user can take a "screenshot" of this AnniversaryListEntryView. The screenshot-version of the view is a little bit different visually (for example the "Share"-Button itself gets hidden)
         
         init(anniversary: Anniversary, isScreenshot: Bool = false) {
             self.anniversary = anniversary
@@ -33,13 +33,14 @@ extension AnniversaryListEntryView {
             imageSaver.writeToPhotoAlbum(image: image)
         }
         
+        /// A text to describe the amount of days until an anniversary in natural language
         func timeIntervalDescription(anniversary: Anniversary) -> String {
             switch (anniversary.type) {
             case .year:
-                return String(format: NSLocalizedString("%d years since", comment: "number of days since the anniversary"), anniversary.years)
+                return String(format: NSLocalizedString("%d years since", comment: "number of days since the memory"), anniversary.years)
                 
             case .day:
-                return String(format: NSLocalizedString("%d days since", comment: "number of days since the anniversary"), anniversary.days)
+                return String(format: NSLocalizedString("%d days since", comment: "number of days since the memory"), anniversary.days)
             }
         }
         
@@ -47,6 +48,7 @@ extension AnniversaryListEntryView {
             Calendar.current.today().timeIntervalInDays(to: date)
         }
         
+        /// A text to describe the amount of days until a date in natural language
         func describeRemainingDays(until date: Date) -> String {
             let numberOfRemainingDays = remainingDays(to: date)
             

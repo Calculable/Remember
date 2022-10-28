@@ -57,10 +57,10 @@ struct DeletedMemoriesListView: View {
                 } label: {
                     Label("Delete Forever", systemImage: "xmark.bin.fill")
                 }
-                .disabled(memories.memoriesMarkedForDeletion.count == 0)
+                .disabled(memories.memoriesMarkedForDeletion.isEmpty)
                 .alert("Delete Forever", isPresented: $showDeleteConfirmationAlert) {
                     Button("Delete", role: .destructive, action: {
-                        deleteMarkedMemories()
+                        deleteMarkedMemories() //This step cannot be undone. Finally deleted memories are deleted forever
                     })
                     Button("Cancel", role: .cancel) {
                     }

@@ -10,6 +10,7 @@ class ImageSaver: NSObject {
     var successHandler: (() -> Void)?
     var errorHandler: ((Error) -> Void)?
     
+    /// Stores a picture in the user's photo library. Calls the successHandler if the image was saved successfully and the errorHandler if the image could not be saved for various reson (for example: the user didn't give the app the permission to store images)
     func writeToPhotoAlbum(image: UIImage) {
         UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
     }
