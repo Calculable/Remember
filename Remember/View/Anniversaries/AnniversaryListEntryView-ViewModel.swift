@@ -58,7 +58,7 @@ extension AnniversaryListEntryView {
             case 1:
                 return String(localized: "Tomorrow")
             default:
-                return String(format: NSLocalizedString("In %d days", comment: "number of days remaining days"), numberOfRemainingDays)
+                return String(format: NSLocalizedString("In %d days, on", comment: "number of days remaining days"), numberOfRemainingDays)
                 
             }
         }
