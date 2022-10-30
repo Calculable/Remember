@@ -6,9 +6,18 @@ import MapKit
 class Memory: Identifiable, ObservableObject, Comparable, Codable {
     
     let memoryIOHelper = MemoryIOHelper()
+    
+    
+    /// a random identifier for the memories (added to be conform with the identifiable protocol that is required by Swift UI in some places)
     @Published var id = UUID()
+    
+    /// Title of the memory. For example "Invention of the World Wide Web"
     @Published var name: String
+    
+    /// Date on which the event / memory occured
     @Published var date: Date
+    
+    /// An optional background-image for the memory. The image automatically gets saved and deleted if this field is changed.
     @Published var image: UIImage? {
         didSet {
             if image == nil {
@@ -20,10 +29,20 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
         }
     }
     
+    /// Optional additional notes about the memory
     @Published var notes: String
+    
+    
+    /// If notifications are enabled, the user receives a local notification before each annivesary of a memory
     @Published var notificationsEnabled = false
+    
+    /// Used to show the memory location on a map
     @Published private var latitude: Double?
+    
+    /// Used to show the memory location on a map
     @Published private var longitude: Double?
+    
+    /// Memories marked for deletion are not shown in the main list of memories but can still be restored under "deleted memories"
     @Published var isMarkedForDeletion: Bool = false
     
     var coordinate: CLLocationCoordinate2D? {

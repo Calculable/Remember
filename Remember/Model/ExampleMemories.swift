@@ -16,7 +16,6 @@ let historicExampleMemories: [Memory] = {
     return memories
 }()
 
-
 let personalExampleMemories: [Memory] = {
     var memories: [Memory] = []
     memories.append(Memory(name: String(localized: "Wedding"), date: Date(day: 21, month: 7, year: 2018), image: UIImage(named: "wedding"), notificationsEnabled: false))

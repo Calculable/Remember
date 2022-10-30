@@ -10,6 +10,7 @@ class Memories: ObservableObject {
     let notificationHelper: NotificationHelper
     let memoryIOHelper: MemoryIOHelper
     
+    /// memories that are not marked for deletion
     var availableMemories: [Memory] {
         memories.filter {
             !$0.isMarkedForDeletion
@@ -92,11 +93,11 @@ class Memories: ObservableObject {
     }
     
     func newestYear() -> Int? {
-        return memories.map({ memory in memory.date.year() }).max();
+        return memories.map({ memory in memory.date.year() }).max(); ///year of the most recent memory
     }
     
     func oldestYear() -> Int? {
-        return memories.map({ memory in memory.date.year() }).min();
+        return memories.map({ memory in memory.date.year() }).min(); ///year of the most recent memory
     }
     
     func memoriesForYear(_ year: Int) -> [Memory] {
@@ -115,6 +116,7 @@ class Memories: ObservableObject {
         }
     }
     
+    /// Store the memories on the disk
     private func save() {
         memoryIOHelper.saveMemories(memories)
         notificationHelper.updateNotifications(forMemories: self)
