@@ -86,22 +86,22 @@ class Memories: ObservableObject {
     }
     
     
-    func toggleNotifications(for memory: Memory) {
+    func toggleNotifications(for memory: Memory) {objectWillChange.send()
         objectWillChange.send()
         memory.notificationsEnabled.toggle()
         save()
     }
     
-    func newestYear() -> Int? {
-        return memories.map({ memory in memory.date.year() }).max(); ///year of the most recent memory
+    var newestYear: Int? {
+        return availableMemories.map({ memory in memory.date.year() }).max(); ///year of the most recent memory
     }
     
-    func oldestYear() -> Int? {
-        return memories.map({ memory in memory.date.year() }).min(); ///year of the most recent memory
+    var oldestYear: Int? {
+        return availableMemories.map({ memory in memory.date.year() }).min(); ///year of the most recent memory
     }
     
     func memoriesForYear(_ year: Int) -> [Memory] {
-        return memories.filter { memory in
+        return availableMemories.filter { memory in
             return memory.date.year() == year;
         }
     }
@@ -120,6 +120,7 @@ class Memories: ObservableObject {
     private func save() {
         memoryIOHelper.saveMemories(memories)
         notificationHelper.updateNotifications(forMemories: self)
+        
     }
     
     private func sortMemories() {

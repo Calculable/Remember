@@ -14,7 +14,6 @@
 		3D089A8928FD73E90079A2F0 /* ViewExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D089A8828FD73E90079A2F0 /* ViewExtensionsTest.swift */; };
 		3D089A8B28FD75690079A2F0 /* MemoriesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D089A8A28FD75690079A2F0 /* MemoriesTests.swift */; };
 		3D09F28A29056BB400D856A0 /* MapAnnotationContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D09F28929056BB400D856A0 /* MapAnnotationContent.swift */; };
-		3D0C68A02907A69100A51694 /* TimelineYearView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C689F2907A69100A51694 /* TimelineYearView-ViewModel.swift */; };
 		3D0C68A22907AEE900A51694 /* MemoriesListView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C68A12907AEE900A51694 /* MemoriesListView-ViewModel.swift */; };
 		3D0C68A42907B50B00A51694 /* ImagePickerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C68A32907B50B00A51694 /* ImagePickerCoordinator.swift */; };
 		3D0C68A62907B80F00A51694 /* AnniversaryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0C68A52907B80F00A51694 /* AnniversaryType.swift */; };
@@ -85,7 +84,6 @@
 		3D089A8828FD73E90079A2F0 /* ViewExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensionsTest.swift; sourceTree = "<group>"; };
 		3D089A8A28FD75690079A2F0 /* MemoriesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoriesTests.swift; sourceTree = "<group>"; };
 		3D09F28929056BB400D856A0 /* MapAnnotationContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotationContent.swift; sourceTree = "<group>"; };
-		3D0C689F2907A69100A51694 /* TimelineYearView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimelineYearView-ViewModel.swift"; sourceTree = "<group>"; };
 		3D0C68A12907AEE900A51694 /* MemoriesListView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoriesListView-ViewModel.swift"; sourceTree = "<group>"; };
 		3D0C68A32907B50B00A51694 /* ImagePickerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerCoordinator.swift; sourceTree = "<group>"; };
 		3D0C68A52907B80F00A51694 /* AnniversaryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnniversaryType.swift; sourceTree = "<group>"; };
@@ -321,7 +319,6 @@
 			children = (
 				3D13CB6628AE2C38001113BD /* TimelineView.swift */,
 				3D13CB6828AE4BB7001113BD /* TimelineYearView.swift */,
-				3D0C689F2907A69100A51694 /* TimelineYearView-ViewModel.swift */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -523,7 +520,6 @@
 				3D13CB5928ACD60C001113BD /* NotificationHelper.swift in Sources */,
 				3D2E6BED28FAF5F600C1CC4D /* ImageSaverHelper.swift in Sources */,
 				3D13CB4128AB7785001113BD /* BundleExtensions.swift in Sources */,
-				3D0C68A02907A69100A51694 /* TimelineYearView-ViewModel.swift in Sources */,
 				3D13CB5228ABF99D001113BD /* EditMemory-ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

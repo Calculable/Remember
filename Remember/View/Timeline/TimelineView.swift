@@ -12,15 +12,15 @@ struct TimelineView: View {
         NavigationView {
             //Slider(value: $marginAmount, in: 0...1).padding()
             ScrollView {
-                LazyVStack(spacing: 0.0) {
+                VStack(spacing: 0.0) {
                     //Shows a list of memories that happened for each year.
                     let amountOfYears = amountOfYears()
-                    let maxYear = memories.newestYear()
+                    let maxYear = memories.newestYear
                     if amountOfYears > 0 {
                         ForEach(0..<amountOfYears, id: \.self) { decrementYear in
                             //workaround to loop in reverse order
                             let currentYearToDisplay = maxYear! - decrementYear
-                            TimelineYearView(memories: memories.memoriesForYear(currentYearToDisplay), year: currentYearToDisplay, marginFactor: $marginAmount).padding()
+                            TimelineYearView(marginFactor: 1.0, memories: memories.memoriesForYear(currentYearToDisplay), year: currentYearToDisplay).padding()
                         }
                     } else {
                         Text("No Memories to display")
@@ -34,8 +34,8 @@ struct TimelineView: View {
     
     ///Calculates how many years are shown in total in the timeline. This value depends on the years where the stored memories happened. 
     private func amountOfYears() -> Int {
-        let minYear = memories.oldestYear()
-        let maxYear = memories.newestYear()
+        let minYear = memories.oldestYear
+        let maxYear = memories.newestYear
         
         if let minYear = minYear, let maxYear = maxYear {
             let amountOfYears = (maxYear - minYear) + 1
