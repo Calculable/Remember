@@ -53,7 +53,7 @@
 "Please select a memory to see the details" = "Bitte wählen Sie eine Erinnerung, um die Details anzuzeigen";
 "Please select an upcoming memory to see the details" = "Bitte wählen Sie ein anstehendes Jubiläum, um die Details anzuzeigen";
 "Privacy" = "Privatsphäre";
-"Remove all custom memories" = "Alle angelegten Erinnerungen entfernen";
+"Remove all custom memories and restore example memories" = "Alle angelegten Erinnerungen entfernen und Beispiel-Erinnerungen wiederherstellen";
 "Remove image" = "Bild entfernen";
 "Remove location" = "Standort entfernen";
 "Reset" = "Zurücksetzen";
