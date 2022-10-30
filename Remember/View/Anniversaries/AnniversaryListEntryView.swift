@@ -36,17 +36,33 @@ struct AnniversaryListEntryView: View {
             
             VStack(alignment: .center) {
                 Group {
-                    Text("\(Image(systemName: "calendar.circle")) \(viewModel.anniversary.date.formatted(date: .long, time: .omitted))  \n(\(viewModel.describeRemainingDays(until: viewModel.anniversary.date)))")
+                    
+                    if (!viewModel.isScreenshot) {
+                        Text("\(viewModel.describeRemainingDays(until: viewModel.anniversary.date))")
+                            .foregroundColor(viewModel.remainingDays(to: viewModel.anniversary.date) <= 7 ? .white : .white)
+                            .accessibilityHidden(true)
+                            .font(viewModel.isScreenshot ? .title : .title2)
+                    }
+                    
+                    Text("\(Image(systemName: "calendar.circle")) \(viewModel.anniversary.date.formatted(date: .long, time: .omitted))")
+                        .fontWeight(.bold)
                         .foregroundColor(viewModel.remainingDays(to: viewModel.anniversary.date) <= 7 ? .white : .white)
-                        .multilineTextAlignment(.center)
                         .accessibilityHidden(true)
+                        .font(viewModel.isScreenshot ? .title : .title2)
+                        .padding(.bottom)
+                    
+                    
+
+                    
                     
                     Text("\(viewModel.timeIntervalDescription(anniversary: viewModel.anniversary)): \(viewModel.anniversary.memory.name)")
-                        .font(.title)
+                        .font(viewModel.isScreenshot ? .largeTitle : .title)
                         .foregroundColor(.white)
+                        
                 }
+                .multilineTextAlignment(.center)
                 .accessibilityElement(children: .combine)
-                
+
                 if (!viewModel.isScreenshot) { //if the user saves a picture from this view, the share-button itself should not be on the image
                     Button("Share") {
                         viewModel.shareMemoryImage()
