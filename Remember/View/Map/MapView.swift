@@ -27,7 +27,7 @@ struct MapView: View {
         .sheet(item: $selectedMemory) { memory in
             MemoryDetailView(memory: memory)
         }
-        .ignoresSafeArea()
+        .edgesIgnoringSafeArea([.top])
     }
     
     private func select(memory: Memory) {

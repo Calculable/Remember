@@ -54,11 +54,11 @@ extension EditMemoryView {
         }
         
         func removeImage() {
-            image = nil
+            image = nil //swift ui shows a runtimewarning when this line gets executed but it seems to be an Xcode-Bug: https://www.donnywals.com/xcode-14-publishing-changes-from-within-view-updates-is-not-allowed-this-will-cause-undefined-behavior/
         }
         
         func showImagePicker() {
-            showingImagePicker = true
+            showingImagePicker = true //swift ui shows a runtimewarning when this line gets executed but it seems to be an Xcode-Bug: https://www.donnywals.com/xcode-14-publishing-changes-from-within-view-updates-is-not-allowed-this-will-cause-undefined-behavior/
         }
         
         func showMapPicker() {

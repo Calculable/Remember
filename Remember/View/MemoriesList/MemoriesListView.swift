@@ -65,7 +65,7 @@ struct MemoriesListView: View {
             }
             Text("Please select a memory to see the details")
         }
-        .phoneOnlyStackNavigationView()
+        //.phoneOnlyStackNavigationView()
         .sheet(isPresented: $viewModel.showAddMemorySheet) {
             EditMemoryView()
         }
