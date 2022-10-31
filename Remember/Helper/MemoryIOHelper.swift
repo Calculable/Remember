@@ -48,7 +48,8 @@ class MemoryIOHelper {
         try? FileManager.default.removeItem(at: fileURL)
     }
     
-    private func getDocumentsDirectory() -> URL {
+    
+    func getDocumentsDirectory() -> URL {
         // find all possible documents directories for this user
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         
@@ -56,13 +57,14 @@ class MemoryIOHelper {
         return paths[0]
     }
     
+    /// Returns the link to the .JSON-File that stores all memories
+    func getSavePath() -> URL {
+        getDocumentsDirectory().appendingPathComponent("memories.json")
+    }
+    
     private func getImageFileURL(forMemory memory: Memory) -> URL {
         let documentsUrl = getDocumentsDirectory()
         return documentsUrl.appendingPathComponent(memory.id.uuidString)
-    }
-    
-    private func getSavePath() -> URL {
-        getDocumentsDirectory().appendingPathComponent("memories.json")
     }
     
 }

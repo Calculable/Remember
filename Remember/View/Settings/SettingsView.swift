@@ -20,6 +20,14 @@ struct SettingsView: View {
         }
     }
     
+    var importAndExportNavigationLink: some View {
+        NavigationLink {
+            ImportAndExportView()
+        } label: {
+            Text("Import and Export")
+        }
+    }
+    
     var resetMemoriesNavigationLink: some View {
         NavigationLink {
             ResetMemoriesView()
@@ -33,6 +41,7 @@ struct SettingsView: View {
             List {
                 notificationNavigationLink
                 deletedMemoriesNavigationLink
+                importAndExportNavigationLink
                 resetMemoriesNavigationLink
             }
             .navigationTitle("Settings")

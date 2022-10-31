@@ -18,13 +18,8 @@
 "Delete Memory" = "Erinnerung löschen";
 "Delete" = "Löschen";
 "Delete custom memories" = "Eigene Erinnerungen löschen";
-
 "Deleted Memories" = "Gelöschte Erinnerungen";
 "Deleted Memories can be restored under Settings > Deleted Memories" = "gelöschte Erinnerungen können unter Einstellungen > Gelöschte Erinnerungen wiederhergestellt werden";
-"Memories deleted" = "Erinnerungen gelöscht";
-
-"Memory deleted" = "Erinnerung gelöscht";
-
 "Details" = "Details";
 "Disable Notifications" = "Benachrichtigungen deaktivieren";
 "Edit Memory" = "Erinnerung bearbeiten";
@@ -32,14 +27,19 @@
 "Enable biometric authentication (if available)" = "Biometrische Authentifizierung aktivieren (falls verfügbar)";
 "Enable Notifications" = "Benachrichtigungen aktivieren";
 "Enable yearly notifications" = "jährliche Benachrichtigungen aktivieren";
+"Export memories" = "Erinnerungen exportieren";
 "General Inforamation" = "Allgemeine Informationen";
 "Image (Optional)" = "Bild (Optional)";
 "Image could not be saved" = "Das Bild konnte nicht gespeichert werden";
 "Image saved" = "Bild gespeichert";
+"Import and Export" = "Import und Export";
+"Import memories" = "Erinnerungen importieren";
 "In %d days, on" = "In %d Tagen, am";
 "Location (Optional)" = "Standort (Optional)";
 "Map" = "Karte";
 "Memories" = "Erinnerungen";
+"Memories deleted" = "Erinnerungen gelöscht";
+"Memory deleted" = "Erinnerung gelöscht";
 "New anniversary in %d days" = "Neues Jubiläum in %d Tagen";
 "New memory today" = "Neues Jubiläum heute";
 "New memory tomorrow" = "Neues Jubiläum morgen";
@@ -84,7 +84,6 @@
 "yearly notifications are enabled for this memory" = "jährliche Benachrichtigungen sind für diese Erinnerung aktiviert";
 "You can use Face ID or Touch ID to unlock the app. Please note that the data will be accessible if biometrics are disabled for this device." = "Sie können Face ID oder Touch ID verwenden, um die App zu entsperren. Bitte beachten Sie, dass die Daten zugänglich sind, wenn die biometrischen Funktionen für dieses Gerät deaktiviert sind.";
 
-
 "First man on the moon" = "Der erste Mensch auf dem Mond";
 "End of World War II" = "Ende des Zweiten Weltkriegs";
 "First Organ Transplant" = "Erste Organtransplantation";
@@ -95,7 +94,6 @@
 "Steve Jobs presents the first iPhone" = "Steve Jobs präsentiert das erste iPhone";
 "Curiosity takes a selfie on Mars" = "Curiosity macht ein Selfie auf dem Mars";
 "Discovery of the Double Helix" = "Entdeckung der Doppelhelix";
-
 
 "First man on the moon (description)" = "Apollo 11 war der erste Raumflug, bei dem Menschen auf dem Mond landeten. Kommandant Neil Armstrong und Mondlandefähre-Pilot Buzz Aldrin landeten die Apollo-Mondlandefähre Eagle am 20. Juli 1969 um 20.17 Uhr UTC, und Armstrong betrat als erster Mensch am 21. Juli um 02.56 Uhr UTC, die Mondoberfläche. Aldrin folgte ihm 19 Minuten später, und sie verbrachten etwa zweieinviertel Stunden damit, gemeinsam den Ort zu erkunden, den sie nach der Landung Tranquility Base genannt hatten. Armstrong und Aldrin sammelten 47,5 Pfund (21,5 kg) Mondmaterial ein, welches sie zur Erde zurückbrachten, während Pilot Michael Collins die Kommandokapsel Columbia in die Mondumlaufbahn flog. Sie blieben 21 Stunden und 36 Minuten auf der Mondoberfläche, bevor sie abhoben, um sich wieder der Columbia anzuschließen.\n\nBild: NASA auf Unsplash\n\nQuelle: Apollo 11. (2022, 09 15). In Wikipedia.";
 "End of World War II (description)" = "Der Krieg in Europa endete mit der Befreiung der von Deutschland besetzten Gebiete und dem Einmarsch der westlichen Alliierten und der Sowjetunion in Deutschland, der mit dem Fall Berlins an die sowjetischen Truppen, dem Selbstmord Hitlers und der bedingungslosen Kapitulation Deutschlands am 8. Mai 1945 seinen Höhepunkt fand. Deutschland unterzeichnete die Kapitulationsurkunde am 9. Mai 1945. Nachdem Japan sich geweigert hatte, gemäß der Potsdamer Erklärung (vom 26. Juli 1945) zu kapitulieren, warfen die Vereinigten Staaten am 6. August die ersten Atombomben auf die japanischen Städte Hiroshima und Nagasaki ab (9. August). Angesichts der drohenden Invasion des japanischen Archipels, der Möglichkeit weiterer Atombombenabwürfe und des erklärten Kriegseintritts der Sowjetunion gegen Japan am Vorabend des Einmarsches in die Mandschurei gab Japan am 10. August seine Absicht bekannt, zu kapitulieren, was de facto das Ende des Zweiten Weltkriegs bedeutete. Japan unterzeichnete die Kapitulationsurkunde am 2. September 1945.\n\nQuelle: World War II. (2022, 09 17). In Wikipedia.";

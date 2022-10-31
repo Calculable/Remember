@@ -116,6 +116,11 @@ class Memories: ObservableObject {
         }
     }
     
+    /// Returns the link to the .JSON-File that stores all memories
+    func getSavePath() -> URL {
+        return memoryIOHelper.getSavePath()
+    }
+    
     /// Store the memories on the disk
     private func save() {
         memoryIOHelper.saveMemories(memories)

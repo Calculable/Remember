@@ -56,6 +56,8 @@
 		3D50727A28FE72CE0041FE28 /* MemoryIOHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50727928FE72CE0041FE28 /* MemoryIOHelper.swift */; };
 		3D50727C28FE82910041FE28 /* ResetMemoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D50727B28FE82910041FE28 /* ResetMemoriesView.swift */; };
 		3D50728028FF171D0041FE28 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3D50727F28FF171D0041FE28 /* README.md */; };
+		3D5E4DB829102DA700855230 /* ImportAndExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5E4DB729102DA700855230 /* ImportAndExportView.swift */; };
+		3D5E4DBA291032D300855230 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5E4DB9291032D300855230 /* DocumentPicker.swift */; };
 		3DBC9D2828FFD38A005372DE /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC9D2728FFD38A005372DE /* header.png */; };
 		3DBC9D2A28FFD3E6005372DE /* historic.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC9D2928FFD3E6005372DE /* historic.jpeg */; };
 		3DBC9D2C28FFD402005372DE /* upcoming.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC9D2B28FFD402005372DE /* upcoming.jpeg */; };
@@ -128,6 +130,8 @@
 		3D50727928FE72CE0041FE28 /* MemoryIOHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryIOHelper.swift; sourceTree = "<group>"; };
 		3D50727B28FE82910041FE28 /* ResetMemoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetMemoriesView.swift; sourceTree = "<group>"; };
 		3D50727F28FF171D0041FE28 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		3D5E4DB729102DA700855230 /* ImportAndExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAndExportView.swift; sourceTree = "<group>"; };
+		3D5E4DB9291032D300855230 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		3DBC9D2728FFD38A005372DE /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
 		3DBC9D2928FFD3E6005372DE /* historic.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = historic.jpeg; sourceTree = "<group>"; };
 		3DBC9D2B28FFD402005372DE /* upcoming.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = upcoming.jpeg; sourceTree = "<group>"; };
@@ -279,6 +283,7 @@
 				3D04CE3C28AF6D8C005D7A90 /* PrivacySettingsView.swift */,
 				3D2D081828E999980036B26D /* DeletedMemoriesListView.swift */,
 				3D50727B28FE82910041FE28 /* ResetMemoriesView.swift */,
+				3D5E4DB729102DA700855230 /* ImportAndExportView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 			children = (
 				3D13CB3328AAA29C001113BD /* ImagePicker.swift */,
 				3D0C68A32907B50B00A51694 /* ImagePickerCoordinator.swift */,
+				3D5E4DB9291032D300855230 /* DocumentPicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -491,6 +497,7 @@
 				3DC24F2628D84B2200128AC2 /* MapView.swift in Sources */,
 				3D13CB2C28AA9511001113BD /* MemoriesListView.swift in Sources */,
 				3D128C7228EBF14300481562 /* ShapeStyleExtensions.swift in Sources */,
+				3D5E4DBA291032D300855230 /* DocumentPicker.swift in Sources */,
 				3D0C68A62907B80F00A51694 /* AnniversaryType.swift in Sources */,
 				3D2D081728E998C00036B26D /* ColorHelper.swift in Sources */,
 				3D1C9B502902A202007DFC6A /* MemoryDetailView-ViewModel.swift in Sources */,
@@ -503,6 +510,7 @@
 				3D13CB4728AB8E04001113BD /* CalendarExtensions.swift in Sources */,
 				3D1B891B28D438FE00A7046B /* MemoryDetailView.swift in Sources */,
 				3D04CE3F28AF6FBB005D7A90 /* AuthenticationHelper.swift in Sources */,
+				3D5E4DB829102DA700855230 /* ImportAndExportView.swift in Sources */,
 				3D13CB3428AAA29C001113BD /* ImagePicker.swift in Sources */,
 				3D13CB1E28AA8FFC001113BD /* ContentView.swift in Sources */,
 				3D1C9B4A29028F12007DFC6A /* ExampleMemories.swift in Sources */,
@@ -695,6 +703,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -728,6 +737,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
