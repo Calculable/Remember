@@ -120,6 +120,15 @@ class Memories: ObservableObject {
     func getSavePath() -> URL {
         return memoryIOHelper.getSavePath()
     }
+
+    
+    /// Imports new memories from a JSON-String
+    /// - Parameter content: a JSON-String containing an encoded version of the memories
+    /// - Returns: the amount of successfully imported memories.
+    func importFromJSONString(content: String) throws -> Int  {
+        return 0
+    }
+
     
     /// Store the memories on the disk
     private func save() {

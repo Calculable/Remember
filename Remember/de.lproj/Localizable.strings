@@ -1,5 +1,6 @@
 "%d days before the event" = "%d Tage vor dem Jubiläum";
 "%d days since" = "%d Tage seit";
+"%d new memories were imported" = "%d Erinnerungen wurden erfolgreich importiert";
 "%d years since" = "%d Jahre seit";
 "1 day before the event" = "1 Tag vor dem Jubiläum";
 "Add Memory" = "Erinnerung hinzufügen";
@@ -33,7 +34,9 @@
 "Image could not be saved" = "Das Bild konnte nicht gespeichert werden";
 "Image saved" = "Bild gespeichert";
 "Import and Export" = "Import und Export";
+"Import failed" = "Import fehlgeschlagen";
 "Import memories" = "Erinnerungen importieren";
+"Import successful" = "Import erfolgreich";
 "In %d days, on" = "In %d Tagen, am";
 "Location (Optional)" = "Standort (Optional)";
 "Map" = "Karte";
@@ -69,6 +72,7 @@
 "Tap on the map to select your coordinates" = "Klicken Sie auf der Karte, um eine Koordinate auszuwählen";
 "The image was saved to your photo gallery" = "Das Bild wurde in der Fotogalerie gespeichert";
 "The image you chose for this memory" = "Das Bild, welches Sie für diese Erinnerung ausgewählt haben";
+"The input-data does not have the required format." = "Die Inputdaten liegen nicht im richtigen Format vor.";
 "The memories were successfully deleted" = "Die Erinnerungen wurden erfolgreich gelöscht";
 "There was an error while saving the image" = "Beim Speichern des Bildes es ist ein Fehler aufgetreten";
 "This memory was deleted" = "Diese Erinnerung wurde gelöscht";
