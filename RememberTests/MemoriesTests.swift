@@ -102,12 +102,10 @@ class MemoriesTests: XCTestCase {
     }
     
     func testMemoryMarkedForDeletionCanBeRestored() {
-        let amountOfAvailableMemories = subject.availableMemories.count
         let memory = subject.memories.first!
         subject.markForDeletion(memory)
         subject.restore(memory)
         XCTAssert(subject.memoriesMarkedForDeletion.count == 0)
-        XCTAssert(subject.availableMemories.count == amountOfAvailableMemories)
         XCTAssert(notificationHelperSty.notificationsWereUpdated())
     }
     
@@ -148,7 +146,7 @@ class MemoriesTests: XCTestCase {
         subject.addMemory(Memory(name: "C", date: Date(day: 3, month: 7, year: 1998)))
         subject.addMemory(Memory(name: "C", date: Date(day: 5, month: 2, year: 2017)))
         
-        XCTAssert(subject.newestYear() == 2017)
+        XCTAssert(subject.newestYear == 2017)
     }
     
     func testOldestYearCanBeExtractedFromMemories() {
@@ -160,7 +158,7 @@ class MemoriesTests: XCTestCase {
         subject.addMemory(Memory(name: "C", date: Date(day: 7, month: 7, year: 1998)))
         subject.addMemory(Memory(name: "D", date: Date(day: 2, month: 1, year: 2017)))
         
-        XCTAssert(subject.oldestYear() == 1998)
+        XCTAssert(subject.oldestYear == 1998)
     }
     
     func testMemoriesForASpecificYearCanBeReturned() {

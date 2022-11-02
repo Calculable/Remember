@@ -109,6 +109,21 @@
                   endingLineNumber = "97"
                   offsetFromSymbolStart = "312">
                </Location>
+               <Location
+                  uuid = "06450B6F-F0DD-458C-BD70-C002F896AA01 - ed1e89293ee2b6e0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "RememberTests.DateExtensionsTests.testIsInLessThanAYearIsFalseIfTheSecondDateIsAfterTheFirstDate() -&gt; ()"
+                  moduleName = "RememberTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jan/Documents/Projekte/Aktive%20Projekte/Remember/Remember/RememberTests/DateExtensionsTests.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "86"
+                  endingLineNumber = "86"
+                  offsetFromSymbolStart = "312">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -266,6 +281,22 @@
             endingLineNumber = "24"
             landmarkName = "image"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0DEC9272-7DB3-4AFB-8837-6FCCEBD36EF2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "RememberTests/MemoriesTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "109"
+            endingLineNumber = "109"
+            landmarkName = "testMemoryMarkedForDeletionCanBeRestored()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
