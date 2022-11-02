@@ -43,9 +43,9 @@
 "Memories" = "Erinnerungen";
 "Memories deleted" = "Erinnerungen gelöscht";
 "Memory deleted" = "Erinnerung gelöscht";
-"New anniversary in %d days" = "Neues Jubiläum in %d Tagen";
-"New memory today" = "Neues Jubiläum heute";
-"New memory tomorrow" = "Neues Jubiläum morgen";
+"New anniversary in %d days" = "Neuer %d Tagen ist ein Jahrestag!";
+"New anniversary today" = "Heute ist ein Jahrestag!";
+"New anniversary tomorrow" = "Morgen ist ein Jahrestag!";
 "No Memories to display" = "Keine Erinnerungen vorhanden";
 "No deleted memories" = "Keine gelöschten Erinnerungen vorhanden";
 "Notes (Optional)" = "Notizen (Optional)";

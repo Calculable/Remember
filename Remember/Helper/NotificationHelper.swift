@@ -82,7 +82,7 @@ class NotificationHelper {
     }
     
     private func notificationSubtitle(forMemory memory: Memory) -> String {
-        return "\(memory.name) \(memory.date.formatted(date: .long, time: .omitted))"
+        return "\(memory.name): \(memory.date.formatted(date: .long, time: .omitted))"
     }
     
     private func createNotificationContent(forMemory memory: Memory) -> UNMutableNotificationContent {
