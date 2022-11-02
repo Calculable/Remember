@@ -49,7 +49,7 @@
 "No Memories to display" = "Keine Erinnerungen vorhanden";
 "No deleted memories" = "Keine gelöschten Erinnerungen vorhanden";
 "Notes (Optional)" = "Notizen (Optional)";
-"Notifications can be triggered for the anniversaries of the memories. Under the Memories tab, notifications can be turned on or off individually for each memory.\n\nPlease make sure that the app has permission to send notifications (iOS Settings > Notifications)." = "Für die Jahrestage von Erinnerungen können Benachrichtigungen ausgelöst werden. Unter dem Tab 'Erinnerungen' können Sie die Benachrichtigungen für jede Erinnerung individuell ein- oder ausgeschalten.\n\nBitte stellen Sie sicher, dass die App über die Berechtigung zum Senden von Benachrichtigungen verfügt (iOS Einstellungen > Benachrichtigungen).";
+"Notifications can be triggered for the anniversaries of the memories. Under the Memories tab, notifications can be turned on or off individually for each memory.\n\nPlease make sure that the app has permission to send notifications (iOS Settings > Notifications)." = "Für die Jahrestage von Erinnerungen können Benachrichtigungen ausgelöst werden. Unter dem Tab 'Erinnerungen' können Sie die Benachrichtigungen für jede Erinnerung individuell ein- oder ausschalten.\n\nBitte stellen Sie sicher, dass die App über die Berechtigung zum Senden von Benachrichtigungen verfügt (iOS Einstellungen > Benachrichtigungen).";
 "Notifications" = "Benachrichtigungen";
 "OK" = "OK";
 "On the same day" = "Am gleichen Tag";

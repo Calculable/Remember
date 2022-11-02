@@ -5,7 +5,7 @@ import SwiftUI
 /// Represents the map annotation for a single memory
 struct MapAnnotationContent: View {
     @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
-    @State var title: String
+    var title: String
     
     var body: some View {
         Text(title)
