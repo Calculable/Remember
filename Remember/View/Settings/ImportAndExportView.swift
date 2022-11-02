@@ -17,11 +17,10 @@ struct ImportAndExportView: View {
             
             Section("Export memories") {
                 let link = memories.getSavePath()
-                ShareLink(item: link, message: Text("Export memories"))
+                ShareLink("Export memories", item: link)
             }
             
             Section("Import memories") {
-                                
                 Button("Import memories") {
                     showDocumentPicker = true
                 }.sheet (isPresented: self.$showDocumentPicker) {

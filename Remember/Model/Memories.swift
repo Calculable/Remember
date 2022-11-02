@@ -54,6 +54,33 @@ class Memories: ObservableObject {
         save()
     }
     
+    func addMemories(_ newMemories: [Memory]) {
+        for memory in newMemories {
+            let memoryToImport = memory
+            if (identifierExists(uuid: memoryToImport.id)) {
+                //when the identifier exists, it means that this memory was likely exported before and is now imported again
+                //there are multiple possibilities to handle this case:
+                //  - skipping the import of this memory
+                //  - "diff" the existing memory with the new memory and update the existing memory with the new information
+                //  - throwing an error
+                //  - assign a new unique id and import the memory
+                //  - ask the user which option he/she wants to choose
+                //currently,the memory gets a new unique id assigned and is then imported.
+                memoryToImport.id = UUID()
+            }
+            memoryToImport.image = nil
+            memories.append(memoryToImport)
+        }
+        sortMemories()
+        save()
+    }
+    
+    func identifierExists(uuid: UUID) -> Bool {
+        return memories.contains(where: {
+            $0.id == uuid
+        })
+    }
+    
     func removeAllMemories() {
         memories = []
         addExampleMemories()
@@ -126,7 +153,9 @@ class Memories: ObservableObject {
     /// - Parameter content: a JSON-String containing an encoded version of the memories
     /// - Returns: the amount of successfully imported memories.
     func importFromJSONString(content: String) throws -> Int  {
-        return 0
+        let newMemories = try memoryIOHelper.loadMemoriesFromJSONString(jsonContent: content)
+        addMemories(newMemories)
+        return newMemories.count
     }
 
     

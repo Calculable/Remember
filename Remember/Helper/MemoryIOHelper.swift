@@ -21,6 +21,11 @@ class MemoryIOHelper {
         return try Bundle.main.decode(getSavePath())
     }
     
+    /// Decodes encoded JSON-memories
+    func loadMemoriesFromJSONString(jsonContent: String) throws -> [Memory] {
+        return try Bundle.main.decode(jsonContent)
+    }
+    
     /// Loads the image data for a memory from the disk and converts it to a displayable image
     func loadImageFromDocumentDirectory(forMemory memory: Memory) -> UIImage? {
         let fileURL = getImageFileURL(forMemory: memory)
@@ -37,7 +42,7 @@ class MemoryIOHelper {
     /// Saves the image data for a memory from the disk
     func saveImageInDocumentDirectory(forMemory memory: Memory) {
         let fileURL = getImageFileURL(forMemory: memory)
-        if let imageData = memory.image?.pngData() {
+        if let imageData = memory.image?.jpegData(compressionQuality: 1.0) {
             try? imageData.write(to: fileURL, options: .atomic)
         }
     }
