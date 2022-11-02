@@ -10,7 +10,7 @@ struct AnniversariesView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack {
+                LazyVStack {
                     ForEach(viewModel.filteredAnniversaries(memories: memories)) { anniversary in
                         NavigationLink {
                             MemoryDetailView(memory: anniversary.memory)
