@@ -22,7 +22,7 @@ extension Bundle {
     
     private func decode<T: Codable>(_ data: Data) throws -> T {
         let decoder = JSONDecoder()
-        let loaded = try! decoder.decode(T.self, from: data)
+        let loaded = try decoder.decode(T.self, from: data)
         return loaded
     }
     
