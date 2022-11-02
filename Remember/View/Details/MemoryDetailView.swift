@@ -32,7 +32,9 @@ struct MemoryDetailView: View {
                     
                     if viewModel.memory.coordinate != nil {
                         Map(coordinateRegion: $viewModel.mapRegion, annotationItems: [viewModel.memory]) { memory in
-                            MapMarker(coordinate: memory.coordinate!, tint: .background)
+                            MapAnnotation(coordinate: memory.coordinate!) {
+                                MapAnnotationContent(title: memory.name)
+                            }
                         }
                         .aspectRatio(2, contentMode: .fill)
                         .frame(minHeight: 300)
