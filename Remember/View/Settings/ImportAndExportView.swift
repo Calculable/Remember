@@ -27,8 +27,11 @@ struct ImportAndExportView: View {
                     DocumentPicker(fileContent:$fileContent)
                 }.onChange(of: fileContent, perform: { newFileContent in
                     do {
-                        successfullyImportedMemories = try memories.importFromJSONString(content: newFileContent)
-                        showImportSuccessAlert = true
+                        if (!fileContent.isEmpty) {
+                            successfullyImportedMemories = try memories.importFromJSONString(content: newFileContent)
+                            showImportSuccessAlert = true
+                            fileContent = "" //if fileContent is not resetted, importing the same file twice would not be noticed
+                        }
                     } catch {
                         print(error.localizedDescription)
                         showImportErrorAlert = true
