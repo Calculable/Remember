@@ -50,14 +50,11 @@ struct AnniversaryListEntryView: View {
                         .accessibilityHidden(true)
                         .font(viewModel.isScreenshot ? .title : .title2)
                         .padding(.bottom)
-                    
-                    
 
-                    
-                    
                     Text("\(viewModel.timeIntervalDescription(anniversary: viewModel.anniversary)): \(viewModel.anniversary.memory.name)")
                         .font(viewModel.isScreenshot ? .largeTitle : .title)
                         .foregroundColor(.white)
+                        .padding([.leading, .trailing], 6)
                         
                 }
                 .multilineTextAlignment(.center)
