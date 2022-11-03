@@ -28,7 +28,10 @@ struct MemoryDetailView: View {
                             .frame(maxWidth: 700).clipped().padding([.bottom, .top], 20)
                     }
                     
+                    Divider()
+                    
                     Text(viewModel.memory.notes)
+
                     
                     if viewModel.memory.coordinate != nil {
                         Map(coordinateRegion: $viewModel.mapRegion, annotationItems: [viewModel.memory]) { memory in
