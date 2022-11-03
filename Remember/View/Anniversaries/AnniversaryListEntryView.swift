@@ -40,14 +40,12 @@ struct AnniversaryListEntryView: View {
                     if (!viewModel.isScreenshot) {
                         Text("\(viewModel.describeRemainingDays(until: viewModel.anniversary.date))")
                             .foregroundColor(viewModel.remainingDays(to: viewModel.anniversary.date) <= 7 ? .white : .white)
-                            .accessibilityHidden(true)
                             .font(viewModel.isScreenshot ? .title : .title2)
                     }
                     
                     Text("\(Image(systemName: "calendar.circle")) \(viewModel.anniversary.date.formatted(date: .long, time: .omitted))")
                         .fontWeight(.bold)
                         .foregroundColor(viewModel.remainingDays(to: viewModel.anniversary.date) <= 7 ? .white : .white)
-                        .accessibilityHidden(true)
                         .font(viewModel.isScreenshot ? .title : .title2)
                         .padding(.bottom)
 
@@ -55,7 +53,6 @@ struct AnniversaryListEntryView: View {
                         .font(viewModel.isScreenshot ? .largeTitle : .title)
                         .foregroundColor(.white)
                         .padding([.leading, .trailing], 6)
-                        
                 }
                 .multilineTextAlignment(.center)
                 .accessibilityElement(children: .combine)
