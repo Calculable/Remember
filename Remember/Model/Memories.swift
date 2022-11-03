@@ -68,7 +68,7 @@ class Memories: ObservableObject {
                 //currently,the memory gets a new unique id assigned and is then imported.
                 memoryToImport.id = UUID()
             }
-            memoryToImport.image = nil
+            memory.removeImage(deleteFromDisk: false)
             memories.append(memoryToImport)
         }
         sortMemories()
@@ -105,9 +105,11 @@ class Memories: ObservableObject {
         }
     }
     
-    func remove(_ memory: Memory) {
+    func remove(_ memory: Memory, deleteImageFromDisk: Bool = true) {
         notificationHelper.removeNotification(forMemory: memory) //redundant because all notifications get recreated on save
-        memory.image = nil //triggers deletion of the image
+        if (deleteImageFromDisk) {
+            memory.removeImage(deleteFromDisk: true)
+        }
         memories.remove(at: memories.firstIndex(of: memory)!)
         save()
     }

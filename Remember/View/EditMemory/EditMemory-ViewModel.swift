@@ -14,11 +14,19 @@ extension EditMemoryView {
         //The following properties represent the data that the user entered and that is converted to a memory-instance once the user clicks on "save"
         @Published var name: String = ""
         @Published var date: Date = Date.now
-        @Published var image: UIImage?
+        @Published var image: UIImage? {
+            didSet {
+                if oldValue != nil || existingMemory == nil {
+                    imageWasChanged = true
+                }
+            }
+        }
         @Published var notes: String = ""
         @Published var notificationsEnabled = false
         @Published var showingImagePicker = false
         @Published var existingMemory: Memory? = nil
+        
+        private var imageWasChanged = false //if the image was not changed, deleting and re-loading the file is avoided for performance reasons
         
         var onMemoryUpdated: ((Memory) -> Void)? //This callback is provided so that interested UI-components can get informed once a memory changes and the view should be redrawn.
         
@@ -41,12 +49,12 @@ extension EditMemoryView {
                     coordinate = memoryCoordinate
                 }
                 
+                self.existingMemory = memory
                 self.name = memory.name
                 self.date = memory.date
                 self.image = memory.image
                 self.notes = memory.notes
                 self.notificationsEnabled = memory.notificationsEnabled
-                self.existingMemory = memory
             }
             
             self.onMemoryUpdated = onMemoryUpdated
@@ -66,12 +74,17 @@ extension EditMemoryView {
         }
         
         func saveNewMemory(memories: Memories) {
-            if let memory = existingMemory {
-                memories.remove(memory) //memories are "updated" by deleting and re-creating them
+            
+           var id = UUID()
+            
+           if let memory = existingMemory {
+               //if the image was not changed, deleting and re-loading the file is avoided for performance reasons
+                id = memory.id //keep the old identifier
+               memories.remove(memory, deleteImageFromDisk: imageWasChanged) //memories are "updated" by deleting and re-creating them
             }
         
             let customCoordinate = isCustomCoordinate ? coordinate : nil
-            let newMemory = Memory(name: name, date: date, image: image, coordinate: customCoordinate, notes: notes, notificationsEnabled: notificationsEnabled)
+            let newMemory = Memory(id: id, name: name, date: date, image: image, coordinate: customCoordinate, notes: notes, notificationsEnabled: notificationsEnabled, saveImageToDisk: imageWasChanged)
             memories.addMemory(newMemory)
             
             existingMemory = newMemory

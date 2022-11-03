@@ -17,17 +17,8 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
     /// Date on which the event / memory occured
     @Published var date: Date
     
-    /// An optional background-image for the memory. The image automatically gets saved and deleted if this field is changed.
-    @Published var image: UIImage? {
-        didSet {
-            if image == nil {
-                memoryIOHelper.deleteImageInDocumentDirectory(forMemory: self)
-                
-            } else {
-                memoryIOHelper.saveImageInDocumentDirectory(forMemory: self)
-            }
-        }
-    }
+    /// An optional background-image for the memory.
+    @Published private(set) var image: UIImage?
     
     /// Optional additional notes about the memory
     @Published var notes: String
@@ -99,12 +90,17 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
         self.notes = ""
     }
     
-    convenience init(name: String, date: Date, image: UIImage? = nil, coordinate: CLLocationCoordinate2D? = nil, notes: String = "", notificationsEnabled: Bool) {
+    convenience init(id: UUID = UUID(), name: String, date: Date, image: UIImage? = nil, coordinate: CLLocationCoordinate2D? = nil, notes: String = "", notificationsEnabled: Bool, saveImageToDisk: Bool = true) {
         self.init(name: name, date: date)
+        self.id = id
         self.image = image
         self.coordinate = coordinate
         self.notes = notes
         self.notificationsEnabled = notificationsEnabled
+        
+        if (saveImageToDisk) {
+            self.saveImageToDisk()
+        }
     }
     
     static func ==(lhs: Memory, rhs: Memory) -> Bool {
@@ -113,5 +109,16 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
     
     static func <(lhs: Memory, rhs: Memory) -> Bool {
         return lhs.date < rhs.date
+    }
+    
+    func removeImage(deleteFromDisk: Bool) {
+        if deleteFromDisk {
+            memoryIOHelper.deleteImageInDocumentDirectory(forMemory: self)
+        }
+        image = nil
+    }
+    
+    func saveImageToDisk() {
+        memoryIOHelper.saveImageInDocumentDirectory(forMemory: self)
     }
 }
