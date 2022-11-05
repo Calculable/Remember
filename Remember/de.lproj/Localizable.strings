@@ -89,6 +89,7 @@
 "yearly notifications are disabled for this memory" = "jährliche Benachrichtigungen sind für diese Erinnerung deaktiviert";
 "yearly notifications are enabled for this memory" = "jährliche Benachrichtigungen sind für diese Erinnerung aktiviert";
 "You can use Face ID or Touch ID to unlock the app. Please note that the data will be accessible if biometrics are disabled for this device." = "Sie können Face ID oder Touch ID verwenden, um die App zu entsperren. Bitte beachten Sie, dass die Daten zugänglich sind, wenn die biometrischen Funktionen für dieses Gerät deaktiviert sind.";
+"Your memories are stored locally on your device. If you loose access to your device, there is no way to recover the memories." = "Erinnerungen werden lokal auf dem Gerät gespeichert. Wenn Sie den Zugriff auf Ihr Gerät verlieren, gibt es keine Möglichkeit, die Erinnerungen wiederherzustellen.";
 
 "First man on the moon" = "Der erste Mensch auf dem Mond";
 "End of World War II" = "Ende des Zweiten Weltkriegs";

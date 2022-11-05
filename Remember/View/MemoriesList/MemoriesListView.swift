@@ -79,7 +79,7 @@ struct MemoriesListView: View {
                 viewModel.showAddMemoryView()
             }
         } message: {
-            Text("Your memories are saved only on your device. If you loose access to your device, there is no way to recover the memories.")
+            Text("Your memories are stored locally on your device. If you loose access to your device, there is no way to recover the memories.")
         }
     }
 }
