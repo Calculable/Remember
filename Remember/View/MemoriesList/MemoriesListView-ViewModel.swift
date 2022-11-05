@@ -8,10 +8,15 @@ extension MemoriesListView {
         
         /// Stores if the user cas ever delted a memory. If the user has never deleted a memory, a notification can be shown when a memory is deleted for the first time
         @AppStorage("neverDeletedAMemory") private var neverDeletedAMemory = true
+        
+        ///used show a notification about data-handling after the user saves a memory for the first time
+        @AppStorage("neverCreatedAMemory") var neverCreatedAMemory = true
+
         @Published var showAddMemorySheet = false
         @Published var showDeleteMemoryAlert = false
         @Published var searchText = ""
-        
+        @Published var showDataHandlingAlert = false
+
         func markMemoryForDeletion(memories: Memories, memory: Memory) {
             memories.markForDeletion(memory)
             
@@ -26,5 +31,9 @@ extension MemoriesListView {
             showAddMemorySheet = true
         }
         
+        func showDataHandlingAlertView() {
+            neverCreatedAMemory = false
+            showDataHandlingAlert = true
+        }
     }
 }

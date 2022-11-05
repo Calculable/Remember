@@ -57,7 +57,12 @@ struct MemoriesListView: View {
             .toolbar {
                 ToolbarItem() {
                     Button {
-                        viewModel.showAddMemoryView()
+                        if (viewModel.neverCreatedAMemory) {
+                            viewModel.showDataHandlingAlertView()
+                        } else {
+                            viewModel.showAddMemoryView()
+                        }
+                        
                     } label: {
                         Label("Add Memory", systemImage: "plus")
                     }
@@ -68,6 +73,13 @@ struct MemoriesListView: View {
         //.phoneOnlyStackNavigationView()
         .sheet(isPresented: $viewModel.showAddMemorySheet) {
             EditMemoryView()
+        }
+        .alert("Important", isPresented: $viewModel.showDataHandlingAlert) {
+            Button("I understand", role: .cancel) {
+                viewModel.showAddMemoryView()
+            }
+        } message: {
+            Text("Your memories are saved only on your device. If you loose access to your device, there is no way to recover the memories.")
         }
     }
 }
