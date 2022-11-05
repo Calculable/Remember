@@ -13,6 +13,7 @@
 "Biometrics not available" = "Biometrische Authentifizierung (FaceID / TouchID) ist für dieses Gerät nicht unterstützt";
 "Cancel" = "Abbrechen";
 "Close" = "Schliessen";
+"Contact & Support" = "Kontakt & Support";
 "Date" = "Datum";
 "Days before event" = "Tage vor dem Jubiläum";
 "Delete Forever" = "Endgültig löschen";
@@ -56,6 +57,7 @@
 "Please select a memory to see the details" = "Bitte wählen Sie eine Erinnerung, um die Details anzuzeigen";
 "Please select an upcoming memory to see the details" = "Bitte wählen Sie ein anstehendes Jubiläum, um die Details anzuzeigen";
 "Privacy" = "Privatsphäre";
+"Privacy Policy" = "Datenschutzbestimmungen";
 "Remove all custom memories and restore example memories" = "Alle angelegten Erinnerungen entfernen und Beispiel-Erinnerungen wiederherstellen";
 "Remove image" = "Bild entfernen";
 "Remove location" = "Standort entfernen";
