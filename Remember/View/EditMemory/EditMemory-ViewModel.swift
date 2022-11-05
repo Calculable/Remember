@@ -8,8 +8,9 @@ extension EditMemoryView {
     @MainActor class ViewModel: ObservableObject {
         
         @Published private(set) var isCustomCoordinate = false //did the user choose a custom coordinate for this memory?
-        @Published var coordinate = CLLocationCoordinate2D(latitude: 46.818188, longitude: 8.227512) //initialized with the default coordiante
+        @Published var coordinate = CLLocationCoordinate2D(latitude: 37.333747, longitude: -122.011448) //initialized with the default coordiante
         @Published var showingMapPicker = false
+        @Published var showingImageErrorMessage = false
         
         //The following properties represent the data that the user entered and that is converted to a memory-instance once the user clicks on "save"
         @Published var name: String = ""
@@ -97,6 +98,10 @@ extension EditMemoryView {
         
         func markAsNonCustomCoordinate() {
             isCustomCoordinate = false
+        }
+        
+        func showImageCannotBeLoadedErrorMessage() {
+            showingImageErrorMessage = true
         }
     }
 }

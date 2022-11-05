@@ -10,6 +10,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     
     typealias UIViewControllerType = PHPickerViewController
     @Binding var image: UIImage? //the image that was picked
+    var onError: (() -> ())?
     
     func makeUIViewController(context: Context) -> PHPickerViewController {
         var config = PHPickerConfiguration()

@@ -33,6 +33,10 @@ extension ImagePicker {
                         self.parent.image = image as? UIImage
                     }
                 }
+            } else {
+                Task { @MainActor in
+                    self.parent.onError?()
+                }
             }
         }
     }

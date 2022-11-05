@@ -27,7 +27,12 @@ struct EditMemoryView: View {
                         viewModel.showImagePicker()
                     }
                     .sheet(isPresented: $viewModel.showingImagePicker) {
-                        ImagePicker(image: $viewModel.image)
+                        ImagePicker(image: $viewModel.image, onError: viewModel.showImageCannotBeLoadedErrorMessage)
+                    }
+                    .alert("Error while loading image", isPresented: $viewModel.showingImageErrorMessage) {
+                        Button("OK", role: .cancel) { }
+                    } message: {
+                        Text("This type of image is not supported by the app.")
                     }
                     
                     if let image = viewModel.displayImage {

@@ -29,6 +29,7 @@
 "Enable biometric authentication (if available)" = "Biometrische Authentifizierung aktivieren (falls verfügbar)";
 "Enable Notifications" = "Benachrichtigungen aktivieren";
 "Enable yearly notifications" = "jährliche Benachrichtigungen aktivieren";
+"Error while loading image" = "Bild konnte nicht geladen werden";
 "Export memories" = "Erinnerungen exportieren";
 "General Inforamation" = "Allgemeine Informationen";
 "Image (Optional)" = "Bild (Optional)";
@@ -78,6 +79,7 @@
 "The memories were successfully deleted" = "Die Erinnerungen wurden erfolgreich gelöscht";
 "There was an error while saving the image" = "Beim Speichern des Bildes es ist ein Fehler aufgetreten";
 "This memory was deleted" = "Diese Erinnerung wurde gelöscht";
+"This type of image is not supported by the app." = "Das Dateiformat dieses Bildes wird von der Applikation nicht unterstützt.";
 "Time of notifications" = "Uhrzeit der Benachrichtigung";
 "Timeline" = "Timeline";
 "Title" = "Titel";
