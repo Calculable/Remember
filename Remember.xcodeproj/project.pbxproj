@@ -59,12 +59,12 @@
 		3D5E4DB829102DA700855230 /* ImportAndExportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5E4DB729102DA700855230 /* ImportAndExportView.swift */; };
 		3D5E4DBA291032D300855230 /* DocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D5E4DB9291032D300855230 /* DocumentPicker.swift */; };
 		3DBC9D2828FFD38A005372DE /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC9D2728FFD38A005372DE /* header.png */; };
-		3DBC9D2A28FFD3E6005372DE /* historic.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC9D2928FFD3E6005372DE /* historic.jpeg */; };
 		3DBC9D2C28FFD402005372DE /* upcoming.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC9D2B28FFD402005372DE /* upcoming.jpeg */; };
-		3DBC9D2E28FFD441005372DE /* mac.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC9D2D28FFD441005372DE /* mac.jpeg */; };
-		3DBC9D3028FFD47E005372DE /* map.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC9D2F28FFD47E005372DE /* map.jpeg */; };
 		3DC24F2628D84B2200128AC2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC24F2528D84B2200128AC2 /* MapView.swift */; };
 		3DF4A1FD28EC763D005FE110 /* HotReloading in Frameworks */ = {isa = PBXBuildFile; productRef = 3DF4A1FC28EC763D005FE110 /* HotReloading */; };
+		3DFAD517291644A8009C3482 /* map.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3DFAD516291644A8009C3482 /* map.jpeg */; };
+		3DFAD519291644D9009C3482 /* mac.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3DFAD518291644D9009C3482 /* mac.jpeg */; };
+		3DFAD51B2916450B009C3482 /* historic.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3DFAD51A2916450B009C3482 /* historic.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,11 +133,11 @@
 		3D5E4DB729102DA700855230 /* ImportAndExportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportAndExportView.swift; sourceTree = "<group>"; };
 		3D5E4DB9291032D300855230 /* DocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentPicker.swift; sourceTree = "<group>"; };
 		3DBC9D2728FFD38A005372DE /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
-		3DBC9D2928FFD3E6005372DE /* historic.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = historic.jpeg; sourceTree = "<group>"; };
 		3DBC9D2B28FFD402005372DE /* upcoming.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = upcoming.jpeg; sourceTree = "<group>"; };
-		3DBC9D2D28FFD441005372DE /* mac.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mac.jpeg; sourceTree = "<group>"; };
-		3DBC9D2F28FFD47E005372DE /* map.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map.jpeg; sourceTree = "<group>"; };
 		3DC24F2528D84B2200128AC2 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		3DFAD516291644A8009C3482 /* map.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map.jpeg; sourceTree = "<group>"; };
+		3DFAD518291644D9009C3482 /* mac.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mac.jpeg; sourceTree = "<group>"; };
+		3DFAD51A2916450B009C3482 /* historic.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = historic.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,10 +351,10 @@
 		3D50728128FF17420041FE28 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
-				3DBC9D2F28FFD47E005372DE /* map.jpeg */,
-				3DBC9D2D28FFD441005372DE /* mac.jpeg */,
+				3DFAD51A2916450B009C3482 /* historic.jpeg */,
+				3DFAD518291644D9009C3482 /* mac.jpeg */,
+				3DFAD516291644A8009C3482 /* map.jpeg */,
 				3DBC9D2B28FFD402005372DE /* upcoming.jpeg */,
-				3DBC9D2928FFD3E6005372DE /* historic.jpeg */,
 				3DBC9D2728FFD38A005372DE /* header.png */,
 			);
 			path = Documentation;
@@ -462,12 +462,12 @@
 				3D13CB2328AA8FFE001113BD /* Preview Assets.xcassets in Resources */,
 				3D2E6BF028FAFD9B00C1CC4D /* Localizable.strings in Resources */,
 				3DBC9D2C28FFD402005372DE /* upcoming.jpeg in Resources */,
-				3DBC9D2A28FFD3E6005372DE /* historic.jpeg in Resources */,
 				3D50728028FF171D0041FE28 /* README.md in Resources */,
-				3DBC9D2E28FFD441005372DE /* mac.jpeg in Resources */,
 				3DBC9D2828FFD38A005372DE /* header.png in Resources */,
 				3D13CB2028AA8FFE001113BD /* Assets.xcassets in Resources */,
-				3DBC9D3028FFD47E005372DE /* map.jpeg in Resources */,
+				3DFAD517291644A8009C3482 /* map.jpeg in Resources */,
+				3DFAD519291644D9009C3482 /* mac.jpeg in Resources */,
+				3DFAD51B2916450B009C3482 /* historic.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
