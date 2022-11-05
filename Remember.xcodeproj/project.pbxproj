@@ -61,7 +61,6 @@
 		3DBC9D2828FFD38A005372DE /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC9D2728FFD38A005372DE /* header.png */; };
 		3DBC9D2C28FFD402005372DE /* upcoming.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3DBC9D2B28FFD402005372DE /* upcoming.jpeg */; };
 		3DC24F2628D84B2200128AC2 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC24F2528D84B2200128AC2 /* MapView.swift */; };
-		3DF4A1FD28EC763D005FE110 /* HotReloading in Frameworks */ = {isa = PBXBuildFile; productRef = 3DF4A1FC28EC763D005FE110 /* HotReloading */; };
 		3DFAD517291644A8009C3482 /* map.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3DFAD516291644A8009C3482 /* map.jpeg */; };
 		3DFAD519291644D9009C3482 /* mac.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3DFAD518291644D9009C3482 /* mac.jpeg */; };
 		3DFAD51B2916450B009C3482 /* historic.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 3DFAD51A2916450B009C3482 /* historic.jpeg */; };
@@ -145,7 +144,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DF4A1FD28EC763D005FE110 /* HotReloading in Frameworks */,
 				3D13CB3728AAA76E001113BD /* LocationPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,7 +385,6 @@
 			name = Remember;
 			packageProductDependencies = (
 				3D13CB3628AAA76E001113BD /* LocationPicker */,
-				3DF4A1FC28EC763D005FE110 /* HotReloading */,
 			);
 			productName = Remember;
 			productReference = 3D13CB1828AA8FFB001113BD /* Remember.app */;
@@ -442,7 +439,6 @@
 			mainGroup = 3D13CB0F28AA8FFB001113BD;
 			packageReferences = (
 				3D13CB3528AAA76E001113BD /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */,
-				3DF4A1FB28EC763D005FE110 /* XCRemoteSwiftPackageReference "HotReloading" */,
 			);
 			productRefGroup = 3D13CB1928AA8FFB001113BD /* Products */;
 			projectDirPath = "";
@@ -830,14 +826,6 @@
 				minimumVersion = 1.0.0;
 			};
 		};
-		3DF4A1FB28EC763D005FE110 /* XCRemoteSwiftPackageReference "HotReloading" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/johnno1962/HotReloading";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -845,11 +833,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 3D13CB3528AAA76E001113BD /* XCRemoteSwiftPackageReference "LocationPickerForSwiftUI" */;
 			productName = LocationPicker;
-		};
-		3DF4A1FC28EC763D005FE110 /* HotReloading */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3DF4A1FB28EC763D005FE110 /* XCRemoteSwiftPackageReference "HotReloading" */;
-			productName = HotReloading;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
