@@ -43,7 +43,7 @@ class MemoryIOHelper {
     func saveImageInDocumentDirectory(forMemory memory: Memory) {
         let fileURL = getImageFileURL(forMemory: memory)
         if let imageData = memory.image?.jpegData(compressionQuality: 1.0) {
-            try? imageData.write(to: fileURL, options: .atomic)
+            try? imageData.write(to: fileURL, options: [.atomic, .completeFileProtection])
         }
     }
     
