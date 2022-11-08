@@ -12,7 +12,7 @@ struct TimelineView: View {
         NavigationView {
             //Slider(value: $marginAmount, in: 0...1).padding()
             ScrollView {
-                VStack(spacing: 0.0) {
+                LazyVStack(spacing: 0.0) {
                     //Shows a list of memories that happened for each year.
                     let amountOfYears = amountOfYears()
                     let maxYear = memories.newestYear
@@ -25,7 +25,7 @@ struct TimelineView: View {
                     } else {
                         Text("No Memories to display")
                     }
-                }
+                }.id(UUID())
             }
             .navigationTitle("Timeline")
         }
