@@ -1,14 +1,15 @@
 "%d days before the event" = "%d Tage vor dem Jubiläum";
 "%d days since" = "%d Tage seit";
+"%d days until" = "%d Tage bis";
 "%d new memories were imported" = "%d Erinnerungen wurden erfolgreich importiert";
 "%d years since" = "%d Jahre seit";
+"%d years until" = "%d Jahre bis";
 "1 day before the event" = "1 Tag vor dem Jubiläum";
 "Add Memory" = "Erinnerung hinzufügen";
 "Add New Memory" = "Neue Erinnerung";
 "Are you sure?" = "Sind Sie sicher?";
 "Are you sure? Finally deleted memories cannot be restored anymore." = "Sind Sie sicher? Endgültig gelöschte Erinnerungen können nicht wiederhergestellt werden.";
 "Are you sure to delete all your memories? This step can not be undone." = "Sind Sie sicher, dass Sie alle Ihre Erinnerungen löschen möchten? Dieser Schritt kann nicht rückgängig gemacht werden";
-
 "Biometrics are disabled or not supported on this device" = "Biometrische Authentifizierung (FaceID / TouchID) ist für dieses Gerät deaktiviert oder nicht unterstützt";
 "Biometrics not available" = "Biometrische Authentifizierung (FaceID / TouchID) ist für dieses Gerät nicht unterstützt";
 "Cancel" = "Abbrechen";

@@ -36,11 +36,16 @@ extension AnniversaryListEntryView {
         /// A text to describe the amount of days until an anniversary in natural language
         func timeIntervalDescription(anniversary: Anniversary) -> String {
             switch (anniversary.type) {
-            case .year:
+            case .year where anniversary.years >= 0:
                 return String(format: NSLocalizedString("%d years since", comment: "number of days since the memory"), anniversary.years)
-                
-            case .day:
+            case .year where anniversary.years < 0:
+                return String(format: NSLocalizedString("%d years until", comment: "number of days since the memory"), abs(anniversary.years))
+            case .day where anniversary.days >= 0:
                 return String(format: NSLocalizedString("%d days since", comment: "number of days since the memory"), anniversary.days)
+            case .day where anniversary.days < 0:
+                return String(format: NSLocalizedString("%d days until", comment: "number of days since the memory"), abs(anniversary.days))
+            default:
+                return "unknown anniversary type"
             }
         }
         
