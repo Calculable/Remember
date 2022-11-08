@@ -4,7 +4,7 @@ import SwiftUI
 /// Represents a single list item in the list of memories from the MemoriesListView
 struct MemoryListEntryView: View {
     
-    @StateObject var memory: Memory
+    @ObservedObject var memory: Memory
     var showNotificationSymbol: Bool = true
     
     var body: some View {

@@ -28,9 +28,7 @@ extension EditMemoryView {
         @Published var existingMemory: Memory? = nil
         
         private var imageWasChanged = false //if the image was not changed, deleting and re-loading the file is avoided for performance reasons
-        
-        var onMemoryUpdated: ((Memory) -> Void)? //This callback is provided so that interested UI-components can get informed once a memory changes and the view should be redrawn.
-        
+                
         var displayImage: Image? {
             guard let image = image else {
                 return nil
@@ -43,7 +41,7 @@ extension EditMemoryView {
             return name.isEmpty //entering a name is required
         }
         
-        init(_ memory: Memory? = nil, onMemoryUpdated: ((Memory) -> Void)? = nil) {
+        init(_ memory: Memory? = nil) {
             if let memory = memory {
                 if let memoryCoordinate = memory.coordinate {
                     isCustomCoordinate = true
@@ -57,9 +55,6 @@ extension EditMemoryView {
                 self.notes = memory.notes
                 self.notificationsEnabled = memory.notificationsEnabled
             }
-            
-            self.onMemoryUpdated = onMemoryUpdated
-            
         }
         
         func removeImage() {
@@ -74,22 +69,24 @@ extension EditMemoryView {
             showingMapPicker = true
         }
         
-        func saveNewMemory(memories: Memories) {
-            
-           var id = UUID()
-            
-           if let memory = existingMemory {
-               //if the image was not changed, deleting and re-loading the file is avoided for performance reasons
-                id = memory.id //keep the old identifier
-               memories.remove(memory, deleteImageFromDisk: imageWasChanged) //memories are "updated" by deleting and re-creating them
-            }
-        
+        func saveMemory(memories: Memories) {
             let customCoordinate = isCustomCoordinate ? coordinate : nil
-            let newMemory = Memory(id: id, name: name, date: date, image: image, coordinate: customCoordinate, notes: notes, notificationsEnabled: notificationsEnabled, saveImageToDisk: imageWasChanged)
-            memories.addMemory(newMemory)
             
-            existingMemory = newMemory
-            onMemoryUpdated?(newMemory)
+            if let existingMemory = existingMemory {
+                //update existing memory
+                existingMemory.name = name
+                existingMemory.date = date
+                existingMemory.image = image
+                existingMemory.coordinate = customCoordinate
+                existingMemory.notes = notes
+                existingMemory.notificationsEnabled = notificationsEnabled
+                memories.memoryWasUpdated(existingMemory, imageWasChanged: imageWasChanged)
+            } else {
+                //save as new memory
+                let newMemory = Memory(name: name, date: date, image: image, coordinate: customCoordinate, notes: notes, notificationsEnabled: notificationsEnabled, saveImageToDisk: imageWasChanged)
+                memories.addMemory(newMemory)
+                existingMemory = newMemory
+            }
         }
         
         func markAsCustomCoordinate() {

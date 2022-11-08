@@ -26,8 +26,7 @@ extension MemoryDetailView {
             showingDeleteAlert = true
         }
         
-        func refreshView(withMemory memory: Memory) {
-            self.memory = memory
+        func updateMapRegion() {
             self.mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: memory.coordinate?.latitude ?? 0, longitude: memory.coordinate?.longitude ?? 0), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
         }
         

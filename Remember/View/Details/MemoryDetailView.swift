@@ -85,9 +85,9 @@ struct MemoryDetailView: View {
                 }
             }
             .sheet(isPresented: $viewModel.showEditMemorySheet) {
-                EditMemoryView(toEdit: viewModel.memory, onMemoryUpdated: { newMemory in
-                    viewModel.refreshView(withMemory: newMemory) //refresh view
-                })
+                EditMemoryView(toEdit: viewModel.memory)
+            }.onChange(of: viewModel.memory) { _ in
+                viewModel.updateMapRegion()
             }
         }
     }

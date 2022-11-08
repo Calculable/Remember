@@ -18,7 +18,7 @@ class Memory: Identifiable, ObservableObject, Comparable, Codable {
     @Published var date: Date
     
     /// An optional background-image for the memory.
-    @Published private(set) var image: UIImage?
+    @Published var image: UIImage?
     
     /// Optional additional notes about the memory
     @Published var notes: String

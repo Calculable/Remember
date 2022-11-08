@@ -10,8 +10,8 @@ struct EditMemoryView: View {
     @EnvironmentObject private var memories: Memories
     @StateObject private var viewModel: ViewModel = ViewModel()
     
-    init(toEdit memory: Memory? = nil, onMemoryUpdated: ((Memory) -> Void)? = nil) {
-        _viewModel = StateObject<EditMemoryView.ViewModel>(wrappedValue: ViewModel(memory, onMemoryUpdated: onMemoryUpdated))
+    init(toEdit memory: Memory? = nil) {
+        _viewModel = StateObject<EditMemoryView.ViewModel>(wrappedValue: ViewModel(memory))
     }
     
     var body: some View {
@@ -27,7 +27,7 @@ struct EditMemoryView: View {
                         viewModel.showImagePicker()
                     }
                     .sheet(isPresented: $viewModel.showingImagePicker) {
-                        ImagePicker(image: $viewModel.image, onError: viewModel.showImageCannotBeLoadedErrorMessage)
+                        ImagePicker(image: $viewModel.image, onError: {viewModel.showImageCannotBeLoadedErrorMessage()})
                     }
                     .alert("Error while loading image", isPresented: $viewModel.showingImageErrorMessage) {
                         Button("OK", role: .cancel) { }
@@ -88,7 +88,7 @@ struct EditMemoryView: View {
             .navigationBarTitle(Text(viewModel.existingMemory == nil ? "Add New Memory" : "Edit Memory"), displayMode: .inline)
             .navigationBarItems(trailing:
                                     Button("Save", action: {
-                viewModel.saveNewMemory(memories: memories)
+                viewModel.saveMemory(memories: memories)
                 dismiss()
             })
             .disabled(viewModel.saveDisabled))

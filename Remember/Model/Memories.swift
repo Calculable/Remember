@@ -115,7 +115,7 @@ class Memories: ObservableObject {
     }
     
     
-    func toggleNotifications(for memory: Memory) {objectWillChange.send()
+    func toggleNotifications(for memory: Memory) {
         objectWillChange.send()
         memory.notificationsEnabled.toggle()
         save()
@@ -143,6 +143,18 @@ class Memories: ObservableObject {
                 $0.name.localizedCaseInsensitiveContains(searchText)
             }
         }
+    }
+    
+    func memoryWasUpdated(_ memory: Memory, imageWasChanged: Bool) {
+        objectWillChange.send()
+        notificationHelper.removeNotification(forMemory: memory) //redundant because all notifications get recreated on save
+        if (imageWasChanged) { //if the image was not changed, deleting and re-loading the file is avoided for performance reasons
+            let imageBackup = memory.image
+            memory.removeImage(deleteFromDisk: true)
+            memory.image = imageBackup
+            memory.saveImageToDisk()
+        }
+        save()
     }
     
     /// Returns the link to the .JSON-File that stores all memories
