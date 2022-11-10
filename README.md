@@ -3,7 +3,7 @@
 ## Remember is a native Swift UI Cathalist-App
 
 Remember is a place where you can store your important memories. It notifies you before important anniversaries so you
-never miss an oportunity to celebrate.
+never miss an opportunity to celebrate.
 
 ![Remember App](./Documentation/header.png)
 
