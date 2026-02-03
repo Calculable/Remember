@@ -8,7 +8,7 @@ struct AuthenticationHelper {
     @Binding var isUnlocked: Bool
     @State var reason: String
         
-    /// Tries to authenticati the user with biometric features (FaceId, TouchId...). This code should not be used in the final application since there is no fallback-mechanism if no biometric authentication is available. This could potentially lock the user out of the app if he/she activates biometric authentication for the app and later deactivates biometric authentication in the system iOS settings.
+    /// Tries to authenticate the user with biometric features (FaceId, TouchId...). This code should not be used in the final application since there is no fallback-mechanism if no biometric authentication is available. This could potentially lock the user out of the app if he/she activates biometric authentication for the app and later deactivates biometric authentication in the system iOS settings.
     func authenticate() {
         let context = LAContext()
         

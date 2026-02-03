@@ -7,6 +7,7 @@
 "1 day before the event" = "1 Tag vor dem Jubiläum";
 "Add Memory" = "Erinnerung hinzufügen";
 "Add New Memory" = "Neue Erinnerung";
+"Adoption of my cat Mittens" = "Adoption meiner Katze Nala";
 "Are you sure?" = "Sind Sie sicher?";
 "Are you sure? Finally deleted memories cannot be restored anymore." = "Sind Sie sicher? Endgültig gelöschte Erinnerungen können nicht wiederhergestellt werden.";
 "Are you sure to delete all your memories? This step can not be undone." = "Sind Sie sicher, dass Sie alle Ihre Erinnerungen löschen möchten? Dieser Schritt kann nicht rückgängig gemacht werden";
@@ -33,6 +34,7 @@
 "Error while loading image" = "Bild konnte nicht geladen werden";
 "Export memories" = "Erinnerungen exportieren";
 "General Inforamation" = "Allgemeine Informationen";
+"Graduation" = "Studium bestanden";
 "Image (Optional)" = "Bild (Optional)";
 "Image could not be saved" = "Das Bild konnte nicht gespeichert werden";
 "Image saved" = "Bild gespeichert";
@@ -41,6 +43,7 @@
 "Import memories" = "Erinnerungen importieren";
 "Import successful" = "Import erfolgreich";
 "In %d days, on" = "In %d Tagen, am";
+"Liam's first steps" = "Leon's erste Schritte";
 "Location (Optional)" = "Standort (Optional)";
 "Map" = "Karte";
 "Memories" = "Erinnerungen";
@@ -89,6 +92,7 @@
 "Unlock" = "Entsperren";
 "Upcoming" = "Jubiläen";
 "Warning: This step can not be undone" = "Achtung: Dieser Schritt kann nicht rückgängig gemacht werden";
+"Wedding" = "Hochzeit";
 "yearly notifications are disabled for this memory" = "jährliche Benachrichtigungen sind für diese Erinnerung deaktiviert";
 "yearly notifications are enabled for this memory" = "jährliche Benachrichtigungen sind für diese Erinnerung aktiviert";
 "You can use Face ID or Touch ID to unlock the app. Please note that the data will be accessible if biometrics are disabled for this device." = "Sie können Face ID oder Touch ID verwenden, um die App zu entsperren. Bitte beachten Sie, dass die Daten zugänglich sind, wenn die biometrischen Funktionen für dieses Gerät deaktiviert sind.";
