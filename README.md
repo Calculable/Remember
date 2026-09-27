@@ -1,3 +1,5 @@
+<img src="./Remember/Assets.xcassets/AppIcon.appiconset/ios-marketing.png" alt="Remember app icon" width="128" height="128">
+
 # Remember: An iOS-App to celebrate your memories 🎉
 
 ## Remember is a native Swift UI Cathalist-App
